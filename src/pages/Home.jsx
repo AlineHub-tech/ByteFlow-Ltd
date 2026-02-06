@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion} from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { MoveRight, Zap, Globe, ShieldCheck, Database, Layout, Smartphone, HardDrive } from 'lucide-react';
 import '../styles/Home.css';
@@ -136,3 +136,4 @@ const Home = () => {
 };
 
 export default Home;
+
