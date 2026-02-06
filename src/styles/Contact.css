@@ -1,0 +1,217 @@
+@import url('https://fonts.googleapis.com');
+
+:root {
+  --primary-green: #006400;      /* Your Dark Green */
+  --soft-green: #10b981;         /* Accent for hover */
+  --deep-bg: #020617;            /* Luxury Dark Background */
+  --card-dark: #0f172a;          /* Slightly lighter dark for cards */
+  --text-white: #ffffff;
+  --text-dim: #94a3b8;           /* Gray for paragraphs */
+  --border-color: rgba(255, 255, 255, 0.05);
+}
+
+.contact-v14 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background-color: var(--deep-bg);
+  color: var(--text-white);
+  min-height: 100vh;
+  padding-bottom: 80px;
+}
+
+/* 1. Hero Section - Minimalist & Bold */
+.contact-hero-v14 {
+  padding: 140px 0 80px;
+  text-align: center;
+  background: radial-gradient(circle at top, #00640022 0%, transparent 70%);
+}
+
+.contact-tag {
+  color: var(--primary-green);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: 800;
+  font-size: 0.8rem;
+  display: block;
+  margin-bottom: 15px;
+}
+
+.contact-hero-v14 h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  letter-spacing: -2px;
+  margin-bottom: 20px;
+}
+
+.contact-hero-v14 .highlight {
+  color: var(--primary-green);
+}
+
+.hero-text-center p {
+  color: var(--text-dim);
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* 2. Grid Layout */
+.contact-wrapper-grid {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 30px;
+  margin-top: 40px;
+}
+
+/* Left Side: Contact Info Card */
+.info-card-v14 {
+  background: var(--card-dark);
+  padding: 40px;
+  border-radius: 24px;
+  border: 1px solid var(--border-color);
+}
+
+.info-card-v14 h2 {
+  font-size: 1.8rem;
+  margin-bottom: 30px;
+  color: var(--text-white);
+}
+
+.contact-links-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  margin-bottom: 40px;
+}
+
+.contact-link-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.icon-bg {
+  background: rgba(0, 100, 0, 0.1);
+  color: var(--primary-green);
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.contact-link-item h4 {
+  font-size: 0.9rem;
+  color: var(--text-dim);
+  margin-bottom: 2px;
+}
+
+.contact-link-item p {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.v14-whatsapp-btn {
+  background: var(--primary-green);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 16px;
+  border-radius: 14px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: all 0.3s ease;
+}
+
+.v14-whatsapp-btn:hover {
+  background: #008000;
+  transform: translateY(-3px);
+}
+
+/* 3. Form Styling - The "Glassmorphism" Look */
+.form-container-v14 {
+  background: var(--card-dark);
+  padding: 50px;
+  border-radius: 24px;
+  border: 1px solid var(--border-color);
+}
+
+.v14-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.v14-input-box {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.v14-input-box label {
+  font-weight: 600;
+  color: var(--text-dim);
+  font-size: 0.85rem;
+}
+
+.v14-input-box input, 
+.v14-input-box textarea {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-color);
+  padding: 16px;
+  border-radius: 12px;
+  color: white;
+  font-family: inherit;
+  transition: 0.3s;
+}
+
+.v14-input-box input:focus, 
+.v14-input-box textarea:focus {
+  border-color: var(--primary-green);
+  background: rgba(0, 100, 0, 0.05);
+  outline: none;
+}
+
+.v14-submit-btn {
+  background: var(--primary-green);
+  color: white;
+  width: 100%;
+  padding: 18px;
+  border-radius: 12px;
+  border: none;
+  font-weight: 800;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: 0.3s;
+}
+
+.v14-submit-btn:hover {
+  filter: brightness(1.2);
+  transform: scale(1.01);
+}
+.location-teaser { margin-top: 80px; text-align: center; }
+.teaser-box {
+  padding: 60px;
+  border-radius: 24px;
+  border: 2px dashed #e2e8f0;
+}
+
+.spinning-globe { color: var(--primary-green); margin-bottom: 20px; }
+
+/* Responsive */
+@media (max-width: 992px) {
+  .contact-wrapper-grid { grid-template-columns: 1fr; }
+  .contact-hero-v14 h1 { font-size: 2.8rem; }
+}
+
+@media (max-width: 576px) {
+  .v14-form-grid { grid-template-columns: 1fr; }
+  .form-container-v14 { padding: 30px; }
+}

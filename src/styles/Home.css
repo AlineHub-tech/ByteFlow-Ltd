@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com');
+
+:root {
+  --primary-green: #006400;
+  --bg-dark: #010409;
+  --text-white: #ffffff;
+  --text-dim: #8b949e;
+  --accent-green: #238636;
+}
+
+.home-v13 {
+  background-color: var(--bg-dark);
+  color: var(--text-white);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  overflow-x: hidden;
+}
+
+/* 1. HERO SECTION */
+.hero-v13-section {
+  padding: 120px 0 80px;
+  text-align: center;
+}
+
+.v13-badge-wrapper { margin-bottom: 30px; }
+.v13-badge {
+  border: 1px solid var(--primary-green);
+  padding: 8px 24px;
+  border-radius: 100px;
+  background: rgba(0, 100, 0, 0.1);
+  color: #3fb950;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.v13-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.slogan-container {
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--primary-green);
+}
+
+.slogan-span { display: block; font-size: 3.8rem; }
+
+.v13-lead {
+  max-width: 650px;
+  margin: 30px auto;
+  font-size: 1.15rem;
+  color: var(--text-dim);
+  line-height: 1.6;
+}
+
+.v13-cta-group {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.btn-v13-primary {
+  background: var(--primary-green);
+  color: white;
+  padding: 16px 36px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: 0.3s;
+}
+
+.btn-v13-outline {
+  border: 1px solid #30363d;
+  color: white;
+  padding: 16px 36px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* 2. STATS BAR */
+.v13-stats-bar {
+  padding: 60px 0;
+  border-top: 1px solid #30363d;
+  border-bottom: 1px solid #30363d;
+  background: rgba(255,255,255,0.02);
+}
+
+.stats-flex {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.stat-unit h2 { font-size: 3rem; color: white; margin-bottom: 5px; }
+.stat-unit p { color: var(--primary-green); font-weight: 700; font-size: 0.9rem; text-transform: uppercase; }
+.divider { width: 1px; height: 50px; background: #30363d; }
+
+/* 3. FEATURE GRID */
+.v13-features-modern { padding: 100px 0; }
+.section-title-center { text-align: center; margin-bottom: 60px; }
+.mini-tag { color: var(--primary-green); font-weight: 800; font-size: 0.8rem; text-transform: uppercase; }
+.section-title-center h2 { font-size: 2.5rem; margin-top: 10px; }
+
+.feature-interactive-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+}
+
+.feature-item {
+  text-align: center;
+  padding: 20px;
+  transition: 0.3s;
+}
+
+.icon-circle {
+  width: 70px;
+  height: 70px;
+  background: rgba(0, 100, 0, 0.1);
+  color: var(--primary-green);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  border: 1px solid rgba(0, 100, 0, 0.2);
+}
+
+.feature-item h4 { font-size: 1.3rem; margin-bottom: 10px; }
+.feature-item p { color: var(--text-dim); line-height: 1.5; }
+
+/* 4. TECH SCROLLER */
+.v13-tech-scroller {
+  background: var(--primary-green);
+  padding: 20px 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.scroller-inner {
+  display: inline-block;
+  animation: scroll 30s linear infinite;
+}
+
+.scroller-inner span {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: white;
+  margin-right: 40px;
+}
+
+@keyframes scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .v13-title { font-size: 2.2rem; }
+  .slogan-span { font-size: 2.4rem; }
+  .stats-flex { flex-direction: column; gap: 40px; }
+  .divider { display: none; }
+  .v13-cta-group { flex-direction: column; }
+}
