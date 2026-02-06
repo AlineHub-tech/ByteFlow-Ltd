@@ -1,0 +1,13 @@
+body {
+  background:#020617;
+  color:white;
+  font-family:sans-serif;
+}
+.page { padding:20px; }
+button {
+  padding:8px 14px;
+  border:none;
+  border-radius:8px;
+  margin:4px;
+}
+.danger { background:#ef4444; color:white; }

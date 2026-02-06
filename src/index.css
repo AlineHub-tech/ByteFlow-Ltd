@@ -1,0 +1,9 @@
+:root {
+  --byteflow-green: #006400;
+}
+
+body {
+  margin: 0;
+  background-color: #020617; /* Background yijimye cyane nka ya yindi twakoze */
+  color: white;
+}
