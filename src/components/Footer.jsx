@@ -1,24 +1,25 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { 
-  Facebook, Instagram, Twitter, Linkedin, 
-  Mail, Phone, MapPin, Send, Cpu, ChevronRight 
+  Facebook, Instagram, Github, Linkedin, 
+  Mail, Phone, MapPin, Send, ChevronRight 
 } from 'lucide-react';
+// Import your logo from assets
+import LogoImg from '../assets/logo.jpg'; 
 import '../styles/Footer.css';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const whatsappNumber = "+250796023452";
 
   return (
     <footer className="footer-v2">
       <div className="container footer-grid">
         
-        {/* 1. Brand Section */}
+        {/* 1. Brand Section & Logo */}
         <div className="footer-col brand-col">
           <Link to="/" className="footer-logo-link">
-            <div className="logo-wrapper">
-              <Cpu size={28} className="logo-icon-main" />
-            </div>
+            <img src={LogoImg} alt="ByteFlow Logo" className="footer-brand-logo" />
             <span className="logo-text">ByteFlow<span className="accent">Ltd</span></span>
           </Link>
           <p className="brand-pitch">
@@ -26,10 +27,10 @@ const Footer = () => {
             innovation and reality through world-class tech solutions and expertise.
           </p>
           <div className="social-pill-container">
-            <a href="https://facebook.com" target="_blank" rel="noreferrer" className="social-pill"><Facebook size={18} /></a>
-            <a href="https://instagram.com" target="_blank" rel="noreferrer" className="social-pill"><Instagram size={18} /></a>
-            <a href="https://twitter.com" target="_blank" rel="noreferrer" className="social-pill"><Twitter size={18} /></a>
-            <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="social-pill"><Linkedin size={18} /></a>
+            <a href="https://www.facebook.com/share/15erRQdApJ/" target="_blank" rel="noreferrer" className="social-pill"><Facebook size={18} /></a>
+            <a href="https://www.instagram.com/byteflow_ltd?igsh=MWZyejV2MTM4MDlkcw==" target="_blank" rel="noreferrer" className="social-pill"><Instagram size={18} /></a>
+            <a href="https://github.com/AlineHub-tech" target="_blank" rel="noreferrer" className="social-pill"><Github size={18} /></a>
+            <a href="https://www.linkedin.com/in/umugwaneza-aline-655146325" target="_blank" rel="noreferrer" className="social-pill"><Linkedin size={18} /></a>
           </div>
         </div>
 
@@ -55,7 +56,7 @@ const Footer = () => {
             </div>
             <div className="contact-item">
               <div className="icon-box"><Phone size={18} /></div>
-              <span>+250 796023452</span>
+              <span>{whatsappNumber}</span>
             </div>
             <div className="contact-item">
               <div className="icon-box"><Mail size={18} /></div>
