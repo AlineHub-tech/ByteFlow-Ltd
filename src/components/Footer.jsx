@@ -82,7 +82,7 @@ const Footer = () => {
       {/* Footer Bottom Bar */}
       <div className="footer-legal-bar">
         <div className="container bar-flex">
-          <p>&copy; {currentYear} ByteFlow Ltd. All Rights Reserved.</p>
+          <p>&copy; {currentYear} ByteFlow Ltd. All Rights Reserved. | Developed by <a href="https://aline-site-seven.vercel.app/"><span class="developer-name">Umugwaneza Aline</span></a></p>
           <div className="legal-links">
             <Link to="/privacy">Privacy Policy</Link>
             <span className="dot"></span>
@@ -95,3 +95,4 @@ const Footer = () => {
 };
 
 export default Footer;
+
