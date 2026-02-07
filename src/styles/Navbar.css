@@ -121,3 +121,19 @@
     font-weight: 700;
   }
 }
+/* Add these new styles for the footer image logo */
+.footer-brand-logo {
+  height: 35px; /* Adjust the size of the logo in the footer */
+  width: auto;
+  border: 1px solid green;
+  object-fit: contain;
+}
+
+/* Adjust the gap in the logo link wrapper */
+.footer-logo-link {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Space between logo image and text */
+  text-decoration: none;
+  margin-bottom: 20px;
+}
