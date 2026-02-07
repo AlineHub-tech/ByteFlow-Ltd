@@ -253,6 +253,24 @@
   text-decoration: none;
   margin-bottom: 20px;
 }
+.footer-text .developer-name a {
+    font-weight: bold; 
+    color: #FF5733;  
+    text-decoration: none;
+    transition: color 0.3s ease; 
+}
+
+.footer-text .developer-name:hover {
+    color: #ffffff; 
+    text-decoration:none;
+}
+a{
+text-decoration:none;
+color: #ff380b; 
+font-weight:bolder;
+font-family:sans-serif;
+}
+
 
 
 
