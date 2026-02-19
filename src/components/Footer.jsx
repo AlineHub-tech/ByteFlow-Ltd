@@ -11,7 +11,6 @@ import '../styles/Footer.css';
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   const whatsappNumber = "+250796023452";
-
   return (
     <footer className="footer-v2">
       <div className="container footer-grid">
@@ -96,5 +95,6 @@ const Footer = () => {
 };
 
 export default Footer;
+
 
 
