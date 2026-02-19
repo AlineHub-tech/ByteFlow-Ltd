@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { 
   Facebook, Instagram, Github, Linkedin, 
-  Mail, Phone, MapPin, Send, ChevronRight 
+  Mail, Phone, MapPin, Send, ChevronRight,Twitter
 } from 'lucide-react';
 // Import your logo from assets
 import LogoImg from '../assets/logo.jpg'; 
@@ -27,10 +27,11 @@ const Footer = () => {
             innovation and reality through world-class tech solutions and expertise.
           </p>
           <div className="social-pill-container">
-            <a href="https://www.facebook.com/share/15erRQdApJ/" target="_blank" rel="noreferrer" className="social-pill"><Facebook size={18} /></a>
+            <a href="https://www.facebook.com/profile.php?id=61588130300960" target="_blank" rel="noreferrer" className="social-pill"><Facebook size={18} /></a>
+             <a href="https://x.com/Umugwaneza3183?s=09" target="_blank" rel="noreferrer" className="social-pill"><Twitter size={18} /></a>
             <a href="https://www.instagram.com/byteflow_ltd?igsh=MWZyejV2MTM4MDlkcw==" target="_blank" rel="noreferrer" className="social-pill"><Instagram size={18} /></a>
             <a href="https://github.com/AlineHub-tech" target="_blank" rel="noreferrer" className="social-pill"><Github size={18} /></a>
-            <a href="https://www.linkedin.com/in/umugwaneza-aline-655146325" target="_blank" rel="noreferrer" className="social-pill"><Linkedin size={18} /></a>
+            <a href="https://www.linkedin.com/company/a-better-t-solutions/" target="_blank" rel="noreferrer" className="social-pill"><Linkedin size={18} /></a>
           </div>
         </div>
 
@@ -95,4 +96,5 @@ const Footer = () => {
 };
 
 export default Footer;
+
 
