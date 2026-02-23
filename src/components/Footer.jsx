@@ -28,7 +28,7 @@ const Footer = () => {
           <div className="social-pill-container">
             <a href="https://www.facebook.com/profile.php?id=61588130300960" target="_blank" rel="noreferrer" className="social-pill"><Facebook size={18} /></a>
              <a href="https://x.com/Umugwaneza3183?s=09" target="_blank" rel="noreferrer" className="social-pill"><Twitter size={18} /></a>
-            <a href="https://www.instagram.com/byteflow_ltd?igsh=MWZyejV2MTM4MDlkcw==" target="_blank" rel="noreferrer" className="social-pill"><Instagram size={18} /></a>
+            <a href="https://www.instagram.com/byteflow_ltd" target="_blank" rel="noreferrer" className="social-pill"><Instagram size={18} /></a>
             <a href="https://github.com/AlineHub-tech" target="_blank" rel="noreferrer" className="social-pill"><Github size={18} /></a>
             <a href="https://www.linkedin.com/company/a-better-t-solutions/" target="_blank" rel="noreferrer" className="social-pill"><Linkedin size={18} /></a>
           </div>
@@ -95,6 +95,7 @@ const Footer = () => {
 };
 
 export default Footer;
+
 
 
 
