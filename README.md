@@ -1,19 +1,20 @@
 # 🚀 ByteFlow Ltd - Engineering Digital Success
 
 <div align="center">
-  <img src="./public/logo.jpg" alt="ByteFlow Logo" width="120" />
+  <!-- Logo Section -->
+  <img src="./public/logo.jpg" alt="ByteFlow Logo" width="120" style="border-radius: 20px; margin-bottom: 20px;" />
   <br />
 
-  [![Live Demo](https://img.shields.io)](https://byteflow-ltd.vercel.app)
-  ![React](https://img.shields.io)
-  ![Node.js](https://img.shields.io)
-  ![MongoDB](https://img.shields.io)
-  ![Framer Motion](https://img.shields.io)
+  <!-- Badge Section using Simple Icons -->
+  <img src="https://img.shields.io" alt="Live Demo" />
+  <img src="https://img.shields.io" alt="React" />
+  <img src="https://img.shields.io" alt="Node" />
+  <img src="https://img.shields.io" alt="MongoDB" />
+  <img src="https://img.shields.io" alt="Framer" />
 
-  <p align="center">
-    <b>Your premier digital partner in Kigali. Bridging the gap between innovation and reality.</b>
-  </p>
+  <h3 align="center">Engineering Digital Success in Kigali</h3>
 </div>
+
 
 ---
 
