@@ -9,36 +9,36 @@ import '../styles/Services.css';
 
 const services = [
   {
-    category: "Software Development",
+    category: "Software & Web Development Rwanda",
     items: [
-      { icon: Code2, title: "Frontend Development", tools: "React.js, Next.js, Tailwind CSS, TypeScript", desc: "Building responsive, fast, and interactive user interfaces with modern frameworks." },
-      { icon: Server, title: "Backend Development", tools: "Node.js, Express, MongoDB, PostgreSQL", desc: "Robust server-side logic, API integration, and secure database management." },
-      { icon: Globe, title: "Web Development", tools: "WordPress, Shopify, PHP", desc: "Custom websites, e-commerce platforms, and corporate news portals." },
-      { icon: Layers, title: "Full-Stack Solutions", tools: "MERN Stack, NextAuth, Prisma", desc: "End-to-end web applications designed for scalability and performance." }
+      { icon: Code2, title: "Frontend Development", tools: "React.js, Next.js, Tailwind CSS", desc: "Building responsive, fast, and interactive user interfaces for businesses in Kigali." },
+      { icon: Server, title: "Backend Development", tools: "Node.js, Express, MongoDB, PostgreSQL", desc: "Robust server-side logic and secure database management for Rwanda's tech market." },
+      { icon: Globe, title: "Custom Web Development", tools: "WordPress, Shopify, PHP", desc: "The best web design services in Rwanda for corporate portals and e-commerce platforms." },
+      { icon: Layers, title: "Full-Stack Solutions", tools: "MERN Stack, NextAuth, Prisma", desc: "End-to-end web applications designed for scalability and high performance." }
     ]
   },
   {
-    category: "Digital Growth & Cloud",
+    category: "Digital Growth & SEO Kigali",
     items: [
-      { icon: Search, title: "SEO Optimization", tools: "Google Search Console, SEMrush, Ahrefs", desc: "Improving your website visibility to rank #1 on search engines." },
-      { icon: Cloud, title: "Hosting & Domain", tools: "AWS, Bluehost, Namecheap, Vercel", desc: "Reliable cloud hosting, domain registration, and SSL certification." },
-      { icon: PenTool, title: "Content Creation", tools: "CapCut, Notion, Copy.ai", desc: "Strategic storytelling and social media management for brand growth." }
+      { icon: Search, title: "SEO Optimization", tools: "Google Search Console, SEMrush", desc: "Professional SEO services in Rwanda to help your business rank #1 on Google search." },
+      { icon: Cloud, title: "Web Hosting & Domain", tools: "AWS, .RW Domain, SSL", desc: "Reliable web hosting in Rwanda with secure .rw domain registration and 24/7 support." },
+      { icon: PenTool, title: "Digital Marketing", tools: "Copywriting, Social Media, Ads", desc: "Strategic storytelling, content creation, and social media management for brand growth." }
     ]
   },
   {
-    category: "Creative Studio",
+    category: "Creative Media Studio",
     items: [
-      { icon: Palette, title: "Graphic Design", tools: "Adobe Illustrator, Photoshop, Figma", desc: "Professional branding, minimalist logos, and marketing UI/UX materials." },
-      { icon: Camera, title: "Photography", tools: "Sony A7IV, Studio Lighting", desc: "High-end corporate headshots, event coverage, and product photography." },
-      { icon: Video, title: "Videography", tools: "Premiere Pro, DaVinci Resolve", desc: "Cinematic commercials, documentaries, and engaging social media ads." }
+      { icon: Palette, title: "Graphic Design", tools: "Adobe Illustrator, Photoshop, Figma", desc: "Professional branding, minimalist logos, and creative marketing materials in Kigali." },
+      { icon: Camera, title: "Photography", tools: "Corporate & Event Photography", desc: "High-end corporate headshots and product photography services in Rwanda." },
+      { icon: Video, title: "Videography", tools: "Premiere Pro, DaVinci Resolve", desc: "Cinematic commercials, documentaries, and engaging social media video ads." }
     ]
   },
   {
-    category: "Retail & Tech Hardware",
+    category: "Tech Hardware & Retail",
     items: [
-      { icon: Cpu, title: "Technology Equipment", tools: "Laptops, SSDs, Networking", desc: "Sales of high-performance hardware and networking peripherals." },
-      { icon: ShoppingCart, title: "Stationery & Office", tools: "Wholesale & Retail", desc: "Supply of all office essentials, stationery, and branding materials." },
-      { icon: Coffee, title: "Cyber Café & Hub", tools: "High-Speed Fiber, Gaming PCs", desc: "Fast internet access, document printing, and digital assistance." }
+      { icon: Cpu, title: "IT Equipment Sales", tools: "Laptops, SSDs, Networking", desc: "Sale of high-performance laptops and networking peripherals for companies in Rwanda." },
+      { icon: ShoppingCart, title: "Stationery & Branding", tools: "Office Supplies", desc: "Supply of all office essentials, stationery, and customized branding materials." },
+      { icon: Coffee, title: "Cyber Café & Hub", tools: "High-Speed Fiber", desc: "Fastest internet access in Kigali, document printing, and expert digital assistance." }
     ]
   }
 ];
@@ -59,7 +59,7 @@ const Services = () => {
 
   return (
     <div className="services-page">
-      {/* Header Section */}
+      {/* Header Section - SEO Optimized Title */}
       <section className="services-hero">
         <div className="container">
           <motion.div 
@@ -67,9 +67,9 @@ const Services = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <span className="top-tag">What We Do Best</span>
-            <h1>Our Expert <span>Solutions</span></h1>
-            <p>From frontend pixels to backend servers, we provide the full tech stack for your success in the digital era.</p>
+            <span className="top-tag">Leading Digital Agency in Rwanda</span>
+            <h1>Expert <span>Digital Solutions</span> for Your Business</h1>
+            <p>ByteFlow Ltd provides the full tech stack—from web design and SEO to professional photography and digital marketing in Kigali.</p>
           </motion.div>
         </div>
       </section>
@@ -120,8 +120,8 @@ const Services = () => {
       {/* CTA Section */}
       <section className="services-cta">
         <div className="container cta-box">
-          <h2>Ready to start your next project?</h2>
-          <p>Let's build something amazing together.</p>
+          <h2>Ready to Start Your Project in Rwanda?</h2>
+          <p>Get the best web design, SEO, and digital marketing services today.</p>
           <button className="btn-cta">Get a Free Quote</button>
         </div>
       </section>
