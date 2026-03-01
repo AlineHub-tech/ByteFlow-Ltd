@@ -3,38 +3,78 @@
   <head>
     <meta charset="UTF-8" />
     
-    <!-- Google Site Verification -->
+    <!-- 1. Google Search Console Verification -->
     <meta name="google-site-verification" content="ibFwxasSBWRR2VXs8eKA0qNltBDD1T6HxTbQ8RL4RhM" />
+    
+    <!-- 2. Fix for Google Fonts "Other error" (Preconnect) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
     <link rel="icon" type="image/jpg" href="/logo.jpg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
-    <!-- 1. Title: Irimo serivisi nkuru (Web, Marketing & Media) -->
+    <!-- 3. Title & Meta Tags Optimized for Rwanda Market -->
     <title>ByteFlow Ltd | Web Design, Digital Marketing & Media in Rwanda</title>
-
     <meta name="theme-color" content="#006400" />
-    
-    <!-- 2. Meta Description: Nahenjeje serivisi zose mu nteruro isomeka neza -->
-    <meta name="description" content="ByteFlow Ltd: Kigali's best Digital Agency. We offer Web Design, Hosting, SEO, Photography, Videography, Copywriting, and Social Media Marketing in Rwanda." />
-    
-    <!-- 3. Keywords: Hano niho nashyize ya magambo yose abantu bandika kuri Google -->
+    <meta name="description" content="ByteFlow Ltd: Kigali's premier Digital Agency. We offer Web Design, Hosting, SEO, Photography, Videography, Copywriting, and Social Media Marketing in Rwanda." />
     <meta name="keywords" content="Web design Rwanda, Digital marketing Kigali, Web hosting Rwanda, Domain name registration Kigali, SEO services Rwanda, Professional Photography Rwanda, Videography Kigali, Copywriting services, Presentation design, ByteFlow Ltd" />
     <meta name="author" content="ByteFlow Ltd" />
 
-    <!-- 4. Open Graph: Ifoto n'ibisobanuro kuri WhatsApp/Social Media -->
+    <!-- 4. Open Graph for Social Media (WhatsApp, LinkedIn, Facebook) -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://byte-flow-ltd.vercel.app" />
     <meta property="og:title" content="ByteFlow Ltd | Web, Media & Digital Marketing Solutions" />
     <meta property="og:description" content="Transform your business with Web Hosting, SEO, Professional Photography, Videography, and Digital Marketing. Engineering Digital Success in Rwanda." />
     <meta property="og:image" content="https://byte-flow-ltd.vercel.applogo.jpg" />
 
-    <!-- 5. Twitter Tags -->
+    <!-- 5. Twitter Optimization -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="ByteFlow Ltd | Digital & Media Agency Rwanda" />
-    <meta name="twitter:description" content="Web Design, Hosting, Photography, and Marketing services." />
+    <meta name="twitter:description" content="Professional Web Design, Hosting, Photography, and Marketing services." />
     <meta name="twitter:image" content="https://byte-flow-ltd.vercel.applogo.jpg" />
 
     <link rel="canonical" href="https://byte-flow-ltd.vercel.app" />
+
+    <!-- 6. Schema Markup (JSON-LD) for Google Enhancements -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "ByteFlow Ltd",
+      "image": "https://byte-flow-ltd.vercel.applogo.jpg",
+      "@id": "https://byte-flow-ltd.vercel.app",
+      "url": "https://byte-flow-ltd.vercel.app",
+      "telephone": "+250780000000", 
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Kigali City",
+        "addressLocality": "Kigali",
+        "addressCountry": "RW"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -1.9441,
+        "longitude": 30.0619
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        "opens": "08:00",
+        "closes": "18:00"
+      },
+      "sameAs": ["https://rw.linkedin.com"],
+      "offers": {
+        "@type": "Offer",
+        "itemOffered": [
+          {"@type": "Service", "name": "Web Design & Development"},
+          {"@type": "Service", "name": "Digital Marketing & SEO"},
+          {"@type": "Service", "name": "Professional Photography & Videography"},
+          {"@type": "Service", "name": "Graphic Design & Branding"},
+          {"@type": "Service", "name": "Copywriting & Presentation Design"}
+        ]
+      }
+    }
+    </script>
   </head>
   <body>
     <div id="root"></div>
