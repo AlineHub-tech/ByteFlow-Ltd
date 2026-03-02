@@ -1,16 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react'; // 1. Twongeyemo useState
 import { Link } from 'react-router-dom';
 import { 
   Facebook, Instagram, Github, Linkedin, 
-  Mail, Phone, MapPin, Send, ChevronRight,Twitter
+  Mail, Phone, MapPin, Send, ChevronRight 
 } from 'lucide-react';
-// Import your logo from assets
 import LogoImg from '../assets/logo.jpg'; 
 import '../styles/Footer.css';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   const whatsappNumber = "+250796023452";
+  
+  // 2. Ibi bituma twakira imeyili umuntu yanditse
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState(""); // Ibi ni ibyerekana niba byakunze
+
+  const handleSubscribe = async (e) => {
+    e.preventDefault();
+    setStatus("Sending...");
+    
+    // Hano niho uzashyira API ya MailerLite cyangwa Brevo mu gihe kizaza
+    // Kuri ubu, reka dushyiremo ko byakunze (Simulated)
+    setTimeout(() => {
+      console.log("Email subscribed:", email);
+      setStatus("Success! Check your inbox.");
+      setEmail(""); // Gusiba imeyili nyuma yo kuyohereza
+    }, 2000);
+  };
+
   return (
     <footer className="footer-v2">
       <div className="container footer-grid">
@@ -23,14 +40,13 @@ const Footer = () => {
           </Link>
           <p className="brand-pitch">
             Your premier digital partner in Kigali. We bridge the gap between 
-            innovation and reality through world-class tech solutions and expertise.
+            innovation and reality through world-class tech solutions.
           </p>
           <div className="social-pill-container">
-            <a href="https://www.facebook.com/profile.php?id=61588130300960" target="_blank" rel="noreferrer" className="social-pill"><Facebook size={18} /></a>
-             <a href="https://x.com/Umugwaneza3183?s=09" target="_blank" rel="noreferrer" className="social-pill"><Twitter size={18} /></a>
-            <a href="https://www.instagram.com/byteflow_ltd" target="_blank" rel="noreferrer" className="social-pill"><Instagram size={18} /></a>
+            <a href="https://facebook.com" target="_blank" rel="noreferrer" className="social-pill"><Facebook size={18} /></a>
+            <a href="https://instagram.com/byteflow_ltd" target="_blank" rel="noreferrer" className="social-pill"><Instagram size={18} /></a>
             <a href="https://github.com/AlineHub-tech" target="_blank" rel="noreferrer" className="social-pill"><Github size={18} /></a>
-            <a href="https://www.linkedin.com/company/a-better-t-solutions/" target="_blank" rel="noreferrer" className="social-pill"><Linkedin size={18} /></a>
+            <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="social-pill"><Linkedin size={18} /></a>
           </div>
         </div>
 
@@ -65,16 +81,24 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* 4. Newsletter Section */}
+        {/* 4. Newsletter Section (Yavuguruwe) */}
         <div className="footer-col">
           <h4 className="footer-title">Newsletter</h4>
-          <p className="newsletter-text">Subscribe to get the latest tech updates and exclusive offers.</p>
-          <form className="modern-subscribe" onSubmit={(e) => e.preventDefault()}>
-            <input type="email" placeholder="Your Email Address" required />
+          <p className="newsletter-text">Subscribe for exclusive tech offers and digital marketing tips.</p>
+          <form className="modern-subscribe" onSubmit={handleSubscribe}>
+            <input 
+              type="email" 
+              placeholder="Your Email Address" 
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required 
+            />
             <button type="submit" className="btn-send">
               <Send size={18} />
             </button>
           </form>
+          {/* 3. Message y'inyunganira umukiriya */}
+          {status && <p className="status-msg" style={{ fontSize: '12px', marginTop: '10px', color: '#006400' }}>{status}</p>}
         </div>
 
       </div>
@@ -82,7 +106,7 @@ const Footer = () => {
       {/* Footer Bottom Bar */}
       <div className="footer-legal-bar">
         <div className="container bar-flex">
-          <p>&copy; {currentYear} ByteFlow Ltd. All Rights Reserved. | Developed by <a href="https://aline-site-seven.vercel.app/"><span class="developer-name">Umugwaneza Aline</span></a></p>
+          <p>&copy; {currentYear} ByteFlow Ltd. All Rights Reserved.</p>
           <div className="legal-links">
             <Link to="/privacy">Privacy Policy</Link>
             <span className="dot"></span>
@@ -95,7 +119,3 @@ const Footer = () => {
 };
 
 export default Footer;
-
-
-
-
