@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, X, Home, Briefcase, Layout, Info, Phone } from 'lucide-react';
+// Nashyizemo BookOpen kuri izi icons
+import { Menu, X, Home, Briefcase, Layout, Info, Phone, BookOpen } from 'lucide-react';
 // Import your logo from assets
 import LogoImg from '../assets/logo.jpg'; 
 import '../styles/Navbar.css';
@@ -32,16 +33,21 @@ const Navbar = () => {
           <Link to="/portfolio" className="nav-item" onClick={() => setIsOpen(false)}>
             <Layout size={18} /> Portfolio
           </Link>
+
+          {/* KOSOYE: Nashyizemo Blog hano */}
+          <Link to="/blog" className="nav-item" onClick={() => setIsOpen(false)}>
+            <BookOpen size={18} /> Blog
+          </Link>
           
           {/* Contact shows inside menu on mobile */}
           <Link to="/contact" className="nav-item" onClick={() => setIsOpen(false)}>
-             <Phone size={18} />Contact Us
+             <Phone size={18} /> Contact Us
           </Link>
         </div>
 
         {/* Contact Button Desktop */}
-        <Link to="/about" className="nav-contact-btn desktop-only">
-            Get Start
+        <Link to="/contact" className="nav-contact-btn desktop-only">
+            Get Started
         </Link>
 
         {/* Mobile Toggle */}
