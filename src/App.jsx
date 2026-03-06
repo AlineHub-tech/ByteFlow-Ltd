@@ -11,6 +11,9 @@ import Services from './pages/Services';
 import Portfolio from './pages/Portfolio';
 import About from './pages/About';
 import Contact from './pages/Contact';
+import Blog from './pages/Blog';
+// KOSOYE: Hamagara BlogDetail hano
+import BlogDetail from './pages/BlogDetail'; 
 
 // Global Styles
 import './styles/global.css';
@@ -28,6 +31,10 @@ function App() {
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/blog" element={<Blog />} />
+          
+          {/* KOSOYE: Iyi nzira niyo ituma ukanze "Read Article" page y'inkuru yuzuye ifunguka */}
+          <Route path="/blog/:id" element={<BlogDetail />} />
         </Routes>
       </main>
 
