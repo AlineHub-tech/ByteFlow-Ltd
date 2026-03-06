@@ -1,0 +1,209 @@
+/* Services.css - Professional Premium Theme */
+@import url('https://fonts.googleapis.com');
+
+:root {
+  --primary-green: #006400;      /* Dark Green yawe */
+  --bg-dark: #020617;            /* Inyuma y'imishinga (Background) */
+  --card-dark: #0f172a;          /* Ibara rya Card */
+  --text-white: #ffffff;
+  --text-gray: #94a3b8;
+  --accent-green: #22c55e;       /* Icyatsi cyaka ku tuntu duto */
+}
+
+.services-page {
+  background-color: var(--bg-dark);
+  color: var(--text-white);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* 1. Hero Section */
+.services-hero {
+  padding: 140px 0 80px;
+  text-align: center;
+  background: radial-gradient(circle at top, rgba(0, 100, 0, 0.15) 0%, transparent 70%);
+}
+
+.top-tag {
+  color: var(--accent-green);
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: 2px;
+  font-size: 0.8rem;
+  border: 1px solid rgba(34, 197, 94, 0.2);
+  padding: 6px 16px;
+  border-radius: 100px;
+  background: rgba(0, 100, 0, 0.1);
+}
+
+.services-hero h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-top: 20px;
+}
+
+.services-hero h1 span {
+  color: var(--primary-green);
+}
+
+.services-hero p {
+  color: var(--text-gray);
+  max-width: 600px;
+  margin: 20px auto 0;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* 2. Group Titles */
+.service-group {
+  margin-bottom: 80px;
+}
+
+.group-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.group-title {
+  font-size: 1.8rem;
+  color: var(--primary-green);
+  font-weight: 800;
+}
+
+.title-line {
+  height: 2px;
+  flex-grow: 1;
+  background: linear-gradient(to right, var(--primary-green), transparent);
+  opacity: 0.3;
+}
+
+/* 3. Service Cards - Izi nizo zikora "Interested" Look */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.service-card {
+  background: var(--card-dark);
+  padding: 40px;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.4s ease;
+  position: relative;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  border-color: var(--primary-green);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.icon-wrapper {
+  width: 60px;
+  height: 60px;
+  background: rgba(0, 100, 0, 0.1);
+  color: var(--primary-green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  margin-bottom: 25px;
+  transition: 0.3s;
+}
+
+.service-card:hover .icon-wrapper {
+  background: var(--primary-green);
+  color: white;
+}
+
+.service-card h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.service-desc {
+  color: var(--text-gray);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+/* Tools Box */
+.tools-box {
+  background: rgba(255, 255, 255, 0.02);
+  padding: 15px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.tools-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--primary-green);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.tools-list {
+  font-size: 0.85rem;
+  color: var(--text-white);
+  font-weight: 500;
+}
+
+/* 4. CTA Section */
+.services-cta {
+  padding: 80px 0 120px;
+}
+
+.cta-box {
+  background: var(--primary-green);
+  padding: 60px;
+  border-radius: 32px;
+  text-align: center;
+  color: white;
+  box-shadow: 0 20px 40px rgba(0, 100, 0, 0.2);
+}
+
+.cta-box h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.btn-cta {
+  background: white;
+  color: var(--primary-green);
+  padding: 16px 40px;
+  border-radius: 12px;
+  border: none;
+  font-weight: 800;
+  font-size: 1rem;
+  margin-top: 25px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-cta:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .services-hero h1 { font-size: 2.5rem; }
+  .grid { grid-template-columns: 1fr; }
+  .cta-box { padding: 40px 20px; }
+}

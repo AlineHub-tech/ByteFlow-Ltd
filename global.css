@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com');
+
+:root {
+  --midnight-blue: #020617;  /* Deep Professional Blue */
+  --electric-blue: #2563eb;  /* Primary Action */
+  --emerald: #10b981;       /* Innovation Accent */
+  --white: #ffffff;
+  --text-dim: #94a3b8;
+  --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background-color: var(--midnight-blue);
+  color: var(--white);
+  overflow-x: hidden;
+}
+
+.container { max-width: 1300px; margin: 0 auto; padding: 0 2rem; }
