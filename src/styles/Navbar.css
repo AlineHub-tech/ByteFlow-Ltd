@@ -11,7 +11,9 @@
   z-index: 9999; /* Higher z-index to stay on top */
   transition: 0.3s ease;
 }
-
+.accent{
+  color: #22c55e;
+}
 .nav-container {
   display: flex;
   justify-content: space-between;
