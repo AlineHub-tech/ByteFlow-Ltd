@@ -5,7 +5,7 @@ import {
   BarChart, Video, Laptop, Activity, Globe2 
 } from 'lucide-react';
 
-export const blogPosts = [
+ export const blogPosts = [
   {
     id: "web-dev-2026",
     title: "The Strategic Role of Web Development in Rwanda's 2026 Economy",
@@ -381,3 +381,5 @@ export const blogPosts = [
     conclusion: "Invest in high-quality corporate photography to reflect your true professional standard."
   }
 ];
+export default blogPosts;
+
