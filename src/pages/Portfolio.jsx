@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ExternalLink, Code, Palette, Video, Share2, Globe, Server, Search, Camera } from 'lucide-react';
 import '../styles/Portfolio.css';
-import projectBackground from '../assets/project.jpg'; // Ifoto ya Hero
+import project from '../assets/project.jpg'; // Ifoto ya Hero
 
 // 1. WEB DEVELOPMENT (Nagumishije amapic yawe yose)
 import img1 from '../assets/img1.png'; import img2 from '../assets/img2.png';
@@ -47,7 +47,7 @@ const Portfolio = () => {
       
       {/* 1. HERO SECTION WITH IMAGE & GLASS */}
       <section className="portfolio-hero-v16" style={{
-        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${projectBackground})`,
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${project})`,
         backgroundSize: 'cover', backgroundPosition: 'center',
         padding: '60px 15px', width: '100%', boxSizing: 'border-box'
       }}>
