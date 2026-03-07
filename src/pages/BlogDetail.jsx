@@ -5,7 +5,7 @@ import { ArrowLeft, Clock, Calendar, Share2, CheckCircle } from 'lucide-react';
 import { blogPosts } from '../data/blogData';
 import '../styles/Blog.css';
 
-export const BlogDetail = () => {
+const BlogDetail = () => {
   const { id } = useParams();
   const post = blogPosts.find((p) => p.id === id);
 
@@ -102,4 +102,3 @@ export const BlogDetail = () => {
 };
 
 export default BlogDetail;
-

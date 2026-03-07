@@ -2,10 +2,11 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { 
   Palette, Camera, Video, PenTool, Globe, 
-  Coffee, FileText, ShoppingCart, Cpu, CheckCircle2,
+  Coffee, ShoppingCart, Cpu, CheckCircle2,
   Code2, Server, Search, Cloud, Layers
 } from 'lucide-react';
 import '../styles/Services.css';
+import service from '../assets/service.jpg';
 
 const services = [
   {
@@ -59,22 +60,49 @@ const Services = () => {
 
   return (
     <div className="services-page">
-      {/* Header Section - SEO Optimized Title */}
-      <section className="services-hero">
+      {/* 1. HERO SECTION IHINDUYE - GLASS BOX YONGEREMO */}
+      <section 
+        className="services-hero"
+        style={{ 
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), url(${service})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          padding: '100px 20px',
+          minHeight: '60vh',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center'
+        }}
+      >
         <div className="container">
           <motion.div 
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8 }}
+            style={{
+                background: "rgba(0, 0, 0, 0.4)", // Umukara woroshye
+                backdropFilter: "blur(12px)",    // Akantu k'ikirahure
+                WebkitBackdropFilter: "blur(12px)",
+                padding: "40px 20px",
+                borderRadius: "24px",
+                border: "1px solid rgba(255, 255, 255, 0.1)",
+                maxWidth: "800px",
+                margin: "0 auto",
+                textAlign: "center"
+            }}
           >
-            <span className="top-tag">Leading Digital Agency in Rwanda</span>
-            <h1>Expert <span>Digital Solutions</span> for Your Business</h1>
-            <p>ByteFlow Ltd provides the full tech stack—from web design and SEO to professional photography and digital marketing in Kigali.</p>
+            <span className="top-tag" style={{ color: '#006400' }}>Leading Digital Agency in Rwanda</span>
+            <h1 style={{ color: '#fff', fontSize: 'clamp(1.8rem, 5vw, 3rem)' }}>
+                Expert <span style={{ color: '#006400' }}>Digital Solutions</span> for Your Business
+            </h1>
+            <p style={{ color: 'rgba(255, 255, 255, 0.8)', fontSize: '1.1rem' }}>
+                ByteFlow Ltd provides the full tech stack—from web design and SEO to professional photography and digital marketing in Kigali.
+            </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Services Grid */}
+      {/* 2. SERVICES GRID (NTACYO MPINDURA) */}
       <section className="services-grid-container">
         <div className="container">
           {services.map((group, idx) => (
@@ -117,7 +145,7 @@ const Services = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* 3. CTA SECTION (NTACYO MPINDURA) */}
       <section className="services-cta">
         <div className="container cta-box">
           <h2>Ready to Start Your Project in Rwanda?</h2>

@@ -4,9 +4,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Globe, Search, Server, Camera, Smartphone, ArrowRight, Shield, 
   Database, Cpu, Palette, Zap, Share2, Layers, Rocket, Lock, 
-  BarChart, Mail, BookOpen, Clock, Calendar 
+  BarChart, Mail, BookOpen 
 } from 'lucide-react';
 import '../styles/Blog.css';
+import blog from '../assets/blog.jpg'; // Ifoto yawe
 
 const blogPosts = [
   { id: "web-dev-2026", title: "Why Your Business Needs a Website in 2026", excerpt: "In a digital-first economy, a website is your primary office. Build 24/7 credibility and trust.", category: "Web Development", icon: <Globe size={50} />, color: "#014101a2" },
@@ -33,20 +34,55 @@ const blogPosts = [
 
 const Blog = () => {
   return (
-    <div id="byteflow-blog-hub">
-      <header className="blog-hero-main">
-        <div className="blog-limit">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
+    <div id="byteflow-blog-hub" style={{ width: '100%', overflowX: 'hidden' }}>
+      {/* 1. HERO SECTION - IFOTO NA GLASS EFFECT KOSOYE KURI MOBILE */}
+      <header className="blog-hero-main" style={{ 
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.8)), url(${blog})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        width: '100%',
+        padding: '80px 0',
+        boxSizing: 'border-box'
+      }}>
+        <div className="blog-limit" style={{ width: '100%', padding: '0 15px', boxSizing: 'border-box' }}>
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }} 
+            animate={{ opacity: 1, y: 0 }}
+            style={{
+              background: 'rgba(255, 255, 255, 0.05)',
+              backdropFilter: 'blur(12px)',
+              WebkitBackdropFilter: 'blur(12px)',
+              padding: '30px 20px',
+              borderRadius: '20px',
+              border: '1px solid rgba(255, 255, 255, 0.1)',
+              width: '100%',
+              maxWidth: '650px',
+              margin: '0 auto',
+              textAlign: 'center',
+              boxSizing: 'border-box'
+            }}
+          >
             <span className="blog-tagline">Expert Insights</span>
-            <h1 className="blog-heading">The ByteFlow <span className="green-accent">Intelligence.</span></h1>
-            <p className="blog-desc">20 Articles on Technology, Design, and Marketing for Rwanda.</p>
+            <h1 className="blog-heading" style={{ fontSize: 'clamp(1.8rem, 6vw, 3.5rem)', color: '#fff' }}>
+              The ByteFlow <span className="green-accent">Intelligence.</span>
+            </h1>
+            <p className="blog-desc" style={{ fontSize: '1rem', color: '#ccc' }}>
+              20 Articles on Technology, Design, and Marketing for Rwanda.
+            </p>
           </motion.div>
         </div>
       </header>
 
-      <section className="blog-list-section">
-        <div className="blog-limit">
-          <div className="blog-grid-system">
+      {/* 2. BLOG LIST SECTION - NTACYO MPINDURA KURI LOGIC ARIKO NKOSORA OVERFLOW */}
+      <section className="blog-list-section" style={{ width: '100%', padding: '40px 0', boxSizing: 'border-box' }}>
+        <div className="blog-limit" style={{ width: '100%', padding: '0 15px', boxSizing: 'border-box' }}>
+          <div className="blog-grid-system" style={{ 
+            width: '100%', 
+            display: 'grid', 
+            gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 300px), 1fr))',
+            gap: '25px',
+            boxSizing: 'border-box'
+          }}>
             <AnimatePresence>
               {blogPosts.map((post, index) => (
                 <motion.article 
@@ -56,12 +92,13 @@ const Blog = () => {
                   transition={{ delay: index * 0.05 }}
                   viewport={{ once: true }}
                   className="blog-item-card"
+                  style={{ width: '100%', margin: '0', boxSizing: 'border-box' }}
                 >
-                  <div className="blog-card-visual" style={{ backgroundColor: post.color }}>
+                  <div className="blog-card-visual" style={{ backgroundColor: post.color, width: '100%' }}>
                     <div className="blog-card-icon">{post.icon}</div>
                     <span className="blog-card-cat">{post.category}</span>
                   </div>
-                  <div className="blog-card-info">
+                  <div className="blog-card-info" style={{ width: '100%', boxSizing: 'border-box' }}>
                     <h3>{post.title}</h3>
                     <p>{post.excerpt}</p>
                     <div className="blog-card-footer">

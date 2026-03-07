@@ -1,9 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Target, Eye, Award, Users, ChevronRight, CheckCircle2, Mail } from 'lucide-react';
-// Menya neza ko ifoto yawe yitwa aline.jpg kandi iri muri src/assets/
 import profile from '../assets/profile.png'; 
 import '../styles/About.css';
+import bout from '../assets/bout.jpg'; 
 
 const About = () => {
   const fadeIn = {
@@ -15,75 +15,97 @@ const About = () => {
 
   return (
     <div className="about-page">
-      {/* 1. Hero Section */}
-      <section className="about-hero">
-        <div className="container hero-flex">
+      {/* 1. HERO SECTION - IFOTO N'INYANDIKO ZIRI HEJURU */}
+      <section 
+        className="about-hero" 
+        style={{ 
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.75)), url(${bout})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          padding: '80px 20px 140px', // Nashyizemo padding nini hasi ngo stats zijyemo
+          minHeight: '80vh',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          position: 'relative'
+        }}
+      >
+        <div className="container" style={{ display: 'flex', justifyContent: 'center', marginBottom: '40px' }}>
           <motion.div 
             className="hero-content"
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            style={{
+              background: "rgba(0, 0, 0, 0.5)",
+              backdropFilter: "blur(12px)",
+              padding: "25px 20px",
+              borderRadius: "20px",
+              border: "1px solid rgba(255, 255, 255, 0.1)",
+              maxWidth: "550px",
+              textAlign: "center",
+            }}
           >
-            <span className="subtitle">Discover Our Journey</span>
-            <h1>Empowering Digital <span className="text-highlight">Innovation</span> in Rwanda</h1>
-            <p>ByteFlow Ltd is a premier multi-service tech hub in Kigali. We specialize in bridging the gap between human creativity and cutting-edge technology to drive your business forward.</p>
-            <div className="hero-btns">
-              <button className="btn-primary">Our Portfolio</button>
-              <button className="btn-outline">Contact Us</button>
-            </div>
-          </motion.div>
-          
-          <motion.div 
-            className="hero-image-wrapper"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8 }}
-          >
-            <img src="https://images.unsplash.com" alt="Tech Innovation Kigali" />
-            <div className="floating-card">
-              <Award size={20} />
-              <span>Top Rated Tech Hub</span>
-            </div>
+            <span className="subtitle" style={{ fontSize: '0.75rem', color: '#22c55e', fontWeight: '800' }}>Discover Our Journey</span>
+            <h1 style={{ fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', marginTop: '8px', color: '#fff' }}>
+              Empowering Digital <span style={{ color: '#22c55e' }}>Innovation</span>
+            </h1>
+            <p style={{ fontSize: '0.9rem', margin: '10px 0', color: 'rgba(255,255,255,0.9)' }}>
+              ByteFlow Ltd is a premier tech hub in Kigali, bridging the gap between creativity and technology.
+            </p>
           </motion.div>
         </div>
-      </section>
 
-      {/* 2. Stats Section */}
-      <section className="stats-section">
-        <div className="container">
-          <div className="stats-grid">
+        {/* 2. STATS SECTION - NONEHO YASHYIZWE HASI ISOZA HERO */}
+        <div 
+          className="container" 
+          style={{ 
+            position: 'absolute', 
+            bottom: '-40px', // Ibi bituma imibare isohoka gato ku ifoto ikajya hasi
+            left: '50%',
+            transform: 'translateX(-50%)',
+            width: '100%',
+            zIndex: 10
+          }}
+        >
+          <div className="stats-grid" style={{ 
+            display: 'grid', 
+            gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', 
+            gap: '15px',
+            background: '#0f172a', 
+            padding: '20px', 
+            borderRadius: '20px',
+            border: '1px solid rgba(34, 197, 94, 0.2)',
+            boxShadow: '0 10px 30px rgba(0,0,0,0.5)'
+          }}>
             {[
-              { label: 'Years Experience', value: '5+', icon: <Award /> },
-              { label: 'Projects Delivered', value: '150+', icon: <CheckCircle2 /> },
-              { label: 'Happy Clients', value: '500+', icon: <Users /> },
-              { label: 'Expert Team', value: '12+', icon: <Target /> }
+              { label: 'Exp', value: '5+', icon: <Award size={18}/> },
+              { label: 'Projects', value: '150+', icon: <CheckCircle2 size={18}/> },
+              { label: 'Clients', value: '500+', icon: <Users size={18}/> },
+              { label: 'Expert', value: '12+', icon: <Target size={18}/> }
             ].map((stat, index) => (
-              <motion.div 
-                key={index} 
-                className="stat-card"
-                {...fadeIn}
-                transition={{ delay: index * 0.1 }}
-              >
-                <div className="stat-icon">{stat.icon}</div>
-                <h2>{stat.value}</h2>
-                <p>{stat.label}</p>
-              </motion.div>
+              <div key={index} style={{ textAlign: 'center', color: '#fff' }}>
+                <div style={{ color: '#22c55e', marginBottom: '5px', display: 'flex', justifyContent: 'center' }}>{stat.icon}</div>
+                <h3 style={{ margin: 0, fontSize: '1.2rem' }}>{stat.value}</h3>
+                <p style={{ margin: 0, fontSize: '0.7rem', color: '#94a3b8' }}>{stat.label}</p>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* 3. Mission & Vision */}
-      <section className="mission-vision container">
-        <div className="section-title">
-          <h2>Our <span>Purpose</span></h2>
+      {/* 3. MISSION & VISION - EXCELLENT PURPOSE (Hasi ya Hero) */}
+      <section className="mission-vision container" style={{ marginTop: '80px' }}>
+        <div className="section-title" style={{ textAlign: 'center', marginBottom: '40px' }}>
+          <h2>Our <span style={{ color: '#22c55e' }}>Purpose</span></h2>
           <p>Guided by excellence, focused on impact.</p>
         </div>
         <div className="mv-grid">
           <motion.div className="mv-card" {...fadeIn}>
             <div className="icon-circle"><Target size={32} /></div>
             <h3>Our Mission</h3>
-            <p>To provide high-quality digital services and tech equipment that empower individuals and businesses in Kigali to thrive in a digital-first world.</p>
+            <p>To provide high-quality digital services and tech equipment that empower individuals and businesses in Kigali.</p>
             <ul className="mv-list">
               <li><ChevronRight size={16} /> Quality Solutions</li>
               <li><ChevronRight size={16} /> Tech Empowerment</li>
@@ -93,7 +115,7 @@ const About = () => {
           <motion.div className="mv-card" {...fadeIn} transition={{ delay: 0.2 }}>
             <div className="icon-circle"><Eye size={32} /></div>
             <h3>Our Vision</h3>
-            <p>To become the leading technology and creative partner in East Africa, known for seamless solutions, innovation, and professional excellence.</p>
+            <p>To become the leading technology partner in East Africa, known for innovation and professional excellence.</p>
             <ul className="mv-list">
               <li><ChevronRight size={16} /> Regional Leadership</li>
               <li><ChevronRight size={16} /> Creative Excellence</li>
@@ -102,13 +124,11 @@ const About = () => {
         </div>
       </section>
 
-      {/* 4. Story Section & Founder Details */}
-      <section className="story-section">
+      {/* 4. STORY SECTION */}
+      <section className="story-section" style={{ padding: '60px 0' }}>
         <div className="container story-grid">
           <motion.div className="story-img-container" {...fadeIn}>
-            <img src="https://images.unsplash.com" alt="Our Team Story" className="main-story-img" />
-            
-            {/* Founder Overlay Card */}
+            <img src="https://unsplash.com" alt="Our Team Story" className="main-story-img" />
             <div className="founder-card">
               <div className="founder-photo-wrapper">
                 <img src={profile} alt="Umugwaneza Aline" className="founder-photo" />
@@ -126,9 +146,7 @@ const About = () => {
           <motion.div className="story-text" {...fadeIn} transition={{ delay: 0.3 }}>
             <span className="tag">Our Heritage</span>
             <h2>The <span>ByteFlow</span> Story</h2>
-            <p className="lead">What started as a passion for coding and design has grown into a full-scale digital agency.</p>
-            <p>Today, ByteFlow Ltd stands as a pillar of technology in Kigali, offering everything from professional web development and commercial photography to high-end tech equipment sales.</p>
-            <p>Under the visionary leadership of <b>Umugwaneza Aline</b>, we don't just sell services; we build long-term partnerships with our clients, ensuring their digital presence is as professional and impactful as their business goals.</p>
+            <p>Under the visionary leadership of <b>Umugwaneza Aline</b>, we build long-term partnerships with our clients, ensuring their digital presence is as professional as their goals.</p>
             <button className="btn-primary mt-20">Learn More</button>
           </motion.div>
         </div>
