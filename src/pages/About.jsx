@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Target, Eye, Award, Users, ChevronRight, CheckCircle2, Mail } from 'lucide-react';
 import profile from '../assets/profile.png'; 
 import '../styles/About.css';
-import bout from '../assets/bout.jpg'; 
+import about from '../assets/about.jpg'; 
 
 const About = () => {
   const fadeIn = {
@@ -19,7 +19,7 @@ const About = () => {
       <section 
         className="about-hero" 
         style={{ 
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.75)), url(${bout})`,
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.75)), url(${about})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
