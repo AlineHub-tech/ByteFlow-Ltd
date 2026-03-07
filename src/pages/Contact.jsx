@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Phone, Mail, MapPin, MessageCircle, Send, Clock, Globe } from 'lucide-react';
 import '../styles/Contact.css';
-import contactImg from '../assets/contact.jpg'; 
+import contact from '../assets/contact.jpg'; 
 
 const Contact = () => {
   const whatsappNumber = "+250796023452"; 
@@ -11,7 +11,7 @@ const Contact = () => {
     <div className="contact-v14" style={{ width: '100%', overflowX: 'hidden', background: '#020617' }}>
       {/* 1. Hero Header - IFOTO NA GRACE KOSOYE KURI MOBILE */}
       <section className="contact-hero-v14" style={{
-        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url(${contactImg})`,
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url(${contact})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         padding: '60px 15px',
