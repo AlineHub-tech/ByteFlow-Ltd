@@ -8,7 +8,7 @@ const Contact = () => {
   const whatsappNumber = "+250796023452"; 
 
   return (
-    <div className="contact-v14" style={{ width: '100%', overflowX: 'hidden', background: '#020617' }}>
+    <div className="contact-v14" style={{ width: '100%', overflowX: 'hidden', background: '#e2e2e2' }}>
       {/* 1. Hero Header - IFOTO NA GRACE KOSOYE KURI MOBILE */}
       <section className="contact-hero-v14" style={{
         backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url(${contact})`,
@@ -24,24 +24,17 @@ const Contact = () => {
       }}>
         <div style={{ width: '100%', maxWidth: '600px', boxSizing: 'border-box' }}>
           <motion.div 
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
             className="hero-text-center"
             style={{
-              background: 'rgba(255, 255, 255, 0.05)',
-              backdropFilter: 'blur(12px)',
-              WebkitBackdropFilter: 'blur(12px)',
               padding: '30px 15px',
-              borderRadius: '20px',
-              border: '1px solid rgba(255, 255, 255, 0.1)',
               textAlign: 'center',
               width: '100%',
               boxSizing: 'border-box'
             }}
           >
-            <span className="contact-tag">Get In Touch</span>
+            <span className="contact-tag" style={{ fontWeight:'800' }}>Get In Touch</span>
             <h1 style={{ fontSize: 'clamp(1.8rem, 5vw, 2.8rem)', color: '#fff' }}>Let's Start a <span className="highlight">Project</span></h1>
-            <p style={{ color: '#ccc', fontSize: '0.95rem' }}>Ready to transform your vision into a digital reality? Reach out to our team today.</p>
+            <p style={{ color: '#ccc', fontSize: '0.95rem',fontWeight:'700' }}>Ready to transform your vision into a digital reality? Reach out to our team today.</p>
           </motion.div>
         </div>
       </section>

@@ -68,7 +68,7 @@ const BlogDetail = () => {
             {post.fullContent && post.fullContent.map((section, index) => (
               <section key={index} style={{ marginBottom: '40px' }}>
                 <h2 className="section-title">{section.subtitle}</h2>
-                <p style={{ fontSize: '1.25rem', lineHeight: '1.9', color: '#cbd5e1' }}>
+                <p style={{ fontSize: '1.25rem', lineHeight: '1.9', color: '#000000' }}>
                   {section.text}
                 </p>
               </section>
@@ -81,7 +81,7 @@ const BlogDetail = () => {
             {/* Conclusion Section */}
             <section className="detail-conclusion-box">
               <h2 className="section-title">Conclusion</h2>
-              <p style={{ fontSize: '1.25rem', lineHeight: '1.9', color: '#cbd5e1' }}>
+              <p style={{ fontSize: '1.25rem', lineHeight: '1.9', color: '#000000' }}>
                 {post.conclusion}
               </p>
               <p style={{marginTop: '30px', fontWeight: 'bold', color: '#4ade80', fontSize: '1.1rem'}}>

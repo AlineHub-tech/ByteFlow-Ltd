@@ -76,22 +76,9 @@ const Services = () => {
       >
         <div className="container">
           <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8 }}
-            style={{
-                background: "rgba(0, 0, 0, 0.4)", // Umukara woroshye
-                backdropFilter: "blur(12px)",    // Akantu k'ikirahure
-                WebkitBackdropFilter: "blur(12px)",
-                padding: "40px 20px",
-                borderRadius: "24px",
-                border: "1px solid rgba(255, 255, 255, 0.1)",
-                maxWidth: "800px",
-                margin: "0 auto",
-                textAlign: "center"
-            }}
+
           >
-            <span className="top-tag" style={{ color: '#006400' }}>Leading Digital Agency in Rwanda</span>
+            <span className="top-tag" style={{ backgroundColor: '#006400',color:'white' }}>Leading Digital Agency in Rwanda</span>
             <h1 style={{ color: '#fff', fontSize: 'clamp(1.8rem, 5vw, 3rem)' }}>
                 Expert <span style={{ color: '#006400' }}>Digital Solutions</span> for Your Business
             </h1>

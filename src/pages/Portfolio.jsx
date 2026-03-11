@@ -17,14 +17,14 @@ import host2 from '../assets/host2.png';
 
 const projects = [
   // 1. WEB DEVELOPMENT (WITH LIVE LINKS)
-  { id: 0, title: "Aline Personal Portfolio", category: "Web Development", img: alineImg, desc: "Premium high-end personal branding website.", tools: ["React", "Framer Motion"], icon: <Code size={16} />, liveLink: "https://aline-site-seven.vercel.app/" },
-  { id: 1, title: "Nexus News Network", category: "Web Development", img: img1, desc: "A dynamic news portal for real-time journalism.", tools: ["React", "JavaScript", "Node.js"], icon: <Code size={16} />, liveLink: "https://nexus-news-network.vercel.app/" },
-  { id: 2, title: "Imena Move Kids", category: "Web Development", img: img2, desc: "Creative platform for kids' dance groups.", tools: ["Framer","React", "Firebase"], icon: <Code size={16} />, liveLink: "https://imena-moves-kidz.vercel.app/" },
+  { id: 0, title: "Aline Personal Portfolio", category: "Web Development", img: alineImg, desc: "Premium high-end personal branding website.", tools: ["React", "Framer Motion"], icon: <Code size={16} />, liveLink: "https://vercel.app" },
+  { id: 1, title: "Nexus News Network", category: "Web Development", img: img1, desc: "A dynamic news portal for real-time journalism.", tools: ["React", "Node.js"], icon: <Code size={16} />, liveLink: "https://vercel.app" },
+  { id: 2, title: "Imena Move Kids", category: "Web Development", img: img2, desc: "Creative platform for kids' dance groups.", tools: ["Framer", "Firebase"], icon: <Code size={16} />, liveLink: "https://vercel.app" },
   { id: 3, title: "Citizen Complaint", category: "Web Development", img: img3, desc: "Governance tool for reporting issues to leaders.", tools: ["React", "PostgreSQL"], icon: <Code size={16} />, liveLink: "https://vercel.app" },
-  { id: 4, title: "Buy & Get", category: "Web Development", img: img4, desc: "Modern E-commerce with secure payments.", tools: ["Next.js", "React", "Stripe API"], icon: <Code size={16} />, liveLink: "https://buy-get-e-commerce.vercel.app/" },
-  { id: 7, title: "Personal Banking", category: "Web Development", img: img7, desc: "Secure online banking interface.", tools: ["TypeScript", "Node.js"], icon: <Code size={16} />, liveLink: "https://personal-banking.vercel.app/" },
+  { id: 4, title: "Buy & Get", category: "Web Development", img: img4, desc: "Modern E-commerce with secure payments.", tools: ["Next.js", "Stripe API"], icon: <Code size={16} />, liveLink: "https://vercel.app" },
+  { id: 7, title: "Personal Banking", category: "Web Development", img: img7, desc: "Secure online banking interface.", tools: ["TypeScript", "Node.js"], icon: <Code size={16} />, liveLink: "https://vercel.app" },
   { id: 8, title: "Accountant System", category: "Web Development", img: img8, desc: "ERP system for payroll & finance.", tools: ["React", "MySQL"], icon: <Code size={16} />, liveLink: "https://vercel.app" },
-  { id: 9, title: "A Better-T Solution", category: "Web Development", img: img9, desc: "Tech solutions landing page.", tools: ["Vite", "Tailwind CSS"], icon: <Code size={16} />, liveLink: "https://a-better-t-solutions.vercel.app/" },
+  { id: 9, title: "A Better-T Solution", category: "Web Development", img: img9, desc: "Tech solutions landing page.", tools: ["Vite", "Tailwind CSS"], icon: <Code size={16} />, liveLink: "https://vercel.app" },
 
   // 2. HOSTING & DOMAINS
   { id: 10, title: "Cloud Infrastructure", category: "Hosting & Domains", img: host1, desc: "High-performance SSD hosting solutions.", tools: ["Litespeed", "cPanel"], icon: <Server size={16} />, liveLink: "#" },
@@ -53,7 +53,7 @@ const Portfolio = () => {
   const filteredProjects = filter === 'All' ? projects : projects.filter(p => p.category === filter);
 
   return (
-    <div className="portfolio-v16" style={{ background: '#020617', color: '#fff', width: '100%', overflowX: 'hidden' }}>
+    <div className="portfolio-v16" style={{ background: '#ffffff', color: '#000000', width: '100%', overflowX: 'hidden' }}>
       
       {/* 1. HERO SECTION WITH NEW ELEMENTS */}
       <section className="portfolio-hero-v16" style={{
@@ -63,18 +63,18 @@ const Portfolio = () => {
         <div className="container" style={{ width: '100%', maxWidth: '900px', margin: '0 auto' }}>
           
           <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', marginBottom: '30px', flexWrap: 'wrap' }}>
-             <div style={{ background: 'rgba(34, 197, 94, 0.1)', border: '1px solid rgba(34, 197, 94, 0.2)', padding: '10px 20px', borderRadius: '50px', display: 'flex', alignItems: 'center', gap: '10px' }}>
+             <div style={{ background: 'rgb(255, 255, 255)', color:'rgba(3, 78, 16, 0.98)', padding: '10px 20px', borderRadius: '50px', display: 'flex', alignItems: 'center', gap: '10px' }}>
                 <Zap size={16} color="#22c55e" /> <span style={{ fontSize: '0.8rem', fontWeight: 'bold' }}>50+ Live Projects</span>
              </div>
-             <div style={{ background: 'rgba(255, 255, 255, 0.05)', border: '1px solid rgba(255, 255, 255, 0.1)', padding: '10px 20px', borderRadius: '50px', display: 'flex', alignItems: 'center', gap: '10px' }}>
+             <div style={{ background: 'rgba(3, 78, 16, 0.98)', color:'white', padding: '10px 20px', borderRadius: '50px', display: 'flex', alignItems: 'center', gap: '10px' }}>
                 <Award size={16} color="#fff" /> <span style={{ fontSize: '0.8rem', fontWeight: 'bold' }}>Top Rated Agency</span>
              </div>
           </div>
 
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} 
-            style={{ background: 'rgba(255, 255, 255, 0.03)', backdropFilter: 'blur(20px)', padding: '40px 20px', borderRadius: '30px', border: '1px solid rgba(255, 255, 255, 0.1)' }}>
-            <h1 style={{ fontSize: 'clamp(2rem, 6vw, 3.5rem)', fontWeight: '900', lineHeight: '1.1' }}>Engineering <span style={{ color: '#22c55e' }}>Digital Mastery.</span></h1>
-            <p style={{ color: '#94a3b8', fontSize: '1.1rem', marginTop: '15px' }}>Explore our ecosystem of high-performance software and infrastructure.</p>
+            style={{  }}>
+            <h1 style={{ fontSize: 'clamp(2rem, 6vw, 3.5rem)', fontWeight: '900',color:'white', lineHeight: '1.1' }}>Engineering <span style={{ color: '#22c55e' }}>Digital Mastery.</span></h1>
+            <p style={{ color: '#ffffff', fontSize: '1.1rem', marginTop: '15px' }}>Explore our ecosystem of high-performance software and infrastructure.</p>
           </motion.div>
           
           {/* TABS - NO SCROLL (WRAPPED) */}
@@ -95,7 +95,7 @@ const Portfolio = () => {
             {filteredProjects.map(p => (
               <motion.div layout initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
                 key={p.id} onClick={() => setSelectedProject(p)}
-                style={{ background: '#0f172a', borderRadius: '24px', overflow: 'hidden', border: '1px solid rgba(255, 255, 255, 0.05)', cursor: 'pointer', transition: '0.3s' }}>
+                style={{ background: '#f1f1f1', borderRadius: '24px', overflow: 'hidden', border: '2px solid rgba(0, 0, 0, 0.57)', cursor: 'pointer', transition: '0.3s' }}>
                 <div style={{ height: '200px', overflow: 'hidden' }}>
                   <img src={p.img} alt={p.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 </div>
@@ -150,5 +150,3 @@ const Portfolio = () => {
 };
 
 export default Portfolio;
-
-

@@ -81,15 +81,15 @@ const Home = () => {
           
           {/* GLASS CARD - Iyi niyo ituma text zigaragara neza */}
           <div style={{
-            background: "rgba(255, 255, 255, 0.03)",
-            backdropFilter: "blur(10px)",
-            WebkitBackdropFilter: "blur(10px)",
-            borderRadius: "20px",
-            border: "1px solid rgba(255, 255, 255, 0.1)",
-            padding: isMobile ? "20px" : "40px",
-            margin: "0 auto",
-            maxWidth: "900px",
-            boxShadow: "0 8px 32px rgba(0, 0, 0, 0.5)"
+            // background: "rgba(255, 255, 255, 0.83)",
+            // backdropFilter: "blur(10px)",
+            // WebkitBackdropFilter: "blur(10px)",
+            // borderRadius: "20px",
+            // border: "1px solid rgba(255, 255, 255, 0.1)",
+            // padding: isMobile ? "20px" : "40px",
+            // margin: "0 auto",
+            // maxWidth: "900px",
+            // boxShadow: "0 8px 32px rgba(0, 0, 0, 0.5)"
           }}>
             
             <motion.div 
@@ -101,7 +101,7 @@ const Home = () => {
             </motion.div>
             
             <div className="hero-text-block">
-              <h1 className="v13-title" style={{ fontSize: isMobile ? '1.8rem' : '3.5rem', lineHeight: 1.2 }}>
+              <h1 className="v13-title" style={{ fontSize: isMobile ? '1.8rem' : '3.5rem', lineHeight: 1.2, color:'white'}}>
                 Innovating Through <br />
                 <div className="slogan-container">
                   <AnimatePresence mode="wait">
@@ -133,7 +133,7 @@ const Home = () => {
                 <Link to="/contact" className="btn-v13-primary" style={{ width: isMobile ? '100%' : 'auto' }}>
                   Get Started <MoveRight size={18} />
                 </Link>
-                <Link to="/portfolio" className="btn-v13-outline" style={{ width: isMobile ? '100%' : 'auto' }}>
+                <Link to="/portfolio" className="btn-v13-outline" style={{ width: isMobile ? '100%' : 'auto', color:'white' }}>
                   View Our Impact
                 </Link>
               </div>

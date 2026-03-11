@@ -15,7 +15,7 @@ const About = () => {
   };
 
   return (
-    <div className="about-page" style={{ width: '100%', overflowX: 'hidden', background: '#020617', color: '#fff' }}>
+    <div className="about-page" style={{ width: '100%', overflowX: 'hidden', background: '#e2e2e2', color: '#fff' }}>
       
       {/* 1. HERO SECTION - COMPACT GLASS */}
       <section 
@@ -30,7 +30,7 @@ const About = () => {
           <motion.div 
             initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
             style={{
-              background: "rgba(255, 255, 255, 0.05)", backdropFilter: "blur(12px)", WebkitBackdropFilter: "blur(12px)",
+  
               padding: "25px", borderRadius: "20px", border: "1px solid rgba(255, 255, 255, 0.1)",
               textAlign: "center", width: '100%', boxSizing: 'border-box'
             }}
@@ -40,38 +40,12 @@ const About = () => {
           </motion.div>
         </div>
       </section>
-
-      {/* 2. MISSION & VISION SECTION */}
-      <section className="mission-vision container" style={{ padding: '60px 20px' }}>
-        <div className="section-title" style={{ textAlign: 'center', marginBottom: '40px' }}>
-          <h2 style={{ fontSize: '2rem' }}>Our <span style={{ color: '#22c55e' }}>Purpose</span></h2>
-          <p style={{ color: '#94a3b8' }}>Guided by excellence, focused on impact.</p>
-        </div>
-        <div className="mv-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px' }}>
-          <motion.div className="mv-card" {...fadeIn} style={{ background: '#0f172a', padding: '30px', borderRadius: '20px', border: '1px solid rgba(255,255,255,0.05)' }}>
-            <div style={{ background: 'rgba(34, 197, 94, 0.1)', width: '60px', height: '60px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px' }}>
-              <Target size={32} color="#22c55e" />
-            </div>
-            <h3 style={{ fontSize: '1.4rem', marginBottom: '10px' }}>Our Mission</h3>
-            <p style={{ color: '#94a3b8', fontSize: '0.9rem', lineHeight: '1.6' }}>To provide high-quality digital services and tech equipment that empower individuals and businesses in Kigali.</p>
-          </motion.div>
-
-          <motion.div className="mv-card" {...fadeIn} transition={{ delay: 0.2 }} style={{ background: '#0f172a', padding: '30px', borderRadius: '20px', border: '1px solid rgba(255,255,255,0.05)' }}>
-            <div style={{ background: 'rgba(34, 197, 94, 0.1)', width: '60px', height: '60px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px' }}>
-              <Eye size={32} color="#22c55e" />
-            </div>
-            <h3 style={{ fontSize: '1.4rem', marginBottom: '10px' }}>Our Vision</h3>
-            <p style={{ color: '#94a3b8', fontSize: '0.9rem', lineHeight: '1.6' }}>To become the leading technology partner in East Africa, known for innovation and professional excellence.</p>
-          </motion.div>
-        </div>
-      </section>
-
       {/* 3. STORY SECTION & FOUNDER */}
-      <section className="story-section" style={{ padding: '60px 20px', background: 'rgba(255,255,255,0.02)' }}>
+      <section className="story-section" style={{ padding: '60px 20px',backgroundColor:'#ffffff' }}>
         <div className="container story-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '50px', alignItems: 'center' }}>
           
           <motion.div {...fadeIn} style={{ position: 'relative' }}>
-            <img src={about} alt="Our Team Story" style={{ width: '100%', borderRadius: '25px', height: '400px', objectFit: 'cover', border: '1px solid rgba(255,255,255,0.1)' }} />
+            <img src={about} alt="Our Team Story" style={{  width: '100%', borderRadius: '25px', height: '400px', objectFit: 'cover', border: '1px solid rgba(255,255,255,0.1)' }} />
             <div style={{ position: 'absolute', bottom: '-20px', right: '10px', background: '#0f172a', padding: '15px', borderRadius: '15px', border: '1px solid #22c55e', display: 'flex', alignItems: 'center', gap: '12px', boxShadow: '0 10px 30px rgba(0,0,0,0.5)' }}>
               <img src={profile} alt="Founder" style={{ width: '50px', height: '50px', borderRadius: '50%', objectFit: 'cover', border: '2px solid #22c55e' }} />
               <div>
@@ -83,9 +57,9 @@ const About = () => {
 
           <motion.div {...fadeIn} transition={{ delay: 0.3 }}>
             <span style={{ color: '#22c55e', fontWeight: '800', textTransform: 'uppercase', fontSize: '0.8rem' }}>Our Heritage</span>
-            <h2 style={{ fontSize: '2.5rem', margin: '15px 0', fontWeight: '800' }}>The <span style={{ color: '#22c55e' }}>ByteFlow</span> Story</h2>
-            <p style={{ color: '#94a3b8', lineHeight: '1.7', marginBottom: '20px' }}>What started as a passion for coding and design has grown into a full-scale digital agency. ByteFlow Ltd stands as a pillar of technology in Kigali.</p>
-            <p style={{ color: '#94a3b8', lineHeight: '1.7' }}>Under the visionary leadership of <b>Umugwaneza Aline</b>, we build long-term partnerships with our clients, ensuring their digital presence is impactful.</p>
+            <h2 style={{ fontSize: '2.5rem', margin: '15px 0', fontWeight: '800',color:'black', }}>The <span style={{ color: '#22c55e' }}>ByteFlow</span> Story</h2>
+            <p style={{ color:'black', lineHeight: '1.7',fontWeight: '500', marginBottom: '20px' }}>What started as a passion for coding and design has grown into a full-scale digital agency. ByteFlow Ltd stands as a pillar of technology in Kigali.</p>
+            <p style={{ color:'black', lineHeight: '1.7',fontWeight: '500' }}>Under the visionary leadership of <b>Umugwaneza Aline</b>, we build long-term partnerships with our clients, ensuring their digital presence is impactful.</p>
             
             {/* 4. STATS SECTION - MUNSI YA HISTORY (KOSOYE) */}
             <div style={{ 
@@ -99,14 +73,39 @@ const About = () => {
                 { label: 'Experts', value: '12+', icon: <Target size={20} color="#22c55e" /> }
               ].map((stat, index) => (
                 <div key={index} style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                  <div style={{ background: 'rgba(34, 197, 94, 0.1)', padding: '10px', borderRadius: '10px' }}>{stat.icon}</div>
+                  <div style={{ background: 'rgba(34, 197, 94, 0.44)', padding: '10px', borderRadius: '10px' }}>{stat.icon}</div>
                   <div>
-                    <h3 style={{ margin: 0, fontSize: '1.2rem', fontWeight: '800' }}>{stat.value}</h3>
-                    <p style={{ margin: 0, fontSize: '0.75rem', color: '#94a3b8' }}>{stat.label}</p>
+                    <h3 style={{ margin: 0, fontSize: '1.2rem', fontWeight: '800',color: '#000000' }}>{stat.value}</h3>
+                    <p style={{ margin: 0, fontSize: '0.75rem', color: '#000000' }}>{stat.label}</p>
                   </div>
                 </div>
               ))}
             </div>
+          </motion.div>
+        </div>
+      </section>
+      
+      {/* 2. MISSION & VISION SECTION */}
+      <section className="mission-vision container" style={{ padding: '60px 20px', backgroundColor:'#e2e2e2', border: '1px solid rgba(255,255,255,0.1)' }}>
+        <div className="section-title" style={{ textAlign: 'center', marginBottom: '40px' }}>
+          <h2 style={{ fontSize: '2rem' }}>Our <span style={{ color: '#22c55e' }}>Purpose</span></h2>
+          <p style={{ color: '#0d1014' }}>Guided by excellence, focused on impact.</p>
+        </div>
+        <div className="mv-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px' }}>
+          <motion.div className="mv-card" {...fadeIn} style={{ background: '#ffffff', padding: '30px', borderRadius: '20px', border: '2px solid rgba(2, 77, 7, 0.28)' }}>
+            <div style={{ background: 'rgba(34, 197, 94, 0.1)', width: '60px', height: '60px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px' }}>
+              <Target size={32} color="#22c55e" />
+            </div>
+            <h3 style={{ fontSize: '1.4rem', marginBottom: '10px' }}>Our Mission</h3>
+            <p style={{ color: '#070707', fontSize: '0.9rem', fontWeight:'600', lineHeight: '1.6' }}>To provide high-quality digital services and tech equipment that empower individuals and businesses in Kigali.</p>
+          </motion.div>
+
+          <motion.div className="mv-card" {...fadeIn} transition={{ delay: 0.2 }} style={{ background: '#ffffff', padding: '30px', borderRadius: '20px', border: '2px solid rgba(2, 77, 7, 0.28)' }}>
+            <div style={{ background: 'rgba(34, 197, 94, 0.1)', width: '60px', height: '60px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px' }}>
+              <Eye size={32} color="#22c55e" />
+            </div>
+            <h3 style={{ fontSize: '1.4rem', marginBottom: '10px' }}>Our Vision</h3>
+            <p style={{ color: '#0e0e0e', fontSize: '0.9rem', fontWeight:'600', lineHeight: '1.6' }}>To become the leading technology partner in East Africa, known for innovation and professional excellence.</p>
           </motion.div>
         </div>
       </section>

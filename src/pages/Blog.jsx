@@ -46,27 +46,20 @@ const Blog = () => {
       }}>
         <div className="blog-limit" style={{ width: '100%', padding: '0 15px', boxSizing: 'border-box' }}>
           <motion.div 
-            initial={{ opacity: 0, y: 20 }} 
-            animate={{ opacity: 1, y: 0 }}
             style={{
-              background: 'rgba(255, 255, 255, 0.05)',
-              backdropFilter: 'blur(12px)',
-              WebkitBackdropFilter: 'blur(12px)',
               padding: '30px 20px',
-              borderRadius: '20px',
-              border: '1px solid rgba(255, 255, 255, 0.1)',
-              width: '100%',
+                 width: '100%',
               maxWidth: '650px',
               margin: '0 auto',
               textAlign: 'center',
               boxSizing: 'border-box'
             }}
           >
-            <span className="blog-tagline">Expert Insights</span>
+            <span className="blog-tagline" style={{ backgroundColor:'green',color:'white' }}>Expert Insights</span>
             <h1 className="blog-heading" style={{ fontSize: 'clamp(1.8rem, 6vw, 3.5rem)', color: '#fff' }}>
               The ByteFlow <span className="green-accent">Intelligence.</span>
             </h1>
-            <p className="blog-desc" style={{ fontSize: '1rem', color: '#ccc' }}>
+            <p className="blog-desc" style={{ fontSize: '1rem', color: '#ffffff', fontWeight:'400' }}>
               20 Articles on Technology, Design, and Marketing for Rwanda.
             </p>
           </motion.div>
@@ -81,7 +74,8 @@ const Blog = () => {
             display: 'grid', 
             gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 300px), 1fr))',
             gap: '25px',
-            boxSizing: 'border-box'
+            boxSizing: 'border-box',
+           
           }}>
             <AnimatePresence>
               {blogPosts.map((post, index) => (
@@ -92,7 +86,7 @@ const Blog = () => {
                   transition={{ delay: index * 0.05 }}
                   viewport={{ once: true }}
                   className="blog-item-card"
-                  style={{ width: '100%', margin: '0', boxSizing: 'border-box' }}
+                  style={{ width: '100%', margin: '0', boxSizing: 'border-box', border:'1px solid #0000006b' }}
                 >
                   <div className="blog-card-visual" style={{ backgroundColor: post.color, width: '100%' }}>
                     <div className="blog-card-icon">{post.icon}</div>
