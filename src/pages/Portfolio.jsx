@@ -19,7 +19,7 @@ const projects = [
   // 1. WEB DEVELOPMENT (WITH LIVE LINKS)
   { id: 0, title: "Aline Personal Portfolio", category: "Web Development", img: alineImg, desc: "Premium high-end personal branding website.", tools: ["React", "Framer Motion"], icon: <Code size={16} />, liveLink: "https://aline-site-seven.vercel.app/" },
   { id: 1, title: "Nexus News Network", category: "Web Development", img: img1, desc: "A dynamic news portal for real-time journalism.", tools: ["React", "JavaScript", "Node.js"], icon: <Code size={16} />, liveLink: "https://nexus-news-network.vercel.app/" },
-  { id: 2, title: "Imena Move Kids", category: "Web Development", img: img2, desc: "Creative platform for kids' dance groups.", tools: ["Framer","React" "Firebase"], icon: <Code size={16} />, liveLink: "https://imena-moves-kidz.vercel.app/" },
+  { id: 2, title: "Imena Move Kids", category: "Web Development", img: img2, desc: "Creative platform for kids' dance groups.", tools: ["Framer","React", "Firebase"], icon: <Code size={16} />, liveLink: "https://imena-moves-kidz.vercel.app/" },
   { id: 3, title: "Citizen Complaint", category: "Web Development", img: img3, desc: "Governance tool for reporting issues to leaders.", tools: ["React", "PostgreSQL"], icon: <Code size={16} />, liveLink: "https://vercel.app" },
   { id: 4, title: "Buy & Get", category: "Web Development", img: img4, desc: "Modern E-commerce with secure payments.", tools: ["Next.js", "React", "Stripe API"], icon: <Code size={16} />, liveLink: "https://buy-get-e-commerce.vercel.app/" },
   { id: 7, title: "Personal Banking", category: "Web Development", img: img7, desc: "Secure online banking interface.", tools: ["TypeScript", "Node.js"], icon: <Code size={16} />, liveLink: "https://personal-banking.vercel.app/" },
@@ -150,4 +150,5 @@ const Portfolio = () => {
 };
 
 export default Portfolio;
+
 
