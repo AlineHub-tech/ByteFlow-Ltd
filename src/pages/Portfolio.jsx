@@ -17,14 +17,14 @@ import host2 from '../assets/host2.png';
 
 const projects = [
   // 1. WEB DEVELOPMENT (WITH LIVE LINKS)
-  { id: 0, title: "Aline Personal Portfolio", category: "Web Development", img: alineImg, desc: "Premium high-end personal branding website.", tools: ["React", "Framer Motion"], icon: <Code size={16} />, liveLink: "https://vercel.app" },
-  { id: 1, title: "Nexus News Network", category: "Web Development", img: img1, desc: "A dynamic news portal for real-time journalism.", tools: ["React", "Node.js"], icon: <Code size={16} />, liveLink: "https://vercel.app" },
-  { id: 2, title: "Imena Move Kids", category: "Web Development", img: img2, desc: "Creative platform for kids' dance groups.", tools: ["Framer", "Firebase"], icon: <Code size={16} />, liveLink: "https://vercel.app" },
+  { id: 0, title: "Aline Personal Portfolio", category: "Web Development", img: alineImg, desc: "Premium high-end personal branding website.", tools: ["React", "Framer Motion"], icon: <Code size={16} />, liveLink: "https://aline-site-seven.vercel.app/" },
+  { id: 1, title: "Nexus News Network", category: "Web Development", img: img1, desc: "A dynamic news portal for real-time journalism.", tools: ["React", "JavaScript", "Node.js"], icon: <Code size={16} />, liveLink: "https://nexus-news-network.vercel.app/" },
+  { id: 2, title: "Imena Move Kids", category: "Web Development", img: img2, desc: "Creative platform for kids' dance groups.", tools: ["Framer","React" "Firebase"], icon: <Code size={16} />, liveLink: "https://imena-moves-kidz.vercel.app/" },
   { id: 3, title: "Citizen Complaint", category: "Web Development", img: img3, desc: "Governance tool for reporting issues to leaders.", tools: ["React", "PostgreSQL"], icon: <Code size={16} />, liveLink: "https://vercel.app" },
-  { id: 4, title: "Buy & Get", category: "Web Development", img: img4, desc: "Modern E-commerce with secure payments.", tools: ["Next.js", "Stripe API"], icon: <Code size={16} />, liveLink: "https://vercel.app" },
-  { id: 7, title: "Personal Banking", category: "Web Development", img: img7, desc: "Secure online banking interface.", tools: ["TypeScript", "Node.js"], icon: <Code size={16} />, liveLink: "https://vercel.app" },
+  { id: 4, title: "Buy & Get", category: "Web Development", img: img4, desc: "Modern E-commerce with secure payments.", tools: ["Next.js", "React", "Stripe API"], icon: <Code size={16} />, liveLink: "https://buy-get-e-commerce.vercel.app/" },
+  { id: 7, title: "Personal Banking", category: "Web Development", img: img7, desc: "Secure online banking interface.", tools: ["TypeScript", "Node.js"], icon: <Code size={16} />, liveLink: "https://personal-banking.vercel.app/" },
   { id: 8, title: "Accountant System", category: "Web Development", img: img8, desc: "ERP system for payroll & finance.", tools: ["React", "MySQL"], icon: <Code size={16} />, liveLink: "https://vercel.app" },
-  { id: 9, title: "A Better-T Solution", category: "Web Development", img: img9, desc: "Tech solutions landing page.", tools: ["Vite", "Tailwind CSS"], icon: <Code size={16} />, liveLink: "https://vercel.app" },
+  { id: 9, title: "A Better-T Solution", category: "Web Development", img: img9, desc: "Tech solutions landing page.", tools: ["Vite", "Tailwind CSS"], icon: <Code size={16} />, liveLink: "https://a-better-t-solutions.vercel.app/" },
 
   // 2. HOSTING & DOMAINS
   { id: 10, title: "Cloud Infrastructure", category: "Hosting & Domains", img: host1, desc: "High-performance SSD hosting solutions.", tools: ["Litespeed", "cPanel"], icon: <Server size={16} />, liveLink: "#" },
@@ -150,3 +150,4 @@ const Portfolio = () => {
 };
 
 export default Portfolio;
+
