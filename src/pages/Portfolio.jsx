@@ -73,7 +73,7 @@ const Portfolio = () => {
 
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} 
             style={{  }}>
-            <h1 style={{ fontSize: 'clamp(2rem, 6vw, 3.5rem)', fontWeight: '900',color:'white', lineHeight: '1.1' }}>Engineering <span style={{ color: '#22c55e' }}>Digital Mastery.</span></h1>
+            <h1 style={{ fontSize: 'clamp(2rem, 6vw, 3.5rem)', fontWeight: '900',color:'white', lineHeight: '1.1' }}>Engineering <span style={{ color: '#006400' }}>Digital Mastery.</span></h1>
             <p style={{ color: '#ffffff', fontSize: '1.1rem', marginTop: '15px' }}>Explore our ecosystem of high-performance software and infrastructure.</p>
           </motion.div>
           
@@ -82,7 +82,7 @@ const Portfolio = () => {
             {categories.map(cat => (
               <button key={cat} onClick={() => setFilter(cat)} 
                 style={{ padding: '12px 22px', borderRadius: '15px', fontSize: '0.85rem', fontWeight: '800', cursor: 'pointer', border: 'none', transition: '0.3s',
-                  background: filter === cat ? '#22c55e' : 'rgba(255,255,255,0.07)', color: filter === cat ? '#000' : '#fff' }}> {cat} </button>
+                  background: filter === cat ? '#006400' : 'rgba(255,255,255,0.07)', color: filter === cat ? '#000' : '#fff' }}> {cat} </button>
             ))}
           </div>
         </div>

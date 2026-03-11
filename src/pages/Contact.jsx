@@ -32,9 +32,9 @@ const Contact = () => {
               boxSizing: 'border-box'
             }}
           >
-            <span className="contact-tag" style={{ fontWeight:'800' }}>Get In Touch</span>
+            <span className="contact-tag" style={{ background: 'rgb(255, 255, 255)',fontWeight:'800', color:'rgba(3, 78, 16, 0.98)', padding: '10px 20px', borderRadius: '50px',  alignItems: 'center' }}>Get In Touch</span>
             <h1 style={{ fontSize: 'clamp(1.8rem, 5vw, 2.8rem)', color: '#fff' }}>Let's Start a <span className="highlight">Project</span></h1>
-            <p style={{ color: '#ccc', fontSize: '0.95rem',fontWeight:'700' }}>Ready to transform your vision into a digital reality? Reach out to our team today.</p>
+            <p style={{ color: '#ccc', fontSize: '0.95rem',fontWeight:'900' }}>Ready to transform your vision into a digital reality? Reach out to our team today.</p>
           </motion.div>
         </div>
       </section>
