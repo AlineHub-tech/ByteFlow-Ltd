@@ -1,39 +1,51 @@
+/* =================================================== */
+/* 1. Navbar Container (White Glassmorphism)           */
+/* =================================================== */
 .navbar-elite {
   position: fixed;
   top: 0;
   width: 100%;
   height: 80px;
-  background: rgba(5, 8, 16, 0.85); /* Dark transparent background */
-  backdrop-filter: blur(15px); /* Glass effect */
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgb(255, 255, 255); /* Umweru ubonerana */
+  backdrop-filter: blur(15px);         /* Glass effect */
+  border-bottom: 1px solid rgba(0, 100, 0, 0.1); /* Umurongo w'icyatsi cyoroheje */
   display: flex;
   align-items: center;
-  z-index: 9999; /* Higher z-index to stay on top */
+  z-index: 9999;
   transition: 0.3s ease;
 }
-.accent{
-  color: #22c55e;
-}
+
+/* =================================================== */
+/* 2. Brand & Logo Section                             */
+/* =================================================== */
 .nav-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  max-width: 1200px; /* Kuringaniza ibintu hagati */
+  margin: 0 auto;
+  padding: 0 5%;
 }
 
 .nav-logo {
   font-size: 1.5rem;
   font-weight: 800;
-  color: #fff;
+  color: #000000; /* Umukara ukeye (Slate) */
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   text-decoration: none;
 }
 
-.logo-icon { color: #008000; } /* DarkGreen */
-.green-txt { color: #008000; }
+.logo-icon { color: #006400; } /* DarkGreen */
+.accent { color: #22c55e; }     /* Bright Green */
+.green-txt { color: #006400; }
+.nav-logo .logo-text { color:black; } 
 
+/* =================================================== */
+/* 3. Desktop Menu Links                               */
+/* =================================================== */
 .nav-menu {
   display: flex;
   gap: 30px;
@@ -41,8 +53,8 @@
 }
 
 .nav-item {
-  color: #ccc;
-  font-weight: 600;
+  color: #000000; /* Imvi ijyanye n'umweru */
+  font-weight: 700;
   text-decoration: none;
   display: flex;
   align-items: center;
@@ -52,10 +64,10 @@
 }
 
 .nav-item:hover {
-  color: #00ff00; /* Bright green on hover */
+  color: #22c55e; /* Icyatsi gishashagirana igihe ukanzeho */
 }
 
-/* Desktop Action Button */
+/* Action Button */
 .nav-contact-btn {
   background: #006400;
   color: #fff;
@@ -64,21 +76,25 @@
   font-weight: 700;
   text-decoration: none;
   transition: 0.3s;
+  box-shadow: 0 4px 12px rgba(0, 100, 0, 0.15);
 }
 
 .nav-contact-btn:hover {
   background: #008000;
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(0, 128, 0, 0.3);
+  box-shadow: 0 6px 15px rgba(0, 128, 0, 0.25);
 }
 
+/* =================================================== */
+/* 4. Mobile Controls                                  */
+/* =================================================== */
 .mobile-toggle {
   display: none;
-  color: #fff;
+  color: #000000; /* Umukara kuko background ari umweru */
   cursor: pointer;
+  font-size: 1.5rem;
 }
 
-/* Mobile Responsive Menu */
 @media (max-width: 992px) {
   .mobile-toggle { display: block; }
   .nav-contact-btn { display: none; }
@@ -89,12 +105,13 @@
     left: -100%;
     width: 100%;
     height: calc(100vh - 80px);
-    background: #050810;
+    background: #ffffff; /* Umweru kuri mobile */
     flex-direction: column;
     padding-top: 40px;
-    gap: 40px;
+    gap: 25px;
     transition: 0.4s ease;
     z-index: 9998;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
   }
 
   .nav-menu.active {
@@ -102,10 +119,11 @@
   }
 
   .nav-item {
+    color: #0f172a;
     font-size: 1.2rem;
-    width: 80%;
+    width: 85%;
     justify-content: center;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid #f1f5f9;
     padding-bottom: 15px;
   }
 
@@ -121,21 +139,28 @@
     border-radius: 12px;
     text-decoration: none;
     font-weight: 700;
+    margin-top: 20px;
   }
 }
-/* Add these new styles for the footer image logo */
+
+/* =================================================== */
+/* 5. Footer & Logo Extras                             */
+/* =================================================== */
 .footer-brand-logo {
-  height: 35px; /* Adjust the size of the logo in the footer */
+  height: 40px;
   width: auto;
-  border: 1px solid green;
+  border: 1.5px solid #006400;
+  border-radius: 6px;
   object-fit: contain;
+  padding: 2px;
+  background: white;
 }
 
-/* Adjust the gap in the logo link wrapper */
 .footer-logo-link {
   display: flex;
   align-items: center;
-  gap: 10px; /* Space between logo image and text */
+  gap: 12px;
   text-decoration: none;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
+  color: #0f172a;
 }

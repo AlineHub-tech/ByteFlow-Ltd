@@ -1,17 +1,18 @@
-/* About.css - Premium Luxury Tech Theme */
-@import url('https://fonts.googleapis.com');
+/* About.css - Clean Professional White Theme */
+@import url('https://googleapis.com');
 
 :root {
-  --primary-green: #006400;      /* Dark Green yawe */
-  --bg-white: #070d1a;
-  --bg-soft: #070d1a;
-  --text-dark: #ffffff;          /* Black yijimye kugasomeka */
-  --text-gray: #ffffff;
-  --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  --primary-green: #006400;      /* Dark Green */
+  --bg-white: #ffffff;           /* Background yera */
+  --bg-soft: #f8fafc;            /* Imvi yoroheje cyane kuri sections */
+  --text-dark: #0f172a;          /* Amagambo y'umukara ukeye */
+  --text-gray: #64748b;          /* Amagambo y'imvi asanzwe */
+  --border-color: #e2e8f0;       /* Imirongo y'isezero */
 }
 
 .about-page {
   font-family: 'Plus Jakarta Sans', sans-serif;
+  background-color: var(--bg-white);
   color: var(--text-dark);
   line-height: 1.6;
   overflow-x: hidden;
@@ -26,7 +27,7 @@
 /* 1. Hero Section */
 .about-hero {
   padding: 120px 0 80px;
-  background: radial-gradient(circle at top right, rgba(0, 100, 0, 0.05) 0%, transparent 60%);
+  background: radial-gradient(circle at top right, rgba(0, 100, 0, 0.03) 0%, transparent 60%);
 }
 
 .hero-flex {
@@ -75,6 +76,7 @@
   font-weight: 700;
   cursor: pointer;
   transition: 0.3s;
+  box-shadow: 0 10px 20px rgba(0, 100, 0, 0.15);
 }
 
 .btn-outline {
@@ -88,30 +90,12 @@
   transition: 0.3s;
 }
 
-.hero-image-wrapper {
-  flex: 1;
-  position: relative;
-}
-
+.hero-image-wrapper { flex: 1; position: relative; }
 .hero-image-wrapper img {
   width: 100%;
   border-radius: 30px;
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
-}
-
-.floating-card {
-  position: absolute;
-  bottom: 30px;
-  left: -20px;
-  background: white;
-  padding: 15px 25px;
-  border-radius: 15px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-  font-weight: 700;
-  color: var(--primary-green);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--border-color);
 }
 
 /* 2. Stats Section */
@@ -121,208 +105,94 @@
   color: white;
 }
 
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 30px;
-}
-
-.stat-card { text-align: center; }
-.stat-icon { margin-bottom: 10px; opacity: 0.8; }
-.stat-card h2 { font-size: 3rem; font-weight: 800; margin-bottom: 5px; }
-.stat-card p { opacity: 0.9; font-weight: 600; font-size: 0.9rem; text-transform: uppercase; }
+.stat-card h2 { font-size: 3rem; font-weight: 800; color: white; }
+.stat-card p { opacity: 0.9; color: #ffffff; }
 
 /* 3. Mission & Vision */
-.mission-vision { padding: 100px 0; }
-.section-title { text-align: center; margin-bottom: 60px; }
-.section-title h2 { font-size: 2.8rem; font-weight: 800; }
-.section-title span { color: var(--primary-green); }
-
-.mv-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 30px;
-}
+.mission-vision { padding: 100px 0; background: var(--bg-white); }
+.section-title h2 { color: var(--text-dark); }
 
 .mv-card {
   background: var(--bg-soft);
   padding: 50px;
   border-radius: 30px;
-  border: 1px solid #e2e8f0;
+  border: 1px solid var(--border-color);
   transition: 0.4s;
 }
 
 .mv-card:hover {
+  background: white;
   transform: translateY(-10px);
   border-color: var(--primary-green);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.05);
 }
 
 .icon-circle {
-  width: 70px;
-  height: 70px;
   background: white;
-  color: var(--primary-green);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 30px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--border-color);
 }
 
-.mv-card h3 { font-size: 1.8rem; margin-bottom: 15px; font-weight: 700; }
-.mv-card p { color: var(--text-gray); margin-bottom: 25px; }
-
-.mv-list { list-style: none; padding: 0; }
-.mv-list li {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-weight: 700;
-  margin-bottom: 10px;
-  color: var(--primary-green);
-}
+.mv-card h3 { color: var(--text-dark); }
 
 /* 4. Story Section */
 .story-section {
   padding: 100px 0;
-  background: var(--bg-soft);
+  background: var(--bg-soft); /* Light Gray background */
 }
 
-.story-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: center;
-}
+.story-text h2 { color: var(--text-dark); }
+.story-text p { color: var(--text-gray); }
 
-.story-img { position: relative; }
-.story-img img { width: 100%; border-radius: 30px; }
-
-.experience-badge {
-  position: absolute;
-  top: -30px;
-  right: -30px;
-  background: var(--primary-green);
-  color: white;
-  padding: 30px;
-  border-radius: 20px;
-  text-align: center;
-}
-
-.experience-badge .years { font-size: 2.5rem; font-weight: 800; display: block; line-height: 1; }
-.experience-badge .text { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; }
-
-.story-text h2 { font-size: 2.8rem; font-weight: 800; margin-bottom: 25px; }
-.story-text h2 span { color: var(--primary-green); }
-.story-text p { color: var(--text-gray); font-size: 1.1rem; margin-bottom: 20px; }
-.story-text .lead { font-weight: 700; color: var(--text-dark); }
-/* Story & Founder Card */
-.story-section { padding: 100px 0; background: var(--bg-soft); }
-.story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-.story-img-container { position: relative; }
-.main-story-img { width: 100%; border-radius: 30px; }
-
-/* --- Founder Card Updated (Byongerewe Size) --- */
-
+/* --- Founder Card Updated (Clean White Theme) --- */
 .founder-card {
   position: absolute;
-  bottom: -40px; /* Twamanuye gato ngo bise neza */
+  bottom: -40px;
   right: -20px;
-  background: var(--bg-soft); /* Bikoresha ibara ry'umukara-bulu wakoze */
-  padding: 25px 35px; /* Twongereye umwanya imbere muri card */
+  background: white;
+  padding: 25px 35px;
   border-radius: 25px;
   display: flex;
   align-items: center;
-  gap: 25px; /* Twongereye intera hagati y'ifoto n'inyandiko */
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5); /* Twongereye igicucu ngo kigaragare */
-  border: 2px solid var(--primary-green); /* Twongereye umukubure wa Green */
-  backdrop-filter: blur(10px); /* Kuri glass effect niba background yijimye */
+  gap: 25px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+  border: 2px solid var(--primary-green);
   z-index: 10;
 }
 
 .founder-photo-wrapper {
-  width: 120px;  /* Twavuye kuri 70px tujya kuri 120px (Binini cyane) */
-  height: 120px; /* Twavuye kuri 70px tujya kuri 120px */
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
   overflow: hidden;
-  border: 4px solid var(--primary-green); /* Umukubure w'ifoto ugaragara neza */
-  flex-shrink: 0; /* Ngo bitagabanuka */
-}
-
-.founder-photo {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Ifoto iguma mu ruziga neza idafatanye */
+  border: 4px solid var(--primary-green);
+  flex-shrink: 0;
 }
 
 .founder-info h4 {
-  margin: 0;
-  font-size: 1.6rem; /* Twavuye kuri 1.1 tujya kuri 1.6 (Izina riragaragara) */
+  color: var(--text-dark);
+  font-size: 1.6rem;
   font-weight: 800;
-  color: #ffffff; /* Umweru ukeye */
-  letter-spacing: 0.5px;
 }
 
 .founder-info .role {
-  display: block;
   color: var(--primary-green);
-  font-size: 1.1rem; /* Akazi karagaragara neza */
+  font-size: 1.1rem;
   font-weight: 800;
-  margin-top: 5px;
-  text-transform: uppercase;
 }
 
 .founder-email {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-top: 12px;
-  font-size: 1rem; /* Imeri isomeka neza */
-  color: #d1d5db;
-  text-decoration: none;
-  transition: 0.3s;
+  color: var(--text-gray);
+  font-weight: 600;
 }
 
 .founder-email:hover {
   color: var(--primary-green);
-  text-decoration: underline;
 }
 
-/* --- Kuvugurura Layout kuri Telefone --- */
-
-@media (max-width: 768px) {
-  .founder-card {
-    position: relative;
-    right: 0;
-    bottom: 0;
-    margin: 40px auto 0;
-    flex-direction: column; /* Ifoto ijye hejuru y'izina kuri telefone */
-    text-align: center;
-    width: fit-content;
-    padding: 30px;
-  }
-  
-  .founder-photo-wrapper {
-    width: 140px; /* Kuri telefone twayigize nini kurushaho */
-    height: 140px;
-  }
-  
-  .founder-info h4 {
-    font-size: 1.4rem;
-  }
-}
-
-/* Responsive Design */
+/* Responsive Fixes */
 @media (max-width: 1024px) {
-  .hero-flex, .story-grid, .mv-grid { grid-template-columns: 1fr; flex-direction: column; text-align: center; }
-  .hero-content h1 { font-size: 2.8rem; }
+  .hero-flex, .story-grid, .mv-grid { flex-direction: column; text-align: center; }
   .hero-btns { justify-content: center; }
-  .hero-image-wrapper { order: -1; margin-bottom: 40px; }
-  .experience-badge { right: 20px; top: -20px; padding: 20px; }
-}
-
-@media (max-width: 640px) {
-  .hero-content h1 { font-size: 2.2rem; }
-  .stats-grid { grid-template-columns: 1fr 1fr; }
+  .mv-grid { grid-template-columns: 1fr; }
+  .founder-card { position: relative; right: 0; bottom: 0; margin-top: 30px; }
 }

@@ -1,18 +1,20 @@
-/* Services.css - Professional Premium Theme */
-@import url('https://fonts.googleapis.com');
+/* Services.css - Professional Clean White Theme */
+@import url('https://googleapis.com');
 
 :root {
-  --primary-green: #006400;      /* Dark Green yawe */
-  --bg-dark: #020617;            /* Inyuma y'imishinga (Background) */
-  --card-dark: #0f172a;          /* Ibara rya Card */
-  --text-white: #ffffff;
-  --text-gray: #94a3b8;
-  --accent-green: #22c55e;       /* Icyatsi cyaka ku tuntu duto */
+  --primary-green: #006400;      /* Dark Green */
+  --bg-white: #e2e2e2;           /* Background nshya */
+  --bg-soft: #f8fafc;            /* Section background yoroheje */
+  --card-white: #ffffff;         /* Card background */
+  --text-dark: #0f172a;          /* Amagambo y'umukara */
+  --text-gray: #64748b;          /* Amagambo y'imvi */
+  --accent-green: #16a34a;       /* Green nshya isomeka neza ku mweru */
+  --border-color: #e2e8f0;       /* Imirongo y'isezero */
 }
 
 .services-page {
-  background-color: var(--bg-dark);
-  color: var(--text-white);
+  background-color: var(--bg-white);
+  color: var(--text-dark);
   font-family: 'Plus Jakarta Sans', sans-serif;
   overflow-x: hidden;
 }
@@ -20,32 +22,48 @@
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 20px;
 }
 
-/* 1. Hero Section */
+/* 1. Hero Section - White Glassmorphism */
 .services-hero {
-  padding: 140px 0 80px;
+  padding: 120px 0 60px;
   text-align: center;
-  background: radial-gradient(circle at top, rgba(0, 100, 0, 0.15) 0%, transparent 70%);
+  /* background-color: var(--bg-white); */
+  background-image: radial-gradient(circle at top right, rgba(0, 100, 0, 0.03) 0%, transparent 60%);
+  min-height: 40vh;
+  display: flex;
+  align-items: center;
+}
+
+.services-hero .container > div {
+  /* background: rgba(255, 255, 255, 0.7); */
+  /* backdrop-filter: blur(12px); */
+  padding: 40px 25px;
+  border-radius: 24px;
+  /* border: 1px solid var(--border-color); */
+  max-width: 800px;
+  margin: 0 auto;
+  /* box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03); */
 }
 
 .top-tag {
-  color: var(--accent-green);
+  color: var(--primary-green);
   text-transform: uppercase;
   font-weight: 800;
   letter-spacing: 2px;
-  font-size: 0.8rem;
-  border: 1px solid rgba(34, 197, 94, 0.2);
+  font-size: 0.75rem;
+  border: 1px solid rgba(0, 100, 0, 0.2);
   padding: 6px 16px;
   border-radius: 100px;
-  background: rgba(0, 100, 0, 0.1);
+  background: rgba(0, 100, 0, 0.05);
 }
 
 .services-hero h1 {
-  font-size: 3.5rem;
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
   font-weight: 800;
-  margin-top: 20px;
+  margin-top: 15px;
+  color: var(--text-dark);
 }
 
 .services-hero h1 span {
@@ -55,9 +73,8 @@
 .services-hero p {
   color: var(--text-gray);
   max-width: 600px;
-  margin: 20px auto 0;
+  margin: 15px auto 0;
   font-size: 1.1rem;
-  line-height: 1.6;
 }
 
 /* 2. Group Titles */
@@ -68,24 +85,25 @@
 .group-header {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 15px;
   margin-bottom: 40px;
 }
 
 .group-title {
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   color: var(--primary-green);
   font-weight: 800;
+  text-transform: uppercase;
 }
 
 .title-line {
   height: 2px;
   flex-grow: 1;
   background: linear-gradient(to right, var(--primary-green), transparent);
-  opacity: 0.3;
+  opacity: 0.1;
 }
 
-/* 3. Service Cards - Izi nizo zikora "Interested" Look */
+/* 3. Service Cards - CLEAN WHITE STYLE */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -93,31 +111,35 @@
 }
 
 .service-card {
-  background: var(--card-dark);
-  padding: 40px;
+  background: var(--card-white);
+  padding: 30px;
   border-radius: 24px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 2px solid var(--border-color);
   transition: all 0.4s ease;
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
 }
 
 .service-card:hover {
   transform: translateY(-10px);
   border-color: var(--primary-green);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 20px 40px rgba(0, 100, 0, 0.05);
+  background: var(--bg-white);
 }
 
 .icon-wrapper {
-  width: 60px;
-  height: 60px;
-  background: rgba(0, 100, 0, 0.1);
+  width: 54px;
+  height: 54px;
+  background: rgba(0, 100, 0, 0.05);
   color: var(--primary-green);
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 16px;
-  margin-bottom: 25px;
-  transition: 0.3s;
+  border-radius: 14px;
+  margin-bottom: 20px;
+  border: 1px solid rgba(0, 100, 0, 0.1);
 }
 
 .service-card:hover .icon-wrapper {
@@ -126,9 +148,10 @@
 }
 
 .service-card h3 {
-  font-size: 1.4rem;
+  font-size: 1.25rem;
   font-weight: 700;
   margin-bottom: 12px;
+  color: var(--text-dark);
 }
 
 .service-desc {
@@ -138,56 +161,50 @@
   margin-bottom: 25px;
 }
 
-/* Tools Box */
+/* Tools Box - CLEAN STYLE */
 .tools-box {
-  background: rgba(255, 255, 255, 0.02);
+  background: var(--bg-soft);
   padding: 15px;
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 14px;
+  border: 1px solid var(--border-color);
 }
 
 .tools-label {
   display: flex;
   align-items: center;
   gap: 6px;
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   font-weight: 800;
   color: var(--primary-green);
-  margin-bottom: 6px;
+  margin-bottom: 8px;
   text-transform: uppercase;
 }
 
 .tools-list {
   font-size: 0.85rem;
-  color: var(--text-white);
-  font-weight: 500;
+  color: var(--text-dark);
+  font-weight: 600;
 }
 
 /* 4. CTA Section */
 .services-cta {
-  padding: 80px 0 120px;
+  padding: 60px 0 100px;
 }
 
 .cta-box {
   background: var(--primary-green);
-  padding: 60px;
+  padding: 60px 30px;
   border-radius: 32px;
   text-align: center;
   color: white;
   box-shadow: 0 20px 40px rgba(0, 100, 0, 0.2);
 }
 
-.cta-box h2 {
-  font-size: 2.5rem;
-  font-weight: 800;
-  margin-bottom: 10px;
-}
-
 .btn-cta {
   background: white;
   color: var(--primary-green);
   padding: 16px 40px;
-  border-radius: 12px;
+  border-radius: 14px;
   border: none;
   font-weight: 800;
   font-size: 1rem;
@@ -197,13 +214,13 @@
 }
 
 .btn-cta:hover {
-  transform: scale(1.05);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
 
-/* Responsive */
+/* Responsive Fixes */
 @media (max-width: 768px) {
-  .services-hero h1 { font-size: 2.5rem; }
+  .services-hero { padding: 100px 0 40px; }
   .grid { grid-template-columns: 1fr; }
-  .cta-box { padding: 40px 20px; }
+  .service-card { padding: 25px; }
 }

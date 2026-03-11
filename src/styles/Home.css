@@ -1,16 +1,18 @@
-@import url('https://fonts.googleapis.com');
+@import url('https://googleapis.com');
 
 :root {
-  --primary-green: #006400;
-  --bg-dark: #010409;
-  --text-white: #ffffff;
-  --text-dim: #8b949e;
-  --accent-green: #238636;
+  --primary-green: #006400;      /* Icyatsi kibisi */
+  --bg-white: #ffffff;           /* Background nshya yera */
+  --bg-light: #f8fafc;           /* Imvi yoroheje cyane kuri sections */
+  --text-dark: #040811;          /* Amagambo y'umukara ukeye */
+  --text-dim: #020b1a;           /* Amagambo y'imvi asanzwe */
+  --border-color: #e2e8f0;       /* Imirongo igabanya ibice */
+  --accent-green: #22c55e;       /* Icyatsi gishashagirana (buttons) */
 }
 
 .home-v13 {
-  background-color: var(--bg-dark);
-  color: var(--text-white);
+  background-color: var(--bg-white);
+  color: var(--text-dark);
   font-family: 'Plus Jakarta Sans', sans-serif;
   overflow-x: hidden;
 }
@@ -19,15 +21,16 @@
 .hero-v13-section {
   padding: 120px 0 80px;
   text-align: center;
+  background: radial-gradient(circle at top, rgba(0, 100, 0, 0.03), transparent);
 }
 
 .v13-badge-wrapper { margin-bottom: 30px; }
 .v13-badge {
-  border: 1px solid var(--primary-green);
+  border: 1px solid rgba(0, 100, 0, 0.2);
   padding: 8px 24px;
   border-radius: 100px;
-  background: rgba(0, 100, 0, 0.1);
-  color: #3fb950;
+  background: rgba(0, 100, 0, 0.603);
+  color: white;
   font-size: 0.85rem;
   font-weight: 700;
   letter-spacing: 1px;
@@ -37,6 +40,7 @@
   font-size: 3.5rem;
   font-weight: 800;
   line-height: 1.1;
+  color: var(--text-dark);
 }
 
 .slogan-container {
@@ -47,13 +51,18 @@
   color: var(--primary-green);
 }
 
-.slogan-span { display: block; font-size: 3.8rem; }
+.slogan-span { 
+  display: block; 
+  font-size: 3.8rem; 
+  font-weight: 800;
+}
 
 .v13-lead {
   max-width: 650px;
   margin: 30px auto;
   font-size: 1.15rem;
-  color: var(--text-dim);
+  color: white;
+  font-weight: bold;
   line-height: 1.6;
 }
 
@@ -74,23 +83,36 @@
   align-items: center;
   gap: 10px;
   transition: 0.3s;
+  box-shadow: 0 10px 20px rgba(0, 100, 0, 0.2);
+}
+
+.btn-v13-primary:hover {
+  transform: translateY(-3px);
+  background: #004d00;
 }
 
 .btn-v13-outline {
-  border: 1px solid #30363d;
-  color: white;
+  border: 1px solid  #f3f4f7;
+  color: var(--text-dark);
   padding: 16px 36px;
   border-radius: 12px;
   text-decoration: none;
   font-weight: 600;
+  transition: 0.3s;
+}
+
+.btn-v13-outline:hover {
+  /* background: var(--bg-light); */
+  border-color: var(--text-dim);
 }
 
 /* 2. STATS BAR */
 .v13-stats-bar {
   padding: 60px 0;
-  border-top: 1px solid #30363d;
-  border-bottom: 1px solid #30363d;
-  background: rgba(255,255,255,0.02);
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  background: #e2e8f0;
+  
 }
 
 .stats-flex {
@@ -99,15 +121,19 @@
   align-items: center;
 }
 
-.stat-unit h2 { font-size: 3rem; color: white; margin-bottom: 5px; }
-.stat-unit p { color: var(--primary-green); font-weight: 700; font-size: 0.9rem; text-transform: uppercase; }
-.divider { width: 1px; height: 50px; background: #30363d; }
+.stat-unit h2 { font-size: 3rem; color: #006400; margin-bottom: 5px; }
+.stat-unit p { color: #000000; font-weight: 700; font-size: 0.9rem; text-transform: uppercase; }
+.divider { width: 1px; height: 50px; background: var(--border-color); }
 
 /* 3. FEATURE GRID */
-.v13-features-modern { padding: 100px 0; }
+.v13-features-modern { 
+  padding: 100px 0; 
+  background-color: var(--bg-white);
+}
+
 .section-title-center { text-align: center; margin-bottom: 60px; }
-.mini-tag { color: var(--primary-green); font-weight: 800; font-size: 0.8rem; text-transform: uppercase; }
-.section-title-center h2 { font-size: 2.5rem; margin-top: 10px; }
+.mini-tag { color:black; font-weight: 800; font-size: 0.8rem; text-transform: uppercase; }
+.section-title-center h2 { font-size: 2.5rem; margin-top: 10px; color:#006400; }
 
 .feature-interactive-grid {
   display: grid;
@@ -117,30 +143,41 @@
 
 .feature-item {
   text-align: center;
-  padding: 20px;
+  padding: 30px;
+  border: 2px solid rgba(0, 0, 0, 0.137);
+  border-radius: 20px;
   transition: 0.3s;
+    background: white;
+}
+
+.feature-item:hover {
+  border-color: var(--border-color);
+  background: rgb(128, 103, 103);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+  transform: translateY(-10px);
 }
 
 .icon-circle {
   width: 70px;
   height: 70px;
-  background: rgba(0, 100, 0, 0.1);
+  background: white;
   color: var(--primary-green);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0 auto 20px;
-  border: 1px solid rgba(0, 100, 0, 0.2);
+  border: 1px solid green;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
 }
 
-.feature-item h4 { font-size: 1.3rem; margin-bottom: 10px; }
-.feature-item p { color: var(--text-dim); line-height: 1.5; }
+.feature-item h4 { font-size: 1.3rem; margin-bottom: 10px; color: black; }
+.feature-item p { color:rgba(0, 0, 0, 0.753); line-height: 1.5; }
 
 /* 4. TECH SCROLLER */
 .v13-tech-scroller {
   background: var(--primary-green);
-  padding: 20px 0;
+  padding: 25px 0;
   overflow: hidden;
   white-space: nowrap;
 }
@@ -153,8 +190,8 @@
 .scroller-inner span {
   font-size: 1.5rem;
   font-weight: 800;
-  color: white;
-  margin-right: 40px;
+  color: white; /* Inyuguti ziguma ari umweru kuko background ari icyatsi */
+  margin-right: 60px;
 }
 
 @keyframes scroll {
@@ -168,5 +205,6 @@
   .slogan-span { font-size: 2.4rem; }
   .stats-flex { flex-direction: column; gap: 40px; }
   .divider { display: none; }
-  .v13-cta-group { flex-direction: column; }
+  .v13-cta-group { flex-direction: column; padding: 0 20px; }
+  .feature-item { margin: 0 20px; }
 }
