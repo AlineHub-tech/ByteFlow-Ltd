@@ -19,10 +19,10 @@
 ---
 
 ## 📸 Screenshots
-<img width="1343" height="627" alt="b4" src="https://github.com/user-attachments/assets/334c279f-ebbc-4d1c-98ae-25b1febcf5b8" />
-<img width="1349" height="638" alt="b3" src="https://github.com/user-attachments/assets/9f4b74dc-d9b2-4f36-9fdc-85c00cee73af" />
-<img width="1352" height="616" alt="b2" src="https://github.com/user-attachments/assets/154b39e2-0071-456a-861c-979f563c533a" />
-<img width="1339" height="630" alt="b1" src="https://github.com/user-attachments/assets/0d115091-ca26-4b38-9b04-2ebd47f72c35" />
+<img width="1349" height="633" alt="b11" src="https://github.com/user-attachments/assets/a63fdb6b-5524-4c1b-a8c4-8aa020433b3b" />
+<img width="1349" height="632" alt="b33" src="https://github.com/user-attachments/assets/5129849e-e099-4bb1-9671-d2ec0bd0cf8a" />
+<img width="1346" height="633" alt="b22" src="https://github.com/user-attachments/assets/4a2d3e18-47cb-4cf1-b634-4da448d86419" />
+<img width="1349" height="628" alt="b44" src="https://github.com/user-attachments/assets/c774ac61-d0cb-4e77-8247-ece5ed338bc9" />
 
 ---
 
