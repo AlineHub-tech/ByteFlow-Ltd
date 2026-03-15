@@ -15,7 +15,6 @@
   <h3 align="center">Engineering Digital Success in Kigali</h3>
 </div>
 
-
 ---
 
 ## 📸 Screenshots
