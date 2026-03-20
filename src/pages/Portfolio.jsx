@@ -13,7 +13,7 @@ import img9 from '../assets/img9.png';
 import seo1 from '../assets/seo1.png'; import seo2 from '../assets/seo2.png';
 import d1 from '../assets/d1.png'; import d2 from '../assets/d2.png';
 import d3 from '../assets/d3.png'; import host1 from '../assets/host1.png';
-import host2 from '../assets/host2.png';
+import host2 from '../assets/host2.png'; import ne1 from '../assets/ne1.png';
 
 const projects = [
   // 1. WEB DEVELOPMENT (WITH LIVE LINKS)
@@ -22,9 +22,10 @@ const projects = [
   { id: 2, title: "Imena Move Kids", category: "Web Development", img: img2, desc: "Creative platform for kids' dance groups.", tools: ["Framer", "Firebase"], icon: <Code size={16} />, liveLink: "https://imena-moves-kidz.vercel.app/" },
   { id: 3, title: "Citizen Complaint", category: "Web Development", img: img3, desc: "Governance tool for reporting issues to leaders.", tools: ["React", "PostgreSQL"], icon: <Code size={16} />, liveLink: "https://citizen-complaint-six.vercel.app/" },
   { id: 4, title: "Buy & Get", category: "Web Development", img: img4, desc: "Modern E-commerce with secure payments.", tools: ["Next.js", "Stripe API"], icon: <Code size={16} />, liveLink: "https://buy-get-e-commerce.vercel.app/" },
-  { id: 7, title: "Personal Banking", category: "Web Development", img: img7, desc: "Secure online banking interface.", tools: ["TypeScript", "Node.js"], icon: <Code size={16} />, liveLink: "https://personal-banking.vercel.app/" },
-  { id: 8, title: "Accountant System", category: "Web Development", img: img8, desc: "ERP system for payroll & finance.", tools: ["React", "MySQL"], icon: <Code size={16} />, liveLink: "https://acc-pro-chi.vercel.app/" },
-  { id: 9, title: "A Better-T Solution", category: "Web Development", img: img9, desc: "Tech solutions landing page.", tools: ["Vite", "Tailwind CSS"], icon: <Code size={16} />, liveLink: "https://a-better-t-solutions.vercel.app/" },
+   { id: 5, title: "NovaPay", category: "Web Development", img: ne1, desc: "professional digital banking platform inspired by the institutional trust.", tools: ["TypeScript", "Node.js"], icon: <Code size={16} />, liveLink: "https://nova-pay-financial.vercel.app/" },
+  { id: 6, title: "Personal Banking", category: "Web Development", img: img7, desc: "Secure online banking interface.", tools: ["TypeScript", "Node.js"], icon: <Code size={16} />, liveLink: },
+  { id: 7, title: "Accountant System", category: "Web Development", img: img8, desc: "ERP system for payroll & finance.", tools: ["React", "MySQL"], icon: <Code size={16} />, liveLink: "https://acc-pro-chi.vercel.app/" },
+  { id: 8, title: "A Better-T Solution", category: "Web Development", img: img9, desc: "Tech solutions landing page.", tools: ["Vite", "Tailwind CSS"], icon: <Code size={16} />, liveLink: "https://a-better-t-solutions.vercel.app/" },
 
   // 2. HOSTING & DOMAINS
   { id: 10, title: "Cloud Infrastructure", category: "Hosting & Domains", img: host1, desc: "High-performance SSD hosting solutions.", tools: ["Litespeed", "cPanel"], icon: <Server size={16} />, liveLink: "#" },
