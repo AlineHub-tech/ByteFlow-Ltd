@@ -107,7 +107,7 @@
 }
 
 /* 2. STATS BAR */
-.v13-stats-bar {
+/* .v13-stats-bar {
   padding: 60px 0;
   border-top: 1px solid var(--border-color);
   border-bottom: 1px solid var(--border-color);
@@ -123,7 +123,7 @@
 
 .stat-unit h2 { font-size: 3rem; color: #006400; margin-bottom: 5px; }
 .stat-unit p { color: #000000; font-weight: 700; font-size: 0.9rem; text-transform: uppercase; }
-.divider { width: 1px; height: 50px; background: var(--border-color); }
+.divider { width: 1px; height: 50px; background: var(--border-color); } */
 
 /* 3. FEATURE GRID */
 .v13-features-modern { 
@@ -208,3 +208,73 @@
   .v13-cta-group { flex-direction: column; padding: 0 20px; }
   .feature-item { margin: 0 20px; }
 }
+/* Stats White Section */
+.v13-stats-bar-white {
+  background: #ffffff; /* Umweru ukeye */
+  padding: 100px 0;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.stats-grid-v3 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 5%;
+  gap: 40px;
+}
+
+.stat-card-v3 {
+  flex: 1;
+  text-align: center;
+}
+
+.stat-number-v3 {
+  font-size: 3.8rem;
+  font-weight: 900;
+  color: #0f172a; /* Umukara ukeye (Slate 900) */
+  line-height: 1;
+  margin-bottom: 15px;
+  letter-spacing: -2px;
+}
+
+.plus-v3 {
+  color: #22c55e; /* ByteFlow Green */
+  margin-left: 4px;
+}
+
+.stat-title-v3 {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #0f172a;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+}
+
+.stat-text-v3 {
+  font-size: 0.95rem;
+  color: #64748b; /* Slate grey ituma inyandiko idasakubaza */
+  line-height: 1.6;
+  max-width: 280px;
+  margin: 0 auto;
+}
+
+/* Divider Style */
+.stat-divider-v3 {
+  width: 1.5px;
+  height: 80px;
+  background: #e2e8f0; /* Umurongo woroheje cyane */
+}
+
+/* Mobile Adjustments */
+@media (max-width: 992px) {
+  .stats-grid-v3 {
+    flex-direction: column;
+    text-align: center;
+  }
+  .stat-divider-v3 { display: none; }
+  .stat-number-v3 { font-size: 3.2rem; }
+}
+
