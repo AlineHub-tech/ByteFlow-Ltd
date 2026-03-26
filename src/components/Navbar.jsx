@@ -13,11 +13,15 @@ const Navbar = () => {
     <nav className="navbar-elite">
       <div className="container nav-container">
         
-        {/* Logo Section - Image + Balanced Text */}
-        <Link to="/" className="nav-logo" onClick={() => setIsOpen(false)}>
+        {/* Logo Section - Image + Balanced Text + Slogan */}
+        <Link to="/" className="nav-logo-group" onClick={() => setIsOpen(false)}>
+          <div className="nav-logo">
               <img src={LogoImg} alt="ByteFlow Logo" className="footer-brand-logo" />
-            <span className="logo-text">ByteFlow<span className="accent">Ltd</span></span>
-          </Link>
+              <span className="logo-text">ByteFlow<span className="accent">Ltd</span></span>
+          </div>
+          {/* Hano niho nshize ya Slogan munsi y'izina */}
+          <span className="logo-slogan">Engineering Digital Success</span>
+        </Link>
 
         {/* Navigation Menu */}
         <div className={`nav-menu ${isOpen ? 'active' : ''}`}>
