@@ -142,58 +142,79 @@ const Home = () => {
         </div>
       </section>
 
-      {/* 2. THE STATS EXPERIENCE */}
-      <section className="v13-stats-bar">
-        <div className="container stats-flex" style={{ flexWrap: isMobile ? 'wrap' : 'nowrap' }}>
-          <div className="stat-unit">
-            <h2>150+</h2>
-            <p>Projects Launched</p>
+      {/* 2. THE STATS EXPERIENCE - BYTEFLOW WHITE ELITE EDITION */}
+      <section className="v13-stats-bar-white">
+        <div className="container stats-grid-v3">
+          
+          {/* Stat 1: Impact & Scalability */}
+          <div className="stat-card-v3">
+            <h2 className="stat-number-v3">250<span className="plus-v3">+</span></h2>
+            <h4 className="stat-title-v3">Solutions Deployed</h4>
+            <p className="stat-text-v3">Architecting high-performance ecosystems for global brands.</p>
           </div>
-          {!isMobile && <div className="divider"></div>}
-          <div className="stat-unit">
-            <h2>99%</h2>
-            <p>Uptime Guaranteed</p>
+
+          {!isMobile && <div className="stat-divider-v3"></div>}
+
+          {/* Stat 2: Reliability & Security */}
+          <div className="stat-card-v3">
+            <h2 className="stat-number-v3">99.9<span className="plus-v3">%</span></h2>
+            <h4 className="stat-title-v3">Service Reliability</h4>
+            <p className="stat-text-v3">Mission-critical infrastructure with guaranteed zero-downtime.</p>
           </div>
-          {!isMobile && <div className="divider"></div>}
-          <div className="stat-unit">
-            <h2>24/7</h2>
-            <p>Expert Support</p>
+
+          {!isMobile && <div className="stat-divider-v3"></div>}
+
+          {/* Stat 3: Performance & Growth */}
+          <div className="stat-card-v3">
+            <h2 className="stat-number-v3">10<span className="plus-v3">X</span></h2>
+            <h4 className="stat-title-v3">Operational Velocity</h4>
+            <p className="stat-text-v3">Accelerating digital transformation through elite engineering.</p>
           </div>
+
         </div>
       </section>
 
-      {/* 3. THE FEATURES GRID */}
+
+           {/* 3. THE FEATURES GRID */}
       <section className="v13-features-modern">
         <div className="container">
           <div className="section-title-center">
-            <span className="mini-tag">Our Core Competencies</span>
-            <h2>Architecting Excellence</h2>
+            <span className="mini-tag" style={{ color: '#22c55e', fontWeight: '700' }}>Our Core Competencies</span>
+            <h2 style={{ fontWeight: '800', marginTop: '10px' }}>Future-Proof Solutions</h2>
           </div>
 
           <div className="feature-interactive-grid">
+            {/* Feature 1: Custom Software */}
             <div className="feature-item">
               <div className="icon-circle"><Database size={28} /></div>
-              <h4>Backend Scalability</h4>
-              <p>Handling millions of requests with robust server-side architecture.</p>
+              <h4>Elite Engineering</h4>
+              <p>We build robust, scalable software architectures tailored to drive your business growth in Rwanda and beyond.</p>
             </div>
+
+            {/* Feature 2: Branding/Cinematic */}
             <div className="feature-item">
               <div className="icon-circle"><Layout size={28} /></div>
-              <h4>UI/UX Mastery</h4>
-              <p>Designing interfaces that are as intuitive as they are beautiful.</p>
+              <h4>Cinematic Branding</h4>
+              <p>Transforming your identity with high-end visual storytelling, premium graphics, and cinematic video production.</p>
             </div>
+
+            {/* Feature 3: Performance/Digital Domination */}
             <div className="feature-item">
               <div className="icon-circle"><Smartphone size={28} /></div>
-              <h4>Mobile First</h4>
-              <p>Optimized experiences for the 80% of users on mobile devices.</p>
+              <h4>Digital Domination</h4>
+              <p>Harnessing SEO, high-performance web apps, and data-driven marketing to put your brand ahead of the competition.</p>
             </div>
+
+            {/* Feature 4: Support/Security */}
             <div className="feature-item">
               <div className="icon-circle"><HardDrive size={28} /></div>
-              <h4>Secure Hosting</h4>
-              <p>Enterprise-grade infrastructure for maximum data protection.</p>
+              <h4>Reliable Infrastructure</h4>
+              <p>Secure hosting and 24/7 technical management, ensuring your digital ecosystem never sleeps and never fails.</p>
             </div>
           </div>
         </div>
       </section>
+
 
       {/* 4. INFINITE TECH SCROLLER */}
       <div className="v13-tech-scroller">
