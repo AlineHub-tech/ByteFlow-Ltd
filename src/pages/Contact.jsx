@@ -74,7 +74,7 @@ const Contact = () => {
                   <div className="icon-bg"><Mail size={22} /></div>
                   <div>
                     <h4>Email Us</h4>
-                    <p>umugwanezaaline77@gmail.com</p>
+                    <p>byteflowltd9@gmail.com</p>
                   </div>
                 </div>
 
