@@ -1,198 +1,454 @@
-/* About.css - Clean Professional White Theme */
-@import url('https://googleapis.com');
 
 :root {
-  --primary-green: #006400;      /* Dark Green */
-  --bg-white: #ffffff;           /* Background yera */
-  --bg-soft: #f8fafc;            /* Imvi yoroheje cyane kuri sections */
-  --text-dark: #0f172a;          /* Amagambo y'umukara ukeye */
-  --text-gray: #64748b;          /* Amagambo y'imvi asanzwe */
-  --border-color: #e2e8f0;       /* Imirongo y'isezero */
+  --primary-green: #006400; /* Dark Green */
+  --light-green-bg: rgba(0, 100, 0, 0.04);
+  --dark-charcoal: #111111;
+  --body-muted: #555555;
+  --bg-pure-white: #ffffff;
+  --font-sig: 'Dancing Script', cursive;
+  --transition-smooth: all 0.4s ease;
 }
 
 .about-page {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  background-color: var(--bg-white);
-  color: var(--text-dark);
-  line-height: 1.6;
+  background-color: var(--bg-pure-white);
+  color: var(--dark-charcoal);
+  font-family: 'Inter', sans-serif;
+  width: 100%;
   overflow-x: hidden;
 }
 
 .container {
+  width: 90%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 24px;
 }
 
-/* 1. Hero Section */
+.sig-font {
+  font-family: var(--font-sig);
+  color: var(--primary-green);
+  font-size: 1.25em;
+}
+
+.badge {
+  display: inline-block;
+  background: var(--light-green-bg);
+  border: 1px solid rgba(0, 100, 0, 0.15);
+  color: var(--primary-green);
+  padding: 6px 16px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 20px;
+}
+
+/* --- HERO SECTION (KOSOYE: Elegant Image Visibility) --- */
 .about-hero {
-  padding: 120px 0 80px;
-  background: radial-gradient(circle at top right, rgba(0, 100, 0, 0.03) 0%, transparent 60%);
-}
-
-.hero-flex {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 160px 0 100px 0;
+  min-height: 45vh;
   display: flex;
   align-items: center;
-  gap: 60px;
-}
-
-.hero-content { flex: 1.2; }
-
-.subtitle {
-  color: var(--primary-green);
-  text-transform: uppercase;
-  font-weight: 800;
-  letter-spacing: 2px;
-  font-size: 0.85rem;
-  margin-bottom: 15px;
-  display: block;
-}
-
-.hero-content h1 {
-  font-size: 3.8rem;
-  font-weight: 800;
-  line-height: 1.1;
-  margin-bottom: 25px;
-  color: var(--text-dark);
-}
-
-.text-highlight { color: var(--primary-green); }
-
-.hero-content p {
-  font-size: 1.15rem;
-  color: var(--text-gray);
-  margin-bottom: 35px;
-  max-width: 600px;
-}
-
-.hero-btns { display: flex; gap: 15px; }
-
-.btn-primary {
-  background: var(--primary-green);
-  color: white;
-  padding: 16px 32px;
-  border-radius: 12px;
-  border: none;
-  font-weight: 700;
-  cursor: pointer;
-  transition: 0.3s;
-  box-shadow: 0 10px 20px rgba(0, 100, 0, 0.15);
-}
-
-.btn-outline {
-  border: 2px solid var(--primary-green);
-  color: var(--primary-green);
-  padding: 14px 32px;
-  border-radius: 12px;
-  background: transparent;
-  font-weight: 700;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.hero-image-wrapper { flex: 1; position: relative; }
-.hero-image-wrapper img {
+  justify-content: center;
   width: 100%;
-  border-radius: 30px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
-  border: 1px solid var(--border-color);
 }
 
-/* 2. Stats Section */
-.stats-section {
+.hero-inner-text {
+  text-align: center;
+  max-width: 800px;
+}
+
+.about-hero h1 {
+  font-size: clamp(2.3rem, 5vw, 3.2rem);
+  font-weight: 800;
+  line-height: 1.2;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+.about-hero p {
+  font-size: 1.1rem;
+  color: #dddddd;
+  line-height: 1.6;
+}
+
+/* --- PHILOSOPHY INTRODUCTION --- */
+.philosophy-section {
+  padding: 60px 0 30px 0;
+}
+
+.philosophy-box {
+  background: var(--light-green-bg);
+  border-left: 4px solid var(--primary-green);
+  padding: 35px;
+  border-radius: 0 20px 20px 0;
+}
+
+.philosophy-box p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--body-muted);
+  margin: 0;
+}
+
+/* --- FOUNDER SECTION --- */
+.founder-section {
+  padding: 40px 0;
+}
+
+.founder-grid {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+  background: var(--bg-pure-white);
+  padding: 40px;
+  border-radius: 24px;
+  border: 1.5px solid #e2e8f0;
+}
+
+.founder-info {
+  flex: 1.2;
+}
+
+.section-subtitle {
+  display: block;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  color: var(--primary-green);
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 5px;
+}
+
+.section-title {
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin-bottom: 5px;
+}
+
+.founder-name {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #334155;
+  margin-bottom: 20px;
+}
+
+.founder-info p {
+  font-size: 0.98rem;
+  color: var(--body-muted);
+  line-height: 1.65;
+  margin-bottom: 15px;
+}
+
+.founder-socials {
+  display: flex;
+  gap: 12px;
+  margin-top: 25px;
+}
+
+.founder-socials a {
+  color: var(--primary-green);
+  background: var(--light-green-bg);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-smooth);
+  border: 1px solid rgba(0, 100, 0, 0.1);
+}
+
+.founder-socials a:hover {
   background: var(--primary-green);
-  padding: 60px 0;
   color: white;
+  transform: translateY(-3px);
 }
 
-.stat-card h2 { font-size: 3rem; font-weight: 800; color: white; }
-.stat-card p { opacity: 0.9; color: #ffffff; }
+.founder-visual {
+  flex: 0.8;
+  display: flex;
+  justify-content: center;
+}
 
-/* 3. Mission & Vision */
-.mission-vision { padding: 100px 0; background: var(--bg-white); }
-.section-title h2 { color: var(--text-dark); }
+.founder-frame {
+  width: 280px;
+  height: 320px;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1.5px solid #e2e8f0;
+}
+
+.founder-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* --- SECTION HEADERS --- */
+.section-center-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.section-center-header h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.framework-pitch {
+  font-size: 1.05rem;
+  color: var(--body-muted);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* --- MISSION & VISION --- */
+.vision-mission {
+  padding: 50px 0;
+}
+
+.mv-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+}
 
 .mv-card {
-  background: var(--bg-soft);
-  padding: 50px;
-  border-radius: 30px;
-  border: 1px solid var(--border-color);
-  transition: 0.4s;
+  background: var(--bg-pure-white);
+  padding: 40px;
+  border-radius: 24px;
+  border: 1.5px solid #e2e8f0;
+  transition: var(--transition-smooth);
 }
 
 .mv-card:hover {
-  background: white;
-  transform: translateY(-10px);
+  transform: translateY(-5px);
   border-color: var(--primary-green);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+  box-shadow: 0 15px 35px rgba(0, 100, 0, 0.04);
 }
 
-.icon-circle {
-  background: white;
-  border: 1px solid var(--border-color);
+.mv-icon {
+  color: var(--primary-green);
+  margin-bottom: 20px;
 }
 
-.mv-card h3 { color: var(--text-dark); }
-
-/* 4. Story Section */
-.story-section {
-  padding: 100px 0;
-  background: var(--bg-soft); /* Light Gray background */
+.mv-card h3 {
+  font-size: 1.4rem;
+  font-weight: 800;
+  margin-bottom: 12px;
 }
 
-.story-text h2 { color: var(--text-dark); }
-.story-text p { color: var(--text-gray); }
+.mv-card p {
+  color: var(--body-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
 
-/* --- Founder Card Updated (Clean White Theme) --- */
-.founder-card {
-  position: absolute;
-  bottom: -40px;
-  right: -20px;
-  background: white;
-  padding: 25px 35px;
-  border-radius: 25px;
+/* --- CORE VALUES --- */
+.values-section {
+  padding: 50px 0;
+}
+
+.accent-bar {
+  width: 50px;
+  height: 4px;
+  background: var(--primary-green);
+  margin: 12px auto 0 auto;
+  border-radius: 50px;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+.value-item {
+  background: var(--bg-pure-white);
+  padding: 30px;
+  border-radius: 20px;
+  border: 1.5px solid #e2e8f0;
+  text-align: center;
+  transition: var(--transition-smooth);
+}
+
+.value-item:hover {
+  border-color: var(--primary-green);
+  transform: translateY(-5px);
+}
+
+.v-icon {
+  color: var(--primary-green);
+  margin-bottom: 15px;
+}
+
+.value-item h4 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.value-item p {
+  color: var(--body-muted);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* --- 4. COMPREHENSIVE SERVICE PORTFOLIO DIVISIONS --- */
+.portfolio-divisions {
+  padding: 60px 0;
+}
+
+.divisions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  gap: 40px;
+}
+
+.division-card {
+  background: var(--bg-pure-white);
+  border: 1.5px solid #e2e8f0;
+  border-radius: 24px;
+  padding: 40px;
+  transition: var(--transition-smooth);
+}
+
+.division-card:hover {
+  border-color: var(--primary-green);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.04);
+}
+
+.div-header {
   display: flex;
   align-items: center;
-  gap: 25px;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
-  border: 2px solid var(--primary-green);
-  z-index: 10;
+  gap: 15px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 15px;
 }
 
-.founder-photo-wrapper {
-  width: 120px;
-  height: 120px;
+.div-num {
+  background: var(--primary-green);
+  color: white;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
-  overflow: hidden;
-  border: 4px solid var(--primary-green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 1.1rem;
+}
+
+.div-header h3 {
+  font-size: 1.4rem;
+  font-weight: 800;
+}
+
+.div-body {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.div-bullet strong {
+  display: block;
+  font-size: 1rem;
+  color: var(--primary-green);
+  margin-bottom: 6px;
+}
+
+.div-bullet p {
+  font-size: 0.92rem;
+  color: var(--body-muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* --- 5. WHY BUSINESSES CHOOSE US --- */
+.why-choose-section {
+  padding: 60px 0 100px 0;
+}
+
+.why-box-wrapper {
+  background: var(--light-green-bg);
+  border: 1.5px dashed rgba(0, 100, 0, 0.2);
+  border-radius: 32px;
+  padding: 50px;
+}
+
+.why-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.why-header h2 {
+  font-size: 1.8rem;
+  font-weight: 800;
+}
+
+.why-reasons-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+.reason-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.reason-icon {
+  background: var(--primary-green);
+  color: white;
+  padding: 6px 14px;
+  border-radius: 10px;
+  font-weight: 800;
+  font-size: 0.9rem;
   flex-shrink: 0;
 }
 
-.founder-info h4 {
-  color: var(--text-dark);
-  font-size: 1.6rem;
-  font-weight: 800;
-}
-
-.founder-info .role {
-  color: var(--primary-green);
+.reason-item h4 {
   font-size: 1.1rem;
-  font-weight: 800;
+  font-weight: 700;
+  margin-bottom: 5px;
 }
 
-.founder-email {
-  color: var(--text-gray);
-  font-weight: 600;
+.reason-item p {
+  font-size: 0.95rem;
+  color: var(--body-muted);
+  line-height: 1.5;
+  margin: 0;
 }
 
-.founder-email:hover {
-  color: var(--primary-green);
+/* --- REVEAL INTERSECTION ANIMATIONS --- */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
-/* Responsive Fixes */
-@media (max-width: 1024px) {
-  .hero-flex, .story-grid, .mv-grid { flex-direction: column; text-align: center; }
-  .hero-btns { justify-content: center; }
-  .mv-grid { grid-template-columns: 1fr; }
-  .founder-card { position: relative; right: 0; bottom: 0; margin-top: 30px; }
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- RESPONSIVE DESIGN --- */
+@media (max-width: 992px) {
+  .founder-grid { flex-direction: column-reverse; gap: 40px; padding: 30px; }
+  .divisions-grid { grid-template-columns: 1fr; gap: 30px; }
+}
+
+@media (max-width: 600px) {
+  .division-card, .why-box-wrapper { padding: 25px; }
+  .reason-item { flex-direction: column; gap: 10px; }
 }

@@ -1,250 +1,398 @@
-/* ============================================================
-   BYTEFLOW BLOG SYSTEM - CLEAN WHITE PROFESSIONAL THEME
-   ============================================================ */
 
 :root {
-  --primary-green: #006400;      /* Your Dark Green */
-  --bg-white: #ffffff;           /* Pure White Background */
-  --bg-soft: #f5f5f5;            /* Light Gray for Sections */
-  --text-dark: #000000;          /* Deep Slate for Headings */
-  --text-dim: #000000;           /* Muted Slate for Body Text */
-  --border-color: #1f1f1f;       /* Soft Gray Borders */
-  --accent-green: #16a34a;       /* Vibrant Green for Hover */
-  --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  --primary-green: #006400; /* Dark Green */
+  --light-green-bg: rgba(0, 100, 0, 0.04);
+  --dark-charcoal: #111111;
+  --body-muted: #555555;
+  --bg-pure-white: #ffffff;
+  --font-sig: 'Dancing Script', cursive;
+  --transition-smooth: all 0.3s ease;
 }
 
-/* 1. Global Wrapper for Blog & Detail */
+/* --- PART 1: GLOBAL BLOG LAYOUT BASE --- */
 #byteflow-blog-hub {
-  background-color: var(--bg-white) !important;
-  color: var(--text-dark) !important;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  min-height: 100vh;
+  background-color: var(--bg-pure-white);
   width: 100%;
-  margin: 0;
-  padding: 0;
-  line-height: 1.6;
+  overflow-x: hidden;
+  font-family: 'Inter', sans-serif;
+  color: var(--dark-charcoal);
+  padding-bottom: 80px;
 }
 
-#byteflow-blog-hub .blog-limit {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 25px;
-}
-
-/* 2. Hero Section - Light Gradient */
-#byteflow-blog-hub .blog-hero-main {
-  padding: 160px 0 80px;
-  text-align: center;
-  background: radial-gradient(circle at 50% -20%, rgba(0, 100, 0, 0.05) 0%, transparent 60%);
-  border-bottom: 1px solid var(--border-color);
-}
-
-#byteflow-blog-hub .blog-tagline {
-  border: 1px solid rgba(0, 100, 0, 0.2);
-  padding: 8px 20px;
-  border-radius: 50px;
-  color: var(--primary-green);
-  background: rgba(0, 100, 0, 0.05);
-  font-weight: 700;
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-}
-
-#byteflow-blog-hub .blog-heading {
-  font-size: clamp(2.5rem, 7vw, 3.5rem);
-  font-weight: 800;
-  margin: 25px 0;
-  color: var(--text-dark);
-}
-
-#byteflow-blog-hub .green-accent {
-  color: var(--primary-green);
-}
-
-#byteflow-blog-hub .blog-desc {
-  color: var(--text-dim);
-  font-size: 1.1rem;
-  max-width: 700px;
+.blog-limit {
+  width: 90%;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
-/* 3. Grid System */
-#byteflow-blog-hub .blog-grid-system {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 35px;
-  padding: 80px 0 120px;
+.green-accent, .sig-font {
+  font-family: var(--font-sig) !important;
+  color: var(--primary-green) !important;
+  font-size: 1.25em;
 }
 
-/* 4. Blog Card - Professional White Style */
-#byteflow-blog-hub .blog-item-card {
-  background: var(--bg-white);
-  border-radius: 24px;
-  border: 1px solid var(--border-color);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  transition: all 0.3s ease;
-  box-shadow: var(--card-shadow);
-}
-
-#byteflow-blog-hub .blog-item-card:hover {
-  border-color: var(--primary-green);
-  transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(0, 100, 0, 0.08);
-}
-
-#byteflow-blog-hub .blog-card-visual {
-  height: 200px;
-  background-color: var(--bg-soft);
-  display: flex;
+/* Shared Read Link Style */
+.blog-read-link {
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  position: relative;
-  border-bottom: 1px solid var(--border-color);
-}
-
-#byteflow-blog-hub .blog-card-cat {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  background: var(--bg-white);
-  padding: 6px 14px;
-  border-radius: 10px;
-  font-size: 0.7rem;
-  font-weight: 800;
-  color: var(--primary-green);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-}
-
-#byteflow-blog-hub .blog-card-info {
-  padding: 30px;
-  flex-grow: 1;
-}
-
-#byteflow-blog-hub .blog-card-info h3 {
-  font-size: 1.35rem;
-  font-weight: 700;
-  margin-bottom: 12px;
-  color: black;
-  line-height: 1.4;
-}
-
-#byteflow-blog-hub .blog-card-info p {
-  color: var(--text-dim);
-  font-size: 0.95rem;
-  margin-bottom: 25px;
-}
-
-/* 5. Read More Link */
-#byteflow-blog-hub .blog-read-link {
+  gap: 8px;
   color: var(--primary-green);
   text-decoration: none;
   font-weight: 700;
-  display: flex;
-  align-items: center;
-  gap: 8px;
   font-size: 0.9rem;
-  transition: color 0.2s;
+  transition: var(--transition-smooth);
 }
 
-#byteflow-blog-hub .blog-read-link:hover {
-  color: var(--accent-green);
+.blog-read-link:hover {
+  gap: 12px;
 }
 
-/* 6. BLOG DETAIL PAGE */
-#byteflow-blog-hub .detail-page-padding {
-  padding-top: 140px;
-  padding-bottom: 100px;
-}
 
-#byteflow-blog-hub .detail-main-title {
-  font-size: clamp(2rem, 5vw, 3rem);
-  font-weight: 800;
-  line-height: 1.1;
-  color: var(--text-dark);
-  margin: 20px 0;
-  letter-spacing: -0.5px;
-}
+/* ==========================================================================
+   PART 2: BLOG MAIN HUB STYLES (MAIN PAGE)
+   ========================================================================== */
 
-#byteflow-blog-hub .detail-meta-info {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  color: var(--text-dim);
-  font-size: 0.9rem;
-  margin-bottom: 40px;
-  border-bottom: 1px solid var(--border-color);
-  padding-bottom: 20px;
-}
-
-#byteflow-blog-hub .detail-hero-visual {
-  width: 100%;
-  height: 450px;
-  background-color: var(--bg-soft);
-  border-radius: 32px;
+/* Hero Section Main */
+.blog-hero-main {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 130px 0 70px 0; 
+  min-height: 55vh; 
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 60px;
-  border: 1px solid var(--border-color);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+  width: 100%;
 }
 
-#byteflow-blog-hub .section-title {
-  font-size: 1.6rem;
+.hero-inner-text {
+  text-align: center;
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+.blog-tagline {
+  display: inline-block;
+  background: var(--primary-green);
+  color: #ffffff;
+  padding: 5px 14px;
+  border-radius: 50px;
   font-weight: 700;
-  color: var(--primary-green);
-  margin: 50px 0 20px;
-}
-
-#byteflow-blog-hub .detail-rich-text p {
-  font-size: 1.15rem;
-  color: var(--text-dark);
-  margin-bottom: 30px;
-  line-height: 1.8;
-  opacity: 0.9;
-}
-
-#byteflow-blog-hub .detail-quote-block {
-  padding: 40px;
-  background: var(--bg-soft);
-  border-left: 5px solid var(--primary-green);
-  border-radius: 12px;
-  margin: 50px 0;
-  font-style: italic;
-  font-size: 1.25rem;
-  color: var(--text-dark);
-  line-height: 1.6;
-}
-
-#byteflow-blog-hub .detail-conclusion-box {
-  background: var(--bg-soft);
-  padding: 45px;
-  border-radius: 24px;
-  border: 1px solid var(--border-color);
-  margin-top: 60px;
-  box-shadow: inset 0 2px 10px rgba(0,0,0,0.02);
-}
-
-#byteflow-blog-hub .detail-conclusion-box h4 {
-  font-weight: 800;
-  color: var(--primary-green);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
   margin-bottom: 15px;
 }
 
-/* 7. Mobile Responsiveness */
+.blog-heading {
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.2;
+  color: #ffffff;
+  margin-bottom: 15px;
+}
+
+.blog-desc {
+  font-size: 1.05rem;
+  color: #dddddd;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+/* Blog Grid */
+.blog-list-section {
+  padding: 60px 0;
+}
+
+.blog-grid-system {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+  gap: 30px;
+  width: 100%;
+}
+
+/* Blog Item Card */
+.blog-item-card {
+  background: var(--bg-pure-white);
+  border-radius: 20px;
+  border: 1.5px solid #e2e8f0; 
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition-smooth);
+}
+
+.blog-item-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--primary-green);
+  box-shadow: 0 12px 25px rgba(0, 100, 0, 0.04);
+}
+
+.blog-card-visual {
+  height: 180px;
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-smooth);
+}
+
+.blog-card-icon {
+  color: #ffffff;
+  opacity: 0.85;
+  transition: var(--transition-smooth);
+}
+
+.blog-item-card:hover .blog-card-icon {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+.blog-card-cat {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  color: #ffffff;
+  padding: 4px 12px;
+  border-radius: 50px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.blog-card-info {
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.blog-card-info h3 {
+  font-size: 1.2rem;
+  font-weight: 800;
+  line-height: 1.4;
+  margin-bottom: 10px;
+  color: var(--dark-charcoal);
+}
+
+.blog-card-info p {
+  font-size: 0.9rem;
+  color: var(--body-muted);
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.blog-card-footer {
+  margin-top: auto; 
+}
+
+
+/* ==========================================================================
+   PART 3: BLOG DETAIL STYLES (SINGLE ARTICLE VIEW)
+   ========================================================================== */
+
+.blog-detail-wrapper {
+  padding: 140px 0 80px 0; 
+}
+
+.blog-detail-wrapper .blog-limit {
+  max-width: 850px; /* Optimal reading width nka Nexventures */
+}
+
+.back-insights-btn {
+  margin-bottom: 35px;
+}
+
+/* Article Header Area */
+.detail-header-section {
+  margin-bottom: 35px;
+}
+
+.detail-category-badge {
+  display: inline-block;
+  color: #ffffff;
+  padding: 5px 14px;
+  border-radius: 50px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 20px;
+}
+
+.detail-main-title {
+  font-size: clamp(1.8rem, 4.5vw, 2.8rem);
+  font-weight: 800;
+  line-height: 1.25;
+  color: var(--dark-charcoal);
+  margin-bottom: 20px;
+}
+
+.detail-meta-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  color: var(--body-muted);
+  font-size: 0.88rem;
+  font-weight: 500;
+  border-bottom: 1.5px solid #e2e8f0;
+  padding-bottom: 20px;
+}
+
+.detail-meta-info span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Big Hero Visual Icon Box */
+.detail-hero-visual {
+  width: 100%;
+  height: 250px;
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 45px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+}
+
+.large-icon-wrapper {
+  color: #ffffff;
+  transform: scale(1.5);
+}
+
+/* Article Text Rendering */
+.detail-article-body {
+  width: 100%;
+}
+
+.rich-text-section {
+  margin-bottom: 35px;
+}
+
+.detail-article-body .section-title {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--dark-charcoal);
+  margin-bottom: 12px;
+}
+
+.section-paragraph {
+  font-size: 1.05rem; /* Gabanyije size ngo bibe clean */
+  line-height: 1.65;
+  color: #222222; 
+  margin: 0;
+}
+
+/* Quote Block Dynamic */
+.detail-quote-block {
+  border-left: 4px solid var(--primary-green);
+  background: var(--light-green-bg);
+  padding: 25px;
+  border-radius: 0 16px 16px 0;
+  margin: 40px 0;
+}
+
+.detail-quote-block p {
+  font-family: var(--font-sig);
+  font-size: 1.4rem;
+  line-height: 1.5;
+  color: var(--primary-green);
+  margin: 0;
+  font-weight: 600;
+}
+
+/* Conclusion Box Layout */
+.detail-conclusion-box {
+  margin-top: 40px;
+  padding-top: 30px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.conclusion-cta-text {
+  margin-top: 25px;
+  font-weight: 700;
+  color: var(--primary-green) !important;
+  font-size: 1.05rem;
+}
+
+/* Social Share Circle */
+.detail-footer-share {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid #e2e8f0;
+  margin-top: 50px;
+  padding-top: 25px;
+}
+
+.detail-footer-share p {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--dark-charcoal);
+  margin: 0;
+}
+
+.share-btn-circle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--light-green-bg);
+  color: var(--primary-green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  border: 1px solid rgba(0, 100, 0, 0.1);
+}
+
+.share-btn-circle:hover {
+  background: var(--primary-green);
+  color: #ffffff;
+  transform: scale(1.05);
+}
+
+/* Article Not Found */
+.blog-not-found {
+  padding: 160px 20px;
+  text-align: center;
+}
+
+.blog-not-found h2 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin-bottom: 15px;
+}
+
+.center-link {
+  justify-content: center;
+  margin-top: 20px;
+}
+
+
+/* ==========================================================================
+   PART 4: RESPONSIVE MEDIA QUERIES (TABLET & MOBILE FIXES)
+   ========================================================================== */
+
 @media (max-width: 768px) {
-  #byteflow-blog-hub .blog-grid-system {
-    grid-template-columns: 1fr;
-    padding-bottom: 60px;
-  }
-  #byteflow-blog-hub .detail-hero-visual {
-    height: 300px;
-    border-radius: 20px;
-  }
-  #byteflow-blog-hub .blog-hero-main {
-    padding-top: 120px;
-  }
+  /* Hub View */
+  .blog-hero-main { padding: 110px 0 50px 0; min-height: 45vh; }
+  .blog-list-section { padding: 40px 0; }
+  .blog-grid-system { grid-template-columns: repeat(auto-fill, minmax(275px, 1fr)); gap: 20px; }
+  .blog-card-info { padding: 20px; }
+
+  /* Detail View */
+  .blog-detail-wrapper { padding: 110px 0 60px 0; }
+  .detail-hero-visual { height: 180px; margin-bottom: 30px; }
+  .detail-main-title { font-size: 1.6rem; }
+  .detail-meta-info { gap: 12px; padding-bottom: 15px; }
 }

@@ -1,239 +1,290 @@
-/* Contact.css - Professional Clean White Theme */
-@import url('https://googleapis.com');
 
 :root {
-  --primary-green: #006400;      /* Your Dark Green */
-  --bg-white: #ffffff;           /* Pure White Background */
-  --bg-soft: #f8fafc;            /* Light Gray for Sections */
-  --text-dark: #0f172a;          /* Deep Slate for Headings */
-  --text-dim: #64748b;           /* Muted Slate for Body Text */
-  --border-color: #e2e8f0;       /* Soft Gray Borders */
-  --accent-green: #16a34a;       /* Vibrant Green for Buttons */
-  --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  --primary-green: #006400;
+  --light-green-bg: rgba(0, 100, 0, 0.04);
+  --dark-charcoal: #111111;
+  --body-muted: #555555;
+  --bg-pure-white: #ffffff;
+  --font-sig: 'Dancing Script', cursive;
+  --transition-smooth: all 0.3s ease;
 }
 
 .contact-v14 {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  background-color: var(--bg-white);
-  color: var(--text-dark);
-  min-height: 100vh;
-  padding-bottom: 80px;
+  background-color: var(--bg-pure-white); /* Umweru ukeye */
+  width: 100%;
+  overflow-x: hidden;
+  font-family: 'Inter', sans-serif;
+  color: var(--dark-charcoal);
+  padding-bottom: 60px;
 }
 
-/* 1. Hero Section - Clean & Minimalist */
-.contact-hero-v14 {
-  padding: 160px 0 80px;
-  text-align: center;
-  background: radial-gradient(circle at top, rgba(0, 100, 0, 0.03) 0%, transparent 70%);
-  border-bottom: 1px solid var(--border-color);
-}
-
-.contact-tag {
-  color: var(--primary-green);
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  font-weight: 800;
-  font-size: 0.8rem;
-  display: block;
-  margin-bottom: 15px;
-}
-
-.contact-hero-v14 h1 {
-  font-size: clamp(2.5rem, 7vw, 3.5rem);
-  font-weight: 800;
-  letter-spacing: -1.5px;
-  margin-bottom: 20px;
-  color: var(--text-dark);
-}
-
-.contact-hero-v14 .highlight {
-  color: var(--primary-green);
-}
-
-.hero-text-center p {
-  color: var(--text-dim);
-  font-size: 1.15rem;
-  max-width: 600px;
+.container {
+  width: 90%;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
-/* 2. Grid Layout */
-.contact-wrapper-grid {
-  display: grid;
-  grid-template-columns: 0.8fr 1.2fr;
-  gap: 30px;
+/* --- HERO SECTION --- */
+.contact-hero-v14 {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.85)), url('../assets/contact.jpg');
+  background-size: cover;
+  background-position: center;
+  padding: 100px 0 60px 0;
+  min-height: 40vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.hero-container {
+  width: 90%;
+  max-width: 600px;
+}
+
+.hero-text-center {
+  text-align: center;
+}
+
+.contact-tag {
+  background: var(--bg-pure-white);
+  font-weight: 800;
+  color: var(--primary-green);
+  padding: 8px 20px;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+.contact-hero-v14 h1 {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  color: #ffffff;
+  font-weight: 800;
+  margin-bottom: 15px;
+}
+
+.contact-hero-v14 .highlight {
+  font-family: var(--font-sig);
+  color: var(--primary-green);
+}
+
+.contact-hero-v14 p {
+  color: #cccccc;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+/* --- MAIN CONTENT & GRID --- */
+.contact-main {
   margin-top: 60px;
 }
 
-/* Left Side: Contact Info Card */
+.contact-wrapper-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr));
+  gap: 40px;
+  width: 100%;
+}
+
+/* Left Sidebar Info Card */
 .info-card-v14 {
-  background: var(--bg-white);
-  padding: 45px;
+  background: var(--bg-pure-white);
+  padding: 40px;
   border-radius: 24px;
-  border: 1px solid var(--border-color);
-  box-shadow: var(--card-shadow);
+  border: 1.5px solid #e2e8f0; /* Border igaragara nka Portfolio */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .info-card-v14 h2 {
-  font-size: 1.8rem;
-  margin-bottom: 35px;
-  color: var(--text-dark);
+  font-size: 1.6rem;
   font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.info-card-v14 p {
+  color: var(--body-muted);
+  font-size: 0.95rem;
+  margin-bottom: 30px;
 }
 
 .contact-links-stack {
   display: flex;
   flex-direction: column;
-  gap: 30px;
-  margin-bottom: 40px;
+  gap: 25px;
+  margin-bottom: 35px;
 }
 
 .contact-link-item {
   display: flex;
-  align-items: center;
-  gap: 20px;
+  align-items: flex-start;
+  gap: 15px;
 }
 
 .icon-bg {
-  background: rgba(0, 100, 0, 0.05);
   color: var(--primary-green);
-  width: 54px;
-  height: 54px;
-  border-radius: 14px;
+  background: var(--light-green-bg);
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  border: 1px solid rgba(0, 100, 0, 0.1);
 }
 
 .contact-link-item h4 {
-  font-size: 0.75rem;
-  color: var(--text-dim);
-  margin-bottom: 4px;
-  text-transform: uppercase;
+  font-size: 1rem;
   font-weight: 700;
+  margin-bottom: 3px;
 }
 
 .contact-link-item p {
-  font-size: 1.05rem;
-  font-weight: 700;
-  color: var(--text-dark);
+  font-size: 0.9rem;
+  color: var(--body-muted);
+  margin: 0;
 }
 
 .v14-whatsapp-btn {
-  background: var(--primary-green);
-  color: white;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
-  padding: 18px;
-  border-radius: 14px;
+  gap: 10px;
+  background: #25d366;
+  color: white;
   text-decoration: none;
-  font-weight: 800;
-  transition: all 0.3s ease;
-  box-shadow: 0 10px 20px rgba(0, 100, 0, 0.15);
+  padding: 14px;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: var(--transition-smooth);
+  margin-top: auto;
 }
 
 .v14-whatsapp-btn:hover {
-  background: #004d00;
-  transform: translateY(-4px);
-  box-shadow: 0 15px 30px rgba(0, 100, 0, 0.25);
+  background: #20ba5a;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(37, 211, 102, 0.2);
 }
 
-/* 3. Form Styling - Clean Professional Look */
-.form-container-v14 {
-  background: var(--bg-white);
-  padding: 50px;
+/* Right Side Form */
+.v14-form {
+  background: var(--bg-pure-white);
+  padding: 40px;
   border-radius: 24px;
-  border: 1px solid var(--border-color);
-  box-shadow: var(--card-shadow);
+  border: 1.5px solid #e2e8f0;
 }
 
 .v14-form-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 25px;
+  gap: 20px;
 }
 
 .v14-input-box {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  margin-bottom: 25px;
+  gap: 8px;
+  margin-bottom: 20px;
 }
 
 .v14-input-box label {
+  font-size: 0.88rem;
   font-weight: 700;
-  color: var(--text-dark);
-  font-size: 0.85rem;
+  color: var(--dark-charcoal);
 }
 
 .v14-input-box input, 
 .v14-input-box textarea {
-  background: var(--bg-soft);
-  border: 1px solid var(--border-color);
-  padding: 16px;
+  width: 100%;
+  padding: 12px 16px;
   border-radius: 12px;
-  color: var(--text-dark);
+  border: 1.5px solid #e2e8f0;
+  background: var(--bg-pure-white);
   font-family: inherit;
-  font-size: 1rem;
-  transition: all 0.3s ease;
+  font-size: 0.95rem;
+  outline: none;
+  transition: var(--transition-smooth);
 }
 
 .v14-input-box input:focus, 
 .v14-input-box textarea:focus {
   border-color: var(--primary-green);
-  background: white;
-  box-shadow: 0 0 0 4px rgba(0, 100, 0, 0.05);
-  outline: none;
+  background: var(--light-green-bg);
 }
 
 .v14-submit-btn {
   background: var(--primary-green);
   color: white;
-  width: 100%;
-  padding: 20px;
-  border-radius: 12px;
   border: none;
-  font-weight: 800;
+  padding: 14px;
+  border-radius: 50px;
+  font-weight: 600;
   font-size: 1rem;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
-  transition: all 0.3s ease;
+  gap: 10px;
+  transition: var(--transition-smooth);
 }
 
 .v14-submit-btn:hover {
   background: #004d00;
-  transform: scale(1.02);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 100, 0, 0.15);
 }
 
-.location-teaser { margin-top: 100px; text-align: center; }
+/* --- LOCATION TEASER --- */
+.location-teaser {
+  margin-top: 60px;
+}
+
 .teaser-box {
-  padding: 80px 40px;
-  border-radius: 32px;
-  background: var(--bg-soft);
-  border: 2px dashed var(--border-color);
+  background: var(--light-green-bg);
+  border: 1px dashed rgba(0, 100, 0, 0.2);
+  border-radius: 24px;
+  padding: 40px;
+  text-align: center;
 }
 
-.teaser-box h2 { font-weight: 800; color: var(--text-dark); margin-bottom: 10px; }
-.teaser-box p { color: var(--text-dim); }
-
-.spinning-globe { color: var(--primary-green); margin-bottom: 20px; }
-
-/* Responsive */
-@media (max-width: 992px) {
-  .contact-wrapper-grid { grid-template-columns: 1fr; }
-  .contact-hero-v14 h1 { font-size: 2.8rem; }
-  .info-card-v14, .form-container-v14 { padding: 35px; }
+.spinning-globe {
+  color: var(--primary-green);
+  margin-bottom: 15px;
+  animation: spin Globe 20s linear infinite;
 }
 
-@media (max-width: 576px) {
-  .v14-form-grid { grid-template-columns: 1fr; }
-  .contact-hero-v14 { padding-top: 120px; }
-  .teaser-box { padding: 40px 20px; }
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.teaser-box h3 {
+  font-size: 1.3rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.teaser-box p {
+  color: var(--body-muted);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+  .v14-form-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .info-card-v14, .v14-form {
+    padding: 25px;
+  }
+  .contact-main {
+    margin-top: 40px;
+  }
 }

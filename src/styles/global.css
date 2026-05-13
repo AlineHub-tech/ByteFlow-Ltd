@@ -1,21 +1,180 @@
-@import url('https://fonts.googleapis.com');
+/* ==========================================================================
+   GLOBAL.CSS — ULTIMATE HARD OVERFLOW RESET (100% FIXED)
+   ========================================================================= */
 
 :root {
-  --midnight-blue: #020617;  /* Deep Professional Blue */
-  --electric-blue: #2563eb;  /* Primary Action */
-  --emerald: #10b981;       /* Innovation Accent */
-  --white: #b9b9b9;
-  --text-dim: #94a3b8;
-  --glass-border: rgba(255, 255, 255, 0.1);
+  --primary-green: #006400;
+  --primary-hover: #004d00;
+  --light-green-bg: rgba(0, 100, 0, 0.04);
+  --dark-charcoal: #111111;
+  --body-muted: #555555;
+  --bg-pure-white: #ffffff;
+  --border-color: #e2e8f0;
+  --font-sig: 'Dancing Script', cursive;
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+/* 1. ABSOLUTE SYSTEM BOUNDING (Kuhwanya horizontal scroll by force) */
+*, *::before, *::after {
+  box-sizing: border-box !important;
+}
+
+html, body {
+  width: 100% !important;
+  max-width: 100vw !important;
+  overflow-x: hidden !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
 
 body {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  background-color: var(--midnight-blue);
-  color: var(--white);
-  overflow-x: hidden;
+  background-color: var(--bg-pure-white);
+  color: var(--dark-charcoal);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
 }
 
-.container { max-width: 1300px; margin: 0 auto; padding: 0 2rem; }
+/* 2. FLEX & GRID OVERRIDE FOR RESPONSIVENESS */
+.container {
+  width: 90% !important;
+  max-width: 1200px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  position: relative;
+  box-sizing: border-box !important;
+}
+
+/* Ibi bikata ifoto cyangwa dashboards zose zashakaga kurenga imipaka */
+img, video, iframe, pre, code, svg {
+  max-width: 100% !important;
+  height: auto !important;
+  box-sizing: border-box !important;
+}
+
+pre {
+  overflow-x: auto !important;
+  white-space: pre-wrap !important;
+  word-wrap: break-word !important;
+}
+
+/* 3. UNIVERSAL COMPONENT SAFEGUARDS */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--dark-charcoal);
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.sig-font {
+  font-family: var(--font-sig) !important;
+  color: var(--primary-green) !important;
+  font-size: 1.25em !important;
+  text-transform: none !important;
+}
+
+.badge {
+  display: inline-block;
+  background: var(--light-green-bg);
+  border: 1px solid rgba(0, 100, 0, 0.15);
+  color: var(--primary-green);
+  padding: 6px 16px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 20px;
+}
+
+.accent-bar {
+  width: 50px;
+  height: 4px;
+  background: var(--primary-green);
+  margin: 12px auto 0 auto;
+  border-radius: 50px;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ==========================================================================
+   4. THE BULLET-PROOF BREAKPOINTS OVERWRITE (Aha niho hacyemuka byose)
+   ========================================================================= */
+
+/* Kuri Tablets na Screens zose ntoya */
+@media (max-width: 1024px) {
+  /* Enforce grid alignment idashobora guhinyurwa */
+  div[class*="grid"], div[class*="layout"], div[class*="container-grid"], .divisions-grid, .grid-layout, .services-grid, .pricing-grid, .blog-grid-system {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+    gap: 20px !important;
+    width: 100% !important;
+  }
+  
+  /* Enforce flex rows zose zikore column */
+  div[class*="flex"], .hero-flex, .founder-grid, .service-row, .service-row.reverse {
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    gap: 30px !important;
+    width: 100% !important;
+  }
+
+  /* Kugarura control ku bigize hero n'amakarita yose */
+  div[class*="text"], div[class*="visual"], div[class*="content"], div[class*="info"], div[class*="sidebar"], .hero-text, .hero-visual, .founder-info, .founder-visual, .service-info, .service-visual {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important; /* Ikuraho min-width yose yagongaga screen */
+  }
+}
+
+/* Kuri Phones zose (Mobile Screens) */
+@media (max-width: 768px) {
+  html {
+    font-size: 14px; /* Tagabanyije inyuguti ngo zikwiriye kuri phone mini */
+  }
+  .container {
+    width: 92% !important;
+  }
+  
+  /* Force auto columns kuri amakarita amwe n'amwe ahengamye */
+  div[class*="grid"], .grid-layout, .services-list-grid, .v14-form-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Kuraho amapadding akabije yangizaga isura kuri mobile */
+  section, div, header, article {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  
+  .container, .info-card-v14, .v14-form, .project-card, .price-card, .service-row, .division-card, .why-box-wrapper {
+    padding: 20px !important; /* Padding ifite isuku y'imbere gusa */
+  }
+  
+  /* Force buttons and text alignment center */
+  div[class*="btns"], .hero-btns, .hero-action-btns {
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+    gap: 12px !important;
+  }
+  
+  div[class*="btns"] a, div[class*="btns"] button, .hero-btns a, .hero-action-btns a {
+    width: 100% !important; /* Buto ziba 100% kuri mobile ngo zisomeke neza */
+    max-width: 320px !important;
+  }
+}

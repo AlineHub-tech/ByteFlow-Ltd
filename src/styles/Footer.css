@@ -1,117 +1,121 @@
+
 :root {
-  --footer-bg: #014101a2; /* Dark Green ukeneye */
-  --accent-green: #22c55e; /* Icyatsi cyaka cyatuma amagambo asomeka neza */
-  --text-gray: #ffffff;
-  --white: #ffffff;
+  --primary-green: #006400;       /* Dark Green */
+  --primary-hover: #004d00;       /* Dark Green Hover */
+  --footer-bg: #070707;           /* Deep Black Base */
+  --footer-card-bg: #111111;      /* Tech Input Tint */
+  --text-gray-light: #e2e8f0;
+  --text-gray-muted: #94a3b8;
+  --font-sig: 'Dancing Script', cursive;
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* 1. MAIN FOOTER CONTAINER */
 .footer-v2 {
-  background-color: var(--footer-bg);
-  color: var(--white);
-  padding: 80px 0 0 0;
-  font-family: 'Inter', sans-serif;
+  background-color: var(--footer-bg) !important;
+  color: var(--text-gray-light) !important;
+  padding: 80px 0 0 0 !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  width: 100% !important;
+  box-sizing: border-box !important;
 }
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
+/* 2. GRID ARCHITECTURE */
 .footer-grid {
-  display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
-  gap: 40px;
-  padding-bottom: 50px;
+  display: grid !important;
+  grid-template-columns: 1.4fr 0.9fr 1.1fr 1.2fr !important;
+  gap: 40px !important;
+  margin-bottom: 50px !important;
+  width: 100% !important;
 }
 
-/* Brand Section */
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  width: 100% !important;
+  min-width: 0 !important;
+}
+
+/* 3. BRAND & LOGO BLUEPRINT */
 .footer-logo-link {
   display: flex;
-  align-items: center;
-  gap: 10px;
+  flex-direction: column;
   text-decoration: none;
-  margin-bottom: 20px;
+  line-height: 0.9;
+  margin-bottom: 18px;
+  width: max-content;
 }
 
-.logo-wrapper {
-  background: var(--accent-green);
-  padding: 8px;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
+.footer-brand-logo {
+  height: 42px !important;
+  width: 42px !important;
+  border-radius: 50% !important;
+  border: 2px solid var(--primary-green) !important;
+  object-fit: cover !important;
+  margin-bottom: 5px;
 }
 
-.logo-icon-main {
-  color: var(--footer-bg);
+.brand-col .logo-text {
+  font-family: var(--font-sig) !important;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #ffffff;
 }
 
-.logo-text {
-  font-size: 1.5rem;
-  font-weight: 800;
-  color: var(--white);
-  letter-spacing: -1px;
-}
-
-.logo-text .accent {
-  color: var(--accent-green);
+.brand-col .accent {
+  color: var(--primary-green);
 }
 
 .brand-pitch {
-  color: var(--text-gray);
+  color: var(--text-gray-muted);
+  font-size: 0.92rem;
   line-height: 1.6;
-  font-size: 0.95rem;
-  margin-bottom: 25px;
+  margin-bottom: 22px;
 }
 
-/* Social Icons */
+/* Social Icons (Pills) */
 .social-pill-container {
   display: flex;
-  gap: 12px;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
 .social-pill {
-  background: var(--glass-bg);
-  color: var(--white);
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.03);
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 50%;
-  transition: all 0.3s ease;
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: var(--transition-smooth);
 }
 
 .social-pill:hover {
-  background: var(--accent-green);
-  transform: translateY(-3px);
+  background: var(--primary-green);
+  color: #ffffff !important;
+  border-color: var(--primary-green);
+  transform: translateY(-4px);
+  box-shadow: 0 5px 15px rgba(0, 100, 0, 0.3);
 }
 
-/* Titles */
+/* 4. HEADINGS & TITLES */
 .footer-title {
-  font-size: 1.1rem;
+  font-family: var(--font-sig) !important;
+  font-size: 1.35rem;
+  color: var(--primary-green);
+  margin-bottom: 22px;
   font-weight: 700;
-  color: var(--white);
-  margin-bottom: 25px;
-  position: relative;
+  letter-spacing: 0.5px;
 }
 
-.footer-title::after {
-  content: '';
-  position: absolute;
-  left: 0;
-   color: var(--white);
-  bottom: -8px;
-  width: 30px;
-  height: 3px;
-  background: var(--accent-green);
-}
-
-/* Navigation Links */
+/* 5. NAVIGATION LINKS LIST */
 .footer-nav-list {
   list-style: none;
   padding: 0;
-   color: var(--white);
+  margin: 0;
 }
 
 .footer-nav-list li {
@@ -119,164 +123,199 @@
 }
 
 .footer-nav-list a {
- color: var(--white);
+  color: var(--text-gray-muted);
   text-decoration: none;
+  font-size: 0.92rem;
   display: flex;
   align-items: center;
-  gap: 8px;
-  transition: 0.3s;
+  gap: 6px;
+  transition: var(--transition-smooth);
+  width: max-content;
 }
 
 .footer-nav-list a:hover {
-  color: var(--accent-green);
+  color: var(--primary-green);
   padding-left: 5px;
 }
 
-/* Contact Items */
+/* 6. CONTACT DETAILS STACK */
 .contact-info-stack {
   display: flex;
   flex-direction: column;
-  gap: 15px;
-   color: var(--white);
+  gap: 16px;
 }
 
 .contact-item {
   display: flex;
   align-items: flex-start;
   gap: 12px;
-  color: var(--white);
-  font-size: 0.9rem;
+  color: var(--text-gray-muted);
+  font-size: 0.88rem;
+  line-height: 1.4;
 }
 
 .icon-box {
-  color: var(--accent-green);
+  color: var(--primary-green);
+  flex-shrink: 0;
+  margin-top: 2px;
 }
 
-/* Newsletter Form */
+/* 7. MODERN NEWSLETTER SUBSCRIBE FORM */
 .newsletter-text {
-  font-size: 0.9rem;
-  color: var(--white);
-  margin-bottom: 15px;
+  font-size: 0.88rem;
+  color: var(--text-gray-muted);
+  line-height: 1.5;
+  margin-bottom: 18px;
 }
 
 .modern-subscribe {
   display: flex;
-  background: var(--glass-bg);
-  padding: 5px;
-  border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--footer-card-bg);
+  padding: 4px;
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  width: 100%;
+  max-width: 320px;
+  align-items: center;
+  transition: var(--transition-smooth);
+}
+
+.modern-subscribe:focus-within {
+  border-color: var(--primary-green);
+  box-shadow: 0 0 10px rgba(0, 100, 0, 0.1);
 }
 
 .modern-subscribe input {
   background: transparent;
   border: none;
-  padding: 10px;
-  color: white;
-  width: 100%;
+  padding: 8px 16px;
+  color: #ffffff;
+  flex: 1;
   outline: none;
+  font-size: 0.88rem;
+  width: 100%;
 }
 
 .btn-send {
-  background: var(--accent-green);
+  background: var(--primary-green);
   border: none;
-  color: var(--footer-bg);
-  padding: 8px 15px;
-  border-radius: 6px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  color: #ffffff;
   cursor: pointer;
-  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: var(--transition-smooth);
 }
 
 .btn-send:hover {
-  background: var(--white);
+  background: var(--primary-hover);
+  transform: scale(1.05);
 }
 
-/* Bottom Bar */
+.status-msg {
+  font-size: 12px; 
+  margin-top: 10px; 
+  color: #006400; 
+  font-weight: 700;
+}
+
+/* 8. LEGAL BOTTOM BAR */
 .footer-legal-bar {
   margin-top: 50px;
-  padding: 25px 0;
+  padding: 22px 0 !important;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.4);
+  width: 100% !important;
 }
 
 .bar-flex {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 0.85rem;
-  color: var(--text-gray);
+  width: 100%;
+  font-size: 0.82rem;
+  color: #64748b;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+/* Developer Label (Umugwaneza Aline) */
+.developer-name {
+  color: var(--primary-green);
+  font-family: var(--font-sig) !important;
+  font-weight: 700;
+  font-size: 1.1rem;
 }
 
 .legal-links {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 14px;
 }
 
 .legal-links a {
- color: var(--white);
+  color: #64748b;
   text-decoration: none;
+  transition: var(--transition-smooth);
+}
+
+.legal-links a:hover {
+  color: var(--primary-green);
 }
 
 .dot {
   width: 4px;
   height: 4px;
-  background: var(--accent-green);
+  background: rgba(255, 255, 255, 0.15);
   border-radius: 50%;
 }
 
-/* Responsive */
-@media (max-width: 992px) {
+/* ==========================================================================
+   9. BREAKPOINTS (TABLET & MOBILE FIXES — NO OVERFLOW)
+   ========================================================================== */
+
+@media (max-width: 1024px) {
   .footer-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 30px !important;
   }
 }
 
-@media (max-width: 576px) {
-  .footer-grid {
-    grid-template-columns: 1fr;
+@media (max-width: 650px) {
+  .footer-v2 {
+    padding: 60px 20px 0 20px !important; 
   }
-  .bar-flex {
-    flex-direction: column;
-    gap: 15px;
+
+  .footer-grid {
+    grid-template-columns: 1fr !important; 
+    gap: 35px !important;
+    text-align: center !important;
+  }
+
+  .footer-logo-link, 
+  .social-pill-container, 
+  .contact-item, 
+  .modern-subscribe, 
+  .footer-nav-list a {
+    justify-content: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .contact-item {
     text-align: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .bar-flex {
+    flex-direction: column !important;
+    text-align: center !important;
+    gap: 12px;
   }
 }
-/* Add these new styles for the footer image logo */
-.footer-brand-logo {
-  height: 35px; /* Adjust the size of the logo in the footer */
-  width: auto;
-  border: 1px solid green;
-  object-fit: contain;
-}
-
-/* Adjust the gap in the logo link wrapper */
-.footer-logo-link {
-  display: flex;
-  align-items: center;
-  gap: 10px; /* Space between logo image and text */
-  text-decoration: none;
-  margin-bottom: 20px;
-}
-.footer-text .developer-name a {
-    font-weight: bold; 
-    color: #FF5733;  
-    text-decoration: none;
-    transition: color 0.3s ease; 
-}
-
-.footer-text .developer-name:hover {
-    color: #ffffff; 
-    text-decoration:none;
-}
-a{
-text-decoration:none;
-color: #ff380b; 
-font-weight:bolder;
-font-family:sans-serif;
-}
-
-
-
-
-
-

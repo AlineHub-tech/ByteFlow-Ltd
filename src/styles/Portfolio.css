@@ -1,221 +1,318 @@
-/* Portfolio.css - Professional Clean White Theme */
-@import url('https://googleapis.com');
 
 :root {
-  --primary-green: #008000;      /* Dark Green */
-  --bg-white:#e2e2e2;          /* Background nshya */
-  --bg-soft: #f8fafc;            /* Section background yoroheje */
-  --card-white: #ffffff;         /* Card background */
-  --text-dark: #0f172a;          /* Amagambo y'umukara */
-  --text-dim: #64748b;           /* Amagambo y'imvi */
-  --border-color: #e2e8f0;       /* Imirongo y'isezero */
-  --glass-white: rgba(255, 255, 255, 0.8);
+  --primary-green: #006400; /* Dark Green */
+  --light-green-bg: rgba(0, 100, 0, 0.04);
+  --dark-charcoal: #111111;
+  --body-muted: #555555;
+  --bg-pure-white: #ffffff;
+  --font-sig: 'Dancing Script', cursive;
+  --transition-smooth: all 0.3s ease;
 }
 
-.portfolio-v16 {
-  background: var(--bg-white);
-  color: var(--text-dark);
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  min-height: 100vh;
-  padding-bottom: 100px;
+.portfolio-page {
+  background-color: var(--bg-pure-white);
+  color: var(--dark-charcoal);
+  font-family: 'Inter', sans-serif;
+  width: 100%;
   overflow-x: hidden;
 }
 
-/* --- Luxury Header - Clean White --- */
-.portfolio-hero-v16 {
-  padding: 140px 5% 60px;
-  text-align: center;
-  background: radial-gradient(circle at 50% -20%, rgba(0, 128, 0, 0.05) 0%, transparent 60%);
-  border-bottom: 1px solid var(--border-color);
-}
-
-.v16-badge {
-  background: rgba(0, 128, 0, 0.05);
-  border: 1px solid rgba(0, 128, 0, 0.2);
-  padding: 10px 24px;
-  border-radius: 50px;
-  color: var(--primary-green);
-  font-weight: 700;
-  font-size: 0.75rem;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-}
-
-.portfolio-hero-v16 h1 {
-  font-size: clamp(2.5rem, 8vw, 3.5rem);
-  font-weight: 800;
-  margin: 25px 0;
-  line-height: 1.1;
-  color: var(--text-dark);
-}
-
-.green-gradient {
-  background: linear-gradient(to right, #16a34a, #008000);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-/* --- Navigation Tabs --- */
-.v16-tabs {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 40px;
-  padding: 0 20px;
-}
-
-.tab-btn {
-  background: var(--bg-soft);
-  border: 1px solid var(--border-color);
-  color: var(--text-dim);
-  padding: 12px 24px;
-  border-radius: 14px;
-  font-weight: 600;
-  font-size: 0.9rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.tab-btn:hover {
-  border-color: var(--primary-green);
-  color: var(--primary-green);
-  background: white;
-}
-
-.tab-btn.active {
-  background: var(--primary-green);
-  border-color: var(--primary-green);
-  color: white;
-  box-shadow: 0 10px 20px -10px rgba(0, 128, 0, 0.4);
-}
-
-/* --- Dynamic Grid --- */
 .container {
-  max-width: 1300px;
+  width: 90%;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 25px;
-  
 }
 
-.v16-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  gap: 35px;
-  margin-top: 60px;
+.sig-font {
+  font-family: var(--font-sig);
+  color: var(--primary-green);
+  font-size: 1.25em;
 }
 
-/* --- Card Design - Professional White --- */
-.v16-card {
-  background: var(--card-white);
-  border-radius: 24px;
-  border: 1px solid var(--border-color);
-  overflow: hidden;
-  position: relative;
-  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
-}
-
-.v16-card:hover {
-  transform: translateY(-12px);
-  border-color: var(--primary-green);
-  box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.1);
-}
-
-.v16-img-box {
-  position: relative;
-  height: 260px;
-  overflow: hidden;
-  background: var(--bg-soft);
-}
-
-.v16-img-box img {
+/* --- HERO SECTION WITH IMAGE BACKGROUND --- */
+.portfolio-hero {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 150px 0 100px 0; /* Ongereye padding ngo tabs zicaye neza */
+  min-height: 55vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top;
-  transition: transform 0.6s ease;
 }
 
-.v16-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 128, 0, 0.85); /* Green overlay on hover */
+.hero-overlay-content {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transition: 0.4s;
-  backdrop-filter: blur(4px);
 }
 
-.v16-card:hover .v16-overlay { opacity: 1; }
-.v16-card:hover img { transform: scale(1.05); }
-
-/* --- Card Content --- */
-.v16-info {
-  padding: 30px;
-  background: white;
-}
-
-.v16-meta {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  color: var(--primary-green);
+.portfolio-hero .badge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  color: #ffffff;
+  padding: 6px 16px;
+  border-radius: 50px;
   font-weight: 700;
-  font-size: 0.8rem;
-  margin-bottom: 12px;
+  font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-}
-
-.v16-info h3 {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-  font-weight: 700;
-  color: var(--text-dark);
-  letter-spacing: -0.5px;
-}
-
-.v16-tech-desc {
-  color: var(--text-dim);
-  font-size: 0.95rem;
-  line-height: 1.6;
   margin-bottom: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-/* --- Tools Tags --- */
-.v16-tools {
+.portfolio-hero h1 {
+  font-size: clamp(2.2rem, 4.5vw, 3rem);
+  font-weight: 800;
+  line-height: 1.2;
+  color: #ffffff;
+  margin-bottom: 15px;
+}
+
+.portfolio-hero p {
+  font-size: 1.05rem;
+  color: #dddddd;
+  max-width: 550px;
+  margin: 0 auto 40px auto; /* Gap isobanutse munsi ya paragraph */
+  line-height: 1.6;
+}
+
+/* --- TABS FILTERS SYSTEM (KOSOYE: Inside Image Layer) --- */
+.portfolio-filters {
   display: flex;
+  justify-content: center;
+  gap: 10px;
   flex-wrap: wrap;
-  gap: 8px;
+  width: 100%;
 }
 
-.tool-tag {
-  background: var(--bg-soft);
-  border: 1px solid var(--border-color);
-  padding: 6px 14px;
-  border-radius: 8px;
+.portfolio-filters button {
+  background: rgba(255, 255, 255, 0.1); /* Transparent glass look */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  padding: 10px 22px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.portfolio-filters button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: #ffffff;
+}
+
+.portfolio-filters button.active {
+  background: var(--primary-green);
+  border-color: var(--primary-green);
+  color: white;
+  box-shadow: 0 8px 20px rgba(0, 100, 0, 0.3);
+}
+
+/* --- CARDS GRID (Visible Borders & Big Gap) --- */
+.portfolio-grid {
+  margin-top: 60px; /* Gap nini hagati ya Hero Image na Grid */
+  margin-bottom: 100px;
+}
+
+.grid-layout {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 30px;
+}
+
+.project-card {
+  background: var(--bg-pure-white);
+  border-radius: 20px;
+  border: 1.5px solid #e2e8f0; /* Borders zigaragara neza */
+  overflow: hidden;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--primary-green);
+  box-shadow: 0 12px 25px rgba(0, 100, 0, 0.04);
+}
+
+.project-media {
+  position: relative;
+  height: 200px;
+  width: 100%;
+  background: #f8fafc;
+  overflow: hidden;
+  border-bottom: 1.5px solid #e2e8f0;
+}
+
+.project-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.project-overlay-icon {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: var(--bg-pure-white);
+  color: var(--primary-green);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  border: 1px solid #e2e8f0;
+}
+
+.project-details {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.p-category {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--primary-green);
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+}
+
+.project-details h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--dark-charcoal);
+}
+
+.project-details p {
+  font-size: 0.88rem;
+  color: var(--body-muted);
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+
+.project-tags {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+  margin-top: auto;
+}
+
+.p-tag {
+  background: #f1f5f9;
+  color: #475569;
+  padding: 3px 10px;
+  border-radius: 6px;
   font-size: 0.75rem;
-  color: var(--text-dark);
   font-weight: 600;
 }
 
-/* --- Responsive Optimization --- */
-@media (max-width: 1024px) {
-  .v16-grid { grid-template-columns: repeat(2, 1fr); }
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--primary-green);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.88rem;
+  transition: var(--transition-smooth);
+  width: max-content;
 }
 
+.project-link:hover {
+  gap: 8px;
+}
+
+/* --- LIGHTBOX MODAL --- */
+.portfolio-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(15, 23, 42, 0.3);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3000;
+  padding: 20px;
+}
+
+.portfolio-modal-content {
+  background: var(--bg-pure-white);
+  width: 100%;
+  max-width: 600px;
+  border-radius: 24px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+  border: 1px solid #e2e8f0;
+}
+
+.close-modal-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: var(--bg-pure-white);
+  border: 1px solid #e2e8f0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 15;
+}
+
+.modal-media-box { width: 100%; height: 240px; }
+.modal-img { width: 100%; height: 100%; object-fit: cover; }
+.modal-info { padding: 25px; }
+.modal-info h2 { font-size: 1.5rem; font-weight: 800; margin-bottom: 10px; }
+.modal-info p { color: var(--body-muted); font-size: 0.92rem; line-height: 1.5; margin-bottom: 20px; }
+.modal-meta { border-top: 1px solid #e2e8f0; padding-top: 15px; margin-bottom: 20px; }
+
+.btn-main-modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--primary-green);
+  color: white;
+  text-decoration: none;
+  padding: 12px 24px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-align: center;
+  transition: var(--transition-smooth);
+}
+
+.btn-main-modal:hover { background: #004d00; }
+
+/* --- RESPONSIVE --- */
 @media (max-width: 768px) {
-  .portfolio-hero-v16 { padding-top: 120px; }
-  .v16-grid { grid-template-columns: 1fr; }
-  .tab-btn { padding: 10px 18px; font-size: 0.8rem; flex: 1 1 40%; }
-  .v16-img-box { height: 220px; }
-}
-
-@media (max-width: 480px) {
-  .v16-info h3 { font-size: 1.3rem; }
-  .tab-btn { flex: 1 1 100%; }
+  .portfolio-hero { padding: 120px 0 60px 0; min-height: 45vh; }
+  .portfolio-grid { margin-top: 40px; }
+  .grid-layout { grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 20px; }
+  .portfolio-filters { justify-content: flex-start; overflow-x: auto; padding-bottom: 8px; }
+  .portfolio-filters button { padding: 8px 16px; font-size: 0.8rem; white-space: nowrap; }
 }

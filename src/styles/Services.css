@@ -1,226 +1,299 @@
-/* Services.css - Professional Clean White Theme */
-@import url('https://googleapis.com');
 
 :root {
-  --primary-green: #006400;      /* Dark Green */
-  --bg-white: #e2e2e2;           /* Background nshya */
-  --bg-soft: #f8fafc;            /* Section background yoroheje */
-  --card-white: #ffffff;         /* Card background */
-  --text-dark: #0f172a;          /* Amagambo y'umukara */
-  --text-gray: #64748b;          /* Amagambo y'imvi */
-  --accent-green: #16a34a;       /* Green nshya isomeka neza ku mweru */
-  --border-color: #e2e8f0;       /* Imirongo y'isezero */
+  --primary-green: #006400; /* Dark Green */
+  --light-green-bg: rgba(0, 100, 0, 0.04);
+  --dark-charcoal: #111111;
+  --body-muted: #555555;
+  --bg-pure-white: #ffffff;
+  --font-sig: 'Dancing Script', cursive;
+  --transition-smooth: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .services-page {
-  background-color: var(--bg-white);
-  color: var(--text-dark);
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  background-color: var(--bg-pure-white);
+  color: var(--dark-charcoal);
+  font-family: 'Inter', sans-serif;
+  width: 100%;
   overflow-x: hidden;
 }
 
 .container {
+  width: 90%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
 }
 
-/* 1. Hero Section - White Glassmorphism */
+.sig-font {
+  font-family: var(--font-sig);
+  color: var(--primary-green);
+  font-size: 1.25em;
+}
+
+/* --- HERO SECTION (With ss.JPG Image) --- */
 .services-hero {
-  padding: 120px 0 60px;
-  text-align: center;
-  /* background-color: var(--bg-white); */
-  background-image: radial-gradient(circle at top right, rgba(0, 100, 0, 0.03) 0%, transparent 60%);
-  min-height: 40vh;
-  display: flex;
-  align-items: center;
-}
-
-.services-hero .container > div {
-  /* background: rgba(255, 255, 255, 0.7); */
-  /* backdrop-filter: blur(12px); */
-  padding: 40px 25px;
-  border-radius: 24px;
-  /* border: 1px solid var(--border-color); */
-  max-width: 800px;
-  margin: 0 auto;
-  /* box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03); */
-}
-
-.top-tag {
-  color: var(--primary-green);
-  text-transform: uppercase;
-  font-weight: 800;
-  letter-spacing: 2px;
-  font-size: 0.75rem;
-  border: 1px solid rgba(0, 100, 0, 0.2);
-  padding: 6px 16px;
-  border-radius: 100px;
-  background: rgba(0, 100, 0, 0.05);
-}
-
-.services-hero h1 {
-  font-size: clamp(2.2rem, 5vw, 3.5rem);
-  font-weight: 800;
-  margin-top: 15px;
-  color: var(--text-dark);
-}
-
-.services-hero h1 span {
-  color: var(--primary-green);
-}
-
-.services-hero p {
-  color: var(--text-gray);
-  max-width: 600px;
-  margin: 15px auto 0;
-  font-size: 1.1rem;
-}
-
-/* 2. Group Titles */
-.service-group {
-  margin-bottom: 80px;
-}
-
-.group-header {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  margin-bottom: 40px;
-}
-
-.group-title {
-  font-size: 1.4rem;
-  color: var(--primary-green);
-  font-weight: 800;
-  text-transform: uppercase;
-}
-
-.title-line {
-  height: 2px;
-  flex-grow: 1;
-  background: linear-gradient(to right, var(--primary-green), transparent);
-  opacity: 0.1;
-}
-
-/* 3. Service Cards - CLEAN WHITE STYLE */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 25px;
-}
-
-.service-card {
-  background: var(--card-white);
-  padding: 30px;
-  border-radius: 24px;
-  border: 2px solid var(--border-color);
-  transition: all 0.4s ease;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
-}
-
-.service-card:hover {
-  transform: translateY(-10px);
-  border-color: var(--primary-green);
-  box-shadow: 0 20px 40px rgba(0, 100, 0, 0.05);
-  background: var(--bg-white);
-}
-
-.icon-wrapper {
-  width: 54px;
-  height: 54px;
-  background: rgba(0, 100, 0, 0.05);
-  color: var(--primary-green);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 150px 0 90px 0;
+  min-height: 45vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 14px;
-  margin-bottom: 20px;
-  border: 1px solid rgba(0, 100, 0, 0.1);
+  text-align: center;
+  width: 100%;
 }
 
-.service-card:hover .icon-wrapper {
-  background: var(--primary-green);
-  color: white;
+.hero-content {
+  width: 90%;
+  max-width: 600px;
 }
 
-.service-card h3 {
-  font-size: 1.25rem;
+.services-hero .badge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  color: #ffffff;
+  padding: 6px 16px;
+  border-radius: 50px;
   font-weight: 700;
-  margin-bottom: 12px;
-  color: var(--text-dark);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.services-hero h1 {
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  font-weight: 800;
+  line-height: 1.2;
+  color: #ffffff;
+  margin-bottom: 15px;
+}
+
+.services-hero p {
+  font-size: 1.05rem;
+  color: #dddddd;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* --- DETAILED SERVICES SECTIONS --- */
+.services-detailed {
+  padding: 80px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 80px; /* Gap nziza hagati ya buri service row */
+}
+
+.service-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+  background: var(--bg-pure-white);
+  padding: 40px;
+  border-radius: 24px;
+  border: 1.5px solid #e2e8f0; /* Borders zigaragara neza nka Portfolio */
+  transition: var(--transition-smooth);
+}
+
+.service-row:hover {
+  transform: translateY(-5px);
+  border-color: var(--primary-green);
+  box-shadow: 0 15px 35px rgba(0, 100, 0, 0.04);
+}
+
+.service-row.reverse {
+  flex-direction: row-reverse;
+}
+
+.service-info {
+  flex: 1.2;
+}
+
+.service-number {
+  font-family: var(--font-sig);
+  font-size: 2rem;
+  color: var(--primary-green);
+  font-weight: 700;
+  margin-bottom: 10px;
+  opacity: 0.7;
+}
+
+.service-title {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--dark-charcoal);
+  margin-bottom: 15px;
 }
 
 .service-desc {
-  color: var(--text-gray);
-  font-size: 0.95rem;
+  font-size: 0.98rem;
+  color: var(--body-muted);
   line-height: 1.6;
   margin-bottom: 25px;
 }
 
-/* Tools Box - CLEAN STYLE */
+/* Sub Services Grid */
+.sub-services {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+.sub-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--dark-charcoal);
+}
+
+.sub-item svg {
+  color: var(--primary-green) !important;
+  flex-shrink: 0;
+}
+
+/* Tools Stack */
 .tools-box {
-  background: var(--bg-soft);
-  padding: 15px;
-  border-radius: 14px;
-  border: 1px solid var(--border-color);
+  border-top: 1px solid #e2e8f0;
+  padding-top: 20px;
 }
 
 .tools-label {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 0.7rem;
-  font-weight: 800;
-  color: var(--primary-green);
-  margin-bottom: 8px;
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 700;
   text-transform: uppercase;
+  color: #64748b;
+  margin-bottom: 10px;
+  letter-spacing: 0.5px;
 }
 
-.tools-list {
-  font-size: 0.85rem;
-  color: var(--text-dark);
+.tools-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.tool-tag {
+  background: #f1f5f9;
+  color: #475569;
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-size: 0.78rem;
   font-weight: 600;
 }
 
-/* 4. CTA Section */
-.services-cta {
-  padding: 60px 0 100px;
+/* Service Visual Icon Box */
+.service-visual {
+  flex: 0.8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.cta-box {
-  background: var(--primary-green);
-  padding: 60px 30px;
-  border-radius: 32px;
-  text-align: center;
-  color: white;
-  box-shadow: 0 20px 40px rgba(0, 100, 0, 0.2);
-}
-
-.btn-cta {
-  background: white;
+.visual-icon-box {
+  width: 120px;
+  height: 120px;
+  background: var(--light-green-bg);
   color: var(--primary-green);
-  padding: 16px 40px;
-  border-radius: 14px;
-  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border: 1px solid rgba(0, 100, 0, 0.1);
+}
+
+.orbit-animation {
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  border: 1.5px dashed rgba(0, 100, 0, 0.2);
+  border-radius: 50%;
+  animation: spinOrbit 12s linear infinite;
+}
+
+@keyframes spinOrbit {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* --- FINAL CTA --- */
+.services-cta {
+  margin-bottom: 80px;
+}
+
+.cta-gradient-box {
+  background: var(--light-green-bg);
+  border: 1.5px dashed rgba(0, 100, 0, 0.2);
+  border-radius: 32px;
+  padding: 60px 40px;
+  text-align: center;
+}
+
+.cta-gradient-box h2 {
+  font-size: 2rem;
   font-weight: 800;
+  margin-bottom: 15px;
+}
+
+.cta-gradient-box p {
+  color: var(--body-muted);
+  font-size: 1.05rem;
+  margin-bottom: 30px;
+}
+
+.btn-main {
+  background: var(--primary-green);
+  color: white;
+  border: none;
+  padding: 14px 35px;
+  border-radius: 50px;
+  font-weight: 600;
   font-size: 1rem;
-  margin-top: 25px;
   cursor: pointer;
-  transition: 0.3s;
+  transition: var(--transition-smooth);
 }
 
-.btn-cta:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+.btn-main:hover {
+  background: #004d00;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 100, 0, 0.2);
 }
 
-/* Responsive Fixes */
-@media (max-width: 768px) {
-  .services-hero { padding: 100px 0 40px; }
-  .grid { grid-template-columns: 1fr; }
-  .service-card { padding: 25px; }
+/* --- REVEAL INTERSECTION OBSERVER ANIMATION --- */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- RESPONSIVE DESIGN --- */
+@media (max-width: 992px) {
+  .service-row, .service-row.reverse {
+    flex-direction: column-reverse;
+    gap: 40px;
+    padding: 30px;
+  }
+  .service-visual {
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .services-hero { padding: 120px 0 60px 0; min-height: 40vh; }
+  .service-title { font-size: 1.35rem; }
+  .cta-gradient-box { padding: 40px 20px; }
+  .cta-gradient-box h2 { font-size: 1.5rem; }
 }
