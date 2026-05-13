@@ -1,30 +1,23 @@
-import React, { useState } from 'react'; // 1. Twongeyemo useState
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { 
-  Facebook, Instagram, Github, Linkedin, 
-  Mail, Phone, MapPin, Send, ChevronRight 
-} from 'lucide-react';
-import LogoImg from '../assets/logo.jpg'; 
+import { Facebook, Instagram, Github, Linkedin, Mail, Phone, MapPin, Send, ChevronRight } from 'lucide-react';
+import LogoImg from '../assets/logo.jpg';
 import '../styles/Footer.css';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  const whatsappNumber = "+250796023452";
-  
-  // 2. Ibi bituma twakira imeyili umuntu yanditse
-  const [email, setEmail] = useState("");
-  const [status, setStatus] = useState(""); // Ibi ni ibyerekana niba byakunze
+  const whatsappNumber = "250796023452"; 
 
-  const handleSubscribe = async (e) => {
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState("");
+
+  const handleSubscribe = (e) => {
     e.preventDefault();
     setStatus("Sending...");
     
-    // Hano niho uzashyira API ya MailerLite cyangwa Brevo mu gihe kizaza
-    // Kuri ubu, reka dushyiremo ko byakunze (Simulated)
     setTimeout(() => {
-      console.log("Email subscribed:", email);
       setStatus("Success! Check your inbox.");
-      setEmail(""); // Gusiba imeyili nyuma yo kuyohereza
+      setEmail(""); 
     }, 2000);
   };
 
@@ -39,14 +32,13 @@ const Footer = () => {
             <span className="logo-text">ByteFlow<span className="accent">Ltd</span></span>
           </Link>
           <p className="brand-pitch">
-            Your premier digital partner in Kigali. We bridge the gap between 
-            innovation and reality through world-class tech solutions.
+            Your premier digital partner in Kigali. We bridge the gap between innovation and reality through world-class tech solutions.
           </p>
           <div className="social-pill-container">
-            <a href="https://facebook.com" target="_blank" rel="noreferrer" className="social-pill"><Facebook size={18} /></a>
-            <a href="https://instagram.com/byteflow_ltd" target="_blank" rel="noreferrer" className="social-pill"><Instagram size={18} /></a>
+            <a href="https://www.facebook.com/profile.php?id=61588130300960" target="_blank" rel="noreferrer" className="social-pill"><Facebook size={18} /></a>
+            <a href="https://www.instagram.com/byteflow_ltd" target="_blank" rel="noreferrer" className="social-pill"><Instagram size={18} /></a>
             <a href="https://github.com/AlineHub-tech" target="_blank" rel="noreferrer" className="social-pill"><Github size={18} /></a>
-            <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="social-pill"><Linkedin size={18} /></a>
+            <a href="https://www.linkedin.com/company/a-better-t-solutions/" target="_blank" rel="noreferrer" className="social-pill"><Linkedin size={18} /></a>
           </div>
         </div>
 
@@ -68,11 +60,11 @@ const Footer = () => {
           <div className="contact-info-stack">
             <div className="contact-item">
               <div className="icon-box"><MapPin size={18} /></div>
-              <span> Gasabo, Kigali, Rwanda</span>
+              <span>Gasabo, Kigali, Rwanda</span>
             </div>
             <div className="contact-item">
               <div className="icon-box"><Phone size={18} /></div>
-              <span>{whatsappNumber}</span>
+              <span>+{whatsappNumber}</span>
             </div>
             <div className="contact-item">
               <div className="icon-box"><Mail size={18} /></div>
@@ -81,7 +73,7 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* 4. Newsletter Section (Yavuguruwe) */}
+        {/* 4. Newsletter Section */}
         <div className="footer-col">
           <h4 className="footer-title">Newsletter</h4>
           <p className="newsletter-text">Subscribe for exclusive tech offers and digital marketing tips.</p>
@@ -89,24 +81,27 @@ const Footer = () => {
             <input 
               type="email" 
               placeholder="Your Email Address" 
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              value={email} 
+              onChange={(e) => setEmail(e.target.value)} 
               required 
             />
             <button type="submit" className="btn-send">
-              <Send size={18} />
+              <Send size={16} />
             </button>
           </form>
-          {/* 3. Message y'inyunganira umukiriya */}
-          {status && <p className="status-msg" style={{ fontSize: '12px', marginTop: '10px', color: '#006400' }}>{status}</p>}
+          
+          {status && (
+            <p className="status-msg">
+              {status}
+            </p>
+          )}
         </div>
-
       </div>
 
       {/* Footer Bottom Bar */}
       <div className="footer-legal-bar">
         <div className="container bar-flex">
-           <p>&copy; {currentYear} ByteFlow Ltd. All Rights Reserved. | Developed by <a href="https://aline-site-seven.vercel.app/"><span class="developer-name">Umugwaneza Aline</span></a></p>
+          <p>&copy; {currentYear} ByteFlow Ltd. All Rights Reserved. | Developed by <a href="vercel.app" target="_blank" rel="noreferrer"><span className="developer-name">Umugwaneza Aline</span></a></p>
           <div className="legal-links">
             <Link to="/privacy">Privacy Policy</Link>
             <span className="dot"></span>
