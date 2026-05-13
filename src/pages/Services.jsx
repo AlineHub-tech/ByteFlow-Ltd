@@ -1,143 +1,83 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { 
-  Palette, Camera, Video, PenTool, Globe, 
-  Coffee, ShoppingCart, Cpu, CheckCircle2,
-  Code2, Server, Search, Cloud, Layers
-} from 'lucide-react';
+import React, { useEffect } from 'react';
+import { Code2, Palette, FileText, Share2, GraduationCap, CheckCircle2 } from 'lucide-react';
 import '../styles/Services.css';
-import service from '../assets/service.jpg';
-
-const services = [
-  {
-    category: "Software & Web Development Rwanda",
-    items: [
-      { icon: Code2, title: "Frontend Development", tools: "React.js, Next.js, Tailwind CSS", desc: "Building responsive, fast, and interactive user interfaces for businesses in Kigali." },
-      { icon: Server, title: "Backend Development", tools: "Node.js, Express, MongoDB, PostgreSQL", desc: "Robust server-side logic and secure database management for Rwanda's tech market." },
-      { icon: Globe, title: "Custom Web Development", tools: "WordPress, Shopify, PHP", desc: "The best web design services in Rwanda for corporate portals and e-commerce platforms." },
-      { icon: Layers, title: "Full-Stack Solutions", tools: "MERN Stack, NextAuth, Prisma", desc: "End-to-end web applications designed for scalability and high performance." }
-    ]
-  },
-  {
-    category: "Digital Growth & SEO Kigali",
-    items: [
-      { icon: Search, title: "SEO Optimization", tools: "Google Search Console, SEMrush", desc: "Professional SEO services in Rwanda to help your business rank #1 on Google search." },
-      { icon: Cloud, title: "Web Hosting & Domain", tools: "AWS, .RW Domain, SSL", desc: "Reliable web hosting in Rwanda with secure .rw domain registration and 24/7 support." },
-      { icon: PenTool, title: "Digital Marketing", tools: "Copywriting, Social Media, Ads", desc: "Strategic storytelling, content creation, and social media management for brand growth." }
-    ]
-  },
-  {
-    category: "Creative Media Studio",
-    items: [
-      { icon: Palette, title: "Graphic Design", tools: "Adobe Illustrator, Photoshop, Figma", desc: "Professional branding, minimalist logos, and creative marketing materials in Kigali." },
-      { icon: Camera, title: "Photography", tools: "Corporate & Event Photography", desc: "High-end corporate headshots and product photography services in Rwanda." },
-      { icon: Video, title: "Videography", tools: "Premiere Pro, DaVinci Resolve", desc: "Cinematic commercials, documentaries, and engaging social media video ads." }
-    ]
-  },
-  {
-    category: "Tech Hardware & Retail",
-    items: [
-      { icon: Cpu, title: "IT Equipment Sales", tools: "Laptops, SSDs, Networking", desc: "Sale of high-performance laptops and networking peripherals for companies in Rwanda." },
-      { icon: ShoppingCart, title: "Stationery & Branding", tools: "Office Supplies", desc: "Supply of all office essentials, stationery, and customized branding materials." },
-      { icon: Coffee, title: "Cyber Café & Hub", tools: "High-Speed Fiber", desc: "Fastest internet access in Kigali, document printing, and expert digital assistance." }
-    ]
-  }
-];
+import heroBg from '../assets/ss.JPG'; // Twazanyemo ifoto yawe hano
 
 const Services = () => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.1 }
-    }
-  };
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('show');
+      });
+    }, { threshold: 0.1 });
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 }
-  };
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    window.scrollTo(0, 0);
+  }, []);
+
+  const serviceDetails = [
+    { id: "01", title: "Web & Software Development", description: "We build high-performance, scalable digital solutions. From complex backend systems to stunning frontend interfaces, we engineer success.", subServices: ["Full-Stack Web Apps", "UI/UX Responsive Design", "Database Architecture"], tools: ["React.js", "Node.js", "Tailwind CSS", "MongoDB", "Figma"], icon: <Code2 size={32} /> },
+    { id: "02", title: "Creative Media Services", description: "Visual storytelling that captures attention. We create brand identities and cinematic content that makes your business stand out.", subServices: ["Professional Branding", "Product Photography", "Cinematic Video Editing"], tools: ["Adobe Photoshop", "Illustrator", "Premiere Pro", "After Effects"], icon: <Palette size={32} /> },
+    { id: "03", title: "Professional Office & Documentation", description: "Streamlining your business operations with high-quality documentation and data management services.", subServices: ["Business Plans & Reports", "Excel Bookkeeping", "Advanced Presentations"], tools: ["MS Word", "MS Excel", "MS PowerPoint", "PDF Expert"], icon: <FileText size={32} /> },
+    { id: "04", title: "Digital Marketing & Growth", description: "Increase your reach and revenue. We optimize your online presence to ensure you dominate your market niche.", subServices: ["SEO (Google Ranking)", "Content Creation", "Digital Strategy"], tools: ["Google Search Console", "Meta Business Suite", "SEMrush", "Canva"], icon: <Share2 size={32} /> },
+    { id: "05", title: "Entrepreneurship & Technical Mentorship", description: "Empowering the next generation of tech leaders. We provide hands-on training and project management oversight.", subServices: ["Git & GitHub Training", "Women in Tech Support", "Agile Project Management"], tools: ["Git", "GitHub", "Trello", "Slack", "Jira"], icon: <GraduationCap size={32} /> }
+  ];
 
   return (
     <div className="services-page">
-      {/* 1. HERO SECTION IHINDUYE - GLASS BOX YONGEREMO */}
-      <section 
-        className="services-hero"
-        style={{ 
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), url(${service})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          padding: '100px 20px',
-          minHeight: '60vh',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center'
-        }}
-      >
-        <div className="container">
-          <motion.div 
-
-          >
-            <span className="top-tag" style={{ backgroundColor: '#006400',color:'white' }}>Leading Digital Agency in Rwanda</span>
-            <h1 style={{ color: '#fff', fontSize: 'clamp(1.8rem, 5vw, 3rem)' }}>
-                Expert <span style={{ color: '#006400' }}>Digital Solutions</span> for Your Business
-            </h1>
-            <p style={{ color: 'rgba(255, 255, 255, 0.8)', fontSize: '1.1rem' }}>
-                ByteFlow Ltd provides the full tech stack—from web design and SEO to professional photography and digital marketing in Kigali.
-            </p>
-          </motion.div>
+      {/* --- HERO SECTION WITH SS.JPG BACKGROUND --- */}
+      <section className="services-hero" style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.85)), url(${heroBg})` }}>
+        <div className="hero-content container reveal">
+          <span className="badge">ByteFlow Expertise</span>
+          <h1>Our <span className="sig-font">Professional</span> Ecosystem</h1>
+          <p>Explore our wide range of technology and creative services designed to build <span className="sig-font">Success</span>.</p>
         </div>
       </section>
 
-      {/* 2. SERVICES GRID (NTACYO MPINDURA) */}
-      <section className="services-grid-container">
-        <div className="container">
-          {services.map((group, idx) => (
-            <div key={idx} className="service-group">
-              <div className="group-header">
-                <h2 className="group-title">{group.category}</h2>
-                <div className="title-line"></div>
+      {/* --- SERVICE SECTIONS --- */}
+      <section className="services-detailed container">
+        {serviceDetails.map((service, index) => (
+          <div key={index} className={`service-row reveal ${index % 2 !== 0 ? 'reverse' : ''}`}>
+            <div className="service-info">
+              <div className="service-number">{service.id}</div>
+              <h2 className="service-title">{service.title}</h2>
+              <p className="service-desc">{service.description}</p>
+              
+              <div className="sub-services">
+                {service.subServices.map((sub, i) => (
+                  <div key={i} className="sub-item">
+                    <CheckCircle2 size={16} />
+                    <span>{sub}</span>
+                  </div>
+                ))}
               </div>
               
-              <motion.div 
-                className="grid"
-                variants={containerVariants}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-              >
-                {group.items.map((item, i) => (
-                  <motion.div 
-                    variants={itemVariants}
-                    whileHover={{ y: -10 }}
-                    className="service-card" 
-                    key={i}
-                  >
-                    <div className="icon-wrapper">
-                      <item.icon className="service-icon" size={30} />
-                    </div>
-                    <h3>{item.title}</h3>
-                    <p className="service-desc">{item.desc}</p>
-                    <div className="tools-box">
-                      <div className="tools-label">
-                         <CheckCircle2 size={12} /> <span>Stack:</span>
-                      </div>
-                      <p className="tools-list">{item.tools}</p>
-                    </div>
-                  </motion.div>
-                ))}
-              </motion.div>
+              <div className="tools-box">
+                <span className="tools-label">Tech Stack & Tools:</span>
+                <div className="tools-tags">
+                  {service.tools.map((tool, i) => (
+                    <span key={i} className="tool-tag">{tool}</span>
+                  ))}
+                </div>
+              </div>
             </div>
-          ))}
-        </div>
+
+            <div className="service-visual">
+              <div className="visual-icon-box">
+                {service.icon}
+                <div className="orbit-animation"></div>
+              </div>
+            </div>
+          </div>
+        ))}
       </section>
 
-      {/* 3. CTA SECTION (NTACYO MPINDURA) */}
-      <section className="services-cta">
-        <div className="container cta-box">
-          <h2>Ready to Start Your Project in Rwanda?</h2>
-          <p>Get the best web design, SEO, and digital marketing services today.</p>
-          <button className="btn-cta">Get a Free Quote</button>
+      {/* --- FINAL CTA --- */}
+      <section className="services-cta container reveal">
+        <div className="cta-gradient-box">
+          <h2>Have a <span className="sig-font">Special</span> Requirement?</h2>
+          <p>We provide custom packages tailored to your unique business goals.</p>
+          <button className="btn-main">Schedule a Consultation</button>
         </div>
       </section>
     </div>

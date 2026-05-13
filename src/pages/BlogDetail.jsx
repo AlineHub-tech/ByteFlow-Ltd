@@ -3,22 +3,21 @@ import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Clock, Calendar, Share2, CheckCircle } from 'lucide-react';
 import { blogPosts } from '../data/blogData';
-import '../styles/Blog.css';
+import '../styles/Blog.css'; // Twayihaye CSS yayo yihariye ngo idahura na Blog.css
 
 const BlogDetail = () => {
   const { id } = useParams();
   const post = blogPosts.find((p) => p.id === id);
 
-  // Scroll to top when page opens
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [id]);
 
   if (!post) {
     return (
-      <div id="byteflow-blog-hub" style={{ padding: '200px 20px', textAlign: 'center' }}>
-        <h2 style={{fontSize: '2rem'}}>Article Not Found</h2>
-        <Link to="/blog" className="blog-read-link" style={{justifyContent: 'center', marginTop: '20px'}}>
+      <div id="byteflow-blog-hub" className="blog-not-found">
+        <h2>Article Not Found</h2>
+        <Link to="/blog" className="blog-read-link center-link">
           <ArrowLeft size={18} /> Back to Blog
         </Link>
       </div>
@@ -26,12 +25,12 @@ const BlogDetail = () => {
   }
 
   return (
-    <div id="byteflow-blog-hub">
-      <div className="blog-limit detail-page-padding">
+    <div id="byteflow-blog-hub" className="blog-detail-wrapper">
+      <div className="blog-limit container detail-page-padding">
         
         {/* Navigation Back */}
         <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }}>
-          <Link to="/blog" className="blog-read-link" style={{ marginBottom: '40px' }}>
+          <Link to="/blog" className="blog-read-link back-insights-btn">
             <ArrowLeft size={18} /> Back to Insights
           </Link>
         </motion.div>
@@ -42,7 +41,6 @@ const BlogDetail = () => {
             {post.category}
           </div>
           <h1 className="detail-main-title">{post.title}</h1>
-          
           <div className="detail-meta-info">
             <span><Calendar size={16} /> March 2026</span>
             <span><Clock size={16} /> 15 Min Read</span>
@@ -52,8 +50,8 @@ const BlogDetail = () => {
 
         {/* Hero Icon Box */}
         <motion.div 
-          initial={{ opacity: 0, scale: 0.9 }} 
-          animate={{ opacity: 1, scale: 1 }}
+          initial={{ opacity: 0, scale: 0.95 }} 
+          animate={{ opacity: 1, scale: 1 }} 
           className="detail-hero-visual" 
           style={{ backgroundColor: post.color }}
         >
@@ -64,11 +62,10 @@ const BlogDetail = () => {
         <article className="detail-article-body">
           <div className="detail-rich-text">
             
-            {/* FIXED: Loop through the fullContent array from blogData.js */}
             {post.fullContent && post.fullContent.map((section, index) => (
-              <section key={index} style={{ marginBottom: '40px' }}>
+              <section key={index} className="rich-text-section">
                 <h2 className="section-title">{section.subtitle}</h2>
-                <p style={{ fontSize: '1.25rem', lineHeight: '1.9', color: '#000000' }}>
+                <p className="section-paragraph">
                   {section.text}
                 </p>
               </section>
@@ -81,10 +78,10 @@ const BlogDetail = () => {
             {/* Conclusion Section */}
             <section className="detail-conclusion-box">
               <h2 className="section-title">Conclusion</h2>
-              <p style={{ fontSize: '1.25rem', lineHeight: '1.9', color: '#000000' }}>
+              <p className="section-paragraph">
                 {post.conclusion}
               </p>
-              <p style={{marginTop: '30px', fontWeight: 'bold', color: '#4ade80', fontSize: '1.1rem'}}>
+              <p className="conclusion-cta-text">
                 Ready to transform your brand? Contact ByteFlow Ltd today.
               </p>
             </section>
@@ -96,6 +93,7 @@ const BlogDetail = () => {
             <div className="share-btn-circle"><Share2 size={20} /></div>
           </div>
         </article>
+
       </div>
     </div>
   );

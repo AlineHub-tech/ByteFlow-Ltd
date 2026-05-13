@@ -1,228 +1,154 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { MoveRight, Zap, Globe, ShieldCheck, Database, Layout, Smartphone, HardDrive } from 'lucide-react';
+import { Rocket, CheckCircle2, MessageSquare, Cpu, Globe2, Camera, FileText, Share2, GraduationCap } from 'lucide-react';
 import '../styles/Home.css';
-import hero1 from '../assets/hero1.jpg';
+import heroBg from '../assets/pro.jpg';
 
 const Home = () => {
-  const slogans = [
-    "Software Engineering",
-    "Cinematic Branding",
-    "Future-Ready Tech",
-    "Digital Domination",
-    "Elite User Experience"
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('show');
+      });
+    }, { threshold: 0.1 });
+    
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  }, []);
+
+  const pricingPlans = [
+    { title: "Essential Pack", price: "150,000", features: ["Graphic Design (Logos & Ads)", "Professional Documentation", "Social Media Branding", "Basic SEO Optimization"], btnText: "Choose Essential", featured: false },
+    { title: "Professional", price: "450,000", features: ["Full-Stack Web Development", "Cinematic Videography", "UI/UX & Creative Media", "Digital Growth Strategy"], btnText: "Most Popular", featured: true },
+    { title: "Enterprise", price: "1,200,000", features: ["Advanced Software Solutions", "Database & Project Mgmt", "Technical Mentorship", "Full Digital Ecosystem"], btnText: "Contact for Pro", featured: false }
   ];
 
-  const [activeSlogan, setActiveSlogan] = useState(0);
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
-  const canvasRef = useRef(null);
-
-  // Reba niba ari Mobile cyangwa Desktop
-  useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth < 768);
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  // MATRIX EFFECT
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    const ctx = canvas.getContext('2d');
-    let width = (canvas.width = window.innerWidth);
-    let height = (canvas.height = window.innerHeight);
-    const columns = Math.floor(width / 20);
-    const drops = new Array(columns).fill(1);
-    const chars = "010101BYTEFLOW";
-
-    const draw = () => {
-      ctx.fillStyle = "rgba(0, 0, 0, 0.1)";
-      ctx.fillRect(0, 0, width, height);
-      ctx.fillStyle = "#006400";
-      ctx.font = "15px monospace";
-      for (let i = 0; i < drops.length; i++) {
-        const text = chars[Math.floor(Math.random() * chars.length)];
-        ctx.fillText(text, i * 20, drops[i] * 20);
-        if (drops[i] * 20 > height && Math.random() > 0.975) drops[i] = 0;
-        drops[i]++;
-      }
-    };
-    const interval = setInterval(draw, 33);
-    return () => clearInterval(interval);
-  }, []);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setActiveSlogan((prev) => (prev + 1) % slogans.length);
-    }, 3500);
-    return () => clearInterval(timer);
-  }, [slogans.length]);
-
   return (
-    <div className="home-v13">
-      {/* 1. HERO SECTION */}
-      <section 
-        className="hero-v13-section"
-        style={{ 
-          position: 'relative',
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(${hero1})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          width: '100%',
-          minHeight: isMobile ? '60vh' : '85vh', // Height ntoya kuri Mobile
-          display: 'flex',
-          alignItems: 'center',
-          overflow: 'hidden'
-        }}
-      >
-        <canvas ref={canvasRef} style={{ position: 'absolute', inset: 0, opacity: 0.15, zIndex: 1 }} />
+    <div className="home-wrapper">
+      <div className="tech-dots"></div>
 
-        <div className="container centered-content" style={{ position: 'relative', zIndex: 5 }}>
-          
-          {/* GLASS CARD - Iyi niyo ituma text zigaragara neza */}
-          <div style={{
-            // background: "rgba(255, 255, 255, 0.83)",
-            // backdropFilter: "blur(10px)",
-            // WebkitBackdropFilter: "blur(10px)",
-            // borderRadius: "20px",
-            // border: "1px solid rgba(255, 255, 255, 0.1)",
-            // padding: isMobile ? "20px" : "40px",
-            // margin: "0 auto",
-            // maxWidth: "900px",
-            // boxShadow: "0 8px 32px rgba(0, 0, 0, 0.5)"
-          }}>
+      {/* --- HERO SECTION (KOSOYE: Reduced Height & Original Text) --- */}
+      <section className="hero-section" style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url(${heroBg})` }}>
+        <div className="container hero-flex">
+          <div className="hero-text reveal">
+            <div className="hero-badge">ByteFlow Engineering</div>
+            <h1>Transforming Ideas Into <span className="green-text">Digital Reality</span></h1>
+            <p>ByteFlow Ltd provides high-end tech solutions, creative media, and professional documentation to scale your business in the digital era.</p>
             
-            <motion.div 
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="v13-badge-wrapper"
-            >
-              <span className="v13-badge">ByteFlow Ltd • Engineering the Future</span>
-            </motion.div>
-            
-            <div className="hero-text-block">
-              <h1 className="v13-title" style={{ fontSize: isMobile ? '1.8rem' : '3.5rem', lineHeight: 1.2, color:'white'}}>
-                Innovating Through <br />
-                <div className="slogan-container">
-                  <AnimatePresence mode="wait">
-                    <motion.span 
-                      key={activeSlogan}
-                      initial={{ y: 25, opacity: 0 }}
-                      animate={{ y: 0, opacity: 1 }}
-                      exit={{ y: -25, opacity: 0 }}
-                      transition={{ duration: 0.5, ease: "backOut" }}
-                      className="slogan-span"
-                      style={{ color: '#006400' }}
-                    >
-                      {slogans[activeSlogan]}
-                    </motion.span>
-                  </AnimatePresence>
-                </div>
-              </h1>
+            <div className="hero-btns"> 
+              <Link to="/contact" className="btn-main">
+                Launch Project <Rocket size={18}/>
+              </Link> 
+              <a href="#services" className="btn-outline">
+                Our Services
+              </a> 
+            </div>
+          </div>
 
-              <p className="v13-lead" style={{ fontSize: isMobile ? '0.95rem' : '1.2rem', opacity: 0.9 }}>
-                The premier digital ecosystem in Rwanda. We build high-performance 
-                software and creative identities for the next generation.
-              </p>
-
-              <div className="v13-cta-group" style={{ 
-                flexDirection: isMobile ? 'column' : 'row', 
-                gap: '10px', 
-                alignItems: 'center' 
-              }}>
-                <Link to="/contact" className="btn-v13-primary" style={{ width: isMobile ? '100%' : 'auto' }}>
-                  Get Started <MoveRight size={18} />
-                </Link>
-                <Link to="/portfolio" className="btn-v13-outline" style={{ width: isMobile ? '100%' : 'auto', color:'white' }}>
-                  View Our Impact
-                </Link>
+          <div className="hero-visual reveal">
+            <div className="tech-dashboard">
+              <div className="dash-header">
+                <div className="dash-dot"></div><div className="dash-dot"></div><div className="dash-dot"></div>
+              </div>
+              <div className="dash-body">
+                <pre>
+                  <code>
+                    <span className="keyword">const</span> <span className="var">ByteFlow</span> = () =&gt; {"{"}
+                    <br />
+                    {"  "}<span className="comment">// Engineering Digital Success</span>
+                    <br />
+                    {"  "}<span className="keyword">return</span> <span className="str">"Digital Future"</span>;
+                    <br />
+                    {"}"};
+                  </code>
+                </pre>
+                <Cpu className="dash-icon" size={40} />
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 2. THE STATS EXPERIENCE - BYTEFLOW WHITE ELITE EDITION */}
-      <section className="v13-stats-bar-white">
-        <div className="container stats-grid-v3">
-          
-          {/* Stat 1: Impact & Scalability */}
-          <div className="stat-card-v3">
-            <h2 className="stat-number-v3">250<span className="plus-v3">+</span></h2>
-            <h4 className="stat-title-v3">Solutions Deployed</h4>
-            <p className="stat-text-v3">Architecting high-performance ecosystems for global brands.</p>
-          </div>
-
-          {!isMobile && <div className="stat-divider-v3"></div>}
-
-          {/* Stat 2: Reliability & Security */}
-          <div className="stat-card-v3">
-            <h2 className="stat-number-v3">99.9<span className="plus-v3">%</span></h2>
-            <h4 className="stat-title-v3">Service Reliability</h4>
-            <p className="stat-text-v3">Mission-critical infrastructure with guaranteed zero-downtime.</p>
-          </div>
-
-          {!isMobile && <div className="stat-divider-v3"></div>}
-
-          {/* Stat 3: Performance & Growth */}
-          <div className="stat-card-v3">
-            <h2 className="stat-number-v3">10<span className="plus-v3">X</span></h2>
-            <h4 className="stat-title-v3">Operational Velocity</h4>
-            <p className="stat-text-v3">Accelerating digital transformation through elite engineering.</p>
-          </div>
-
+      {/* --- ALL SERVICES SECTION --- */}
+      <section id="services" className="services-showcase container">
+        <div className="section-header reveal">
+          <h2>Our <span className="sig-font">Pro</span> Services</h2>
+          <div className="accent-bar"></div>
         </div>
-      </section>
-
-
-           {/* 3. THE FEATURES GRID */}
-      <section className="v13-features-modern">
-        <div className="container">
-          <div className="section-title-center">
-            <span className="mini-tag" style={{ color: '#22c55e', fontWeight: '700' }}>Our Core Competencies</span>
-            <h2 style={{ fontWeight: '800', marginTop: '10px' }}>Future-Proof Solutions</h2>
+        
+        <div className="services-list-grid">
+          <div className="s-item reveal">
+            <Globe2 className="s-icon" /> 
+            <div>
+              <h3>Web & Software Dev</h3>
+              <p>Front-end, Back-end, UI/UX, and Database Management.</p>
+            </div>
           </div>
-
-          <div className="feature-interactive-grid">
-            {/* Feature 1: Custom Software */}
-            <div className="feature-item">
-              <div className="icon-circle"><Database size={28} /></div>
-              <h4>Elite Engineering</h4>
-              <p>We build robust, scalable software architectures tailored to drive your business growth in Rwanda and beyond.</p>
+          <div className="s-item reveal">
+            <Camera className="s-icon" /> 
+            <div>
+              <h3>Creative Media</h3>
+              <p>Graphic Design, Pro Photography, and Cinematic Videography.</p>
             </div>
-
-            {/* Feature 2: Branding/Cinematic */}
-            <div className="feature-item">
-              <div className="icon-circle"><Layout size={28} /></div>
-              <h4>Cinematic Branding</h4>
-              <p>Transforming your identity with high-end visual storytelling, premium graphics, and cinematic video production.</p>
+          </div>
+          <div className="s-item reveal">
+            <FileText className="s-icon" /> 
+            <div>
+              <h3>Office & Documentation</h3>
+              <p>MS Word Reports, Excel Bookkeeping, and Pro PowerPoint.</p>
             </div>
-
-            {/* Feature 3: Performance/Digital Domination */}
-            <div className="feature-item">
-              <div className="icon-circle"><Smartphone size={28} /></div>
-              <h4>Digital Domination</h4>
-              <p>Harnessing SEO, high-performance web apps, and data-driven marketing to put your brand ahead of the competition.</p>
+          </div>
+          <div className="s-item reveal">
+            <Share2 className="s-icon" /> 
+            <div>
+              <h3>Digital Marketing</h3>
+              <p>SEO Ranking, Content Creation, and Digital Strategy.</p>
             </div>
-
-            {/* Feature 4: Support/Security */}
-            <div className="feature-item">
-              <div className="icon-circle"><HardDrive size={28} /></div>
-              <h4>Reliable Infrastructure</h4>
-              <p>Secure hosting and 24/7 technical management, ensuring your digital ecosystem never sleeps and never fails.</p>
+          </div>
+          <div className="s-item reveal">
+            <GraduationCap className="s-icon" /> 
+            <div>
+              <h3>Tech Mentorship</h3>
+              <p>Git/GitHub Training and Supporting Women in Tech.</p>
             </div>
           </div>
         </div>
       </section>
 
-
-      {/* 4. INFINITE TECH SCROLLER */}
-      <div className="v13-tech-scroller">
-        <div className="scroller-inner">
-          <span> Backend Development • Frontend Development • Full-Stack Development • Web Hosting • Domain Name • Digital Marketing • Graphic Design • Typography & Copywriting • Photography • Videography •</span>
-          <span> Backend Development • Frontend Development • Full-Stack Development • Web Hosting • Domain Name • Digital Marketing • Graphic Design • Typography & Copywriting • Photography • Videography •</span>
+      {/* --- PRICING SECTION --- */}
+      <section className="pricing-section container">
+        <div className="section-header reveal">
+          <h2>Flexible <span className="sig-font">Pricing</span> Plans</h2>
+          <p className="pricing-pitch">Upgrade your business with the right tech package.</p>
+          <div className="accent-bar"></div>
         </div>
-      </div>
+        
+        <div className="pricing-grid">
+          {pricingPlans.map((plan, idx) => (
+            <div key={idx} className={`price-card reveal ${plan.featured ? 'featured' : ''}`}>
+              {plan.featured && <div className="popular">Best Choice</div>}
+              <h3>{plan.title}</h3>
+              <div className="price-box">
+                <span className="currency">RWF</span>
+                <span className="amount">{plan.price}</span>
+              </div>
+              <ul className="plan-list">
+                {plan.features.map((feat, i) => (
+                  <li key={i}><CheckCircle2 size={16} className="check-icon"/> {feat}</li>
+                ))}
+              </ul>
+              <Link to="/contact" className="btn-plan">{plan.btnText}</Link>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* --- CTA SECTION --- */}
+      <section className="cta-section container reveal">
+        <div className="cta-card">
+          <h2>Ready to <span className="sig-font">Elevate</span> Your Brand?</h2>
+          <p>Join 50+ businesses that trust ByteFlow for their digital transformation.</p>
+          <Link to="/contact" className="btn-cta">Talk to an Expert <MessageSquare size={18}/></Link>
+        </div>
+      </section>
     </div>
   );
 };

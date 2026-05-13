@@ -1,114 +1,220 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Target, Eye, Award, Users, ChevronRight, CheckCircle2, Mail } from 'lucide-react';
-// Menya neza ko izi foto zihari mu nzu ya assets
-import profile from '../assets/profile.png'; 
-import about from '../assets/about.jpg'; 
+import React, { useEffect } from 'react';
+import { Target, Eye, Award, Heart, Linkedin, Facebook, Instagram, ShieldCheck, Zap, Layers, BarChart3 } from 'lucide-react';
 import '../styles/About.css';
+import heroBg from '../assets/pro.png'; // Ifoto ya Founder ikoresha pro.png
 
 const About = () => {
-  const fadeIn = {
-    initial: { opacity: 0, y: 30 },
-    whileInView: { opacity: 1, y: 0 },
-    viewport: { once: true },
-    transition: { duration: 0.6 }
-  };
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('show');
+      });
+    }, { threshold: 0.1 });
+    
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
-    <div className="about-page" style={{ width: '100%', overflowX: 'hidden', background: '#e2e2e2', color: '#fff' }}>
-      
-      {/* 1. HERO SECTION - COMPACT GLASS */}
-      <section 
-        className="about-hero" 
-        style={{ 
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${about})`,
-          backgroundSize: 'cover', backgroundPosition: 'center',
-          padding: '80px 20px', minHeight: '50vh', display: 'flex', alignItems: 'center', justifyContent: 'center'
-        }}
-      >
-        <div className="container" style={{ width: '100%', maxWidth: '600px', boxSizing: 'border-box' }}>
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
-            style={{
-  
-              padding: "25px", borderRadius: "20px",
-              textAlign: "center", width: '100%', boxSizing: 'border-box'
-            }}
-          >
-            <span style={{  background: 'rgb(255, 255, 255)',fontWeight:'600', color:'rgba(3, 78, 16, 0.98)', padding: '10px 20px', borderRadius: '50px',  alignItems: 'center' }}>Discover Our Journey</span>
-            <h1 style={{ fontSize: 'clamp(1.5rem, 5vw, 2.5rem)', marginTop: '10px' }}>Empowering Digital <span style={{ color: '#006400' }}>Innovation</span></h1>
-          </motion.div>
+    <div className="about-page">
+      <div className="tech-dots"></div>
+
+      {/* --- 1. HERO SECTION --- */}
+      <section className="about-hero" style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.85)), url(${heroBg})` }}>
+        <div className="reveal container hero-inner-text">
+          <span className="badge">About ByteFlow Ltd</span>
+          <h1>Corporate <span className="sig-font">Overview</span></h1>
+          <p>
+            ByteFlow Ltd is a legally registered, full-service digital technology consulting and creative media agency 
+            headquartered in Kigali, Rwanda (KG 24 Ave, Gasabo). Established to drive the next generation of digital 
+            transformation in East Africa, the company serves as a strategic growth partner for small-to-medium enterprises (SMEs), 
+            startups, and corporate brands.
+          </p>
         </div>
       </section>
-      {/* 3. STORY SECTION & FOUNDER */}
-      <section className="story-section" style={{ padding: '60px 20px',backgroundColor:'#ffffff' }}>
-        <div className="container story-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '50px', alignItems: 'center' }}>
-          
-          <motion.div {...fadeIn} style={{ position: 'relative' }}>
-            <img src={about} alt="Our Team Story" style={{  width: '100%', borderRadius: '25px', height: '400px', objectFit: 'cover', border: '1px solid rgba(255,255,255,0.1)' }} />
-            <div style={{ position: 'absolute', bottom: '-20px', right: '10px', background: '#0f172a', padding: '15px', borderRadius: '15px', border: '1px solid #22c55e', display: 'flex', alignItems: 'center', gap: '12px', boxShadow: '0 10px 30px rgba(0,0,0,0.5)' }}>
-              <img src={profile} alt="Founder" style={{ width: '50px', height: '50px', borderRadius: '50%', objectFit: 'cover', border: '2px solid #22c55e' }} />
-              <div>
-                <h4 style={{ margin: 0, fontSize: '0.9rem' }}>Umugwaneza Aline</h4>
-                <span style={{ fontSize: '0.7rem', color: '#006400', fontWeight: 'bold' }}>Founder & CEO</span>
+
+      {/* --- PHILOSOPHY INTRODUCTION SECTION --- */}
+      <section className="philosophy-section container reveal">
+        <div className="philosophy-box">
+          <p>
+            At ByteFlow Ltd, we believe that modern business success requires a seamless intersection between high-performance 
+            engineering and impactful visual branding. We eliminate the technical complexities of the digital world, allowing 
+            our clients to focus entirely on scaling their core operations. From writing clean, optimized code for web platforms 
+            to executing high-conversion digital marketing frameworks, ByteFlow Ltd delivers end-to-end solutions that guarantee 
+            measurable market impact.
+          </p>
+        </div>
+      </section>
+
+      {/* --- 2. LEADERSHIP & FOUNDING VISION --- */}
+      <section className="founder-section container">
+        <div className="founder-grid reveal">
+          <div className="founder-info">
+            <span className="section-subtitle">Leadership & Founding Vision</span>
+            <h2 className="section-title">Meet the <span className="sig-font">Founder & CEO</span></h2>
+            <h4 className="founder-name">Umugwaneza Aline</h4>
+            <p>
+              The establishment of ByteFlow Ltd was catalyzed by a vision to democratize premium tech and media infrastructure 
+              for businesses operating in Africa's rapidly growing digital economy.
+            </p>
+            <p>
+              <strong>The Founding Philosophy:</strong> Under the leadership of Umugwaneza Aline, ByteFlow Ltd was built on the 
+              principle of continuous digital iteration—the "Flow." The founder envisioned an ecosystem where businesses do 
+              not just acquire software or media assets, but rather integrate technology into their daily operations to automate 
+              workflows, lower customer acquisition costs, and build recognizable brand equity.
+            </p>
+            <div className="founder-socials">
+              <a href="https://linkedin.com" target="_blank" rel="noreferrer"><Linkedin size={20} /></a>
+              <a href="https://facebook.com" target="_blank" rel="noreferrer"><Facebook size={20} /></a>
+              <a href="https://instagram.com" target="_blank" rel="noreferrer"><Instagram size={20} /></a>
+            </div>
+          </div>
+          <div className="founder-visual">
+            <div className="founder-frame">
+              <img src={heroBg} alt="Umugwaneza Aline - CEO" className="founder-img" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* --- 3. MISSION & VISION --- */}
+      <section className="vision-mission container">
+        <div className="section-center-header reveal">
+          <span className="badge">Corporate Framework</span>
+          <h2>Strategic <span className="sig-font">Direction</span></h2>
+          <p className="framework-pitch">To maintain our position as an industry leader, ByteFlow Ltd operates under a strict corporate framework guided by the following principles:</p>
+        </div>
+        <div className="mv-grid">
+          <div className="mv-card reveal">
+            <Target className="mv-icon" size={36} />
+            <h3>Our Mission</h3>
+            <p>To accelerate business growth and regional competitiveness across Africa by deploying secure, scalable, and highly optimized digital infrastructure alongside premium creative assets.</p>
+          </div>
+          <div className="mv-card reveal">
+            <Eye className="mv-icon" size={36} />
+            <h3>Our Vision</h3>
+            <p>To become East Africa’s most trusted and innovative hub for integrated digital engineering, corporate branding, and enterprise business automation.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* --- CORE VALUES --- */}
+      <section className="values-section container">
+        <div className="section-center-header reveal">
+          <h2>Core <span className="sig-font">Values</span></h2>
+          <div className="accent-bar"></div>
+        </div>
+        <div className="values-grid">
+          <div className="value-item reveal">
+            <Zap className="v-icon" size={30} />
+            <h4>Innovation First</h4>
+            <p>We leverage modern tech stacks (including React and Next.js) to build future-proof products.</p>
+          </div>
+          <div className="value-item reveal">
+            <ShieldCheck className="v-icon" size={30} />
+            <h4>Absolute Integrity</h4>
+            <p>Transparent pricing, secure data handling, and reliable service uptime.</p>
+          </div>
+          <div className="value-item reveal">
+            <Award className="v-icon" size={30} />
+            <h4>Client-Centric Execution</h4>
+            <p>Every line of code written and every frame captured is designed to solve a specific business problem.</p>
+          </div>
+          <div className="value-item reveal">
+            <Layers className="v-icon" size={30} />
+            <h4>Agility</h4>
+            <p>The digital landscape changes daily; our team adapts instantly to global best practices.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* --- 4. COMPREHENSIVE SERVICE PORTFOLIO --- */}
+      <section className="portfolio-divisions container">
+        <div className="section-center-header reveal">
+          <span className="badge">Corporate Structure</span>
+          <h2>Comprehensive Service <span className="sig-font">Portfolio</span></h2>
+          <p className="framework-pitch">ByteFlow Ltd operates through two primary corporate divisions:</p>
+        </div>
+        
+        <div className="divisions-grid">
+          {/* Division A */}
+          <div className="division-card reveal">
+            <div className="div-header">
+              <span className="div-num">A</span>
+              <h3>The Tech Engineering Wing</h3>
+            </div>
+            <div className="div-body">
+              <div className="div-bullet">
+                <strong>Full-Stack Web Development:</strong>
+                <p>We architecture, design, and deploy web applications tailored to business requirements. We specialize in building fast, interactive user interfaces using modern frameworks, ensuring cross-device compatibility and clean code structures.</p>
+              </div>
+              <div className="div-bullet">
+                <strong>Corporate Web Hosting & Domain Management:</strong>
+                <p>We provide high-security server environments with guaranteed 99.9% uptime, regular data backups, and SSL certifications alongside local and international domain registration (.rw, .com, .net, etc.).</p>
+              </div>
+              <div className="div-bullet">
+                <strong>Search Engine Optimization (SEO):</strong>
+                <p>We implement technical, on-page, and off-page SEO strategies to position our clients’ web platforms on the first page of global search engines like Google, maximizing organic traffic.</p>
               </div>
             </div>
-          </motion.div>
+          </div>
 
-          <motion.div {...fadeIn} transition={{ delay: 0.3 }}>
-            <span style={{ color: '#006400', fontWeight: '800', textTransform: 'uppercase', fontSize: '0.8rem' }}>Our Heritage</span>
-            <h2 style={{ fontSize: '2.5rem', margin: '15px 0', fontWeight: '800',color:'black', }}>The <span style={{ color: '#006400' }}>ByteFlow</span> Story</h2>
-            <p style={{ color:'black', lineHeight: '1.7',fontWeight: '500', marginBottom: '20px' }}>What started as a passion for coding and design has grown into a full-scale digital agency. ByteFlow Ltd stands as a pillar of technology in Kigali.</p>
-            <p style={{ color:'black', lineHeight: '1.7',fontWeight: '500' }}>Under the visionary leadership of <b>Umugwaneza Aline</b>, we build long-term partnerships with our clients, ensuring their digital presence is impactful.</p>
-            
-            {/* 4. STATS SECTION - MUNSI YA HISTORY (KOSOYE) */}
-            <div style={{ 
-              marginTop: '40px', display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '20px',
-              borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '30px'
-            }}>
-              {[
-                { label: 'Years Exp', value: '5+', icon: <Award size={20} color="#006400" /> },
-                { label: 'Projects', value: '150+', icon: <CheckCircle2 size={20} color="#006400" /> },
-                { label: 'Clients', value: '500+', icon: <Users size={20} color="#006400" /> },
-                { label: 'Experts', value: '12+', icon: <Target size={20} color="#006400" /> }
-              ].map((stat, index) => (
-                <div key={index} style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                  <div style={{ background: 'rgba(34, 197, 94, 0.44)', padding: '10px', borderRadius: '10px' }}>{stat.icon}</div>
-                  <div>
-                    <h3 style={{ margin: 0, fontSize: '1.2rem', fontWeight: '800',color: '#000000' }}>{stat.value}</h3>
-                    <p style={{ margin: 0, fontSize: '0.75rem', color: '#000000' }}>{stat.label}</p>
-                  </div>
-                </div>
-              ))}
+          {/* Division B */}
+          <div className="division-card reveal">
+            <div className="div-header">
+              <span className="div-num">B</span>
+              <h3>The Creative Media Hub</h3>
             </div>
-          </motion.div>
+            <div className="div-body">
+              <div className="div-bullet">
+                <strong>Corporate Branding & Graphic Design:</strong>
+                <p>We formulate complete visual identities for new and existing businesses, including logo creation, typography rules, corporate stationery, and comprehensive brand guidelines.</p>
+              </div>
+              <div className="div-bullet">
+                <strong>Digital Marketing & Growth Hacking:</strong>
+                <p>We design and manage high-conversion advertising campaigns across social media channels and search networks, utilizing data analytics to maximize Return on Ad Spend (ROAS).</p>
+              </div>
+              <div className="div-bullet">
+                <strong>Premium Photography & Videography:</strong>
+                <p>Our creative production unit delivers high-resolution commercial photography, corporate profile videos, product shoots, and digital media content tailored for marketing campaigns.</p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
-      
-      {/* 2. MISSION & VISION SECTION */}
-      <section className="mission-vision container" style={{ padding: '60px 20px', backgroundColor:'#e2e2e2', border: '1px solid rgba(255,255,255,0.1)' }}>
-        <div className="section-title" style={{ textAlign: 'center', marginBottom: '40px' }}>
-          <h2 style={{ fontSize: '2rem' }}>Our <span style={{ color: '#006400' }}>Purpose</span></h2>
-          <p style={{ color: '#0d1014' }}>Guided by excellence, focused on impact.</p>
-        </div>
-        <div className="mv-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px' }}>
-          <motion.div className="mv-card" {...fadeIn} style={{ background: '#ffffff', padding: '30px', borderRadius: '20px', border: '2px solid rgba(2, 77, 7, 0.28)' }}>
-            <div style={{ background: 'rgba(34, 197, 94, 0.1)', width: '60px', height: '60px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px' }}>
-              <Target size={32} color="#006400" />
-            </div>
-            <h3 style={{ fontSize: '1.4rem', marginBottom: '10px' }}>Our Mission</h3>
-            <p style={{ color: '#070707', fontSize: '0.9rem', fontWeight:'600', lineHeight: '1.6' }}>To provide high-quality digital services and tech equipment that empower individuals and businesses in Kigali.</p>
-          </motion.div>
 
-          <motion.div className="mv-card" {...fadeIn} transition={{ delay: 0.2 }} style={{ background: '#ffffff', padding: '30px', borderRadius: '20px', border: '2px solid rgba(2, 77, 7, 0.28)' }}>
-            <div style={{ background: 'rgba(34, 197, 94, 0.1)', width: '60px', height: '60px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px' }}>
-              <Eye size={32} color="#006400" />
+      {/* --- 5. WHY BUSINESSES CHOOSE US --- */}
+      <section className="why-choose-section container">
+        <div className="why-box-wrapper reveal">
+          <div className="why-header">
+            <h2>Why Businesses Choose <span className="sig-font">ByteFlow Ltd</span></h2>
+          </div>
+          <div className="why-reasons-grid">
+            <div className="reason-item">
+              <div className="reason-icon">01</div>
+              <div>
+                <h4>Localized Expertise with Global Standards</h4>
+                <p>While based in Kigali, our technical execution matches international benchmarks.</p>
+              </div>
             </div>
-            <h3 style={{ fontSize: '1.4rem', marginBottom: '10px' }}>Our Vision</h3>
-            <p style={{ color: '#0e0e0e', fontSize: '0.9rem', fontWeight:'600', lineHeight: '1.6' }}>To become the leading technology partner in East Africa, known for innovation and professional excellence.</p>
-          </motion.div>
+            <div className="reason-item">
+              <div className="reason-icon">02</div>
+              <div>
+                <h4>End-to-End Execution</h4>
+                <p>Businesses do not need to hire a separate software company, a branding agency, and a production house. ByteFlow Ltd handles everything under one roof.</p>
+              </div>
+            </div>
+            <div className="reason-item">
+              <div className="reason-icon">03</div>
+              <div>
+                <h4>Data-Driven Results</h4>
+                <p>We do not just build websites; we analyze metrics, track user behaviors, and optimize platforms for actual financial conversion.</p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
+
     </div>
   );
 };
