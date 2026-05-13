@@ -1,19 +1,7 @@
 <img width="480" height="136" alt="IMG_20260430_160359" src="https://github.com/user-attachments/assets/28795b21-52b9-4229-a86b-6a4d34cad8d6" />
 
 # 🚀 ByteFlow Ltd - Engineering Digital Success
-
-  <!-- Badge Section using Simple Icons -->
-  <img src="https://img.shields.io" alt="Live Demo" />
-  <img src="https://img.shields.io" alt="React" />
-  <img src="https://img.shields.io" alt="Node" />
-  <img src="https://img.shields.io" alt="MongoDB" />
-  <img src="https://img.shields.io" alt="Framer" />
-
-  <h3 align="center">Engineering Digital Success in Kigali</h3>
-</div>
-
 ---
-
 ## 📸 Screenshots
 <img width="1351" height="634" alt="Screenshot 2026-05-13 215425" src="https://github.com/user-attachments/assets/4e677a20-3358-4e5e-868f-e53f4ebb63ed" />
 <img width="1352" height="626" alt="Screenshot 2026-05-13 215358" src="https://github.com/user-attachments/assets/6fad2905-4f3c-457c-8ad4-a6fab4d6890f" />
