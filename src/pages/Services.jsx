@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Code2, Palette, FileText, Share2, GraduationCap, CheckCircle2 } from 'lucide-react';
 import '../styles/Services.css';
-import heroBg from '../assets/ss.JPG'; // Twazanyemo ifoto yawe hano
+import heroBg from '../assets/ss.jpg'; // Twazanyemo ifoto yawe hano
 
 const Services = () => {
   useEffect(() => {
