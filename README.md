@@ -1,10 +1,6 @@
+<img width="480" height="136" alt="IMG_20260430_160359" src="https://github.com/user-attachments/assets/28795b21-52b9-4229-a86b-6a4d34cad8d6" />
+
 # 🚀 ByteFlow Ltd - Engineering Digital Success
-
-<div align="center">
-  <!-- Logo Section -->
-  <img src="./assets/logo.jpg" alt="ByteFlow Logo" width="120" style="border-radius: 20px; margin-bottom: 20px;" />
-  <br />
-
 
   <!-- Badge Section using Simple Icons -->
   <img src="https://img.shields.io" alt="Live Demo" />
@@ -19,10 +15,10 @@
 ---
 
 ## 📸 Screenshots
-<img width="1349" height="633" alt="b11" src="https://github.com/user-attachments/assets/a63fdb6b-5524-4c1b-a8c4-8aa020433b3b" />
-<img width="1349" height="632" alt="b33" src="https://github.com/user-attachments/assets/5129849e-e099-4bb1-9671-d2ec0bd0cf8a" />
-<img width="1346" height="633" alt="b22" src="https://github.com/user-attachments/assets/4a2d3e18-47cb-4cf1-b634-4da448d86419" />
-<img width="1349" height="628" alt="b44" src="https://github.com/user-attachments/assets/c774ac61-d0cb-4e77-8247-ece5ed338bc9" />
+<img width="1351" height="634" alt="Screenshot 2026-05-13 215425" src="https://github.com/user-attachments/assets/4e677a20-3358-4e5e-868f-e53f4ebb63ed" />
+<img width="1352" height="626" alt="Screenshot 2026-05-13 215358" src="https://github.com/user-attachments/assets/6fad2905-4f3c-457c-8ad4-a6fab4d6890f" />
+<img width="1333" height="638" alt="Screenshot 2026-05-13 215332" src="https://github.com/user-attachments/assets/e8154c76-4265-4c3c-a691-56df1892f3ea" />
+<img width="1349" height="634" alt="Screenshot 2026-05-13 215244" src="https://github.com/user-attachments/assets/fc0e9158-205d-49a5-abcc-cc9213ba6731" />
 
 ---
 
