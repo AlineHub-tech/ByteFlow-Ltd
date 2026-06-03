@@ -1,4 +1,10 @@
+# Allow all search engines to index our corporate site
 User-agent: *
 Allow: /
 
-Sitemap: https://byte-flow-ltd.vercel.app
+# Disallow indexing of system development folders
+Disallow: /node_modules/
+Disallow: /dist/
+
+# Link to the automated sitemap structure
+Sitemap:https://byte-flow-ltd.vercel.app/
