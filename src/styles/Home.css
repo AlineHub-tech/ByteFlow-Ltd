@@ -259,89 +259,119 @@ html {
 }
 
 /* --- PRICING SECTION --- */
+/* --- PRICING SECTION STYLES --- */
 .pricing-section {
-  padding: 50px 0;
+  padding: 80px 0;
+  text-align: center;
+  background-color: var(--bg-pure-white);
 }
 
 .pricing-pitch {
   color: var(--body-muted);
-  font-size: 1rem;
+  margin-top: 10px;
+  font-size: 1.1rem;
 }
 
-.pricing-grid {
+.sig-font {
+  font-family: var(--font-sig);
+}
+
+/* Gufasha ama-cards 8 kwicenga neza (Responsive Grid) */
+.pricing-list-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 30px;
-  margin-top: 45px;
+  margin-top: 50px;
+  padding: 0 15px;
 }
 
-.price-card {
-  background: var(--bg-pure-white);
-  border: 1.5px solid #e2e8f0;
-  border-radius: 24px;
-  padding: 40px;
-  position: relative;
+/* Isura y'ama-card ubwayo (Nta Hover dynamic movements) */
+.price-service-card {
+  background: var(--light-green-bg);
+  border: 1px solid rgba(0, 100, 0, 0.15);
+  border-radius: 16px;
+  padding: 35px 25px;
+  text-align: left;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
   transition: var(--transition-smooth);
 }
 
-.price-card.featured {
-  border-color: var(--primary-green);
-  box-shadow: 0 15px 35px rgba(0, 100, 0, 0.06);
+/* Mutwe w'akazi (Icon + Title) */
+.price-card-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
 }
 
-.popular {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  background: var(--primary-green);
-  color: white;
-  font-size: 0.75rem;
-  font-weight: 700;
-  padding: 4px 12px;
-  border-radius: 50px;
+.plan-icon {
+  color: var(--primary-green);
+  flex-shrink: 0;
 }
 
-.price-card h3 {
-  font-size: 1.25rem;
-  font-weight: 800;
-  margin-bottom: 15px;
+.price-card-header h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--dark-charcoal);
+  margin: 0;
 }
 
+/* Agasanduku k'igiciro (Price Box) */
 .price-box {
+  background: rgba(0, 100, 0, 0.08);
+  border-radius: 12px;
+  padding: 15px;
+  margin-bottom: 25px;
+  border-left: 4px solid var(--primary-green);
+}
+
+.price-badge {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--body-muted);
+  display: block;
+  margin-bottom: 5px;
+}
+
+.amount-wrapper {
   display: flex;
   align-items: baseline;
   gap: 6px;
-  margin-bottom: 25px;
 }
 
 .currency {
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   font-weight: 700;
   color: var(--primary-green);
 }
 
 .amount {
-  font-size: 2.1rem;
+  font-size: 1.8rem;
   font-weight: 800;
+  color: var(--dark-charcoal);
 }
 
+/* Urutonde rw'ibigize serivisi (Features List) */
 .plan-list {
   list-style: none;
   padding: 0;
-  margin: 0 0 35px 0;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+  margin: 0 0 30px 0;
+  flex-grow: 1; /* Bituma ama-buttons yose aza ku murongo umwe hasi */
 }
 
 .plan-list li {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 0.9rem;
   color: var(--body-muted);
+  font-size: 0.95rem;
+  margin-bottom: 12px;
+  line-height: 1.4;
 }
 
 .check-icon {
@@ -349,27 +379,40 @@ html {
   flex-shrink: 0;
 }
 
+/* Bouton yo gutangira (Get Started Button) */
 .btn-plan {
   display: block;
   text-align: center;
-  background: #f1f5f9;
-  color: #475569;
-  text-decoration: none;
-  padding: 12px;
-  border-radius: 50px;
+  background: var(--primary-green);
+  border: 2px solid var(--primary-green);
+  color: var(--bg-pure-white);
+  padding: 12px 20px;
+  border-radius: 8px;
   font-weight: 600;
+  text-decoration: none;
   font-size: 0.95rem;
-  margin-top: auto;
   transition: var(--transition-smooth);
 }
 
-.price-card.featured .btn-plan {
-  background: var(--primary-green);
-  color: white;
+.btn-plan:hover {
+  background: transparent;
+  color: var(--primary-green);
 }
 
-.price-card.featured .btn-plan:hover {
-  background: #004d00;
+/* --- RESPONSIVE ADJUSTMENTS --- */
+@media (max-width: 768px) {
+  .pricing-list-grid {
+    gap: 20px;
+    padding: 0 5px;
+  }
+  
+  .price-service-card {
+    padding: 25px 20px;
+  }
+  
+  .amount {
+    font-size: 1.6rem;
+  }
 }
 
 /* --- CTA SECTION --- */

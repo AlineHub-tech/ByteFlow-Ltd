@@ -94,100 +94,202 @@
   margin: 0;
 }
 
-/* --- FOUNDER SECTION --- */
+/* ==========================================================================
+   BYTEFLOW LTD - FOUNDER SECTION (CIRCLE IMAGE LAYOUT)
+   ========================================================================= */
+
 .founder-section {
-  padding: 40px 0;
+  padding: 100px 0;
+  background-color: var(--bg-pure-white);
+  position: relative;
 }
 
+/* 1. LAYOUT GRID - Clean structural division */
 .founder-grid {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
   gap: 60px;
-  background: var(--bg-pure-white);
-  padding: 40px;
-  border-radius: 24px;
-  border: 1.5px solid #e2e8f0;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
+
+/* ==========================================================================
+   LEFT SIDE: FOUNDER TEXT CONTENT
+   ========================================================================= */
 
 .founder-info {
-  flex: 1.2;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
 }
 
 .section-subtitle {
-  display: block;
   font-size: 0.85rem;
   text-transform: uppercase;
+  letter-spacing: 2px;
   color: var(--primary-green);
   font-weight: 700;
-  letter-spacing: 1px;
-  margin-bottom: 5px;
+  margin-bottom: 12px;
 }
 
 .section-title {
-  font-size: 1.8rem;
+  font-size: 2.5rem;
   font-weight: 800;
-  margin-bottom: 5px;
+  color: var(--dark-charcoal);
+  margin: 0 0 15px 0;
+  line-height: 1.2;
+}
+
+.sig-font {
+  font-family: var(--font-sig);
 }
 
 .founder-name {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   font-weight: 700;
-  color: #334155;
-  margin-bottom: 20px;
+  color: var(--dark-charcoal);
+  margin: 0 0 25px 0;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+/* Green accent bar under name */
+.founder-name::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 50px;
+  height: 3px;
+  background-color: var(--primary-green);
+  border-radius: 2px;
 }
 
 .founder-info p {
-  font-size: 0.98rem;
   color: var(--body-muted);
-  line-height: 1.65;
-  margin-bottom: 15px;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin: 0 0 20px 0;
 }
 
+.founder-info strong {
+  color: var(--dark-charcoal);
+}
+
+/* Social media connections */
 .founder-socials {
   display: flex;
-  gap: 12px;
-  margin-top: 25px;
+  gap: 15px;
+  margin-top: 15px;
 }
 
 .founder-socials a {
-  color: var(--primary-green);
-  background: var(--light-green-bg);
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background-color: var(--light-green-bg);
+  color: var(--primary-green);
+  text-decoration: none;
   transition: var(--transition-smooth);
-  border: 1px solid rgba(0, 100, 0, 0.1);
 }
 
 .founder-socials a:hover {
-  background: var(--primary-green);
-  color: white;
-  transform: translateY(-3px);
+  background-color: var(--primary-green);
+  color: var(--bg-pure-white);
 }
+
+/* ==========================================================================
+   RIGHT SIDE: MODERN CIRCLE VISUAL MODULE
+   ========================================================================= */
 
 .founder-visual {
-  flex: 0.8;
   display: flex;
   justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 20px;
 }
 
+/* The primary circular background wrapper frame */
 .founder-frame {
-  width: 280px;
+  position: relative;
+  width: 320px;
   height: 320px;
-  border-radius: 20px;
-  overflow: hidden;
-  border: 1.5px solid #e2e8f0;
+  background: var(--light-green-bg);
+  border-radius: 50%; /* Converts the frame into a perfect circle */
+  border: 1px solid rgba(0, 100, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
 }
 
-.founder-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+/* Circular dashed structural layout running behind the frame */
+.founder-frame::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  border: 2px dashed var(--primary-green);
+  border-radius: 50%;
+  z-index: -1;
+  opacity: 0.35;
 }
+
+/* Headshot graphic engineered into a perfect circle */
+.founder-img {
+  width: 90%;
+  height: 90%;
+  object-fit: cover;
+  border-radius: 50%; /* Cuts the image into a clean circle */
+  display: block;
+  position: relative;
+  z-index: 1;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN SYSTEM ADJUSTMENTS
+   ========================================================================= */
+
+@media (max-width: 992px) {
+  .founder-grid {
+    grid-template-columns: 1fr;
+    gap: 50px;
+    text-align: center;
+  }
+
+  .founder-info {
+    align-items: center;
+    text-align: center;
+  }
+
+  .founder-name::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .founder-socials {
+    justify-content: center;
+  }
+  
+  .section-title {
+    font-size: 2.2rem;
+  }
+  
+  /* Scale down the circular frame module slightly on small screens */
+  .founder-frame {
+    width: 280px;
+    height: 280px;
+  }
+}
+
 
 /* --- SECTION HEADERS --- */
 .section-center-header {
