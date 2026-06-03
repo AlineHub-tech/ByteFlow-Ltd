@@ -5,7 +5,7 @@ import emailjs from '@emailjs/browser';
 import '../styles/Contact.css';
 
 const Contact = () => {
-  const whatsappNumber = "+250796023452"; 
+  const whatsappNumber = "250796023452"; 
   
   const [formData, setFormData] = useState({
     name: '',
@@ -20,16 +20,15 @@ const Contact = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // 1. INTEGRATION: Gufasha Form kwi-senda kuri Email yawe
+  // 1. INTEGRATION: Gufasha Form kwi-senda kuri Email yawe (Ama-Keys ya ByteFlow yashyizwemo)
   const handleEmailSubmit = (e) => {
     e.preventDefault();
     setLoading(true);
     setStatus('');
 
-    // Sura neza ko wasimbuye aya magambo n'ama-Keys yawe ya EmailJS ava kuri emailjs.com
-    const serviceID = "YOUR_SERVICE_ID"; 
-    const templateID = "YOUR_TEMPLATE_ID";
-    const publicKey = "YOUR_PUBLIC_KEY";
+    const serviceID = "service_2spoe5l"; 
+    const templateID = "template_2zxcvvg";
+    const publicKey = "raeWP3pefif4FWJsT";
 
     const templateParams = {
       from_name: formData.name,
@@ -43,7 +42,7 @@ const Contact = () => {
       .then((response) => {
         setLoading(false);
         setStatus('success');
-        setFormData({ name: '', email: '', subject: '', message: '' }); 
+        setFormData({ name: '', email: '', subject: '', message: '' }); // Siba form yarangiza
       }, (error) => {
         setLoading(false);
         setStatus('error');
@@ -51,7 +50,7 @@ const Contact = () => {
       });
   };
 
-  // 2. INTEGRATION: Link ya WhatsApp (KOSOYE: wa.me/250796023452 ikorere neza)
+  // 2. INTEGRATION: Link ya WhatsApp ifite ubutumwa bwite (Custom Message)
   const encodedMessage = encodeURIComponent(
     `Hello ByteFlow Ltd! 👋\nI would like to start a project with you.\n\n*Name:* ${formData.name || 'Visitor'}\n*Email:* ${formData.email || 'Not provided'}\n*Subject:* ${formData.subject || 'General Inquiry'}\n*Message:* ${formData.message || 'I want to build a website.'}`
   );
