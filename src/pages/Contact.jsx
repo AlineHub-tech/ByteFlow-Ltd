@@ -1,10 +1,62 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Phone, Mail, MapPin, MessageCircle, Send, Clock, Globe } from 'lucide-react';
+import emailjs from '@emailjs/browser'; // Koresha iyi npm package ngo email ijye ihamya
 import '../styles/Contact.css';
 
 const Contact = () => {
-  const whatsappNumber = "250796023452"; // Kosoye ngo link ya wa.me ikore neza
+  const whatsappNumber = "250796023452"; // Nimero ya ByteFlow Ltd
+  
+  // Gufata amakuru yanditswe mu fomu
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  });
+  const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState('');
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  // 1. INTEGRATION: Gufasha Form kwi-senda kuri Email yawe
+  const handleEmailSubmit = (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setStatus('');
+
+    // Wuzuza ibi bintu bimaze gufungura konti kuri emailjs.com (Ni ubuntu)
+    const serviceID = "YOUR_SERVICE_ID"; 
+    const templateID = "YOUR_TEMPLATE_ID";
+    const publicKey = "YOUR_PUBLIC_KEY";
+
+    const templateParams = {
+      from_name: formData.name,
+      from_email: formData.email,
+      subject: formData.subject,
+      message: formData.message,
+      to_email: "byteflowltd9@gmail.com" // Email ya ByteFlow izakirirwaho
+    };
+
+    emailjs.send(serviceID, templateID, templateParams, publicKey)
+      .then((response) => {
+        setLoading(false);
+        setStatus('success');
+        setFormData({ name: '', email: '', subject: '', message: '' }); // Siba form yarangiza
+      }, (error) => {
+        setLoading(false);
+        setStatus('error');
+        console.error('EmailJS Error:', error);
+      });
+  };
+
+  // 2. INTEGRATION: Link ya WhatsApp ifite ubutumwa bwite (Custom Message)
+  const encodedMessage = encodeURIComponent(
+    `Hello ByteFlow Ltd! 👋\nI would like to start a project with you.\n\n*Name:* ${formData.name || 'Visitor'}\n*Email:* ${formData.email || 'Not provided'}\n*Subject:* ${formData.subject || 'General Inquiry'}\n*Message:* ${formData.message || 'I want to build a website.'}`
+  );
+  const whatsappLink = `https://wa.me{whatsappNumber}?text=${encodedMessage}`;
 
   return (
     <div className="contact-v14">
@@ -70,7 +122,8 @@ const Contact = () => {
                 </div>
               </div>
               
-              <a href={`wa.me{whatsappNumber}`} target="_blank" rel="noreferrer" className="v14-whatsapp-btn">
+              {/* WhatsApp button ihita itwara ubutumwa umukiriya yanditse muri form */}
+              <a href={whatsappLink} target="_blank" rel="noreferrer" className="v14-whatsapp-btn">
                 <MessageCircle size={20} /> Chat on WhatsApp
               </a>
             </div>
@@ -83,28 +136,33 @@ const Contact = () => {
             whileInView={{ opacity: 1, x: 0 }} 
             viewport={{ once: true }}
           >
-            <form className="v14-form" onSubmit={(e) => e.preventDefault()}>
+            <form className="v14-form" onSubmit={handleEmailSubmit}>
               <div className="v14-form-grid">
                 <div className="v14-input-box">
                   <label>Full Name</label>
-                  <input type="text" placeholder="John Doe" required />
+                  <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="John Doe" required />
                 </div>
                 <div className="v14-input-box">
                   <label>Email Address</label>
-                  <input type="email" placeholder="john@example.com" required />
+                  <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="john@example.com" required />
                 </div>
               </div>
               <div className="v14-input-box">
                 <label>Subject</label>
-                <input type="text" placeholder="e.g. Website Development" required />
+                <input type="text" name="subject" value={formData.subject} onChange={handleChange} placeholder="e.g. Website Development" required />
               </div>
               <div className="v14-input-box">
                 <label>How can we help?</label>
-                <textarea rows="6" placeholder="Tell us about your project goals..." required></textarea>
+                <textarea rows="6" name="message" value={formData.message} onChange={handleChange} placeholder="Tell us about your project goals..." required></textarea>
               </div>
-              <button type="submit" className="v14-submit-btn">
-                Send Message <Send size={18} />
+              
+              <button type="submit" className="v14-submit-btn" disabled={loading}>
+                {loading ? 'Sending...' : 'Send Message'} <Send size={18} />
               </button>
+
+              {/* Ubutumwa bwerekana ko byagenze neza cyangwa nabi */}
+              {status === 'success' && <p className="status-success">⚡ Message sent successfully to ByteFlow email!</p>}
+              {status === 'error' && <p className="status-error">❌ Failed to send message. Please chat on WhatsApp.</p>}
             </form>
           </motion.div>
 
