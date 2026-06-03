@@ -1,15 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org">
+<urlset xmlns="http://sitemaps.org">
+  <!-- Home Page -->
   <url>
-    <loc>https://byte-flow-ltd.vercel.app</loc>
-    <lastmod>2024-05-20</lastmod>
+    <loc>https://byteflow.rw</loc>
+    <lastmod>2026-06-03</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
+  
+  <!-- Services Page -->
   <url>
-    <loc>https://byte-flow-ltd.vercel.app</loc>
-    <lastmod>2024-05-20</lastmod>
+    <loc>https://byteflow.rwservices</loc>
+    <lastmod>2026-06-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- About Page -->
+  <url>
+    <loc>https://byteflow.rwabout</loc>
+    <lastmod>2026-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Contact Page -->
+  <url>
+    <loc>https://byteflow.rwcontact</loc>
+    <lastmod>2026-06-03</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 </urlset>
-
-
