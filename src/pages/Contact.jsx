@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Phone, Mail, MapPin, MessageCircle, Send, Clock, Globe } from 'lucide-react';
-import emailjs from '@emailjs/browser'; // Koresha iyi npm package ngo email ijye ihamya
+import emailjs from '@emailjs/browser'; 
 import '../styles/Contact.css';
 
 const Contact = () => {
-  const whatsappNumber = "250796023452"; // Nimero ya ByteFlow Ltd
+  const whatsappNumber = "+250796023452"; 
   
-  // Gufata amakuru yanditswe mu fomu
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -27,7 +26,7 @@ const Contact = () => {
     setLoading(true);
     setStatus('');
 
-    // Wuzuza ibi bintu bimaze gufungura konti kuri emailjs.com (Ni ubuntu)
+    // Sura neza ko wasimbuye aya magambo n'ama-Keys yawe ya EmailJS ava kuri emailjs.com
     const serviceID = "YOUR_SERVICE_ID"; 
     const templateID = "YOUR_TEMPLATE_ID";
     const publicKey = "YOUR_PUBLIC_KEY";
@@ -37,14 +36,14 @@ const Contact = () => {
       from_email: formData.email,
       subject: formData.subject,
       message: formData.message,
-      to_email: "byteflowltd9@gmail.com" // Email ya ByteFlow izakirirwaho
+      to_email: "byteflowltd9@gmail.com" 
     };
 
     emailjs.send(serviceID, templateID, templateParams, publicKey)
       .then((response) => {
         setLoading(false);
         setStatus('success');
-        setFormData({ name: '', email: '', subject: '', message: '' }); // Siba form yarangiza
+        setFormData({ name: '', email: '', subject: '', message: '' }); 
       }, (error) => {
         setLoading(false);
         setStatus('error');
@@ -52,7 +51,7 @@ const Contact = () => {
       });
   };
 
-  // 2. INTEGRATION: Link ya WhatsApp ifite ubutumwa bwite (Custom Message)
+  // 2. INTEGRATION: Link ya WhatsApp (KOSOYE: wa.me/250796023452 ikorere neza)
   const encodedMessage = encodeURIComponent(
     `Hello ByteFlow Ltd! 👋\nI would like to start a project with you.\n\n*Name:* ${formData.name || 'Visitor'}\n*Email:* ${formData.email || 'Not provided'}\n*Subject:* ${formData.subject || 'General Inquiry'}\n*Message:* ${formData.message || 'I want to build a website.'}`
   );
@@ -122,7 +121,6 @@ const Contact = () => {
                 </div>
               </div>
               
-              {/* WhatsApp button ihita itwara ubutumwa umukiriya yanditse muri form */}
               <a href={whatsappLink} target="_blank" rel="noreferrer" className="v14-whatsapp-btn">
                 <MessageCircle size={20} /> Chat on WhatsApp
               </a>
@@ -161,8 +159,8 @@ const Contact = () => {
               </button>
 
               {/* Ubutumwa bwerekana ko byagenze neza cyangwa nabi */}
-              {status === 'success' && <p className="status-success">⚡ Message sent successfully to ByteFlow email!</p>}
-              {status === 'error' && <p className="status-error">❌ Failed to send message. Please chat on WhatsApp.</p>}
+              {status === 'success' && <p style={{ color: '#22c55e', marginTop: '15px', fontWeight: 'bold' }}>⚡ Message sent successfully to ByteFlow email!</p>}
+              {status === 'error' && <p style={{ color: '#ef4444', marginTop: '15px', fontWeight: 'bold' }}>❌ Failed to send message. Please chat on WhatsApp.</p>}
             </form>
           </motion.div>
 
