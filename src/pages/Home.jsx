@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Rocket, CheckCircle2, MessageSquare, Cpu, Globe2, Camera, FileText, Share2, GraduationCap } from 'lucide-react';
+import { Rocket, CheckCircle2, MessageSquare, Cpu, Code2, Palette, Server, Globe2, Share2, Video, Camera, FileText } from 'lucide-react';
 import '../styles/Home.css';
 import heroBg from '../assets/pro.jpg';
 
@@ -15,17 +15,23 @@ const Home = () => {
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   }, []);
 
-  const pricingPlans = [
-    { title: "Essential Pack", price: "150,000", features: ["Graphic Design (Logos & Ads)", "Professional Documentation", "Social Media Branding", "Basic SEO Optimization"], btnText: "Choose Essential", featured: false },
-    { title: "Professional", price: "450,000", features: ["Full-Stack Web Development", "Cinematic Videography", "UI/UX & Creative Media", "Digital Growth Strategy"], btnText: "Most Popular", featured: true },
-    { title: "Enterprise", price: "1,200,000", features: ["Advanced Software Solutions", "Database & Project Mgmt", "Technical Mentorship", "Full Digital Ecosystem"], btnText: "Contact for Pro", featured: false }
+  // Urutonde rw'ibiciro ku giti cyacyo kuri buri serivisi (Service-Specific Pricing)
+  const individualServicesPricing = [
+    { title: "Website Development", price: "350,000", badge: "Starting From", features: ["Custom Corporate Sites", "E-commerce Online Stores", "UI/UX Responsive Design", "Database Apps & Dashboards"], icon: <Code2 className="plan-icon" /> },
+    { title: "Graphic Design", price: "15,000", badge: "Starting From", features: ["Logo & Brand Identity Kits", "Social Media Graphics", "Flyers, Brochures & Banners", "Company Profile Layouts"], icon: <Palette className="plan-icon" /> },
+    { title: "Web Hosting", price: "50,000", badge: "Per Year", features: ["Shared Cloud Web Hosting", "Dedicated VPS Hosting Servers", "Corporate Business Emails", "Automated Daily Backups"], icon: <Server className="plan-icon" /> },
+    { title: "Website Domain Name", price: "15,000", badge: "Per Year", features: ["Local Domains (.rw, .co.rw)", "Global Domains (.com, .net)", "Secure Domain Transfers", "Advanced DNS Management"], icon: <Globe2 className="plan-icon" /> },
+    { title: "Digital Marketing & SEO", price: "150,000", badge: "Per Month", features: ["Google Search Ranking (SEO)", "Social Media Management", "Meta & Google Ad Campaigns", "Copywriting & Content Strategy"], icon: <Share2 className="plan-icon" /> },
+    { title: "Videography", price: "150,000", badge: "Starting From", features: ["Corporate Promo Videos", "Social Media Reels & TikTok", "Event Highlights & Coverage", "YouTube Video Production"], icon: <Video className="plan-icon" /> },
+    { title: "Photography", price: "100,000", badge: "Starting From", features: ["High-End Product Shoots", "Corporate Team Headshots", "Event & Conference Coverage", "Brand Lifestyle Photography"], icon: <Camera className="plan-icon" /> },
+    { title: "Office & Documentation", price: "30,000", badge: "Starting From", features: ["Corporate Report Formatting", "Data Entry & Spreadsheets", "Official Business Translations", "Digital Filing Setups"], icon: <FileText className="plan-icon" /> }
   ];
 
   return (
     <div className="home-wrapper">
       <div className="tech-dots"></div>
 
-      {/* --- HERO SECTION (KOSOYE: Reduced Height & Original Text) --- */}
+      {/* --- HERO SECTION --- */}
       <section className="hero-section" style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url(${heroBg})` }}>
         <div className="container hero-flex">
           <div className="hero-text reveal">
@@ -67,7 +73,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* --- ALL SERVICES SECTION --- */}
+      {/* --- ALL SERVICES SECTION (Zose uko ari 8 zanditswe neza) --- */}
       <section id="services" className="services-showcase container">
         <div className="section-header reveal">
           <h2>Our <span className="sig-font">Pro</span> Services</h2>
@@ -76,66 +82,92 @@ const Home = () => {
         
         <div className="services-list-grid">
           <div className="s-item reveal">
+            <Code2 className="s-icon" /> 
+            <div>
+              <h3>Website Development</h3>
+              <p>Corporate sites, E-commerce stores, Web apps, and Custom dashboards.</p>
+            </div>
+          </div>
+          <div className="s-item reveal">
+            <Palette className="s-icon" /> 
+            <div>
+              <h3>Graphic Design</h3>
+              <p>Logo identity kits, Social media templates, and Brand identity design.</p>
+            </div>
+          </div>
+          <div className="s-item reveal">
+            <Server className="s-icon" /> 
+            <div>
+              <h3>Web Hosting</h3>
+              <p>Secure cloud web hosting, corporate emails, and automated daily backups.</p>
+            </div>
+          </div>
+          <div className="s-item reveal">
             <Globe2 className="s-icon" /> 
             <div>
-              <h3>Web & Software Dev</h3>
-              <p>Front-end, Back-end, UI/UX, and Database Management.</p>
+              <h3>Website Domain Name</h3>
+              <p>Local .rw registration and global domain transfers with full DNS control.</p>
+            </div>
+          </div>
+          <div className="s-item reveal">
+            <Share2 className="s-icon" /> 
+            <div>
+              <h3>Digital Marketing & SEO</h3>
+              <p>Google #1 SEO Ranking, Meta advertising, and content creation strategy.</p>
+            </div>
+          </div>
+          <div className="s-item reveal">
+            <Video className="s-icon" /> 
+            <div>
+              <h3>Videography</h3>
+              <p>Corporate commercials, high-converting social media reels, and event coverage.</p>
             </div>
           </div>
           <div className="s-item reveal">
             <Camera className="s-icon" /> 
             <div>
-              <h3>Creative Media</h3>
-              <p>Graphic Design, Pro Photography, and Cinematic Videography.</p>
+              <h3>Photography</h3>
+              <p>High-end product photoshoot, team headshots, and corporate events.</p>
             </div>
           </div>
           <div className="s-item reveal">
             <FileText className="s-icon" /> 
             <div>
               <h3>Office & Documentation</h3>
-              <p>MS Word Reports, Excel Bookkeeping, and Pro PowerPoint.</p>
-            </div>
-          </div>
-          <div className="s-item reveal">
-            <Share2 className="s-icon" /> 
-            <div>
-              <h3>Digital Marketing</h3>
-              <p>SEO Ranking, Content Creation, and Digital Strategy.</p>
-            </div>
-          </div>
-          <div className="s-item reveal">
-            <GraduationCap className="s-icon" /> 
-            <div>
-              <h3>Tech Mentorship</h3>
-              <p>Git/GitHub Training and Supporting Women in Tech.</p>
+              <p>Report formatting, business translations, spreadsheets, and file setup.</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* --- PRICING SECTION --- */}
+      {/* --- PRICING SECTION (Ibyiciro by'ibiciro kuri buri serivisi) --- */}
       <section className="pricing-section container">
         <div className="section-header reveal">
-          <h2>Flexible <span className="sig-font">Pricing</span> Plans</h2>
-          <p className="pricing-pitch">Upgrade your business with the right tech package.</p>
+          <h2>Transparent <span className="sig-font">Pricing</span> Plans</h2>
+          <p className="pricing-pitch">Invest in the right tech and creative solutions for your business growth.</p>
           <div className="accent-bar"></div>
         </div>
         
-        <div className="pricing-grid">
-          {pricingPlans.map((plan, idx) => (
-            <div key={idx} className={`price-card reveal ${plan.featured ? 'featured' : ''}`}>
-              {plan.featured && <div className="popular">Best Choice</div>}
-              <h3>{plan.title}</h3>
+        <div className="pricing-list-grid">
+          {individualServicesPricing.map((plan, idx) => (
+            <div key={idx} className="price-service-card reveal">
+              <div className="price-card-header">
+                {plan.icon}
+                <h3>{plan.title}</h3>
+              </div>
               <div className="price-box">
-                <span className="currency">RWF</span>
-                <span className="amount">{plan.price}</span>
+                <span className="price-badge">{plan.badge}</span>
+                <div className="amount-wrapper">
+                  <span className="currency">RWF</span>
+                  <span className="amount">{plan.price}</span>
+                </div>
               </div>
               <ul className="plan-list">
                 {plan.features.map((feat, i) => (
-                  <li key={i}><CheckCircle2 size={16} className="check-icon"/> {feat}</li>
+                  <li key={i}><CheckCircle2 size={14} className="check-icon"/> {feat}</li>
                 ))}
               </ul>
-              <Link to="/contact" className="btn-plan">{plan.btnText}</Link>
+              <Link to="/contact" className="btn-plan">Get Started</Link>
             </div>
           ))}
         </div>

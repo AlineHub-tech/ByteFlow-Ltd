@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
-import { Code2, Palette, FileText, Share2, GraduationCap, CheckCircle2 } from 'lucide-react';
+import { Code2, Palette, FileText, Share2, GraduationCap, CheckCircle2, Server, Globe2, Video, Camera } from 'lucide-react';
 import '../styles/Services.css';
-import heroBg from '../assets/ss.jpg'; // Twazanyemo ifoto yawe hano
+import heroBg from '../assets/ss.JPG'; // Ifoto yawe y'inyuma
 
 const Services = () => {
   useEffect(() => {
@@ -16,21 +16,88 @@ const Services = () => {
   }, []);
 
   const serviceDetails = [
-    { id: "01", title: "Web & Software Development", description: "We build high-performance, scalable digital solutions. From complex backend systems to stunning frontend interfaces, we engineer success.", subServices: ["Full-Stack Web Apps", "UI/UX Responsive Design", "Database Architecture"], tools: ["React.js", "Node.js", "Tailwind CSS", "MongoDB", "Figma"], icon: <Code2 size={32} /> },
-    { id: "02", title: "Creative Media Services", description: "Visual storytelling that captures attention. We create brand identities and cinematic content that makes your business stand out.", subServices: ["Professional Branding", "Product Photography", "Cinematic Video Editing"], tools: ["Adobe Photoshop", "Illustrator", "Premiere Pro", "After Effects"], icon: <Palette size={32} /> },
-    { id: "03", title: "Professional Office & Documentation", description: "Streamlining your business operations with high-quality documentation and data management services.", subServices: ["Business Plans & Reports", "Excel Bookkeeping", "Advanced Presentations"], tools: ["MS Word", "MS Excel", "MS PowerPoint", "PDF Expert"], icon: <FileText size={32} /> },
-    { id: "04", title: "Digital Marketing & Growth", description: "Increase your reach and revenue. We optimize your online presence to ensure you dominate your market niche.", subServices: ["SEO (Google Ranking)", "Content Creation", "Digital Strategy"], tools: ["Google Search Console", "Meta Business Suite", "SEMrush", "Canva"], icon: <Share2 size={32} /> },
-    { id: "05", title: "Entrepreneurship & Technical Mentorship", description: "Empowering the next generation of tech leaders. We provide hands-on training and project management oversight.", subServices: ["Git & GitHub Training", "Women in Tech Support", "Agile Project Management"], tools: ["Git", "GitHub", "Trello", "Slack", "Jira"], icon: <GraduationCap size={32} /> }
+    { 
+      id: "01", 
+      title: "Website Development", 
+      description: "We build high-performance, scalable digital solutions. From complex backend systems to stunning frontend interfaces, we engineer your online success.", 
+      subServices: ["Custom Corporate Websites", "E-commerce Online Stores", "Personal Blogs & Portfolios", "Web Applications & Dashboards"], 
+      tools: ["React.js", "Node.js", "Tailwind CSS", "MongoDB", "Figma"], 
+      icon: <Code2 size={32} /> 
+    },
+    { 
+      id: "02", 
+      title: "Graphic Design", 
+      description: "Visual storytelling that captures attention. We create powerful brand identities and marketing visuals that instantly elevate your business credibility.", 
+      subServices: ["Logo & Brand Identity Kits", "Social Media Graphics", "Flyers, Brochures & Banners", "Company Profiles"], 
+      tools: ["Adobe Photoshop", "Adobe Illustrator", "Canva Pro", "Figma"], 
+      icon: <Palette size={32} /> 
+    },
+    { 
+      id: "03", 
+      title: "Web Hosting", 
+      description: "Keep your website online 24/7 with our secure, reliable, and ultra-fast cloud hosting servers tailored to protect your corporate database.", 
+      subServices: ["Shared Cloud Hosting", "Dedicated VPS Servers", "Corporate Email Hosting", "Automated Daily Backups"], 
+      tools: ["cPanel", "LiteSpeed Engine", "CloudLinux", "SSL Encryption"], 
+      icon: <Server size={32} /> 
+    },
+    { 
+      id: "04", 
+      title: "Website Domain Name", 
+      description: "Secure your business permanent address on the internet. Fast domain registration and full DNS control to protect your corporate identity.", 
+      subServices: ["Local Domains (.rw, .co.rw)", "Global Domains (.com, .net, .org)", "Secure Domain Transfers", "DNS Zone Management"], 
+      tools: ["RICTA Registry", "ICANN Control", "DNSSEC Security", "Whois Privacy"], 
+      icon: <Globe2 size={32} /> 
+    },
+    { 
+      id: "05", 
+      title: "Digital Marketing & SEO", 
+      description: "Increase your digital reach and revenue. We optimize your online presence and run high-converting ad campaigns to ensure you dominate your market.", 
+      subServices: ["Google Search Ranking (SEO)", "Social Media Management", "Meta & Google Ad Campaigns", "Copywriting & Content Strategy"], 
+      tools: ["Google Search Console", "Meta Business Suite", "SEMrush", "Google Analytics"], 
+      icon: <Share2 size={32} /> 
+    },
+    { 
+      id: "06", 
+      title: "Videography", 
+      description: "Bring your brand story to life. We shoot and edit high-definition commercial videos, social media reels, and event coverage that engage audiences.", 
+      subServices: ["Corporate Promotional Videos", "Social Media Reels & TikTok Ads", "Event Highlights & Editing", "YouTube Video Production"], 
+      tools: ["Adobe Premiere Pro", "After Effects", "DaVinci Resolve", "Cinema 4D"], 
+      icon: <Video size={32} /> 
+    },
+    { 
+      id: "07", 
+      title: "Photography", 
+      description: "Professional images that speak a thousand words. Breathtaking and crisp visuals essential for building instant trust with potential clients.", 
+      subServices: ["High-End Product Photography", "Corporate Team Headshots", "Event & Conference Coverage", "Brand Lifestyle Shoots"], 
+      tools: ["Lightroom Classic", "Adobe Photoshop", "Capture One", "Studio Lighting"], 
+      icon: <Camera size={32} /> 
+    },
+    { 
+      id: "08", 
+      title: "Office and Documentation", 
+      description: "Streamlining your corporate paperwork and day-to-day administrative operations with high-quality digital document management services.", 
+      subServices: ["Corporate Report Formatting", "Data Entry & Spreadsheets", "Official Business Translations", "Digital Filing Setups"], 
+      tools: ["MS Word", "MS Excel", "MS PowerPoint", "PDF Expert", "Google Workspace"], 
+      icon: <FileText size={32} /> 
+    },
+    { 
+      id: "09", // Iyi twayigumijeho nka serivisi y'inyongezo ku buntu idafungurwa ukwayo
+      title: "Entrepreneurship & Technical Mentorship", 
+      description: "Empowering the next generation of tech leaders. We provide hands-on training, project oversight, and support systems.", 
+      subServices: ["Git & GitHub Training", "Women in Tech Support", "Agile Project Management"], 
+      tools: ["Git", "GitHub", "Trello", "Slack", "Jira"], 
+      icon: <GraduationCap size={32} /> 
+    }
   ];
 
   return (
     <div className="services-page">
-      {/* --- HERO SECTION WITH SS.JPG BACKGROUND --- */}
+      {/* --- HERO SECTION --- */}
       <section className="services-hero" style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.85)), url(${heroBg})` }}>
         <div className="hero-content container reveal">
           <span className="badge">ByteFlow Expertise</span>
           <h1>Our <span className="sig-font">Professional</span> Ecosystem</h1>
-          <p>Explore our wide range of technology and creative services designed to build <span className="sig-font">Success</span>.</p>
+          <p>Explore our full range of technology and creative services designed to build <span className="sig-font">Success</span>.</p>
         </div>
       </section>
 
