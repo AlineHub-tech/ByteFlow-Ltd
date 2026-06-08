@@ -81,6 +81,8 @@
   line-height: 1.6;
 }
 
+/* hero CTA styles removed (restored to original design) */
+
 /* --- TABS FILTERS SYSTEM (KOSOYE: Inside Image Layer) --- */
 .portfolio-filters {
   display: flex;
@@ -239,6 +241,25 @@
   gap: 8px;
 }
 
+.project-meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 18px;
+}
+
+.project-meta-item span {
+  font-size: 0.78rem;
+  color: #6b7280;
+  letter-spacing: 0.5px;
+}
+
+.project-meta-item strong {
+  color: var(--dark-charcoal);
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
 /* --- LIGHTBOX MODAL --- */
 .portfolio-modal-overlay {
   position: fixed;
@@ -316,3 +337,5 @@
   .portfolio-filters { justify-content: flex-start; overflow-x: auto; padding-bottom: 8px; }
   .portfolio-filters button { padding: 8px 16px; font-size: 0.8rem; white-space: nowrap; }
 }
+
+/* Removed extra large-screen modal grid to restore original responsive behavior */

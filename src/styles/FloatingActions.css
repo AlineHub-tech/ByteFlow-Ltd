@@ -1,0 +1,347 @@
+/* AMABARA YANYU */
+:root {
+  --primary-green: #006400;
+  --light-green-bg: rgba(0, 100, 0, 0.04);
+  --dark-charcoal: #111111;
+  --body-muted: #555555;
+  --bg-pure-white: #ffffff;
+  --font-sig: 'Dancing Script', cursive;
+  --transition-smooth: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* CONTAINER */
+.bf-floating-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 99999;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+/* 1. AGASANDUKU KA CHAT WINDOW */
+.bf-chat-window {
+  width: 360px;
+  max-height: 520px;
+  background-color: var(--bg-pure-white);
+  border-radius: 16px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(0, 100, 0, 0.08);
+  overflow: hidden;
+  margin-bottom: 4px;
+  display: flex;
+  flex-direction: column;
+  animation: bfFadeIn 0.25s var(--transition-smooth) forwards;
+}
+
+/* Kuri Telefone: Gabanya ubugari bw'agasanduku ka Chat gato ngo kafate neza */
+@media (max-width: 480px) {
+  .bf-chat-window {
+    width: 310px;
+    max-height: 460px;
+  }
+}
+
+/* HEADER */
+.bf-chat-header {
+  background: var(--dark-charcoal);
+  padding: 16px;
+  color: var(--bg-pure-white);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid var(--primary-green);
+  flex-shrink: 0;
+}
+
+.bf-chat-profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.bf-chat-avatar-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  object-fit: contain;
+  background-color: var(--bg-pure-white);
+  padding: 2px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.bf-chat-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.bf-chat-status {
+  font-size: 12px;
+  color: #a3a3a3;
+  margin: 4px 0 0 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.bf-status-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #22c55e;
+  border-radius: 50%;
+}
+
+.bf-close-btn {
+  background: none;
+  border: none;
+  color: #a3a3a3;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-smooth);
+}
+
+.bf-close-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--bg-pure-white);
+}
+
+/* CHAT BODY WITH GREEEN SCROLLBAR */
+.bf-chat-body {
+  padding: 16px;
+  background-color: #f8fafc;
+  flex-grow: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* SCROLLBAR ICYATSI KIBISI CYIZA CYANE */
+.bf-chat-body::-webkit-scrollbar {
+  width: 6px;
+}
+.bf-chat-body::-webkit-scrollbar-track {
+  background: rgba(0, 100, 0, 0.05);
+}
+.bf-chat-body::-webkit-scrollbar-thumb {
+  background-color: var(--primary-green);
+  border-radius: 10px;
+}
+
+/* COMPANY OVERVIEW CARD */
+.bf-company-card {
+  background-color: var(--bg-pure-white);
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 14px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+}
+
+.bf-company-card h5 {
+  margin: 0 0 8px 0;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--primary-green);
+  font-weight: 700;
+}
+
+.bf-company-card p {
+  margin: 0;
+  font-size: 13px;
+  color: var(--body-muted);
+  line-height: 1.5;
+}
+
+/* LIST YA SERIVISI 8 */
+.bf-services-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.bf-service-item {
+  font-size: 12.5px;
+  color: var(--dark-charcoal);
+  line-height: 1.45;
+  padding: 8px 10px;
+  background-color: var(--light-green-bg);
+  border-radius: 6px;
+  border-left: 3px solid var(--primary-green);
+}
+
+.bf-service-item strong {
+  color: var(--primary-green);
+  font-weight: 600;
+}
+
+/* MESSAGES */
+.bf-chat-msg {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  max-width: 95%;
+}
+
+.bf-msg-avatar-img {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  object-fit: contain;
+  background-color: var(--bg-pure-white);
+  padding: 2px;
+  border: 1px solid #e2e8f0;
+  flex-shrink: 0;
+}
+
+.bf-msg-text {
+  background-color: var(--bg-pure-white);
+  padding: 12px 14px;
+  border-radius: 12px;
+  border-top-left-radius: 0;
+  font-size: 13.5px;
+  color: var(--dark-charcoal);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  line-height: 1.5;
+  border: 1px solid #e2e8f0;
+}
+
+/* FOOTER BUTTON */
+.bf-chat-footer {
+  padding: 14px 16px;
+  background-color: var(--bg-pure-white);
+  border-top: 1px solid #f1f5f9;
+  flex-shrink: 0;
+}
+
+.bf-whatsapp-submit {
+  width: 100%;
+  background-color: var(--primary-green);
+  color: var(--bg-pure-white);
+  font-weight: 600;
+  padding: 13px 16px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none;
+  border: none;
+  box-sizing: border-box;
+  font-size: 14.5px;
+  transition: var(--transition-smooth);
+}
+
+.bf-whatsapp-submit:hover {
+  background-color: #004d00;
+  box-shadow: 0 4px 12px rgba(0, 100, 0, 0.15);
+}
+
+/* 2. FLOATING BUBBLE ROW WITH TOOLTIP ON TOP */
+.bf-bubble-row {
+  display: flex;
+
+  align-items: flex-end;
+  gap: 8px;
+  position: relative;
+}
+
+/* TOOLTIP DESIGN (GREEN BACKGROUND) */
+.bf-chat-tooltip {
+  background-color: var(--primary-green);
+  color: var(--bg-pure-white);
+  font-weight: 600;
+  font-size: 13px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 100, 0, 0.2);
+  border: 1px solid var(--primary-green);
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+/* KURI MOBILE: Ijyana tooltip hejuru kandi ikagabanya size ngo itabangamira ibindi */
+@media (max-width: 640px) {
+  .bf-chat-tooltip {
+    font-size: 11px; /* Size mato cyane */
+    padding: 4px 10px; /* Padding ntoya */
+    border-radius: 6px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  }
+}
+
+/* MAIN BUBBLE */
+.bf-whatsapp-bubble {
+  width: 56px;
+  height: 56px;
+  background-color: var(--bg-pure-white);
+  border: 2px solid var(--primary-green);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  padding: 4px;
+  overflow: hidden;
+  transition: var(--transition-smooth);
+}
+
+.bf-whatsapp-bubble:hover {
+  transform: scale(1.05);
+}
+
+.bf-bubble-logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+.bf-whatsapp-bubble svg {
+  color: var(--dark-charcoal);
+}
+
+/* 3. SCROLL TO TOP */
+.bf-scroll-top {
+  width: 36px;
+  height: 36px;
+  background-color: var(--dark-charcoal);
+  color: var(--bg-pure-white);
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: var(--transition-smooth);
+  opacity: 0.8;
+}
+
+.bf-scroll-top:hover {
+  opacity: 1;
+  background-color: var(--primary-green);
+}
+
+/* ANIMATION */
+@keyframes bfFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
