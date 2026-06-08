@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Rocket, CheckCircle2, MessageSquare, Cpu, Code2, Palette, Server, Globe2, Share2, Video, Camera, FileText } from 'lucide-react';
 import '../styles/Home.css';
-import heroBg from '../assets/pro.jpg';
+import heroBg from '../assets/pro.webp';
 
 const Home = () => {
   useEffect(() => {
@@ -35,16 +35,16 @@ const Home = () => {
       <section className="hero-section" style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url(${heroBg})` }}>
         <div className="container hero-flex">
           <div className="hero-text reveal">
-            <div className="hero-badge">ByteFlow Engineering</div>
-            <h1>Transforming Ideas Into <span className="green-text">Digital Reality</span></h1>
-            <p>ByteFlow Ltd provides high-end tech solutions, creative media, and professional documentation to scale your business in the digital era.</p>
+            <div className="hero-badge">ByteFlow Ltd</div>
+            <h1>Professional websites, branding, and digital growth for <span className="green-text">Rwandan businesses</span></h1>
+            <p>We build high-converting corporate sites, e-commerce experiences, and media campaigns designed for local companies, creative teams, and business leaders.</p>
             
             <div className="hero-btns"> 
               <Link to="/contact" className="btn-main">
-                Launch Project <Rocket size={18}/>
+                Book a Strategy Call <Rocket size={18}/>
               </Link> 
               <a href="#services" className="btn-outline">
-                Our Services
+                View Services
               </a> 
             </div>
           </div>

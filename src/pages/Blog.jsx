@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Globe, Search, Server, Camera, Smartphone, ArrowRight, Shield, Database, Cpu, Palette, Zap, Share2, Layers, Rocket, Lock, BarChart, Mail, BookOpen } from 'lucide-react';
 import '../styles/Blog.css';
-import blog from '../assets/blog.jpg'; // Ifoto yawe
+import blog from '../assets/blog.webp'; // Faster WebP hero image
 
 const blogPosts = [
   { id: "web-dev-2026", title: "Why Your Business Needs a Website in 2026", excerpt: "In a digital-first economy, a website is your primary office. Build 24/7 credibility and trust.", category: "Web Development", icon: <Globe size={40} />, color: "#006400" },
@@ -42,10 +42,10 @@ const Blog = () => {
           >
             <span className="blog-tagline">Expert Insights</span>
             <h1 className="blog-heading">
-              The ByteFlow <span className="green-accent">Intelligence.</span>
+              Actionable digital insights for <span className="green-accent">Rwanda's growing businesses.</span>
             </h1>
             <p className="blog-desc">
-              20 Articles on Technology, Design, and Marketing for Rwanda.
+              Practical articles on websites, branding, SEO, and media strategy for companies that want measurable results.
             </p>
           </motion.div>
         </div>
