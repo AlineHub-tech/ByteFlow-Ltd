@@ -4,6 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 // Import Components
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import FloatingActions from './components/FloatingActions';
 
 // Import Pages
 import Home from './pages/Home';
@@ -40,6 +41,7 @@ function App() {
 
       {/* Footer igaragara hasi kuri pages zose */}
       <Footer />
+      <FloatingActions />
     </div>
   );
 }
