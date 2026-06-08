@@ -1,386 +1,364 @@
-import React from 'react';
-import { 
-  Globe, Search, Server, Camera, Database, Cpu, Palette, Mail, 
-  Smartphone, Shield, BookOpen, Zap, Share2, Layers, Rocket, Lock, 
-  BarChart, Video, Laptop, Activity, Globe2 
-} from 'lucide-react';
+// src/data/blogData.js
 
- export const blogPosts = [
+export const blogPosts = [
   {
     id: "web-dev-2026",
-    title: "The Strategic Role of Web Development in Rwanda's 2026 Economy",
+    title: "Why Your Business Needs a Website in 2026",
+    excerpt: "In a digital-first economy, a website is your primary office. Build 24/7 credibility and trust.",
     category: "Web Development",
-    icon: <Globe size={50} />,
-    color: "#014101a2",
-    excerpt: "In a digital-first economy, a website is your primary office. Explore why high-performance sites are the backbone of modern business.",
+    color: "#006400", // Dark Green yawe
     fullContent: [
       {
-        subtitle: "1. The Digital Evolution in East Africa",
-        text: "As Rwanda pushes towards a fully digitalized economy by 2026, the internet has become the primary marketplace for both B2B and B2C sectors. A website is no longer just a digital brochure; it is a complex ecosystem where trust is built, transactions are secured, and brands are born. For businesses in Kigali, having a local presence is insufficient without a global digital window. The government's 'Smart Rwanda' master plan has paved the way for a society where every service is just a click away, making it mandatory for businesses to adapt or risk total invisibility."
+        subtitle: "The Digital Shift in East Africa",
+        text: "Operating a business in 2026 without a dedicated web address is equivalent to running an office without a physical location. Consumers now verify brand legitimacy through their digital footprints before engaging in any financial transaction."
       },
       {
-        subtitle: "2. Psychology of First Impressions",
-        text: "Research indicates that it takes less than 50 milliseconds (0.05 seconds) for users to form an opinion about your website that determines whether they’ll stay or leave. At ByteFlow, we focus on 'Human-Centered Design'—ensuring that every button, image, and line of text is placed strategically to lead the customer toward a sale. A slow or poorly designed site is a direct invitation for your customers to visit your competitors. Your website is your 24/7 salesperson; it never sleeps, it doesn't take holidays, and it must represent your highest standards at all times."
-      },
-      {
-        subtitle: "3. Technical Superiority: Speed and Accessibility",
-        text: "With over 80% of Rwandans accessing the internet via mobile devices, your website must be more than just 'responsive'. It must be optimized for low-bandwidth areas while maintaining high-speed performance. We utilize modern frameworks like Next.js and React to ensure that your site feels like a lightning-fast app on any device. Loading speed is also a major SEO factor; for every second your site takes to load, you lose approximately 7% of your conversion rate. Our infrastructure ensures that your data is delivered via local Content Delivery Networks (CDNs) for maximum efficiency."
-      },
-      {
-        subtitle: "4. Future-Proofing with ByteFlow",
-        text: "We don't just write code; we build business solutions. Our development process includes deep market research, competitive analysis, and rigorous security testing. We ensure that your backend is robust enough to handle thousands of simultaneous users while keeping your frontend elegant and intuitive. As technologies like AI and AR become more integrated, our sites are built with an architecture that allows for easy scaling and updates without needing a total rebuild every two years."
+        subtitle: "Global Reach from Kigali",
+        text: "A well-architected web platform allows startups in Rwanda to display their engineering or creative portfolios to local corporate buyers and international investors simultaneously, bypassing traditional geographical barriers."
       }
     ],
-    conclusion: "Investing in a premium website today is the single most important decision you can make for your brand's longevity. ByteFlow Ltd is your partner in engineering that success."
+    conclusion: "Investing in full-stack web development is no longer a luxury for businesses seeking sustainable market authority. It is the ultimate foundation of corporate growth."
   },
   {
     id: "seo-kigali",
-    title: "Mastering SEO: Dominating Local Search Results in Rwanda",
+    title: "How to Rank #1 on Google in Kigali",
+    excerpt: "Local SEO strategies to help your business appear when people search for services in Rwanda.",
     category: "SEO",
-    icon: <Search size={50} />,
-    color: "#1e293b",
-    excerpt: "Learn how to move your business from the shadows to the first page of Google with targeted local SEO strategies.",
+    color: "#1e293b", // Dark Slate
     fullContent: [
       {
-        subtitle: "1. The Science of Searchability",
-        text: "The best place to hide a dead body is the second page of Google. If your business doesn't appear in the top three results when someone searches for your services in Kigali, you practically don't exist digitally. SEO is the science of making your brand visible to people who are actively looking to buy. It's not just about keywords anymore; it's about relevance, authority, and user satisfaction."
+        subtitle: "Understanding Local Intent",
+        text: "When decision-makers search for tech consultancies or creative houses in Rwanda, search engines prioritize localized data clusters. If your metadata lacks precise geographical anchors, your brand remains invisible."
       },
       {
-        subtitle: "2. The Local Advantage",
-        text: "For a business operating in Rwanda, Local SEO is your greatest weapon. This involves optimizing your Google Business Profile, ensuring your NAP (Name, Address, Phone) consistency across the web, and gathering local reviews. When a tourist or local resident searches for 'Best Services in Rwanda', we make sure you are the answer. We focus on geo-targeted content that speaks the language of the local consumer while adhering to global search standards."
-      },
-      {
-        subtitle: "3. Content as an Asset",
-        text: "Google's algorithms are now smarter than ever. They prioritize websites that provide real value. This means your site must have clean metadata, fast loading speeds, and high-quality articles. We analyze your site’s architecture to ensure search engines can easily crawl and index your pages. SEO is a marathon, not a sprint. It requires continuous monitoring, backlink building, and content updates to stay ahead of the competition."
+        subtitle: "Speed and Core Web Vitals",
+        text: "Google favors lightweight frameworks that load rapidly across mobile data connections in Kigali. Optimizing image compression and leveraging server-side setups directly improves your crawl performance."
       }
     ],
-    conclusion: "SEO is a long-term investment that pays off in high-quality organic leads. ByteFlow helps you bypass the expensive ad-cycle by building a foundation that stays on top naturally."
+    conclusion: "Dominating local search queries requires deliberate optimization. Consistent technical SEO audits translate directly into continuous organic conversion."
   },
   {
     id: "ssd-hosting",
-    title: "Why High-Speed Hosting is the Engine of Your Online Success",
+    title: "SSD NVMe Hosting: Why Speed Matters",
+    excerpt: "ByteFlow's hosting is 20x faster than traditional HDD. Speed equals better customer retention.",
     category: "Hosting",
-    icon: <Server size={50} />,
-    color: "#014101a2",
+    color: "#006400",
     fullContent: [
       {
-        subtitle: "1. The Speed Threshold",
-        text: "Web hosting is the soil in which your digital business grows. If the soil is weak, the plant will wither. Many businesses make the mistake of choosing cheap, shared hosting that crashes during high-traffic periods, costing them thousands in lost revenue. ByteFlow utilizes SSD NVMe technology, which is 20 times faster than traditional storage, ensuring that your site loads instantly across East Africa."
+        subtitle: "Eliminating Page Bounce Rates",
+        text: "Every microsecond of latency drops your user retention by measurable percentages. Modern SSD NVMe server arrays process database calls instantly, preventing potential clients from leaving your platform out of frustration."
       },
       {
-        subtitle: "2. Security and Reliability",
-        text: "As digital payments increase in Rwanda, so do cyber threats. Our hosting comes with advanced firewalls, DDoS protection, and automated daily backups. We provide an SSL-certified environment that builds customer confidence and fulfills the technical requirements for Google search ranking."
+        subtitle: "Security Coupled with Velocity",
+        text: "High-security cloud hosting provides isolated server environments backed by automated hourly redundancy and active firewall filtering to keep enterprise databases completely secure."
       }
     ],
-    conclusion: "ByteFlow cloud solutions ensure your site stays up even during your busiest sales days."
+    conclusion: "Fast corporate hosting keeps your system operational when traffic spikes, protecting both your brand's operational integrity and search metrics."
   },
   {
     id: "4k-videography",
-    title: "Cinematic Media: Transforming Brands through 4K Videography",
+    title: "4K Videography for High-Impact Social Ads",
+    excerpt: "Professional video production can increase your engagement by over 300% on social media.",
     category: "Videography",
-    icon: <Camera size={50} />,
     color: "#1e293b",
     fullContent: [
       {
-        subtitle: "1. Visual Storytelling",
-        text: "In the era of Instagram and TikTok, low-quality imagery is a brand killer. Professional 4K photography and cinematic videography tell a story that text alone cannot. It humanizes your brand and showcases the quality of your products with breathtaking clarity. Our media team specializes in capturing the 'soul' of your brand, from corporate documentaries to high-paced social media ads."
+        subtitle: "Capturing Visual Authority",
+        text: "Consumer attention spans on social networks are measured in split seconds. Cinematic lighting, professional color grading, and crisp sound profiles separate premium corporate brands from basic desktop setups."
       },
       {
-        subtitle: "2. The ROI of High-Resolution Content",
-        text: "High-resolution media increases social media engagement by over 300%. When customers see professional photos of your team or office, their trust in your service triples. We use state-of-the-art Sony and Blackmagic gear to ensure your visuals match international broadcast standards."
+        subtitle: "Structuring High-Conversion Ads",
+        text: "A high-end promotional video must seamlessly weave technical storytelling with a direct call to action, optimizing visual messaging for platforms like LinkedIn, Instagram, and YouTube."
       }
     ],
-    conclusion: "Upgrade your brand visuals today. Let our lens turn your business into a cinematic experience."
+    conclusion: "Premium video content assets consistently deliver the highest returns on ad spend by turning casual digital scrollers into verified corporate inquiries."
   },
   {
     id: "rw-domains",
-    title: "Registering .RW Domains: Building Local Trust in Rwanda",
+    title: "The Strategic Importance of .RW Domains",
+    excerpt: "Build local trust and improve your local search presence with a country-specific extension.",
     category: "Domains",
-    icon: <Database size={50} />,
-    color: "#014101a2",
+    color: "#006400",
     fullContent: [
       {
-        subtitle: "1. Local Identity Matters",
-        text: "Using a .rw domain signals to your customers that you are a local entity committed to the Rwandan market. It provides a sense of security and belonging that a .com domain often lacks in local communities."
+        subtitle: "Securing Local Brand Identity",
+        text: "Registering a country-code top-level domain (.rw) signals immediate geographic compliance and regional commitment, establishing deep structural trust with corporate procurement officers in Rwanda."
       },
       {
-        subtitle: "2. SEO and Local Search Presence",
-        text: "Google favors country-code domains for local searches. If someone in Rwanda is searching for your services, a .rw domain gives you a competitive edge over global competitors. ByteFlow simplifies the registration and management of your .rw assets."
+        subtitle: "SEO Competitive Advantages",
+        text: "Search engine algorithms structurally favor locally indexed extensions for queries originating within the region, giving your enterprise web assets a direct competitive edge."
       }
     ],
-    conclusion: "Claim your digital territory today with a .rw extension powered by ByteFlow."
+    conclusion: "Securing your localized identity early protects your corporate brand equity and strengthens your localized visibility across the regional marketplace."
+  },
+  {
+    id: "react-nextjs",
+    title: "React vs Next.js: Choosing the Right Stack",
+    excerpt: "A deep dive into why we use Next.js for high-performance e-commerce platforms.",
+    category: "Web Development",
+    color: "#1e293b",
+    fullContent: [
+      {
+        subtitle: "Client-Side vs Server-Side Rendering",
+        text: "Standard React projects rely entirely on client-side rendering, leaving empty HTML roots during initialization. Next.js bypasses this entirely by compiling application structures pre-delivery."
+      },
+      {
+        subtitle: "Enterprise E-Commerce Scaling",
+        text: "For platforms managing large inventory catalogs, automated optimization features like image scaling and structural generation make Next.js the optimal architecture for rapid financial transactions."
+      }
+    ],
+    conclusion: "While basic applications perform well on React, modern high-performance architectures require server-side frameworks to truly secure technical scalability."
   },
   {
     id: "color-psychology",
-    title: "Brand Identity: The Psychology of Colors in Corporate Design",
+    title: "Psychology of Colors in Modern Branding",
+    excerpt: "How choosing the right colors can influence your customers' purchasing decisions.",
     category: "Design",
-    icon: <Palette size={50} />,
-    color: "#1e293b",
+    color: "#006400",
     fullContent: [
       {
-        subtitle: "1. Emotional Connectivity",
-        text: "Colors aren't just aesthetic choices; they are emotional triggers. Blue builds trust and professional stability, while green represents growth and health. Our designers analyze your industry to choose a palette that aligns with your brand's core values."
+        subtitle: "The Subconscious Brand Impression",
+        text: "Color options define user sentiment long before text assets are processed. Deep emerald greens convey stability and security, whereas minimalist charcoal palettes assert absolute corporate authority."
       },
       {
-        subtitle: "2. Modern Branding Trends",
-        text: "We focus on minimalist design that stands out in the crowded Kigali marketplace. A clean, cohesive brand identity across your website, business cards, and social media creates a professional image that attracts high-paying clients."
+        subtitle: "Visual Accessibility and Compliance",
+        text: "Modern interface designs demand strict contrast ratios to maintain user readability across daylight mobile viewports, balancing stylistic branding rules with clean usability benchmarks."
       }
     ],
-    conclusion: "Let our design experts craft a visual identity that speaks louder than words."
-  },
-  {
-    id: "momo-integration",
-    title: "Integrating MoMo Pay: Streamlining Digital Payments in Rwanda",
-    category: "Payments",
-    icon: <Smartphone size={50} />,
-    color: "#014101a2",
-    fullContent: [
-      {
-        subtitle: "1. The Cashless Revolution",
-        text: "Rwanda is moving towards a cashless economy. Mobile Money (MoMo) is the primary way people pay for goods and services. Integrating MoMo Pay directly into your website allows for instant, frictionless transactions."
-      },
-      {
-        subtitle: "2. Security and API Integration",
-        text: "We use secure API protocols to connect your checkout process with MTN and Airtel money platforms. This ensures that every transaction is encrypted and recorded, giving both you and your customer peace of mind."
-      }
-    ],
-    conclusion: "Boost your online sales today by offering the most popular payment method in Rwanda."
-  },
-  {
-    id: "cyber-security",
-    title: "Data Security: Protecting Your Business from Cyber Threats",
-    category: "Security",
-    icon: <Shield size={50} />,
-    color: "#1e293b",
-    fullContent: [
-      {
-        subtitle: "1. Assessing Vulnerabilities",
-        text: "Small businesses are often targets for cybercriminals because they lack advanced security. At ByteFlow, we assess your digital infrastructure to close loopholes before they are exploited."
-      },
-      {
-        subtitle: "2. SSL and Encryption",
-        text: "Every site we build comes with high-level SSL encryption. We also implement regular backups and two-factor authentication to ensure that your customer data remains private and your site remains live."
-      }
-    ],
-    conclusion: "Security is not an option; it's a foundation. Protect your reputation with ByteFlow."
+    conclusion: "A calculated visual ecosystem ensures your corporate branding elements communicate precision and build continuous loyalty without words."
   },
   {
     id: "email-marketing",
-    title: "Email Marketing: Why It Still Beats Social Media in ROI",
+    title: "Email Marketing: The Highest ROI Channel",
+    excerpt: "Why building an email list is safer than relying solely on social media algorithms.",
     category: "Marketing",
-    icon: <Mail size={50} />,
-    color: "#014101a2",
-    fullContent: [
-      {
-        subtitle: "1. Owning Your Audience",
-        text: "Social media platforms change their algorithms daily. An email list is an asset you own. It allows you to speak directly to your customers' inboxes without competing for attention on a crowded timeline."
-      },
-      {
-        subtitle: "2. Automation and Conversion",
-        text: "We build automated email funnels that nurture leads until they are ready to buy. From welcome emails to monthly newsletters, we help you keep your brand at the top of your customers' minds."
-      }
-    ],
-    conclusion: "Start building your most valuable digital asset today with ByteFlow marketing tools."
-  },
-  {
-    id: "cloud-infrastructure",
-    title: "Scaling with Cloud: Future-Proofing Your Business Growth",
-    category: "Tech",
-    icon: <Zap size={50} />,
     color: "#1e293b",
     fullContent: [
       {
-        subtitle: "1. Flexibility of the Cloud",
-        text: "Traditional servers have limits. Cloud infrastructure allows your website to handle traffic spikes effortlessly. Whether you have 10 visitors or 10,000, the cloud scales to meet your needs."
+        subtitle: "Owning Your Customer Channels",
+        text: "Relying purely on third-party social media algorithms exposes your sales pipeline to unexpected policy updates. An optimized corporate email system ensures automated, direct lines to your warm leads."
       },
       {
-        subtitle: "2. Cost Efficiency",
-        text: "Pay only for what you use. Our cloud solutions are optimized to give you high-end performance at a price that fits your growing business budget."
+        subtitle: "Automated Lead Cultivation",
+        text: "Deploying logical workflow sequences converts digital download traffic into premium consulting contracts by serving strategic data points directly to decision-makers over time."
       }
     ],
-    conclusion: "Move to the cloud and never worry about server crashes again."
+    conclusion: "Establishing a secure, first-party data framework creates an invaluable digital business asset that functions independently of external search fluctuations."
   },
   {
-    id: "ui-ux-mastery",
-    title: "UI vs UX: Designing Interfaces that People Love to Use",
-    category: "Design",
-    icon: <BookOpen size={50} />,
-    color: "#014101a2",
+    id: "momo-integration",
+    title: "Integrating MoMo Pay for Online Sales",
+    excerpt: "A step-by-step guide on how we integrate local payments to boost your e-commerce.",
+    category: "Payments",
+    color: "#006400",
     fullContent: [
       {
-        subtitle: "1. More Than Aesthetics",
-        text: "User Interface (UI) is the beauty; User Experience (UX) is the logic. A site must look good and work perfectly. We conduct user testing to ensure your clients find what they need in less than 3 clicks."
+        subtitle: "Removing Local Purchase Barriers",
+        text: "While international credit card setups are standard globally, localized financial pipelines require deep API integrations with native digital payment providers to capture the primary local market."
       },
       {
-        subtitle: "2. Retention and Loyalty",
-        text: "A seamless experience keeps users coming back. By focusing on accessibility and intuitive navigation, we reduce friction and increase your brand's digital loyalty."
+        subtitle: "Securing High-Frequency Web Webhooks",
+        text: "Developing reliable webhook endpoints guarantees system transaction logs validate financial settlement data prior to releasing automated product files or digital download access."
       }
     ],
-    conclusion: "Our designers bridge the gap between art and technology for your brand."
+    conclusion: "Bypassing point-of-sale friction through clean local API deployment directly unlocks scaled transaction numbers from native device users."
+  },
+  {
+    id: "cyber-security",
+    title: "Cybersecurity Basics for Small Businesses",
+    excerpt: "Protect your customer data and your brand reputation with essential security tips.",
+    category: "Security",
+    color: "#1e293b",
+    fullContent: [
+      {
+        subtitle: "Mitigating Corporate Data Infiltration",
+        text: "Small enterprise infrastructure remains a primary target for automated web exploits. Enforcing system updates and managing access permissions stops database structure leaks before they escalate into legal issues."
+      },
+      {
+        subtitle: "Enforcing Mandatory Transport Encryption",
+        text: "SSL certificates are not optional details. They provide point-to-point connection encryption, preventing data sniffing on public connections and protecting user authentication credentials."
+      }
+    ],
+    conclusion: "Proactive platform maintenance remains the single most effective investment for shielding your business from severe structural down-time."
+  },
+  {
+    id: "ui-ux-trends",
+    title: "UI vs UX: Designing for the User",
+    excerpt: "A look into how we design interfaces that are both beautiful and easy to navigate.",
+    category: "Design",
+    color: "#006400",
+    fullContent: [
+      {
+        subtitle: "Esthetics Combined with Operational Logic",
+        text: "User Interface (UI) focuses on the specific styling variables, whereas User Experience (UX) evaluates step-by-step action sequences to remove operational confusion during navigation."
+      },
+      {
+        subtitle: "Responsive Device Execution",
+        text: "Modern layouts must prioritize mobile fluid design, repositioning complex tables and grid layouts to guarantee clean interaction architecture on downscaled screens."
+      }
+    ],
+    conclusion: "A site that combines professional esthetics with frictionless operational steps retains buyers and converts traffic into recurring financial interactions."
+  },
+  {
+    id: "cloud-scaling",
+    title: "Scaling with Cloud Infrastructure",
+    excerpt: "Move from shared hosting to a scalable cloud environment as your traffic grows.",
+    category: "Hosting",
+    color: "#1e293b",
+    fullContent: [
+      {
+        subtitle: "Bypassing Shared Resource Constraints",
+        text: "As enterprise web platforms scale, standard configuration structures introduce performance boundaries. Migrating database operations to isolated cloud droplets ensures infinite compute scalability."
+      },
+      {
+        subtitle: "Automated Failover Protocols",
+        text: "Modern application setups deployment models distribute content delivery locations worldwide, keeping processing functions active even during localized server infrastructure downtime."
+      }
+    ],
+    conclusion: "Transitioning platform operations to elastic server architectures secures consistent processing speeds for global enterprise systems."
+  },
+  {
+    id: "rwanda-tech-2026",
+    title: "Tech Trends in Rwanda for 2026",
+    excerpt: "What to expect in the local tech scene and how to stay ahead of the curve.",
+    category: "Insights",
+    color: "#006400",
+    fullContent: [
+      {
+        subtitle: "Kigali's Emergence as a Regional Core",
+        text: "Technological scaling trends show rapid expansion in automated payment pipelines and automated inventory systems as local operations digitize manual data stacks."
+      },
+      {
+        subtitle: "The Rise of Micro-SaaS Platforms",
+        text: "Local tech structures are actively adjusting to target specific market niches within Africa, emphasizing clean data management systems and custom administrative panels."
+      }
+    ],
+    conclusion: "Aligning your system setups early with regional digital transformation framework goals guarantees immediate compliance and continuous commercial positioning."
   },
   {
     id: "social-proof",
-    title: "Social Proof: Using Reviews and Testimonials to Sell",
+    title: "The Power of Social Proof in Digital Sales",
+    excerpt: "How displaying reviews and testimonials can increase your conversion rates.",
     category: "Strategy",
-    icon: <Share2 size={50} />,
     color: "#1e293b",
     fullContent: [
       {
-        subtitle: "1. The Psychology of Trust",
-        text: "People trust other people more than brands. Displaying real reviews and success stories builds instant credibility for new visitors who are hesitant to buy."
+        subtitle: "Validation via External Metrics",
+        text: "Prospective buyers validate service competence by analyzing past client history. Clear display of case studies transforms flat product content into interactive trust assets."
       },
       {
-        subtitle: "2. Strategizing Placements",
-        text: "We help you place testimonials strategically near your call-to-action buttons to overcome last-minute purchase anxiety and increase your conversion rates."
+        subtitle: "Frictionless Credibility Transfers",
+        text: "Integrating live, audited feedback parameters via your system architecture prevents target users from leaving your check-out process to run validation checks elsewhere."
       }
     ],
-    conclusion: "Let your happy customers do the selling for you."
+    conclusion: "Deliberate deployment of objective customer feedback structures functions as a primary trust asset for high-ticket service pipelines."
   },
   {
     id: "content-strategy",
-    title: "Content Roadmaps: Planning Your Digital Growth",
+    title: "Content Strategy that Actually Converts",
+    excerpt: "Stop posting randomly. Learn how to create content that brings in real leads.",
     category: "Marketing",
-    icon: <Layers size={50} />,
-    color: "#014101a2",
+    color: "#006400",
     fullContent: [
       {
-        subtitle: "1. Purposeful Content",
-        text: "Don't post just to post. Every piece of content should solve a customer's problem or answer a question. We help you build a 6-month roadmap that aligns with your sales goals."
+        subtitle: "Moving Away from Disorganized Publishing",
+        text: "Publishing material without clear market targeting wastes valuable resource pipelines. Corporate messaging must directly address current infrastructure challenges encountered by your target audience."
       },
       {
-        subtitle: "2. Authority Building",
-        text: "By consistently sharing expert insights, you become an authority in your industry. This makes you the first choice when customers are ready to invest."
+        subtitle: "Inbound Funnel Calibration",
+        text: "Structuring documentation hubs to address technical operational questions builds professional authority, pulling in warm leads looking for immediate technology consulting."
       }
     ],
-    conclusion: "Work with ByteFlow to build a content strategy that actually works."
+    conclusion: "Transitioning your digital workflow from generic visual creation to strategic solution documentation secures consistent pipeline qualification."
   },
   {
-    id: "mobile-first-dev",
-    title: "Mobile-First: Designing for the Majority in Rwanda",
+    id: "mobile-first",
+    title: "Mobile-First Design is No Longer Optional",
+    excerpt: "80% of Rwandans browse on mobile. Is your website optimized for them?",
     category: "Development",
-    icon: <Smartphone size={50} />,
     color: "#1e293b",
     fullContent: [
       {
-        subtitle: "1. The Mobile Majority",
-        text: "Over 80% of internet traffic in Rwanda comes from mobile devices. If your site isn't perfectly optimized for small screens, you are essentially closed to the majority of the market."
+        subtitle: "Prioritizing the Dominant Viewport",
+        text: "Designing technical applications starting on desktop viewports introduces layout issues on scaled phone displays. Layout structures must adjust fluidly to handle vertical user interactions."
       },
       {
-        subtitle: "2. Speed on 4G/5G",
-        text: "We optimize images and code to ensure your site loads fast even on mobile networks. This ensures a professional experience whether your client is in Kigali or a rural area."
+        subtitle: "Network Data Compression Mechanics",
+        text: "Mobile users demand optimized processing speeds. Compressing assets and executing minified code packages lowers page download weights, ensuring instant delivery over cellular connections."
       }
     ],
-    conclusion: "We build for the phone in your customer's pocket, not just the desktop on their desk."
+    conclusion: "An application engineered precisely around native mobile use variables secures long-term visibility in modern digital economies."
   },
   {
-    id: "logo-scaling",
-    title: "Versatile Logos: Why Simplicity Wins in Branding",
+    id: "logo-optimization",
+    title: "Optimizing Your Logo for Digital Screens",
+    excerpt: "Common mistakes when designing logos for web and social media platforms.",
     category: "Branding",
-    icon: <Rocket size={50} />,
-    color: "#014101a2",
+    color: "#006400",
     fullContent: [
       {
-        subtitle: "1. Scalability and Recognition",
-        text: "A complex logo becomes a blur on a small app icon. Modern branding requires simple, bold shapes that are recognizable at any size, from favicons to billboards."
+        subtitle: "Ensuring Small-Scale Vector Fidelity",
+        text: "Overly detailed brand identity icons fail on minimized system spaces like app icons or header rows. Simplicity prevents pixel blurring on high-resolution screens."
       },
       {
-        subtitle: "2. Timeless Design",
-        text: "We avoid short-lived trends to create logos that remain relevant for decades. Your logo is the anchor of your brand; it needs to be strong and clear."
+        subtitle: "Dynamic Background Adaptability",
+        text: "Corporate branding assets must adapt seamlessly between dark application settings and light layout components without losing background visibility boundaries."
       }
     ],
-    conclusion: "Get a logo that stands the test of time and technology with ByteFlow."
+    conclusion: "Refining visual brand footprints ensures sharp, high-end representation across every digital point of contact."
   },
   {
-    id: "ssl-seo",
-    title: "SSL and SEO: Why Security is a Ranking Factor",
+    id: "ssl-importance",
+    title: "SSL Certificates: Security and SEO",
+    excerpt: "Encryption builds customer confidence and improves your Google ranking.",
     category: "Security",
-    icon: <Lock size={50} />,
     color: "#1e293b",
     fullContent: [
       {
-        subtitle: "1. Google's Security Standards",
-        text: "Google explicitly favors HTTPS websites over non-secure ones. SSL is no longer just for banks; it is a standard for every website that wants to rank well."
+        subtitle: "Enforcing Modern Hypertext Standards",
+        text: "Browsers directly warn traffic when hitting insecure endpoints. Lacking proper connection security profiles flags system assets, cutting connection traffic numbers immediately."
       },
       {
-        subtitle: "2. User Confidence",
-        text: "Visitors are trained to look for the 'padlock' icon. A secure site reduces anxiety and increases the time users spend on your platform."
+        subtitle: "Algorithmic Rank Positioning Impact",
+        text: "Global search indices use HTTPS enforcement protocols as an immediate ranking signal, filtering unencrypted websites out of competitive keyword query fields."
       }
     ],
-    conclusion: "Every ByteFlow project includes high-level encryption for your peace of mind."
+    conclusion: "Continuous certificate management functions as a vital operational rule for both system data security and site accessibility metrics."
   },
   {
-    id: "ad-strategy",
-    title: "Digital Advertising: Facebook vs Google for ROI",
+    id: "digital-ads",
+    title: "Facebook vs Google Ads for Startups",
+    excerpt: "Where should you spend your marketing budget for the best possible ROI?",
     category: "Ads",
-    icon: <BarChart size={50} />,
-    color: "#014101a2",
+    color: "#006400",
     fullContent: [
       {
-        subtitle: "1. Intent vs Awareness",
-        text: "Google Ads capture intent (people searching for a solution). Facebook Ads build awareness (introducing your brand to people). We balance both for maximum growth."
+        subtitle: "Interruptive Discovery vs Active Intent",
+        text: "Social networks serve visual ads while clients browse media feeds, while search ads present solutions the exact millisecond a user actively look for options."
       },
       {
-        subtitle: "2. Targeted Spends",
-        text: "Don't waste money on broad audiences. We use data to target specific demographics in Rwanda that are most likely to convert into paying clients."
+        subtitle: "Budget Allocation Efficiency Strategies",
+        text: "Startups optimize market returns by scaling social creative assets to raise initial service interest, then deploying search ads to catch high-intent acquisition traffic."
       }
     ],
-    conclusion: "Maximize your marketing budget with ByteFlow's data-driven ad management."
+    conclusion: "Balancing platform target profiles around specific pipeline objectives maximizes financial returns on corporate marketing expenditures."
   },
   {
-    id: "api-economy-rw",
-    title: "The API Economy: Connecting Your Business to the World",
+    id: "api-economy",
+    title: "The Growth of the API Economy in Rwanda",
+    excerpt: "How local businesses are connecting services to create seamless ecosystems.",
     category: "Tech",
-    icon: <Cpu size={50} />,
     color: "#1e293b",
     fullContent: [
       {
-        subtitle: "1. Seamless Connectivity",
-        text: "APIs allow your website to talk to third-party services like Google Maps, SMS gateways, and payment providers. This creates a powerful, automated ecosystem."
+        subtitle: "Connecting Segmented Data Operations",
+        text: "Modern cloud platforms operate via structured API layers, sharing secure database states between payment hubs, external accounting setups, and local shipping networks."
       },
       {
-        subtitle: "2. Innovation Through Integration",
-        text: "By connecting to existing APIs, we can build complex features for your site faster and more reliably. It's about working smarter, not harder."
+        subtitle: "Lowering Core Development Weights",
+        text: "Leveraging existing verified functional APIs permits engineering teams to build unique business workflows rapidly without reinventing base processing tools."
       }
     ],
-    conclusion: "Leverage the power of connectivity to automate your business processes."
-  },
-  {
-    id: "tech-trends-2026",
-    title: "2026 Tech Forecast: What's Next for Rwandan Business",
-    category: "Insights",
-    icon: <Activity size={50} />,
-    color: "#014101a2",
-    fullContent: [
-      {
-        subtitle: "1. AI and Automation",
-        text: "Artificial Intelligence will move from a novelty to a necessity. Chatbots and automated workflows will become standard for customer service in Kigali."
-      },
-      {
-        subtitle: "2. Immersive Media",
-        text: "Virtual tours and AR (Augmented Reality) will change how we shop for homes and products. Businesses that adopt these early will dominate their niche."
-      }
-    ],
-    conclusion: "ByteFlow is your guide to the future. Let's build what's next together."
-  },
-  {
-    id: "corporate-photography",
-    title: "Corporate Image: The Value of Professional Photography",
-    category: "Photography",
-    icon: <Camera size={50} />,
-    color: "#1e293b",
-    fullContent: [
-      {
-        subtitle: "1. Humanizing the Brand",
-        text: "Stock photos feel fake. Real photos of your team, office, and events show the human side of your company and create an authentic connection with clients."
-      },
-      {
-        subtitle: "2. Consistency in Quality",
-        text: "Professional lighting and composition make your team look like the experts they are. We ensure all your corporate headshots and event photos have a unified, high-end look."
-      }
-    ],
-    conclusion: "Invest in high-quality corporate photography to reflect your true professional standard."
+    conclusion: "Integrating system setups cleanly into existing API clusters expands corporate operational velocity across modern business marketplaces."
   }
 ];
-export default blogPosts;
-
-
