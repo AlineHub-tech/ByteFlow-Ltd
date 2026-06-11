@@ -5,7 +5,7 @@ import {
   Send, X, Sparkles, ShieldCheck, Target 
 } from 'lucide-react';
 import '../styles/Services.css';
-import heroBg from '../assets/ss.JPG'; 
+import heroBg from '../assets/ss.jpg'; 
 
 const Services = () => {
   const [activeTab, setActiveTab] = useState(0);
