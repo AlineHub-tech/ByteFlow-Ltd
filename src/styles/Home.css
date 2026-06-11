@@ -1,4 +1,4 @@
-
+/* --- INITIAL VARIABLES & RESETS FROM YOUR ORIGINAL --- */
 :root {
   --primary-green: #006400;
   --light-green-bg: rgba(0, 100, 0, 0.04);
@@ -7,6 +7,7 @@
   --bg-pure-white: #ffffff;
   --font-sig: 'Dancing Script', cursive;
   --transition-smooth: all 0.3s ease;
+  --border-color: #e2e8f0;
 }
 
 html {
@@ -33,15 +34,16 @@ html {
   font-size: 1.25em;
 }
 
-/* --- HERO SECTION (KOSOYE: Reduced Height) --- */
+/* --- HERO SECTION (YOUR ORIGINAL) --- */
 .hero-section {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  padding: 130px 0 70px 0; /* Slimmer padding */
-  min-height: 55vh; /* Height yagabanyijwe neza */
+  padding: 160px 0 100px 0;
+  min-height: 45vh;
   display: flex;
   align-items: center;
+  justify-content: center;
   width: 100%;
 }
 
@@ -94,7 +96,6 @@ html {
   max-width: 550px;
 }
 
-/* Hero Buttons */
 .hero-btns {
   display: flex;
   gap: 15px;
@@ -138,7 +139,6 @@ html {
   border-color: white;
 }
 
-/* Code Dashboard Visual */
 .hero-visual {
   flex: 0.8;
   display: flex;
@@ -176,17 +176,40 @@ html {
   position: relative;
 }
 
-.dash-body pre {
-  margin: 0;
-  font-family: 'Fira Code', monospace;
-  font-size: 0.85rem;
-  color: #94a3b8;
+.dash-welcome-text h3 {
+  font-size: 1.15rem;
+  color: #22c55e;
+  margin: 0 0 8px 0;
+  font-weight: 700;
 }
 
-.keyword { color: #f43f5e; }
-.var { color: #38bdf8; }
-.comment { color: #64748b; font-style: italic; }
-.str { color: #10b981; }
+.dash-welcome-text p {
+  font-size: 0.85rem;
+  color: #94a3b8;
+  line-height: 1.5;
+  margin: 0 0 16px 0;
+}
+
+.dash-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(34, 197, 94, 0.08);
+  border: 1px solid rgba(34, 197, 94, 0.2);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  color: #22c55e;
+  font-weight: 600;
+}
+
+.dash-pulse-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #22c55e;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
 
 .dash-icon {
   position: absolute;
@@ -195,11 +218,7 @@ html {
   color: rgba(0, 100, 0, 0.2);
 }
 
-/* --- SERVICES SHOWCASE --- */
-.services-showcase {
-  padding: 70px 0;
-}
-
+/* --- GENERAL SECTION HEADERS --- */
 .section-header {
   text-align: center;
   margin-bottom: 45px;
@@ -208,6 +227,17 @@ html {
 .section-header h2 {
   font-size: 2rem;
   font-weight: 800;
+  margin: 0;
+}
+
+.section-header .sub-title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--primary-green);
+  display: block;
+  margin-bottom: 6px;
 }
 
 .accent-bar {
@@ -218,268 +248,526 @@ html {
   border-radius: 50px;
 }
 
-.services-list-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 25px;
+/* --- OPUS MENU: INDIVIDUAL SERVICES MENU --- */
+.opus-pricing-section {
+  padding: 70px 0 30px 0;
 }
 
-.s-item {
+.opus-menu-grid {
   display: flex;
-  gap: 20px;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 35px;
+}
+
+.opus-menu-card {
   background: var(--bg-pure-white);
-  padding: 30px;
+  border: 1.5px solid var(--border-color);
   border-radius: 20px;
-  border: 1.5px solid #e2e8f0;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   transition: var(--transition-smooth);
 }
 
-.s-item:hover {
+.opus-menu-card:hover {
   border-color: var(--primary-green);
-  transform: translateY(-5px);
-  box-shadow: 0 12px 25px rgba(0, 100, 0, 0.04);
+  transform: translateX(4px);
+  box-shadow: 0 12px 25px rgba(0, 100, 0, 0.03);
 }
 
-.s-icon {
+.opus-card-main {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-grow: 1;
+}
+
+.opus-icon-wrap {
+  width: 46px;
+  height: 46px;
+  background: var(--light-green-bg);
   color: var(--primary-green);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex-shrink: 0;
-  margin-top: 4px;
 }
 
-.s-item h3 {
+.opus-icon-wrap svg {
+  width: 22px;
+  height: 22px;
+}
+
+.opus-title-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.opus-title-row h3 {
   font-size: 1.2rem;
   font-weight: 700;
-  margin-bottom: 8px;
+  margin: 0;
 }
 
-.s-item p {
+.opus-badge {
+  background: var(--light-green-bg);
+  color: var(--primary-green);
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 50px;
+  border: 1px solid rgba(0, 100, 0, 0.1);
+}
+
+.opus-details p {
+  margin: 6px 0 0 0;
   font-size: 0.92rem;
   color: var(--body-muted);
   line-height: 1.5;
 }
 
-/* --- PRICING SECTION --- */
-/* --- PRICING SECTION STYLES --- */
-.pricing-section {
-  padding: 80px 0;
-  text-align: center;
-  background-color: var(--bg-pure-white);
-}
-
-.pricing-pitch {
-  color: var(--body-muted);
-  margin-top: 10px;
-  font-size: 1.1rem;
-}
-
-.sig-font {
-  font-family: var(--font-sig);
-}
-
-/* Gufasha ama-cards 8 kwicenga neza (Responsive Grid) */
-.pricing-list-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+.opus-price-action {
+  display: flex;
+  align-items: center;
   gap: 30px;
-  margin-top: 50px;
-  padding: 0 15px;
+  flex-shrink: 0;
 }
 
-/* Isura y'ama-card ubwayo (Nta Hover dynamic movements) */
-.price-service-card {
-  background: var(--light-green-bg);
-  border: 1px solid rgba(0, 100, 0, 0.15);
-  border-radius: 16px;
-  padding: 35px 25px;
-  text-align: left;
+.opus-price {
+  text-align: right;
+}
+
+.op-curr {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--primary-green);
+  margin-right: 4px;
+}
+
+.op-num {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: var(--dark-charcoal);
+}
+
+.opus-btn-select {
+  background: var(--dark-charcoal);
+  color: var(--bg-pure-white);
+  padding: 10px 22px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.88rem;
+  text-decoration: none;
+  transition: var(--transition-smooth);
+}
+
+.opus-btn-select:hover {
+  background: var(--primary-green);
+}
+
+/* ==========================================================================
+   --- PROJECT TIERS SECTION (PREMIUM MOBILE-FIRST RECONSTRUCTION) ---
+   ========================================================================== */
+.tiers-section {
+  padding: 80px 0;
+  background-color: #fafafa;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Tiers Grid */
+.tiers-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  margin-top: 40px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Tier Card: Solid box-sizing parameters to avoid screen breaks */
+.tier-card {
+  background: var(--bg-pure-white);
+  border: 1px solid rgba(0, 100, 0, 0.08);
+  border-radius: 24px;
+  padding: 40px 32px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.01);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s ease;
   position: relative;
-  overflow: hidden;
-  transition: var(--transition-smooth);
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box; 
 }
 
-/* Mutwe w'akazi (Icon + Title) */
-.price-card-header {
+.tier-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--primary-green);
+  box-shadow: 0 15px 30px rgba(0, 100, 0, 0.04);
+}
+
+.tier-title-wrap {
   display: flex;
   align-items: center;
-  gap: 15px;
-  margin-bottom: 20px;
+  gap: 16px;
+  margin-bottom: 16px;
+  width: 100%;
+  max-width: 100%;
 }
 
-.plan-icon {
+.tier-icon-circle {
+  width: 46px;
+  height: 46px;
+  background-color: var(--light-green-bg);
   color: var(--primary-green);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex-shrink: 0;
 }
 
-.price-card-header h3 {
-  font-size: 1.3rem;
-  font-weight: 600;
-  color: var(--dark-charcoal);
+.tier-header h3 {
+  font-size: 1.35rem;
+  font-weight: 800;
   margin: 0;
+  color: var(--dark-charcoal);
+  letter-spacing: -0.5px;
+  line-height: 1.2;
 }
 
-/* Agasanduku k'igiciro (Price Box) */
-.price-box {
-  background: rgba(0, 100, 0, 0.08);
-  border-radius: 12px;
-  padding: 15px;
-  margin-bottom: 25px;
-  border-left: 4px solid var(--primary-green);
-}
-
-.price-badge {
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: var(--body-muted);
-  display: block;
-  margin-bottom: 5px;
-}
-
-.amount-wrapper {
-  display: flex;
-  align-items: baseline;
-  gap: 6px;
-}
-
-.currency {
+.tier-header p {
   font-size: 0.9rem;
+  color: var(--body-muted);
+  line-height: 1.5;
+  margin: 10px 0 0 0;
+}
+
+/* Service Lists Framework */
+.tier-services-sublist {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin: 24px 0 32px 0;
+  border-top: 1px solid var(--border-color);
+  padding-top: 20px;
+  flex-grow: 1;
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Service Row Layout */
+.tier-service-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 4px;
+  background-color: transparent;
+  border-bottom: 1px dashed rgba(0, 0, 0, 0.05);
+  gap: 16px;
+  transition: var(--transition-smooth);
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.tier-service-row:last-child {
+  border-bottom: none;
+}
+
+.tier-service-row:hover {
+  padding-left: 6px;
+}
+
+.tier-srv-info {
+  display: flex;
+  align-items: flex-start; /* Uhindura imiterere kugira ngo check icon igume hejuru */
+  gap: 12px;
+  min-width: 0; 
+  flex: 1;
+}
+
+.tier-check-icon {
+  color: var(--primary-green);
+  flex-shrink: 0;
+  margin-top: 2px; /* Ikosora alignment y'akamenyetso */
+}
+
+.tier-srv-name {
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: #2d3748;
+  line-height: 1.4;
+  white-space: normal; 
+  word-break: break-word; /* Ikatira amagambo maremare mu mfuruka */
+}
+
+.tier-srv-pricing {
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.tier-srv-curr {
+  font-size: 0.72rem;
   font-weight: 700;
   color: var(--primary-green);
+  margin-right: 3px;
 }
 
-.amount {
-  font-size: 1.8rem;
-  font-weight: 800;
+.tier-srv-num {
+  font-size: 1.1rem;
+  font-weight: 700;
   color: var(--dark-charcoal);
 }
 
-/* Urutonde rw'ibigize serivisi (Features List) */
-.plan-list {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 30px 0;
-  flex-grow: 1; /* Bituma ama-buttons yose aza ku murongo umwe hasi */
+.tier-srv-period {
+  font-size: 0.72rem;
+  color: #718096;
 }
 
-.plan-list li {
+/* Call to Action Button inside Tier */
+.btn-tier-action {
+  width: 100%;
+  display: block;
+  text-align: center;
+  padding: 14px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.92rem;
+  text-decoration: none;
+  background: var(--primary-green);
+  color: var(--bg-pure-white);
+  transition: var(--transition-smooth);
+  box-sizing: border-box;
+}
+
+.btn-tier-action:hover {
+  background: #004d00;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 100, 0, 0.15);
+}
+
+/* ==========================================================================
+   --- RESPONSIVE ENGINE FOR MOBILE FRIENDLINESS ---
+   ========================================================================== */
+@media (max-width: 992px) {
+  .tiers-grid {
+    grid-template-columns: 1fr; /* Ziza ku murongo umwe mato mato */
+    gap: 24px;
+  }
+}
+
+@media (max-width: 640px) {
+  .tiers-section {
+    padding: 60px 0;
+  }
+  
+  .tier-card {
+    padding: 30px 20px; /* Gabanya padding cyane ngo ntiyisunike hanze */
+    border-radius: 20px;
+  }
+  
+  .tier-service-row {
+    gap: 12px;
+  }
+  
+  .tier-srv-name {
+    font-size: 0.88rem; 
+  }
+  
+  .tier-srv-num {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 440px) {
+  /* Iki gice nikosora ikibazo cyo kuri mobile: Ihata inyandiko n'igiciro gutondekwa kumanuka */
+  .tier-service-row {
+    flex-direction: column; 
+    align-items: flex-start;
+    gap: 6px;
+    padding: 14px 4px;
+  }
+  
+  .tier-srv-info {
+    width: 100%;
+  }
+  
+  .tier-srv-pricing {
+    text-align: left;
+    padding-left: 26px; /* Ijyana igiciro munsi y'izina neza ihuye na check icon */
+    width: 100%;
+  }
+}
+
+
+/* ==========================================================================
+   --- RESPONSIVE ENGINE FOR MOBILE FRIENDLINESS ---
+   ========================================================================== */
+@media (max-width: 992px) {
+  .tiers-grid {
+    grid-template-columns: 1fr; /* Ihita ihinduka umuryango w'agakarita kamwe kamwe kuri telefone */
+    gap: 24px;
+  }
+}
+
+@media (max-width: 640px) {
+  .tiers-section {
+    padding: 60px 0;
+  }
+  
+  .tier-card {
+    padding: 30px 20px; /* Gabanya padding z'imbere kuri telefone ngo amagambo abone umwanya */
+    border-radius: 20px;
+  }
+  
+  .tier-service-row {
+    gap: 12px;
+  }
+  
+  .tier-srv-name {
+    font-size: 0.88rem; /* Size mato meza cyane kuri telefone */
+  }
+  
+  .tier-srv-num {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 380px) {
+  /* Kuri telefone ntoya cyane (Urugero: iPhone SE) */
+  .tier-service-row {
+    flex-direction: column; /* Birinda ko igiciro n'izina byigana ku murongo umwe */
+    align-items: flex-start;
+    gap: 4px;
+    padding: 12px 4px;
+  }
+  .tier-srv-pricing {
+    text-align: left;
+    padding-left: 26px; /* Ijyana igiciro munsi y'izina neza */
+  }
+}
+
+/* --- THINGS PEOPLE ACTUALLY ASK: FAQ ACCORDION (PERMANENT STEADY FIX) --- */
+.faq-section {
+  padding: 60px 0;
+}
+
+.faq-wrapper-list {
+  max-width: 800px;
+  margin: 35px auto 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* Twaguye intera gato */
+}
+
+.faq-item-box {
+  background: var(--bg-pure-white);
+  border: 1.5px solid var(--border-color);
+  border-radius: 16px;
+  padding: 20px 24px;
+  transition: border-color var(--transition-smooth), box-shadow var(--transition-smooth);
+}
+
+.faq-question-row {
   display: flex;
   align-items: center;
-  gap: 10px;
-  color: var(--body-muted);
-  font-size: 0.95rem;
-  margin-bottom: 12px;
-  line-height: 1.4;
+  justify-content: space-between;
+  cursor: pointer;
+  user-select: none;
 }
 
-.check-icon {
+.faq-q-text {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.faq-q-icon {
   color: var(--primary-green);
   flex-shrink: 0;
 }
 
-/* Bouton yo gutangira (Get Started Button) */
-.btn-plan {
-  display: block;
-  text-align: center;
-  background: var(--primary-green);
-  border: 2px solid var(--primary-green);
-  color: var(--bg-pure-white);
-  padding: 12px 20px;
-  border-radius: 8px;
-  font-weight: 600;
-  text-decoration: none;
-  font-size: 0.95rem;
-  transition: var(--transition-smooth);
+.faq-question-row h4 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--dark-charcoal);
 }
 
-.btn-plan:hover {
-  background: transparent;
+.faq-arrow {
+  color: var(--body-muted);
+  transition: transform 0.2s ease;
+}
+
+/* IGISUBIZO GIHAMYE HAMWE (FIXED DISPLAY STRUCTURE) */
+.faq-answer-block {
+  display: block;
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px dashed var(--border-color); /* Kujyana umurongo utandukanya ikibazo n'igisubizo */
+  animation: bfFadeInFast 0.2s ease-out forwards;
+}
+
+.faq-answer-block p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--body-muted);
+  line-height: 1.6;
+  padding-left: 30px;
+}
+
+/* ACTIVE STATE CONTROLS */
+.faq-active {
+  border-color: var(--primary-green);
+  box-shadow: 0 10px 25px rgba(0, 100, 0, 0.04);
+}
+
+.faq-active .faq-arrow {
+  transform: rotate(180deg);
   color: var(--primary-green);
 }
 
-/* --- RESPONSIVE ADJUSTMENTS --- */
-@media (max-width: 768px) {
-  .pricing-list-grid {
-    gap: 20px;
-    padding: 0 5px;
+/* ANIMATION ITUJE YO KUZANA IGISUBIZO AKO KANYA */
+@keyframes bfFadeInFast {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
   }
-  
-  .price-service-card {
-    padding: 25px 20px;
-  }
-  
-  .amount {
-    font-size: 1.6rem;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-/* --- CTA SECTION --- */
-.cta-section {
-  padding: 50px 0 80px 0;
-}
-
-.cta-card {
-  background: var(--light-green-bg);
-  border: 1.5px dashed rgba(0, 100, 0, 0.2);
-  border-radius: 32px;
-  padding: 50px 40px;
-  text-align: center;
-}
-
-.cta-card h2 {
-  font-size: 1.8rem;
-  font-weight: 800;
-  margin-bottom: 12px;
-}
-
-.cta-card p {
-  color: var(--body-muted);
-  font-size: 1rem;
-  margin-bottom: 25px;
-}
-
-.btn-cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: var(--primary-green);
-  color: white;
-  text-decoration: none;
-  padding: 13px 30px;
-  border-radius: 50px;
-  font-weight: 600;
-  font-size: 0.95rem;
-  transition: var(--transition-smooth);
-}
-
-.btn-cta:hover {
-  background: #004d00;
-}
-
-/* --- REVEAL INTERSECTION ANIMATIONS --- */
-.reveal {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
-}
-
-.reveal.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* --- RESPONSIVE DESIGN --- */
-@media (max-width: 992px) {
-  .hero-flex { flex-direction: column; text-align: center; gap: 40px; }
-  .hero-btns { justify-content: center; }
-  .hero-text p { margin-left: auto; margin-right: auto; }
-  .hero-visual { margin-top: 10px; }
-}
-
-@media (max-width: 480px) {
-  .hero-section { padding: 110px 0 50px 0; min-height: 50vh; }
-  .price-card { padding: 30px 20px; }
-  .cta-card { padding: 40px 20px; }
-}
+  /* --- CTA SECTION (YOUR ORIGINAL WITH HOVER FIX) --- */
+  .cta-section {padding: 50px 0 80px 0;}
+  .cta-card {background: var(--light-green-bg);border: 1.5px dashed rgba(0, 100, 0, 0.2);border-radius: 32px;
+    padding: 50px 40px;text-align: center;}
+    .cta-card h2 {font-size: 1.8rem;font-weight: 800;margin-bottom: 12px;}
+    .cta-card p {color: var(--body-muted);font-size: 1rem;margin-bottom: 25px;}
+    .btn-cta {display: inline-flex;align-items: center;gap: 8px;background: var(--primary-green);color: white;
+      text-decoration: none;padding: 13px 30px;border-radius: 50px;font-weight: 600;font-size: 0.95rem;
+      transition: var(--transition-smooth);}.btn-cta:hover {background: #004d00;transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(0, 100, 0, 0.2);}/* --- REVEAL INTERSECTION ANIMATIONS (YOUR ORIGINAL) --- */
+        .reveal {opacity: 0;transform: translateY(20px);transition: opacity 0.5s ease, transform 0.5s ease;}
+        .reveal.show {opacity: 1;transform: translateY(0);}/* --- RESPONSIVE DESIGN & MOBILE INTERFACES --- */
+        @media (max-width: 992px) {.hero-flex { flex-direction: column; text-align: center; gap: 40px; }
+        .hero-btns { justify-content: center; }.hero-text p { margin-left: auto; margin-right: auto; }
+        .hero-visual { margin-top: 10px; }.tiers-grid {grid-template-columns: 1fr;}
+        .opus-menu-card {flex-direction: column;align-items: flex-start;gap: 16px;}
+        .opus-price-action {width: 100%;justify-content: space-between;border-top: 1px solid var(--border-color)
+          ;padding-top: 14px;}}@media (max-width: 768px) 
+          {.container {width: 92%;}
+.section-header h2 {font-size: 1.65rem;}
+.opus-menu-card {padding: 20px;}}@media (max-width: 480px) 
+{.hero-section { padding: 110px 0 50px 0; min-height: 50vh; }
+.cta-card { padding: 40px 20px; }}@keyframes pulse {0%, 100% { opacity: 1; }50% { opacity: .4; }}

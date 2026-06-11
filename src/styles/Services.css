@@ -1,12 +1,22 @@
 
 :root {
-  --primary-green: #006400; /* Dark Green */
+  --primary-green: #006400;
   --light-green-bg: rgba(0, 100, 0, 0.04);
   --dark-charcoal: #111111;
   --body-muted: #555555;
   --bg-pure-white: #ffffff;
   --font-sig: 'Dancing Script', cursive;
-  --transition-smooth: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  --transition-smooth: all 0.3s ease;
+  --border-color: #e2e8f0;
+}
+
+html, body {
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 .services-page {
@@ -14,7 +24,15 @@
   color: var(--dark-charcoal);
   font-family: 'Inter', sans-serif;
   width: 100%;
+  max-width: 100%;
   overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+.services-page *, 
+.services-page *::before, 
+.services-page *::after {
+  box-sizing: border-box;
 }
 
 .container {
@@ -23,277 +41,754 @@
   margin: 0 auto;
 }
 
-.sig-font {
-  font-family: var(--font-sig);
-  color: var(--primary-green);
-  font-size: 1.25em;
-}
-
-/* --- HERO SECTION (With ss.JPG Image) --- */
-.services-hero {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  padding: 150px 0 90px 0;
-  min-height: 45vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  width: 100%;
-}
-
-.hero-content {
-  width: 90%;
-  max-width: 600px;
-}
-
-.services-hero .badge {
+.badge {
   display: inline-block;
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  color: #ffffff;
-  padding: 6px 16px;
-  border-radius: 50px;
-  font-weight: 700;
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin-bottom: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.services-hero h1 {
-  font-size: clamp(2rem, 4.5vw, 3rem);
-  font-weight: 800;
-  line-height: 1.2;
-  color: #ffffff;
-  margin-bottom: 15px;
-}
-
-.services-hero p {
-  font-size: 1.05rem;
-  color: #dddddd;
-  margin: 0 auto;
-  line-height: 1.6;
-}
-
-/* --- DETAILED SERVICES SECTIONS --- */
-.services-detailed {
-  padding: 80px 0;
-  display: flex;
-  flex-direction: column;
-  gap: 80px; /* Gap nziza hagati ya buri service row */
-}
-
-.service-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 60px;
-  background: var(--bg-pure-white);
-  padding: 40px;
-  border-radius: 24px;
-  border: 1.5px solid #e2e8f0; /* Borders zigaragara neza nka Portfolio */
-  transition: var(--transition-smooth);
-}
-
-.service-row:hover {
-  transform: translateY(-5px);
-  border-color: var(--primary-green);
-  box-shadow: 0 15px 35px rgba(0, 100, 0, 0.04);
-}
-
-.service-row.reverse {
-  flex-direction: row-reverse;
-}
-
-.service-info {
-  flex: 1.2;
-}
-
-.service-number {
-  font-family: var(--font-sig);
-  font-size: 2rem;
-  color: var(--primary-green);
-  font-weight: 700;
-  margin-bottom: 10px;
-  opacity: 0.7;
-}
-
-.service-title {
-  font-size: 1.6rem;
-  font-weight: 800;
-  color: var(--dark-charcoal);
-  margin-bottom: 15px;
-}
-
-.service-desc {
-  font-size: 0.98rem;
-  color: var(--body-muted);
-  line-height: 1.6;
-  margin-bottom: 25px;
-}
-
-/* Sub Services Grid */
-.sub-services {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 12px;
-  margin-bottom: 30px;
-}
-
-.sub-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 0.92rem;
-  font-weight: 600;
-  color: var(--dark-charcoal);
-}
-
-.sub-item svg {
-  color: var(--primary-green) !important;
-  flex-shrink: 0;
-}
-
-/* Tools Stack */
-.tools-box {
-  border-top: 1px solid #e2e8f0;
-  padding-top: 20px;
-}
-
-.tools-label {
-  display: block;
-  font-size: 0.8rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: #64748b;
-  margin-bottom: 10px;
-  letter-spacing: 0.5px;
-}
-
-.tools-tags {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-
-.tool-tag {
-  background: #f1f5f9;
-  color: #475569;
-  padding: 4px 12px;
-  border-radius: 6px;
-  font-size: 0.78rem;
-  font-weight: 600;
-}
-
-/* Service Visual Icon Box */
-.service-visual {
-  flex: 0.8;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.visual-icon-box {
-  width: 120px;
-  height: 120px;
   background: var(--light-green-bg);
   color: var(--primary-green);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
+  padding: 6px 14px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: 16px;
   border: 1px solid rgba(0, 100, 0, 0.1);
 }
 
-.orbit-animation {
+.sig-font {
+  font-family: var(--font-sig);
+  color: #22c55e;
+  font-size: 1.25em;
+  font-weight: normal;
+}
+
+.accent-bar {
+  width: 50px;
+  height: 4px;
+  background: var(--primary-green);
+  margin: 12px auto 24px auto;
+  border-radius: 50px;
+}
+
+.section-center-header {
+  text-align: center;
+  margin-bottom: 50px;
+  padding: 0 10px;
+}
+
+.section-center-header h2 {
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  font-weight: 800;
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+.framework-pitch {
+  font-size: 1.05rem;
+  color: var(--body-muted);
+  line-height: 1.6;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+/* ==========================================================================
+   --- 1. HERO SECTION (DARK MODE FLARE CANVAS) ---
+   ========================================================================== */
+.services-hero {
+  background: 
+    radial-gradient(circle at 80% 20%, rgba(34, 197, 94, 0.07) 0%, transparent 50%),
+    radial-gradient(circle at 15% 80%, rgba(0, 100, 0, 0.12) 0%, transparent 60%),
+    #070a13;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 160px 0 80px 0;
+  text-align: left;
+  width: 100%;
+  position: relative;
+}
+
+.services-hero::before {
+  content: '';
   position: absolute;
-  width: 140px;
-  height: 140px;
-  border: 1.5px dashed rgba(0, 100, 0, 0.2);
-  border-radius: 50%;
-  animation: spinOrbit 12s linear infinite;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: center;
+  pointer-events: none;
+  z-index: 1;
 }
 
-@keyframes spinOrbit {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.hero-content {
+  max-width: 800px;
+  position: relative;
+  z-index: 3;
 }
 
-/* --- FINAL CTA --- */
+.hero-content h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.15;
+  color: #ffffff;
+  margin: 0 0 20px 0;
+  letter-spacing: -1px;
+}
+
+.hero-content p {
+  font-size: 1.12rem;
+  color: #94a3b8;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ==========================================================================
+   --- 2. DUAL COLUMN SOLUTIONS MESH ---
+   ========================================================================== */
+/* ==========================================================================
+   --- SOLUTIONS DUAL PANEL CANVASS INTERFACE ---
+   ========================================================================== */
+.solutions-container {
+  padding: 80px 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.solutions-split-mesh {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr; /* Perfect side-by-side split for desktop */
+  gap: 40px;
+  width: 100%;
+}
+
+.solutions-nav-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.sol-nav-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--bg-pure-white);
+  border: 1px solid var(--border-color);
+  padding: 18px 24px;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  width: 100%;
+}
+
+.sol-nav-btn:hover,
+.sol-nav-active {
+  border-color: var(--primary-green);
+  background-color: var(--light-green-bg);
+}
+
+.sol-btn-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+  flex: 1;
+}
+
+.sol-btn-icon {
+  color: var(--primary-green);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+
+.sol-btn-title {
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: var(--dark-charcoal);
+  line-height: 1.3;
+  text-align: left;
+}
+
+.sol-btn-arrow {
+  color: var(--body-muted);
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+}
+
+.sol-nav-active .sol-btn-arrow {
+  transform: translateX(4px);
+  color: var(--primary-green);
+}
+
+.solutions-content-panel {
+  background: var(--bg-pure-white);
+  border: 1px solid var(--border-color);
+  border-radius: 24px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-width: 0; /* Hard rail blocking horizontal layout expansion */
+}
+
+.sol-active-view {
+  animation: solFadeIn 0.3s ease-out forwards;
+  width: 100%;
+}
+
+@keyframes solFadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.sol-active-title {
+  font-size: 1.65rem;
+  font-weight: 800;
+  margin: 0 0 16px 0;
+  letter-spacing: -0.5px;
+  text-align: left;
+}
+
+.sol-active-desc {
+  font-size: 1.02rem;
+  color: var(--body-muted);
+  line-height: 1.6;
+  margin: 0 0 32px 0;
+  text-align: left;
+}
+
+.sol-active-sublist h4 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 0 0 16px 0;
+  text-align: left;
+}
+
+.sol-subgrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columns on desktop */
+  gap: 14px;
+  margin-bottom: 32px;
+  width: 100%;
+}
+
+.sol-sub-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  min-width: 0;
+}
+
+.sol-check-icon {
+  color: var(--primary-green);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.sol-sub-item span {
+  font-size: 0.94rem;
+  font-weight: 500;
+  color: #2d3748;
+  line-height: 1.4;
+  word-break: break-word;
+  text-align: left;
+}
+
+.sol-active-tools {
+  border-top: 1px solid var(--border-color);
+  padding-top: 24px;
+  margin-bottom: 35px;
+  width: 100%;
+}
+
+.sol-active-tools > span {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--body-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 12px;
+  text-align: left;
+}
+
+.sol-tools-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap; /* Enforces clean stacking loops instead of horizontal crowding */
+  width: 100%;
+}
+
+.sol-tag {
+  background-color: #f1f5f9;
+  color: #475569;
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 8px;
+}
+
+.sol-panel-action-row {
+  margin-top: auto;
+  width: 100%;
+  display: flex;
+}
+
+.btn-order-direct {
+  background: var(--primary-green);
+  color: var(--bg-pure-white);
+  border: 1px solid var(--primary-green);
+  padding: 14px 28px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.92rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  width: auto;
+}
+
+.btn-order-direct:hover {
+  background: #004d00;
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   --- MOBILE ENGiNE RESPONSIVE CORRECTIONS (STOPS SCREEN OVERFLOWS) ---
+   ========================================================================== */
+@media (max-width: 992px) {
+  /* Safely drop the side-by-side desktop panels into a clean vertical flow */
+  .solutions-split-mesh {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .solutions-content-panel {
+    padding: 30px 24px;
+    border-radius: 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .solutions-container {
+    padding: 40px 0;
+  }
+
+  /* Force check items array list into 1 straight clean down-grid */
+  .sol-subgrid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .sol-nav-btn {
+    padding: 14px 18px;
+    border-radius: 12px;
+  }
+
+  .sol-btn-title {
+    font-size: 0.95rem;
+  }
+
+  .sol-active-title {
+    font-size: 1.4rem;
+  }
+
+  /* Expand full tap boundaries for thumb accuracy on screens */
+  .btn-order-direct {
+    width: 100%;
+  }
+}
+
+@media (max-width: 380px) {
+  /* Extra adjustment handles for tiny smartphones like iPhone SE */
+  .sol-nav-btn {
+    padding: 12px 14px;
+  }
+  .sol-btn-left {
+    gap: 10px;
+  }
+  .sol-btn-title {
+    font-size: 0.88rem;
+  }
+}
+
+/* ==========================================================================
+   --- 3. 1-WEEK DELIVERY FRAMEWORK ---
+   ========================================================================== */
+.process-pipeline-section {
+  padding: 80px 0;
+  background-color: #fafafa;
+  width: 100%;
+}
+
+.process-pipeline-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-top: 40px;
+  width: 100%;
+}
+
+.process-step-box {
+  background: var(--bg-pure-white);
+  border: 1px solid rgba(0, 100, 0, 0.06);
+  border-radius: 20px;
+  padding: 35px 28px;
+  width: 100%;
+}
+
+.process-step-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.process-step-icon {
+  color: var(--primary-green);
+  background: var(--light-green-bg);
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.process-step-num {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: rgba(0, 100, 0, 0.12);
+  font-family: monospace;
+}
+
+.process-step-box h3 {
+  font-size: 1.18rem;
+  font-weight: 700;
+  margin: 0 0 12px 0;
+}
+
+.process-step-box p {
+  font-size: 0.92rem;
+  color: var(--body-muted);
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* ==========================================================================
+   --- 4. FINAL CTA ---
+   ========================================================================== */
 .services-cta {
-  margin-bottom: 80px;
+  padding: 40px 0 80px 0;
+  width: 100%;
 }
 
 .cta-gradient-box {
   background: var(--light-green-bg);
   border: 1.5px dashed rgba(0, 100, 0, 0.2);
   border-radius: 32px;
-  padding: 60px 40px;
+  padding: 50px 30px;
   text-align: center;
+  width: 100%;
 }
 
 .cta-gradient-box h2 {
-  font-size: 2rem;
+  font-size: 1.75rem;
   font-weight: 800;
-  margin-bottom: 15px;
+  margin: 0 0 12px 0;
 }
 
 .cta-gradient-box p {
   color: var(--body-muted);
-  font-size: 1.05rem;
-  margin-bottom: 30px;
+  font-size: 0.98rem;
+  margin: 0 0 25px 0;
 }
 
-.btn-main {
-  background: var(--primary-green);
-  color: white;
+/* ==========================================================================
+   --- INTERACTIVE ORDER MODAL (COMPACT MOBILE ENGINE) ---
+   ========================================================================== */
+.order-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(7, 10, 19, 0.45);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center; 
+  justify-content: center;
+  z-index: 9999;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.order-modal-card {
+  background: var(--bg-pure-white);
+  border: 1px solid rgba(0, 100, 0, 0.06);
+  border-radius: 24px;
+  width: 100%;
+  max-width: 500px;
+  padding: 40px;
+  box-shadow: 0 30px 60px -15px rgba(7, 10, 19, 0.2);
+  animation: modalScaleUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  max-height: 85vh; 
+  overflow-y: auto; 
+  -webkit-overflow-scrolling: touch; 
+  box-sizing: border-box;
+}
+
+@keyframes modalScaleUp {
+  from { opacity: 0; transform: scale(0.96) translateY(8px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.modal-close-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  width: 100%;
+}
+
+.modal-close-header h3 {
+  font-size: 1.45rem;
+  font-weight: 800;
+  margin: 0;
+  color: var(--dark-charcoal);
+  letter-spacing: -0.5px;
+}
+
+.btn-modal-close {
+  background: #f1f5f9;
   border: none;
-  padding: 14px 35px;
-  border-radius: 50px;
-  font-weight: 600;
-  font-size: 1rem;
+  color: var(--body-muted);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
   transition: var(--transition-smooth);
 }
 
-.btn-main:hover {
+.btn-modal-close:hover {
+  background: #e2e8f0;
+  color: var(--dark-charcoal);
+}
+
+.modal-service-selected-badge {
+  background: var(--light-green-bg);
+  border: 1px solid rgba(0, 100, 0, 0.08);
+  border-radius: 12px;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 24px;
+  font-size: 0.9rem;
+  flex-wrap: wrap;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.modal-service-selected-badge span {
+  color: var(--body-muted);
+  font-weight: 500;
+}
+
+.modal-service-selected-badge strong {
+  color: var(--primary-green);
+  font-weight: 700;
+}
+
+.order-modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+
+.form-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.form-input-group label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #334155;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-align: left;
+}
+
+.form-input-group input,
+.form-input-group textarea {
+  width: 100%;
+  background: #f8fafc;
+  border: 1.5px solid var(--border-color);
+  border-radius: 12px;
+  padding: 14px 16px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  color: var(--dark-charcoal);
+  transition: var(--transition-smooth);
+  box-sizing: border-box;
+}
+
+.form-input-group input:focus,
+.form-input-group textarea:focus {
+  outline: none;
+  border-color: var(--primary-green);
+  background: var(--bg-pure-white);
+  box-shadow: 0 0 0 4px rgba(0, 100, 0, 0.04);
+}
+
+.form-input-group textarea {
+  resize: vertical;
+}
+
+.modal-guarantee-notice {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--primary-green);
+  background-color: var(--light-green-bg);
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-size: 0.84rem;
+  font-weight: 600;
+  line-height: 1.4;
+  border-left: 3px solid var(--primary-green);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.modal-guarantee-notice svg {
+  flex-shrink: 0;
+}
+
+.btn-modal-submit {
+  background: var(--primary-green);
+  color: var(--bg-pure-white);
+  border: 1px solid var(--primary-green);
+  padding: 15px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  width: 100%;
+  box-sizing: border-box;
+  box-shadow: 0 4px 12px rgba(0, 100, 0, 0.15);
+}
+
+.btn-modal-submit:hover {
   background: #004d00;
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(0, 100, 0, 0.2);
 }
 
-/* --- REVEAL INTERSECTION OBSERVER ANIMATION --- */
-.reveal {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-.reveal.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* --- RESPONSIVE DESIGN --- */
-@media (max-width: 992px) {
-  .service-row, .service-row.reverse {
-    flex-direction: column-reverse;
-    gap: 40px;
-    padding: 30px;
+/* ==========================================================================
+   --- COMPACT RESPONSIVE METRICS FOR MOBILE SCREENS ---
+   ========================================================================== */
+@media (max-width: 640px) {
+  .order-modal-overlay {
+    padding: 12px;
+    align-items: center; /* Re-centered for elegant placement */
+    overflow-y: auto; 
   }
-  .service-visual {
+
+  .order-modal-card {
+    padding: 22px 18px; /* Greatly reduced card padding to optimize space */
+    border-radius: 18px;
+    max-height: 90vh; /* Keeps it inside viewport bounds neatly */
+    overflow-y: auto; 
+    margin-top: 10px;
     margin-bottom: 10px;
   }
+
+  .modal-close-header {
+    margin-bottom: 6px;
+  }
+
+  .modal-close-header h3 {
+    font-size: 1.2rem; /* Clean, space-saving typography scale */
+  }
+
+  .modal-service-selected-badge {
+    margin-bottom: 14px;
+    padding: 8px 12px;
+    font-size: 0.8rem;
+    border-radius: 10px;
+  }
+
+  .order-modal-form {
+    gap: 12px; /* Compressed card gaps to eliminate stretching */
+  }
+
+  .form-input-group {
+    gap: 4px;
+  }
+
+  .form-input-group label {
+    font-size: 0.78rem;
+  }
+
+  /* Compact Input heights for clean mobile form layout */
+  .form-input-group input {
+    padding: 10px 12px;
+    font-size: 0.88rem;
+    border-radius: 10px;
+  }
+  
+  /* Fixed specific text area height bounds to prevent stretching */
+  .form-input-group textarea {
+    padding: 10px 12px;
+    font-size: 0.88rem;
+    border-radius: 10px;
+    height: 90px; /* Slimmed down height */
+  }
+
+  .modal-guarantee-notice {
+    font-size: 0.76rem;
+    padding: 8px 12px;
+    border-radius: 10px;
+    gap: 8px;
+  }
+
+  .btn-modal-submit {
+    padding: 12px;
+    font-size: 0.88rem;
+    border-radius: 10px;
+  }
 }
 
-@media (max-width: 480px) {
-  .services-hero { padding: 120px 0 60px 0; min-height: 40vh; }
-  .service-title { font-size: 1.35rem; }
-  .cta-gradient-box { padding: 40px 20px; }
-  .cta-gradient-box h2 { font-size: 1.5rem; }
+@media (max-width: 380px) {
+  .order-modal-card {
+    padding: 18px 14px;
+  }
+  .modal-close-header h3 {
+    font-size: 1.1rem;
+  }
 }
+  .modal-service-selected-badge {
+    padding: 6px 10px;
+    font-size: 0.78rem;
+  }

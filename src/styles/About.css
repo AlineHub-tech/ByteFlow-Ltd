@@ -1,12 +1,24 @@
-
+/* ==========================================================================
+   --- INITIAL VARIABLES & BRAND THEME DEFINITIONS ---
+   ========================================================================== */
 :root {
-  --primary-green: #006400; /* Dark Green */
+  --primary-green: #006400;
   --light-green-bg: rgba(0, 100, 0, 0.04);
   --dark-charcoal: #111111;
   --body-muted: #555555;
   --bg-pure-white: #ffffff;
   --font-sig: 'Dancing Script', cursive;
-  --transition-smooth: all 0.4s ease;
+  --transition-smooth: all 0.3s ease;
+  --border-color: #e2e8f0;
+}
+
+html, body {
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 .about-page {
@@ -14,613 +26,409 @@
   color: var(--dark-charcoal);
   font-family: 'Inter', sans-serif;
   width: 100%;
+  max-width: 100%;
   overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+/* Safety border box rules to ensure zero container overflow limits */
+.about-page *, 
+.about-page *::before, 
+.about-page *::after {
+  box-sizing: border-box;
 }
 
 .container {
   width: 90%;
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0;
+}
+
+.badge {
+  display: inline-block;
+  background: var(--light-green-bg);
+  color: var(--primary-green);
+  padding: 6px 14px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: 16px;
+  border: 1px solid rgba(0, 100, 0, 0.1);
 }
 
 .sig-font {
   font-family: var(--font-sig);
   color: var(--primary-green);
   font-size: 1.25em;
-}
-
-.badge {
-  display: inline-block;
-  background: var(--light-green-bg);
-  border: 1px solid rgba(0, 100, 0, 0.15);
-  color: var(--primary-green);
-  padding: 6px 16px;
-  border-radius: 50px;
-  font-weight: 700;
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin-bottom: 20px;
-}
-
-/* --- HERO SECTION (KOSOYE: Elegant Image Visibility) --- */
-.about-hero {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  padding: 160px 0 100px 0;
-  min-height: 45vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-}
-
-.hero-inner-text {
-  text-align: center;
-  max-width: 800px;
-}
-
-.about-hero h1 {
-  font-size: clamp(2.3rem, 5vw, 3.2rem);
-  font-weight: 800;
-  line-height: 1.2;
-  color: #ffffff;
-  margin-bottom: 20px;
-}
-
-.about-hero p {
-  font-size: 1.1rem;
-  color: #dddddd;
-  line-height: 1.6;
-}
-
-/* --- PHILOSOPHY INTRODUCTION --- */
-.philosophy-section {
-  padding: 60px 0 30px 0;
-}
-
-.philosophy-box {
-  background: var(--light-green-bg);
-  border-left: 4px solid var(--primary-green);
-  padding: 35px;
-  border-radius: 0 20px 20px 0;
-}
-
-.philosophy-box p {
-  font-size: 1.05rem;
-  line-height: 1.7;
-  color: var(--body-muted);
-  margin: 0;
-}
-
-.client-audience {
-  padding: 60px 0;
-}
-
-.audience-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
-  margin-top: 30px;
-}
-
-.audience-card {
-  background: var(--bg-pure-white);
-  border: 1.5px solid #e2e8f0;
-  padding: 30px;
-  border-radius: 24px;
-  transition: var(--transition-smooth);
-}
-
-.audience-card:hover {
-  transform: translateY(-4px);
-  border-color: var(--primary-green);
-}
-
-.audience-card h4 {
-  margin-bottom: 12px;
-  font-size: 1.05rem;
-  font-weight: 700;
-}
-
-.audience-card p {
-  margin: 0;
-  color: var(--body-muted);
-  line-height: 1.7;
-  font-size: 0.95rem;
-}
-
-.featured-work {
-  padding: 60px 0;
-}
-
-.featured-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 24px;
-  margin-top: 30px;
-}
-
-.featured-card {
-  background: var(--bg-pure-white);
-  border: 1.5px solid #e2e8f0;
-  border-radius: 24px;
-  overflow: hidden;
-  transition: var(--transition-smooth);
-}
-
-.featured-card:hover {
-  transform: translateY(-4px);
-  border-color: var(--primary-green);
-}
-
-.featured-card img {
-  width: 100%;
-  height: 190px;
-  object-fit: cover;
-  display: block;
-}
-
-.featured-copy {
-  padding: 22px;
-}
-
-.featured-copy h4 {
-  margin: 0 0 12px 0;
-  font-size: 1.1rem;
-}
-
-.featured-copy p {
-  margin: 0;
-  color: var(--body-muted);
-  line-height: 1.6;
-  font-size: 0.95rem;
-}
-
-/* ==========================================================================
-   BYTEFLOW LTD - FOUNDER SECTION (CIRCLE IMAGE LAYOUT)
-   ========================================================================= */
-
-.founder-section {
-  padding: 100px 0;
-  background-color: var(--bg-pure-white);
-  position: relative;
-}
-
-/* 1. LAYOUT GRID - Clean structural division */
-.founder-grid {
-  display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: 60px;
-  align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-/* ==========================================================================
-   LEFT SIDE: FOUNDER TEXT CONTENT
-   ========================================================================= */
-
-.founder-info {
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-}
-
-.section-subtitle {
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  color: var(--primary-green);
-  font-weight: 700;
-  margin-bottom: 12px;
-}
-
-.section-title {
-  font-size: 2.5rem;
-  font-weight: 800;
-  color: var(--dark-charcoal);
-  margin: 0 0 15px 0;
-  line-height: 1.2;
-}
-
-.sig-font {
-  font-family: var(--font-sig);
-}
-
-.founder-name {
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: var(--dark-charcoal);
-  margin: 0 0 25px 0;
-  position: relative;
-  padding-bottom: 10px;
-}
-
-/* Green accent bar under name */
-.founder-name::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 50px;
-  height: 3px;
-  background-color: var(--primary-green);
-  border-radius: 2px;
-}
-
-.founder-info p {
-  color: var(--body-muted);
-  font-size: 1.05rem;
-  line-height: 1.6;
-  margin: 0 0 20px 0;
-}
-
-.founder-info strong {
-  color: var(--dark-charcoal);
-}
-
-/* Social media connections */
-.founder-socials {
-  display: flex;
-  gap: 15px;
-  margin-top: 15px;
-}
-
-.founder-socials a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  background-color: var(--light-green-bg);
-  color: var(--primary-green);
-  text-decoration: none;
-  transition: var(--transition-smooth);
-}
-
-.founder-socials a:hover {
-  background-color: var(--primary-green);
-  color: var(--bg-pure-white);
-}
-
-/* ==========================================================================
-   RIGHT SIDE: MODERN CIRCLE VISUAL MODULE
-   ========================================================================= */
-
-.founder-visual {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  padding: 20px;
-}
-
-/* The primary circular background wrapper frame */
-.founder-frame {
-  position: relative;
-  width: 320px;
-  height: 320px;
-  background: var(--light-green-bg);
-  border-radius: 50%; /* Converts the frame into a perfect circle */
-  border: 1px solid rgba(0, 100, 0, 0.15);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 2;
-}
-
-/* Circular dashed structural layout running behind the frame */
-.founder-frame::before {
-  content: '';
-  position: absolute;
-  top: -10px;
-  left: -10px;
-  right: -10px;
-  bottom: -10px;
-  border: 2px dashed var(--primary-green);
-  border-radius: 50%;
-  z-index: -1;
-  opacity: 0.35;
-}
-
-/* Headshot graphic engineered into a perfect circle */
-.founder-img {
-  width: 90%;
-  height: 90%;
-  object-fit: cover;
-  border-radius: 50%; /* Cuts the image into a clean circle */
-  display: block;
-  position: relative;
-  z-index: 1;
-}
-
-/* ==========================================================================
-   RESPONSIVE DESIGN SYSTEM ADJUSTMENTS
-   ========================================================================= */
-
-@media (max-width: 992px) {
-  .founder-grid {
-    grid-template-columns: 1fr;
-    gap: 50px;
-    text-align: center;
-  }
-
-  .founder-info {
-    align-items: center;
-    text-align: center;
-  }
-
-  .founder-name::after {
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  .founder-socials {
-    justify-content: center;
-  }
-  
-  .section-title {
-    font-size: 2.2rem;
-  }
-  
-  /* Scale down the circular frame module slightly on small screens */
-  .founder-frame {
-    width: 280px;
-    height: 280px;
-  }
-}
-
-
-/* --- SECTION HEADERS --- */
-.section-center-header {
-  text-align: center;
-  margin-bottom: 50px;
-}
-
-.section-center-header h2 {
-  font-size: 2rem;
-  font-weight: 800;
-  margin-bottom: 10px;
-}
-
-.framework-pitch {
-  font-size: 1.05rem;
-  color: var(--body-muted);
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-/* --- MISSION & VISION --- */
-.vision-mission {
-  padding: 50px 0;
-}
-
-.mv-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 30px;
-}
-
-.mv-card {
-  background: var(--bg-pure-white);
-  padding: 40px;
-  border-radius: 24px;
-  border: 1.5px solid #e2e8f0;
-  transition: var(--transition-smooth);
-}
-
-.mv-card:hover {
-  transform: translateY(-5px);
-  border-color: var(--primary-green);
-  box-shadow: 0 15px 35px rgba(0, 100, 0, 0.04);
-}
-
-.mv-icon {
-  color: var(--primary-green);
-  margin-bottom: 20px;
-}
-
-.mv-card h3 {
-  font-size: 1.4rem;
-  font-weight: 800;
-  margin-bottom: 12px;
-}
-
-.mv-card p {
-  color: var(--body-muted);
-  font-size: 0.95rem;
-  line-height: 1.6;
-}
-
-/* --- CORE VALUES --- */
-.values-section {
-  padding: 50px 0;
+  font-weight: normal;
 }
 
 .accent-bar {
   width: 50px;
   height: 4px;
   background: var(--primary-green);
-  margin: 12px auto 0 auto;
+  margin: 12px auto 24px auto;
   border-radius: 50px;
 }
 
-.values-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 25px;
-}
-
-.value-item {
-  background: var(--bg-pure-white);
-  padding: 30px;
-  border-radius: 20px;
-  border: 1.5px solid #e2e8f0;
+.section-center-header {
   text-align: center;
-  transition: var(--transition-smooth);
+  margin-bottom: 50px;
+  padding: 0 10px;
 }
 
-.value-item:hover {
-  border-color: var(--primary-green);
-  transform: translateY(-5px);
+.section-center-header h2 {
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  font-weight: 800;
+  margin: 0;
+  letter-spacing: -0.5px;
 }
 
-.v-icon {
-  color: var(--primary-green);
-  margin-bottom: 15px;
-}
-
-.value-item h4 {
-  font-size: 1.15rem;
-  font-weight: 700;
-  margin-bottom: 10px;
-}
-
-.value-item p {
+.framework-pitch {
+  font-size: 1.05rem;
   color: var(--body-muted);
-  font-size: 0.9rem;
-  line-height: 1.5;
+  line-height: 1.6;
+  max-width: 680px;
+  margin: 0 auto;
 }
 
-/* --- 4. COMPREHENSIVE SERVICE PORTFOLIO DIVISIONS --- */
-.portfolio-divisions {
-  padding: 60px 0;
+/* ==========================================================================
+   --- 1. HERO SECTION (DARK CANVASS MATCHING NEXVENTURES GLOW) ---
+   ========================================================================== */
+.about-hero {
+  background: 
+    radial-gradient(circle at 80% 20%, rgba(34, 197, 94, 0.07) 0%, transparent 50%),
+    radial-gradient(circle at 15% 80%, rgba(0, 100, 0, 0.12) 0%, transparent 60%),
+    #070a13; 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 160px 0 80px 0;
+  text-align: left;
+  width: 100%;
+  position: relative;
 }
 
-.divisions-grid {
+/* Crisp technical vector line mesh backdrop */
+.about-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: center;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hero-inner-text {
+  max-width: 800px;
+  position: relative;
+  z-index: 3;
+}
+
+.hero-inner-text h1 {
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.15;
+  color: #ffffff;
+  margin: 0 0 20px 0;
+  letter-spacing: -1px;
+}
+
+.hero-inner-text p {
+  font-size: 1.15rem;
+  color: #94a3b8;
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* ==========================================================================
+   --- 2. WHY CLIENTS TRUST US (TRUST PILLARS) ---
+   ========================================================================= */
+.trust-pillars-section {
+  padding: 80px 0 40px 0;
+}
+
+.pillars-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-  gap: 40px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  margin-top: 40px;
+  width: 100%;
 }
 
-.division-card {
+.pillar-card {
   background: var(--bg-pure-white);
-  border: 1.5px solid #e2e8f0;
-  border-radius: 24px;
-  padding: 40px;
-  transition: var(--transition-smooth);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 35px;
+  width: 100%;
 }
 
-.division-card:hover {
-  border-color: var(--primary-green);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.04);
-}
-
-.div-header {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  margin-bottom: 30px;
-  border-bottom: 1px solid #e2e8f0;
-  padding-bottom: 15px;
-}
-
-.div-num {
-  background: var(--primary-green);
-  color: white;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 800;
-  font-size: 1.1rem;
-}
-
-.div-header h3 {
-  font-size: 1.4rem;
-  font-weight: 800;
-}
-
-.div-body {
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
-}
-
-.div-bullet strong {
-  display: block;
-  font-size: 1rem;
+.pillar-icon {
   color: var(--primary-green);
-  margin-bottom: 6px;
+  margin-bottom: 20px;
 }
 
-.div-bullet p {
-  font-size: 0.92rem;
+.pillar-card h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0 0 12px 0;
+  color: var(--dark-charcoal);
+}
+
+.pillar-card p {
+  font-size: 0.95rem;
   color: var(--body-muted);
   line-height: 1.6;
   margin: 0;
 }
 
-/* --- 5. WHY BUSINESSES CHOOSE US --- */
-.why-choose-section {
-  padding: 60px 0 100px 0;
+/* ==========================================================================
+   --- 3. PHILOSOPHY INTRODUCTION SECTION ---
+   ========================================================================== */
+.philosophy-section {
+  padding: 40px 0;
 }
 
-.why-box-wrapper {
+.philosophy-box {
   background: var(--light-green-bg);
-  border: 1.5px dashed rgba(0, 100, 0, 0.2);
-  border-radius: 32px;
-  padding: 50px;
+  border-left: 4px solid var(--primary-green);
+  border-radius: 12px;
+  padding: 40px;
+  text-align: left;
 }
 
-.why-header {
-  text-align: center;
-  margin-bottom: 40px;
-}
-
-.why-header h2 {
-  font-size: 1.8rem;
-  font-weight: 800;
-}
-
-.why-reasons-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-  max-width: 850px;
-  margin: 0 auto;
-}
-
-.reason-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 20px;
-}
-
-.reason-icon {
-  background: var(--primary-green);
-  color: white;
-  padding: 6px 14px;
-  border-radius: 10px;
-  font-weight: 800;
-  font-size: 0.9rem;
-  flex-shrink: 0;
-}
-
-.reason-item h4 {
+.philosophy-box p {
   font-size: 1.1rem;
-  font-weight: 700;
-  margin-bottom: 5px;
+  color: var(--dark-charcoal);
+  line-height: 1.7;
+  margin: 0;
 }
 
-.reason-item p {
-  font-size: 0.95rem;
+/* ==========================================================================
+   --- 4. TARGET CLIENTS AUDIENCE ---
+   ========================================================================== */
+.client-audience {
+  padding: 80px 0;
+}
+
+.audience-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  width: 100%;
+}
+
+.audience-card {
+  background: var(--bg-pure-white);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 30px;
+}
+
+.audience-card h4 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 0 0 10px 0;
+  color: var(--primary-green);
+}
+
+.audience-card p {
+  font-size: 0.94rem;
   color: var(--body-muted);
   line-height: 1.5;
   margin: 0;
 }
 
-/* --- REVEAL INTERSECTION ANIMATIONS --- */
+/* ==========================================================================
+   --- 5. VERIFIED CLIENT TESTIMONIALS ---
+   ========================================================================== */
+.testimonials-section {
+  padding: 80px 0;
+  background-color: #fafafa;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  margin-top: 40px;
+  width: 100%;
+}
+
+.testimonial-card {
+  background: var(--bg-pure-white);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 35px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.stars-row {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 16px;
+}
+
+.testimonial-quote {
+  font-size: 0.98rem;
+  color: var(--dark-charcoal);
+  line-height: 1.6;
+  font-style: italic;
+  margin: 0 0 24px 0;
+}
+
+.testimonial-author-box {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.author-avatar {
+  width: 36px;
+  height: 36px;
+  background-color: var(--light-green-bg);
+  color: var(--primary-green);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.author-info h5 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin: 0 0 2px 0;
+}
+
+.author-info span {
+  font-size: 0.82rem;
+  color: var(--body-muted);
+}
+
+/* ==========================================================================
+   --- 6. FEATURED CLIENT WORK ---
+   ========================================================================== */
+.featured-work {
+  padding: 80px 0;
+}
+
+.featured-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  margin-top: 40px;
+  width: 100%;
+}
+
+.featured-card {
+  background: var(--bg-pure-white);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.featured-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.featured-copy {
+  padding: 24px;
+  flex-grow: 1;
+}
+
+.featured-copy h4 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 0 0 10px 0;
+  color: var(--dark-charcoal);
+}
+
+.featured-copy p {
+  font-size: 0.9rem;
+  color: var(--body-muted);
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* ==========================================================================
+   --- 7. LEADERSHIP & STRATEGY ---
+   ========================================================================== */
+.founder-section {
+  padding: 100px 0;
+  background-color: #fafafa;
+}
+
+.founder-grid {
+  max-width: 800px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.founder-info {
+  text-align: left;
+}
+
+.section-subtitle {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--primary-green);
+  display: block;
+  margin-bottom: 6px;
+}
+
+.section-title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin: 0 0 24px 0;
+  letter-spacing: -0.5px;
+}
+
+.founder-name {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 0 0 14px 0;
+  color: var(--primary-green);
+}
+
+.founder-info p {
+  font-size: 1.05rem;
+  color: var(--body-muted);
+  line-height: 1.65;
+  margin: 0 0 16px 0;
+}
+
+.founder-info p:last-child {
+  margin-bottom: 0;
+}
+
+/* ==========================================================================
+   --- GLOBAL INTERSECTION REVEAL SYSTEMS ---
+   ========================================================================== */
 .reveal {
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
 .reveal.show {
@@ -628,13 +436,39 @@
   transform: translateY(0);
 }
 
-/* --- RESPONSIVE DESIGN --- */
+/* ==========================================================================
+   --- DYNAMIC MOBILE RESPONSIVE ENGINE (ZERO OVERFLOW BREAKS) ---
+   ========================================================================== */
 @media (max-width: 992px) {
-  .founder-grid { flex-direction: column-reverse; gap: 40px; padding: 30px; }
-  .divisions-grid { grid-template-columns: 1fr; gap: 30px; }
+  .pillars-grid,
+  .audience-grid,
+  .testimonials-grid,
+  .featured-grid {
+    grid-template-columns: 1fr; /* Custom stack layout into clean boxes */
+    gap: 24px;
+  }
+  .philosophy-box {
+    padding: 30px;
+  }
 }
 
-@media (max-width: 600px) {
-  .division-card, .why-box-wrapper { padding: 25px; }
-  .reason-item { flex-direction: column; gap: 10px; }
+@media (max-width: 640px) {
+  .container {
+    width: 92%;
+  }
+  .about-hero {
+    padding: 120px 0 60px 0;
+  }
+  .section-title {
+    font-size: 1.8rem;
+  }
+  .pillar-card,
+  .testimonial-card,
+  .featured-copy,
+  .audience-card {
+    padding: 24px; /* Trimming internal container spacing */
+  }
+  .featured-card img {
+    height: 180px;
+  }
 }
