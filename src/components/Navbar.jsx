@@ -1,63 +1,69 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-// Nashyizemo BookOpen kuri izi icons
-import { Menu, X, Home, Briefcase, Layout, Info, Phone, BookOpen } from 'lucide-react';
-// Import your logo from assets
-import LogoImg from '../assets/logo.jpg'; 
+import { Menu, X, Home, Briefcase, Layout, Info, Phone, BookOpen, ChevronRight } from 'lucide-react';
+import LogoImg from '../assets/logo.jpg';
 import '../styles/Navbar.css';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
+  useEffect(() => {
+    document.body.classList.toggle('menu-open', isOpen);
+    return () => document.body.classList.remove('menu-open');
+  }, [isOpen]);
+
   return (
-    <nav className="navbar-elite">
+    <nav className={`navbar-elite ${isOpen ? 'menu-open' : ''}`}>
+      <div className={`nav-backdrop ${isOpen ? 'active' : ''}`} onClick={() => setIsOpen(false)} />
       <div className="container nav-container">
-        
-        {/* Logo Section - Image + Balanced Text + Slogan */}
-        <Link to="/" className="nav-logo-group" onClick={() => setIsOpen(false)}>
-          <div className="nav-logo">
-              <img src={LogoImg} alt="ByteFlow Logo" className="footer-brand-logo" />
-              <span className="logo-text">ByteFlow<span className="accent">Ltd</span></span>
+        <Link to="/" className="nav-brand" onClick={() => setIsOpen(false)}>
+          <img src={LogoImg} alt="ByteFlow Logo" className="nav-brand-logo" />
+          <div className="brand-copy">
+            <span className="brand-title">ByteFlow <span className="accent">Ltd</span></span>
+            <span className="brand-subtitle">Engineering Digital Success</span>
           </div>
-          {/* Hano niho nshize ya Slogan munsi y'izina */}
-          <span className="logo-slogan">Engineering Digital Success</span>
         </Link>
 
-        {/* Navigation Menu */}
-        <div className={`nav-menu ${isOpen ? 'active' : ''}`}>
-          <Link to="/" className="nav-item" onClick={() => setIsOpen(false)}>
-            <Home size={18} /> Home
+        <div id="navbar-menu" className={`nav-links ${isOpen ? 'active' : ''}`} role="menu">
+          <div className="nav-panel-header">
+            <span className="nav-panel-title">Menu</span>
+            <button type="button" className="nav-close" onClick={() => setIsOpen(false)} aria-label="Close menu">
+              <X size={22} />
+            </button>
+          </div>
+          <Link to="/" className="nav-link" onClick={() => setIsOpen(false)} role="menuitem">
+            <div className="nav-link-main"><Home size={20} /> <span className="nav-link-title">Home</span> <ChevronRight className="nav-link-arrow" size={16} /></div>
+            <div className="nav-link-sub">Go to landing page</div>
           </Link>
-          <Link to="/about" className="nav-item" onClick={() => setIsOpen(false)}>
-            <Info size={18} /> About
+          <Link to="/about" className="nav-link" onClick={() => setIsOpen(false)} role="menuitem">
+            <div className="nav-link-main"><Info size={20} /> <span className="nav-link-title">About</span> <ChevronRight className="nav-link-arrow" size={16} /></div>
+            <div className="nav-link-sub">Learn about our mission</div>
           </Link>
-          <Link to="/services" className="nav-item" onClick={() => setIsOpen(false)}>
-            <Briefcase size={18} /> Services
+          <Link to="/services" className="nav-link" onClick={() => setIsOpen(false)} role="menuitem">
+            <div className="nav-link-main"><Briefcase size={20} /> <span className="nav-link-title">Services</span> <ChevronRight className="nav-link-arrow" size={16} /></div>
+            <div className="nav-link-sub">Explore our solutions</div>
           </Link>
-          <Link to="/portfolio" className="nav-item" onClick={() => setIsOpen(false)}>
-            <Layout size={18} /> Portfolio
+          <Link to="/portfolio" className="nav-link" onClick={() => setIsOpen(false)} role="menuitem">
+            <div className="nav-link-main"><Layout size={20} /> <span className="nav-link-title">Portfolio</span> <ChevronRight className="nav-link-arrow" size={16} /></div>
+            <div className="nav-link-sub">See our latest work</div>
           </Link>
-
-          {/* KOSOYE: Nashyizemo Blog hano */}
-          <Link to="/blog" className="nav-item" onClick={() => setIsOpen(false)}>
-            <BookOpen size={18} /> Blog
+          <Link to="/blog" className="nav-link" onClick={() => setIsOpen(false)} role="menuitem">
+            <div className="nav-link-main"><BookOpen size={20} /> <span className="nav-link-title">Blog</span> <ChevronRight className="nav-link-arrow" size={16} /></div>
+            <div className="nav-link-sub">Read news and updates</div>
           </Link>
-          
-          {/* Contact shows inside menu on mobile */}
-          <Link to="/contact" className="nav-item" onClick={() => setIsOpen(false)}>
-             <Phone size={18} /> Contact Us
+          <Link to="/contact" className="nav-link nav-link-cta" onClick={() => setIsOpen(false)} role="menuitem">
+            <div className="nav-link-main"><Phone size={20} /> <span className="nav-link-title">Contact</span> <ChevronRight className="nav-link-arrow" size={16} /></div>
+            <div className="nav-link-sub">Get in touch with us</div>
           </Link>
         </div>
 
-        {/* Contact Button Desktop */}
-        <Link to="/contact" className="nav-contact-btn desktop-only">
-            Get Started
+        <Link to="/contact" className="nav-cta desktop-only">
+          Get Started
         </Link>
 
-        {/* Mobile Toggle */}
-        <div className="mobile-toggle" onClick={() => setIsOpen(!isOpen)}>
-          {isOpen ? <X size={28} /> : <Menu size={28} />}
-        </div>
+        <button type="button" className="mobile-toggle" onClick={() => setIsOpen(!isOpen)} aria-label="Toggle navigation" aria-expanded={isOpen} aria-controls="navbar-menu">
+          {isOpen ? <X size={26} /> : <Menu size={26} />}
+        </button>
       </div>
     </nav>
   );

@@ -6,107 +6,105 @@ import '../styles/Footer.css';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  const whatsappNumber = "250796023452"; 
+  const whatsappNumber = '250796023452';
 
-  const [email, setEmail] = useState("");
-  const [status, setStatus] = useState("");
+  const [email, setEmail] = useState('');
+  const [status, setStatus] = useState('');
 
   const handleSubscribe = (e) => {
     e.preventDefault();
-    setStatus("Sending...");
-    
+    setStatus('Sending...');
+
     setTimeout(() => {
-      setStatus("Success! Check your inbox.");
-      setEmail(""); 
-    }, 2000);
+      setStatus('Success! Check your inbox.');
+      setEmail('');
+    }, 1500);
   };
 
   return (
-    <footer className="footer-v2">
-      <div className="container footer-grid">
-        
-        {/* 1. Brand Section & Logo */}
-        <div className="footer-col brand-col">
-          <Link to="/" className="footer-logo-link">
+    <footer className="footer-modern">
+      <div className="container footer-top">
+        <div className="footer-brand">
+          <Link to="/" className="footer-logo">
             <img src={LogoImg} alt="ByteFlow Logo" className="footer-brand-logo" />
-            <span className="logo-text">ByteFlow<span className="accent">Ltd</span></span>
+            <div>
+              <span className="footer-brand-title">ByteFlow <span className="accent">Ltd</span></span>
+              <p className="footer-brand-text">Digital engineering and business growth for modern teams.</p>
+            </div>
           </Link>
-          <p className="brand-pitch">
-            Your premier digital partner in Kigali. We bridge the gap between innovation and reality through world-class tech solutions.
-          </p>
-          <div className="social-pill-container">
-            <a href="https://www.facebook.com/profile.php?id=61588130300960" target="_blank" rel="noreferrer" className="social-pill"><Facebook size={18} /></a>
-            <a href="https://www.instagram.com/byteflow_ltd" target="_blank" rel="noreferrer" className="social-pill"><Instagram size={18} /></a>
-            <a href="https://github.com/AlineHub-tech" target="_blank" rel="noreferrer" className="social-pill"><Github size={18} /></a>
-            <a href="https://www.linkedin.com/company/a-better-t-solutions/" target="_blank" rel="noreferrer" className="social-pill"><Linkedin size={18} /></a>
+
+          <div className="footer-social">
+            <a href="https://www.facebook.com/profile.php?id=61588130300960" target="_blank" rel="noreferrer" aria-label="Facebook">
+              <Facebook size={18} />
+            </a>
+            <a href="https://www.instagram.com/byteflow_ltd" target="_blank" rel="noreferrer" aria-label="Instagram">
+              <Instagram size={18} />
+            </a>
+            <a href="https://github.com/AlineHub-tech" target="_blank" rel="noreferrer" aria-label="Github">
+              <Github size={18} />
+            </a>
+            <a href="https://www.linkedin.com/company/a-better-t-solutions/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+              <Linkedin size={18} />
+            </a>
           </div>
         </div>
 
-        {/* 2. Quick Links */}
-        <div className="footer-col">
-          <h4 className="footer-title">Quick Links</h4>
-          <ul className="footer-nav-list">
-            <li><Link to="/"><ChevronRight size={14} /> Home</Link></li>
-            <li><Link to="/about"><ChevronRight size={14} /> About Us</Link></li>
-            <li><Link to="/services"><ChevronRight size={14} /> Services</Link></li>
-            <li><Link to="/portfolio"><ChevronRight size={14} /> Portfolio</Link></li>
-            <li><Link to="/contact"><ChevronRight size={14} /> Contact Us</Link></li>
-          </ul>
-        </div>
-
-        {/* 3. Contact Details */}
-        <div className="footer-col">
-          <h4 className="footer-title">Contact Us</h4>
-          <div className="contact-info-stack">
-            <div className="contact-item">
-              <div className="icon-box"><MapPin size={18} /></div>
-              <span>Gasabo, Kigali, Rwanda</span>
-            </div>
-            <div className="contact-item">
-              <div className="icon-box"><Phone size={18} /></div>
-              <span>+{whatsappNumber}</span>
-            </div>
-            <div className="contact-item">
-              <div className="icon-box"><Mail size={18} /></div>
-              <span>byteflowltd9@gmail.com</span>
-            </div>
+        <div className="footer-links-row">
+          <div className="footer-column">
+            <h4 className="footer-title">Explore</h4>
+            <ul className="footer-list">
+              <li><Link to="/"><ChevronRight size={14} /> Home</Link></li>
+              <li><Link to="/about"><ChevronRight size={14} /> About</Link></li>
+              <li><Link to="/services"><ChevronRight size={14} /> Services</Link></li>
+              <li><Link to="/portfolio"><ChevronRight size={14} /> Portfolio</Link></li>
+            </ul>
           </div>
-        </div>
 
-        {/* 4. Newsletter Section */}
-        <div className="footer-col">
-          <h4 className="footer-title">Newsletter</h4>
-          <p className="newsletter-text">Subscribe for exclusive tech offers and digital marketing tips.</p>
-          <form className="modern-subscribe" onSubmit={handleSubscribe}>
-            <input 
-              type="email" 
-              placeholder="Your Email Address" 
-              value={email} 
-              onChange={(e) => setEmail(e.target.value)} 
-              required 
-            />
-            <button type="submit" className="btn-send">
-              <Send size={16} />
-            </button>
-          </form>
-          
-          {status && (
-            <p className="status-msg">
-              {status}
-            </p>
-          )}
+          <div className="footer-column">
+            <h4 className="footer-title">Services</h4>
+            <ul className="footer-list">
+              <li><Link to="/services"><ChevronRight size={14} /> Web Development</Link></li>
+              <li><Link to="/services"><ChevronRight size={14} /> Brand Design</Link></li>
+              <li><Link to="/services"><ChevronRight size={14} /> Digital Marketing</Link></li>
+              <li><Link to="/services"><ChevronRight size={14} /> Support & Maintenance</Link></li>
+            </ul>
+          </div>
+
+          <div className="footer-column">
+            <h4 className="footer-title">Contact</h4>
+            <ul className="footer-contact-list">
+              <li><MapPin size={16} /> <span>Gasabo, Kigali, Rwanda</span></li>
+              <li><Phone size={16} /> <a href={`tel:+${whatsappNumber}`} aria-label="Call ByteFlow">+{whatsappNumber}</a></li>
+              <li><Mail size={16} /> <a href="mailto:byteflowltd9@gmail.com" aria-label="Email ByteFlow">byteflowltd9@gmail.com</a></li>
+            </ul>
+          </div>
+
+          <div className="footer-column">
+            <h4 className="footer-title">Newsletter</h4>
+            <p className="footer-note">Subscribe for updates on design, strategy, and new launches.</p>
+            <form className="footer-subscribe" onSubmit={handleSubscribe}>
+              <input
+                type="email"
+                placeholder="Your email address"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+              <button type="submit">
+                <Send size={16} />
+              </button>
+            </form>
+            {status && <p className="subscribe-status">{status}</p>}
+          </div>
         </div>
       </div>
 
-      {/* Footer Bottom Bar */}
-      <div className="footer-legal-bar">
-        <div className="container bar-flex">
-          <p>&copy; {currentYear} ByteFlow Ltd. All Rights Reserved. | Developed by <a href="vercel.app" target="_blank" rel="noreferrer"><span className="developer-name">Umugwaneza Aline</span></a></p>
-          <div className="legal-links">
-            <Link to="/privacy">Privacy Policy</Link>
-            <span className="dot"></span>
-            <Link to="/terms">Terms of Service</Link>
-          </div>
+      <div className="footer-bottom">
+        <p className="footer-copy">© {currentYear} ByteFlow Ltd. All rights reserved.</p>
+        <div className="footer-legal-links">
+          <Link to="/privacy">Privacy Policy</Link>
+          <span className="footer-divider" />
+          <Link to="/terms">Terms of Service</Link>
         </div>
       </div>
     </footer>

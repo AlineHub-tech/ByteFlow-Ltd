@@ -6,7 +6,7 @@ import ByteFlowLogo from '../assets/logo.jpg';
 
 const whatsappNumber = '250796023452';
 const whatsappMessage = encodeURIComponent('Hello ByteFlow Ltd, I need a business website or digital service quote.');
-const whatsappLink = `https://whatsapp.com{whatsappNumber}&text=${whatsappMessage}`;
+const whatsappLink = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
 
 const FloatingActions = () => {
   const [showScroll, setShowScroll] = useState(false);
