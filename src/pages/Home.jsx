@@ -1,8 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { 
-  Rocket, CheckCircle2, MessageSquare, Cpu, Code2, Palette, 
-  Server, Globe2, Share2, Video, Camera, FileText, HelpCircle, ChevronDown 
+import {
+  Rocket,
+  CheckCircle2,
+  MessageSquare,
+  Cpu,
+  Code2,
+  Palette,
+  Server,
+  Globe2,
+  Share2,
+  Video,
+  Camera,
+  FileText,
+  HelpCircle,
+  ChevronDown,
+  Sparkles,
+  ArrowRight
 } from 'lucide-react';
 import '../styles/Home.css';
 import heroBg from '../assets/pro.webp';
@@ -11,320 +25,373 @@ const Home = () => {
   const [activeFaq, setActiveFaq] = useState(null);
 
   useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('show');
-      });
-    }, { threshold: 0.1 });
-    
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+          }
+        });
+      },
+      { threshold: 0.12 }
+    );
+
+    const elements = document.querySelectorAll('.reveal');
+    elements.forEach((el) => observer.observe(el));
+
+    return () => observer.disconnect();
   }, []);
 
   const toggleFaq = (index) => {
     setActiveFaq(activeFaq === index ? null : index);
   };
 
-  // A. PICK ONE THING: INDIVIDUAL SERVICES BASELINE MENU (Zose uko ari 8 ziri hano)
-  const singleServices = [
-    { title: "Website Development", price: "350,000", badge: "Fixed Price", desc: "Corporate sites, E-commerce stores, Web apps, and Custom dashboards.", icon: <Code2 /> },
-    { title: "Graphic Design", price: "15,000", badge: "Per Asset", desc: "Logo identity kits, Social media templates, and Brand identity design.", icon: <Palette /> },
-    { title: "Web Hosting", price: "50,000", badge: "Per Year", desc: "Secure cloud web hosting, corporate emails, and automated daily backups.", icon: <Server /> },
-    { title: "Website Domain Name", price: "15,000", badge: "Per Year", desc: "Local .rw registration and global domain transfers with full DNS control.", icon: <Globe2 /> },
-    { title: "Digital Marketing & SEO", price: "150,000", badge: "Per Month", desc: "Google #1 SEO Ranking, Meta advertising, and content creation strategy.", icon: <Share2 /> },
-    { title: "Videography", price: "150,000", badge: "Per Project", desc: "Corporate commercials, high-converting social media reels, and event coverage.", icon: <Video /> },
-    { title: "Photography", price: "100,000", badge: "Per Shoot", desc: "High-end product photoshoot, team headshots, and corporate events.", icon: <Camera /> },
-    { title: "Office & Documentation", price: "30,000", badge: "Per Document", desc: "Report formatting, business translations, spreadsheets, and file setup.", icon: <FileText /> }
-  ];
-
-  // B. ALL IN ONE PROJECT TIERS (Zose uko ari 6 zitondetse neza)
-  const projectTiers = [
+  const highlights = [
     {
-      name: "Website Development Tier",
-      desc: "High-converting web applications, online stores, and corporate portals tailored for Rwandan brands.",
-      icon: <Code2 />,
-      services: [
-        { name: "Custom Corporate Websites", price: "350,000", period: "Fixed Price" },
-        { name: "E-commerce Online Stores (Most Demanded Setup)", price: "600,000", period: "Starting From" },
-        { name: "Personal Blogs & Portfolios", price: "200,000", period: "Fixed Price" },
-        { name: "Web Applications & Dashboards", price: "1,200,000", period: "Custom Quote" },
-        { name: "UI/UX Web Interface Design (Figma Clickable Prototypes)", price: "150,000", period: "Per Project" },
-        { name: "Website Maintenance & Bug Fixing", price: "40,000", period: "Per Issue" }
-      ]
+      title: 'Clear websites',
+      text: 'Professional websites that explain your business in seconds and work on every screen.',
+      icon: <Code2 />
     },
     {
-      name: "Graphic Design & Branding Tier",
-      desc: "Complete business visual kits from small continuous marketing items to large scale advertisement billboards.",
-      icon: <Palette />,
-      services: [
-        { name: "Logo & Brand Identity Kits (Complete Corporate Guides)", price: "80,000", period: "Full Kit" },
-        { name: "Business Cards & Letterheads Layouts", price: "20,000", period: "Setup Fee" },
-        { name: "Social Media Graphic Templates", price: "35,000", period: "5 Templates" },
-        { name: "Marketing Flyers & Brochures", price: "15,000", period: "Per Asset" },
-        { name: "Roll-up Banners & Billboards Assets", price: "45,000", period: "Per Design" },
-        { name: "Company Profile Presentation Slides", price: "60,000", period: "Up to 15 Slides" }
-      ]
+      title: 'Brand design',
+      text: 'Logos, visuals, and social media assets that make your brand feel trusted and modern.',
+      icon: <Palette />
     },
     {
-      name: "Media Content: Photography & Videography Tier",
-      desc: "Premium 4K commercial videos and sharp structural imagery deployment for digital ads.",
-      icon: <Video />,
-      services: [
-        { name: "Professional Product Photography Suite", price: "100,000", period: "Per Session" },
-        { name: "Corporate Team Portrait Headshots", price: "75,000", period: "Per Session" },
-        { name: "Event & Conference Photography Coverage", price: "150,000", period: "Per Day Session" },
-        { name: "Interior & Architectural Environmental Photography", price: "120,000", period: "Per Setup" },
-        { name: "Creative Brand Lifestyle Shoots", price: "130,000", period: "Per Setup" },
-        { name: "Corporate Promotional Videos Trailers", price: "300,000", period: "Per Project" },
-        { name: "Social Media Reels & TikTok Commercial Ads", price: "40,000", period: "Per Short Video" },
-        { name: "YouTube Video Timeline Editing", price: "50,000", period: "Per Video" },
-        { name: "Event Highlights & Recap Documentation Videos", price: "200,000", period: "Full Edit" },
-        { name: "Real Estate Property Walkthroughs Video Tours", price: "180,000", period: "Per Property" },
-        { name: "TV & Online Commercial Media Ads", price: "600,000", period: "Premium Tier" }
-      ]
+      title: 'Digital growth',
+      text: 'SEO, ads, and content support that help more people discover your business online.',
+      icon: <Share2 />
     },
     {
-      name: "Digital Marketing & SEO Retention Tier",
-      desc: "Technical indexing for organic Google ranking and continuous multi-channel tracking architecture.",
-      icon: <Share2 />,
-      services: [
-        { name: "Google Search Engine Optimization (SEO Implementation)", price: "150,000", period: "Per Month Retainer" },
-        { name: "Social Media Management (Instagram, LinkedIn Growth)", price: "200,000", period: "Per Month Retainer" },
-        { name: "Meta Ads Setup (Facebook & Instagram Lead Generation)", price: "80,000", period: "Setup Fee" },
-        { name: "Google Ads Campaign Target Management", price: "90,000", period: "Setup Fee" },
-        { name: "Email Marketing Automation Blueprints", price: "60,000", period: "Setup Fee" },
-        { name: "Copywriting & Strategic Content Marketing", price: "45,000", period: "Per Month" }
-      ]
-    },
-    {
-      name: "Cloud Hosting & Domain Registry Tier",
-      desc: "High-security isolated virtual servers and localized DNS zone record configurations.",
-      icon: <Server />,
-      services: [
-        { name: "Shared Cloud Web Hosting Infrastructure", price: "40,000", period: "Per Year" },
-        { name: "Dedicated VPS Hosting Isolation Servers", price: "300,000", period: "Per Year" },
-        { name: "Corporate Business Email Hosting Setup", price: "25,000", period: "Per Year" },
-        { name: "Free SSL Certificate HTTPS Map Installation", price: "0", period: "Always Free" },
-        { name: "Automated Daily Cloud Snapshot Backups", price: "20,000", period: "Per Year" },
-        { name: "24/7 Technical Server Support Oversight", price: "50,000", period: "Per Year" },
-        { name: "Local Domain Name Registry (.RW, .CO.RW)", price: "15,000", period: "Per Year" },
-        { name: "Global Domain Name Registry (.COM, .NET, .ORG)", price: "15,000", period: "Per Year" },
-        { name: "Custom Domain Name Administrative Transfers", price: "20,000", period: "One-Time Setup" },
-        { name: "Private Domain Privacy Masking Protection", price: "10,000", period: "Per Year" },
-        { name: "Advanced DNS Zone Record Management", price: "15,000", period: "One-Time Setup" }
-      ]
-    },
-    {
-      name: "Corporate Office & Documentation Tier",
-      desc: "Complete documentation structural indexing, automated spreadsheets, and business translating.",
-      icon: <FileText />,
-      services: [
-        { name: "Professional Report Formatting & Layout Work", price: "30,000", period: "Per Document Bundle" },
-        { name: "Data Entry & Complex Spreadsheets Management (Macros)", price: "45,000", period: "Per Project Setup" },
-        { name: "Official Business Translations (English/French/Kinyarwanda)", price: "15,000", period: "Per Page" },
-        { name: "Digital File Organization & Centralized Cloud Storage Setup", price: "70,000", period: "Setup Fee" },
-        { name: "Executive CV, Professional Cover Letters & Bio Writing", price: "25,000", period: "Full Kit" }
-      ]
+      title: 'Reliable hosting',
+      text: 'Domains, secure hosting, and simple support so your website stays online and safe.',
+      icon: <Server />
     }
   ];
 
-  // C. TARGETED COMPREHENSIVE BUSINESS FAQS
-  const faqs = [
-    { q: "How are the Web Development packages timeline structured?", a: "Custom Corporate Sites take between 7 to 14 days to deploy. E-commerce stores integrated with Mobile Money systems take 3 weeks due to rigorous security tests and financial webhook setups." },
-    { q: "What distinguishes flyer design costs from a full Brand Identity Kit?", a: "Marketing Flyers are single campaign promotional images priced at 15,000 RWF. Logo & Brand Identity Kits cost 80,000 RWF because they include exhaustive visual assets, color code palettes, typography, and complete company profile rules." },
-    { q: "Does the Domain & Hosting package explicitly cover business email setups?", a: "Yes. When choosing Cloud Web Hosting or our combined bundles, corporate business email configurations (e.g., admin@yourdomain.rw) are completely embedded, including secure SSL validation and daily data redundancy protection." },
-    { q: "How do you manage continuous Digital Marketing and technical SEO rankings?", a: "Our system combines automated keyword position tracking with physical asset production. The SEO framework maps out search parameters while our Meta Ads mechanism dynamically profiles target markets to lower customer acquisition costs." },
-    { q: "What is your workflow policy regarding Photography and Videography output?", a: "ByteFlow delivers fully processed post-production visual content. Videos are exported in 4K resolution incorporating modern sound engineering, and architectural or brand lifestyle photography sessions include full color grading and web formatting options." }
+  const steps = [
+    {
+      title: 'Tell us your goal',
+      text: 'We start with a simple conversation about your business, target audience, and what you want people to do.'
+    },
+    {
+      title: 'We design the right solution',
+      text: 'We create a website, brand, or marketing plan that fits your needs and your budget.'
+    },
+    {
+      title: 'You launch with confidence',
+      text: 'We deliver a polished result, guide you through it, and help you grow from day one.'
+    }
   ];
+
+  const audiences = [
+    {
+      title: 'For businesses',
+      text: 'Shops, clinics, agencies, and service providers that want a strong online presence.'
+    },
+    {
+      title: 'For startups',
+      text: 'New brands that need a professional platform to look serious and attract clients.'
+    },
+    {
+      title: 'For creators',
+      text: 'Freelancers, coaches, and content makers who want a simple digital home.'
+    }
+  ];
+
+  const tierPackages = [
+    {
+      name: 'Web Development',
+      badge: 'Websites & web apps',
+      price: 'From 350,000 RWF',
+      description: 'Modern websites and web-based tools that help your business look credible and perform smoothly.',
+      points: [
+        { label: 'Landing page', price: '350,000 RWF' },
+        { label: 'Business website', price: '650,000 RWF' },
+        { label: 'E-commerce store', price: '600,000 RWF' },
+        { label: 'Web app / dashboard', price: '1,200,000 RWF' }
+      ],
+      icon: <Code2 />,
+      cta: 'Build this web development package'
+    },
+    {
+      name: 'Graphic Design',
+      badge: 'Branding & visuals',
+      price: 'From 80,000 RWF',
+      description: 'Professional logos, branded visuals, and print materials that make your business look polished.',
+      points: [
+        { label: 'Logo design', price: '80,000 RWF' },
+        { label: 'Brand kit', price: '180,000 RWF' },
+        { label: 'Business cards', price: '20,000 RWF' },
+        { label: 'Flyers & brochures', price: '15,000 RWF' }
+      ],
+      icon: <Palette />,
+      cta: 'Create this graphic design package'
+    },
+    {
+      name: 'Photography',
+      badge: 'Product & business photos',
+      price: 'From 100,000 RWF',
+      description: 'Clear product, company, and event photography that gives your brand a professional feel.',
+      points: [
+        { label: 'Product photos', price: '100,000 RWF' },
+        { label: 'Corporate portraits', price: '80,000 RWF' },
+        { label: 'Event coverage', price: '150,000 RWF' },
+        { label: 'Photo editing', price: 'Included' }
+      ],
+      icon: <Camera />,
+      cta: 'Book this photography package'
+    },
+    {
+      name: 'Videography',
+      badge: 'Reels & promo videos',
+      price: 'From 40,000 RWF',
+      description: 'Short promotional videos and storytelling content that help people connect with your brand quickly.',
+      points: [
+        { label: 'Social reel', price: '40,000 RWF' },
+        { label: 'Product video', price: '150,000 RWF' },
+        { label: 'Corporate video', price: '300,000 RWF' },
+        { label: 'Editing & delivery', price: 'Included' }
+      ],
+      icon: <Video />,
+      cta: 'Book this videography package'
+    },
+    {
+      name: 'Digital Marketing',
+      badge: 'SEO & online growth',
+      price: 'From 150,000 RWF',
+      description: 'SEO, content support, and online visibility services that help more people find your business.',
+      points: [
+        { label: 'SEO setup', price: '150,000 RWF / mo' },
+        { label: 'Website copy', price: '80,000 RWF' },
+        { label: 'Social content plan', price: '60,000 RWF' },
+        { label: 'Ads support', price: '200,000 RWF / mo' }
+      ],
+      icon: <Share2 />,
+      cta: 'Grow with this digital marketing package'
+    },
+    {
+      name: 'Corporate Office & Documentation',
+      badge: 'Admin & professional docs',
+      price: 'From 50,000 RWF',
+      description: 'Professional business documents, reports, and formal materials that help your company look organized.',
+      points: [
+        { label: 'Business profile', price: '50,000 RWF' },
+        { label: 'Proposal & report design', price: '40,000 RWF' },
+        { label: 'Company documents', price: '60,000 RWF' },
+        { label: 'Document formatting', price: 'Included' }
+      ],
+      icon: <FileText />,
+      cta: 'Get this documentation package'
+    },
+    {
+      name: 'Cloud Hosting & Domain Registry',
+      badge: 'Secure online presence',
+      price: 'From 15,000 RWF',
+      description: 'Reliable domains, hosting, business emails, and backups that keep your website active and protected.',
+      points: [
+        { label: 'Domain registration', price: '15,000 RWF / year' },
+        { label: 'Hosting package', price: '40,000 RWF / year' },
+        { label: 'Business email', price: '25,000 RWF / year' },
+        { label: 'Backup support', price: '20,000 RWF / year' }
+      ],
+      icon: <Server />,
+      cta: 'Choose this hosting package'
+    }
+  ];
+
+  const faqs = [
+    { q: 'What kind of businesses do you help?', a: 'We support small businesses, startups, schools, shops, and creative professionals who want a modern and trustworthy online presence.' },
+    { q: 'Can I start with one service only?', a: 'Yes. Many clients begin with a website or a logo and later add marketing, hosting, or more design support.' },
+    { q: 'Do you help with mobile-friendly websites?', a: 'Absolutely. Every website we build is designed to look clear and easy to use on mobile, tablet, and desktop.' },
+    { q: 'How long does a project take?', a: 'Simple websites can be ready in a few days, while larger builds may take a couple of weeks depending on the scope.' }
+  ];
+
   return (
     <div className="home-wrapper">
-      <div className="tech-dots"></div>
+      <div className="tech-dots" aria-hidden="true" />
 
-      {/* --- HERO SECTION --- */}
-      <section className="hero-section" style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.85)), url(${heroBg})` }}>
+      <section
+        className="hero-section"
+        style={{ backgroundImage: `linear-gradient(135deg, rgba(3, 23, 13, 0.93) 0%, rgba(0, 70, 35, 0.8) 55%, rgba(2, 16, 10, 0.94) 100%), url(${heroBg})` }}
+      >
         <div className="container hero-flex">
           <div className="hero-text reveal">
-            <div className="hero-badge">ByteFlow Ltd — Engineering Digital Success</div>
-            <h1>We Build Professional Websites, Online E-commerce Stores, and Stunning <span className="green-text">Graphic Design & Corporate Media</span></h1>
-            <p>We engineer secure cloud ecosystems, localized mobile-money payment workflows, and strategic brand identities. Our comprehensive digital infrastructures ensure Rwandan businesses scale operations effortlessly, command absolute credibility, and capture maximum market visibility.</p>
-            
+            <div className="hero-badge">
+              <Sparkles size={14} /> Simple digital solutions for growing brands
+            </div>
+            <h1>
+              We help you look professional online and make your message easy to understand.
+            </h1>
+            <p>
+              ByteFlow builds clean websites, strong branding, and simple digital marketing for businesses and creators who want to grow with confidence.
+            </p>
+
             <div className="hero-btns">
               <Link to="/contact" className="btn-main">
-                Deploy Your Infrastructure <Rocket size={18}/>
-              </Link> 
-              <a href="#pricing-grid" className="btn-outline">
-                Explore Core Menu
-              </a> 
+                Start your project <Rocket size={18} />
+              </Link>
+              <a href="#services" className="btn-outline">
+                See our services
+              </a>
             </div>
+
+            <ul className="hero-points">
+              <li>Mobile-friendly websites</li>
+              <li>Professional branding</li>
+              <li>Easy online growth</li>
+            </ul>
           </div>
 
           <div className="hero-visual reveal">
-            <div className="tech-dashboard">
-              <div className="dash-header">
-                <div className="dash-dot"></div><div className="dash-dot"></div><div className="dash-dot"></div>
+            <div className="hero-visual-card">
+              <div className="hero-image-frame">
+                <img src={heroBg} alt="Professional digital services for businesses" />
               </div>
-              <div className="dash-body">
-                <div className="dash-welcome-text">
-                  <h3>⚡ Strategic Digital Automation</h3>
-                  <p>Accelerate your growth pipeline. We seamlessly integrate MoMo payment channels, engineer pristine Google SEO schemas, publish 4K commercial marketing reels, and configure automated company filing systems.</p>
-                  <div className="dash-status-pill">
-                    <span className="dash-pulse-dot"></span> Rwanda Infrastructure Active
-                  </div>
-                </div>
-                <Cpu className="dash-icon" size={40} />
+              <div className="hero-visual-info">
+                <h3>Professional digital solutions</h3>
+                <p>We build clear websites, polished branding, and smart marketing that helps people trust your brand quickly.</p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-
-
-
-      {/* 3. ALL IN ONE PROJECT TIERS SECTION */}
-      <section id="tiers-grid" className="tiers-section container">
+      <section className="highlights-section container">
         <div className="section-header reveal">
-          <span className="sub-title">PROJECT TIERS</span>
-          <h2>Looking for a <span className="sig-font">complete</span> setup? Choose a Tier:</h2>
-          <div className="accent-bar"></div>
+          <span className="sub-title">WHAT WE DO</span>
+          <h2>Clear services that help your brand stand out.</h2>
+          <div className="accent-bar" />
         </div>
 
-        <div className="tiers-grid">
-          {projectTiers.map((tier, idx) => (
-            <div key={idx} className="tier-card reveal">
-              <div className="tier-header">
-                <div className="tier-title-wrap">
-                  <div className="tier-icon-circle">{tier.icon}</div>
-                  <h3>{tier.name}</h3>
-                </div>
-                <p>{tier.desc}</p>
-              </div>
-              
-              <div className="tier-services-sublist">
-                {tier.services.map((srv, sIdx) => (
-                  <div key={sIdx} className="tier-service-row">
-                    <div className="tier-srv-info">
-                      <CheckCircle2 size={14} className="tier-check-icon" />
-                      <span className="tier-srv-name">{srv.name}</span>
-                    </div>
-                    <div className="tier-srv-pricing">
-                      <span className="tier-srv-curr">RWF</span>
-                      <span className="tier-srv-num">{srv.price}</span>
-                      <span className="tier-srv-period">/ {srv.period}</span>
-                    </div>
+        <div className="feature-grid">
+          {highlights.map((item, index) => (
+            <article key={index} className="feature-card reveal">
+              <div className="feature-icon">{item.icon}</div>
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="process-section">
+        <div className="container">
+          <div className="section-header reveal">
+            <span className="sub-title">HOW IT WORKS</span>
+            <h2>Simple steps from idea to launch.</h2>
+            <div className="accent-bar" />
+          </div>
+
+          <div className="process-grid">
+            {steps.map((step, index) => (
+              <article key={index} className="process-card reveal">
+                <div className="process-number">0{index + 1}</div>
+                <h3>{step.title}</h3>
+                <p>{step.text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="audience-section container">
+        <div className="section-header reveal">
+          <span className="sub-title">WHO WE SERVE</span>
+          <h2>Built for people who want to be easy to trust online.</h2>
+          <div className="accent-bar" />
+        </div>
+
+        <div className="audience-grid">
+          {audiences.map((audience, index) => (
+            <article key={index} className="audience-card reveal">
+              <h3>{audience.title}</h3>
+              <p>{audience.text}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section id="services" className="service-section container">
+        <div className="section-header reveal">
+          <span className="sub-title">CHOOSE A TIER</span>
+          <h2>Pick a service tier that fits your goals and budget.</h2>
+          <div className="accent-bar" />
+          <p className="section-copy">Choose one service or build a full digital package with clear options, transparent pricing, and a direct path to order.</p>
+        </div>
+
+        <div className="service-quick-prompt reveal">
+          <div>
+            <span className="prompt-pill">Flexible packages</span>
+            <h3>Need a full digital launch?</h3>
+            <p>We can combine branding, design, growth, and support into one focused package that feels simple and professional.</p>
+          </div>
+          <Link to="/contact" className="service-btn prompt-btn">
+            Build a full digital package <ArrowRight size={16} />
+          </Link>
+        </div>
+
+        <div className="tier-package-grid">
+          {tierPackages.map((tier, index) => (
+            <article key={index} className="tier-package-card reveal">
+              <div className="tier-card-top">
+                <div className="service-icon">{tier.icon}</div>
+                <div>
+                  <div className="service-title-row">
+                    <h3>{tier.name}</h3>
+                    <span className="service-badge">{tier.badge}</span>
                   </div>
+                  <p>{tier.description}</p>
+                </div>
+              </div>
+
+              <div className="tier-price-tag">{tier.price}</div>
+
+              <ul className="tier-list">
+                {tier.points.map((item, pointIndex) => (
+                  <li key={pointIndex}>
+                    <span>{item.label}</span>
+                    <strong>{item.price}</strong>
+                  </li>
                 ))}
-              </div>
+              </ul>
 
-              <div className="tier-footer">
-                <Link to="/contact" className="btn-tier-action btn-tier-popular">
-                  Select This Tier & Order Services
-                </Link>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-      
-      {/* 2. PICK ONE THING: INDIVIDUAL SERVICES MENU (NAGARUYE IKI GICE) */}
-      <section id="pricing-grid" className="opus-pricing-section container">
-        <div className="section-header reveal">
-          <span className="sub-title">TRANSPARENT VALUE</span>
-          <h2>Pick <span className="sig-font">one</span> thing. Here's our baseline menu:</h2>
-          <div className="accent-bar"></div>
-        </div>
-        
-        <div className="opus-menu-grid">
-          {singleServices.map((service, idx) => (
-            <div key={idx} className="opus-menu-card reveal">
-              <div className="opus-card-main">
-                <div className="opus-icon-wrap">{service.icon}</div>
-                <div className="opus-details">
-                  <div className="opus-title-row">
-                    <h3>{service.title}</h3>
-                    <span className="opus-badge">{service.badge}</span>
-                  </div>
-                  <p>{service.desc}</p>
-                </div>
-              </div>
-              <div className="opus-price-action">
-                <div className="opus-price">
-                  <span className="op-curr">RWF</span>
-                  <span className="op-num">{service.price}</span>
-                </div>
-                <Link to="/contact" className="opus-btn-select">Order Service</Link>
-              </div>
-            </div>
+              <Link to="/contact" className="service-btn tier-btn">
+                {tier.cta} <ArrowRight size={16} />
+              </Link>
+            </article>
           ))}
         </div>
       </section>
 
-      {/* --- THINGS PEOPLE ACTUALLY ASK (FAQ) --- */}
       <section className="faq-section container">
         <div className="section-header reveal">
           <span className="sub-title">FAQ</span>
-          <h2>Things people <span className="sig-font">actually</span> ask</h2>
-          <div className="accent-bar"></div>
+          <h2>Helpful answers for first-time visitors.</h2>
+          <div className="accent-bar" />
         </div>
 
-        <div className="faq-wrapper-list" style={{ maxWidth: '800px', margin: '35px auto 0 auto', display: 'flex', flexDirection: 'column', gap: '16px' }}>
-          {faqs.map((faq, idx) => {
-            const isCurrentActive = activeFaq === idx;
-            return (
-              <div 
-                key={idx} 
-                className="faq-item-box reveal"
-                style={{
-                  background: '#ffffff',
-                  border: isCurrentActive ? '2px solid #006400' : '1.5px solid #e2e8f0',
-                  borderRadius: '16px',
-                  padding: '20px 24px',
-                  boxShadow: isCurrentActive ? '0 10px 25px rgba(0, 100, 0, 0.04)' : 'none',
-                  transition: 'all 0.3s ease'
-                }}
-              >
-                {/* Umutwe w'ikibazo: Aha niho hantu honyine ho gukanda */}
-                <div 
-                  className="faq-question-row"
-                  onClick={(e) => {
-                    e.stopPropagation(); // Birinda ko gukanda kwivuruganya
-                    toggleFaq(idx);
-                  }}
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'space-between',
-                    cursor: 'pointer',
-                    userSelect: 'none'
-                  }}
-                >
-                  <div className="faq-q-text" style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                    <HelpCircle size={18} style={{ color: '#006400', flexShrink: 0 }} />
-                    <h4 style={{ fontSize: '1.05rem', fontWeight: '700', margin: 0, color: '#111111', textAlign: 'left' }}>{faq.q}</h4>
-                  </div>
-                  <ChevronDown 
-                    size={18} 
-                    style={{ 
-                      color: isCurrentActive ? '#006400' : '#555555',
-                      transform: isCurrentActive ? 'rotate(180deg)' : 'rotate(0deg)',
-                      transition: 'transform 0.2s ease'
-                    }} 
-                  />
-                </div>
+        <div className="faq-wrapper-list">
+          {faqs.map((faq, index) => {
+            const isOpen = activeFaq === index;
 
-                {/* Agasanduku k'Igisubizo: Gafunguka muri React mu buryo buhamye kidashobora kuzimira */}
-                {isCurrentActive && (
-                  <div 
-                    className="faq-answer-block"
-                    style={{
-                      display: 'block',
-                      marginTop: '14px',
-                      paddingTop: '14px',
-                      borderTop: '1px dashed #e2e8f0'
-                    }}
-                  >
-                    <p style={{ margin: 0, fontSize: '0.95rem', color: '#555555', lineHeight: '1.6', paddingLeft: '30px', textAlign: 'left' }}>
-                      {faq.a}
-                    </p>
+            return (
+              <div key={index} className={`faq-item-box reveal ${isOpen ? 'faq-active' : ''}`}>
+                <button
+                  className="faq-question-row"
+                  onClick={() => toggleFaq(index)}
+                  aria-expanded={isOpen}
+                >
+                  <div className="faq-q-text">
+                    <HelpCircle size={18} />
+                    <h4>{faq.q}</h4>
+                  </div>
+                  <ChevronDown size={18} className={`faq-arrow ${isOpen ? 'open' : ''}`} />
+                </button>
+
+                {isOpen && (
+                  <div className="faq-answer-block" role="region">
+                    <p>{faq.a}</p>
                   </div>
                 )}
               </div>
@@ -333,17 +400,17 @@ const Home = () => {
         </div>
       </section>
 
-
-
-      {/* 5. CTA SECTION */}
       <section className="cta-section container reveal">
         <div className="cta-card">
-          <h2>Have custom architecture requirements?</h2>
-          <p>Join over 50+ businesses that leverage ByteFlow Ltd's technical ecosystem for scalable business development.</p>
-          <Link to="/contact" className="btn-cta">Talk directly to an Engineer <MessageSquare size={18}/></Link>
+          <div>
+            <h2>Ready to build something clear and professional?</h2>
+            <p>Let us create a website and digital experience that helps your audience understand your business quickly.</p>
+          </div>
+          <Link to="/contact" className="btn-cta">
+            Talk to us <MessageSquare size={18} />
+          </Link>
         </div>
       </section>
-
     </div>
   );
 };

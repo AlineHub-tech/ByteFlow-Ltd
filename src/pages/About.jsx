@@ -1,11 +1,35 @@
 import React, { useEffect } from 'react';
-import { Target, Eye, Award, Heart, Linkedin, Facebook, Instagram, ShieldCheck, Zap, Layers, BarChart3, Star } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Target, Eye, Award, Heart, Linkedin, Facebook, Instagram, ShieldCheck, Zap, Layers, BarChart3, Star, Palette, Camera, Server } from 'lucide-react';
 import '../styles/About.css';
 import heroBg1 from '../assets/pro.webp'; 
 import hubImg from '../assets/hub.webp';
 import shipingImg from '../assets/shiping.webp';
 import plusImg from '../assets/img2.png';
 import voiceImg from '../assets/abt1.png';
+
+const serviceHighlights = [
+  {
+    title: 'Web development',
+    text: 'Build responsive websites, dashboards, and e-commerce stores designed for local payment integrations and fast performance.',
+    icon: <Target size={20} />
+  },
+  {
+    title: 'Brand & graphics',
+    text: 'Develop strong logos, visual systems, and print assets that give your business a professional and cohesive identity.',
+    icon: <Palette size={20} />
+  },
+  {
+    title: 'Media production',
+    text: 'Capture photography, video, and content assets that strengthen your brand story across social, web, and sales channels.',
+    icon: <Camera size={20} />
+  },
+  {
+    title: 'Hosting & support',
+    text: 'Secure domains, cloud hosting, backups, and prompt support so your site stays online and your data is protected.',
+    icon: <Server size={20} />
+  }
+];
 
 const About = () => {
   useEffect(() => {
@@ -14,9 +38,10 @@ const About = () => {
         if (entry.isIntersecting) entry.target.classList.add('show');
       });
     }, { threshold: 0.1 });
-    
+
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     window.scrollTo(0, 0);
+    return () => observer.disconnect();
   }, []);
 
   // 4 Professional Client Testimonials targeting baseline metrics, corporate validation, and contract trust
@@ -61,6 +86,24 @@ const About = () => {
             build websites, brand systems, media campaigns, and business automation tools for companies, organizations, and
             service providers that need faster digital growth and stronger online credibility.
           </p>
+        </div>
+      </section>
+
+      <section className="about-services-overview container reveal">
+        <div className="section-center-header">
+          <span className="badge">Core Services</span>
+          <h2>What we deliver for companies and organizations</h2>
+          <div className="accent-bar"></div>
+          <p className="framework-pitch">From digital products and brand identity to media production and cloud operations, every service is designed to help your business build trust and grow safely.</p>
+        </div>
+        <div className="service-grid">
+          {serviceHighlights.map((item, index) => (
+            <article key={index} className="service-highlight-card reveal">
+              <div className="service-highlight-icon">{item.icon}</div>
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+            </article>
+          ))}
         </div>
       </section>
 
@@ -223,6 +266,16 @@ const About = () => {
               principle of continuous digital iteration the "Flow." The team operates on an ecosystem architecture where local companies receive contract-backed, milestone-driven support, helping founders maintain market dominance effortlessly.
             </p>
           </div>
+        </div>
+      </section>
+
+      <section className="about-cta-section container reveal">
+        <div className="about-cta-card">
+          <div>
+            <h2>Ready to update your digital presence?</h2>
+            <p>Talk with the ByteFlow team to build a professional website, complete brand identity, or secure cloud hosting package.</p>
+          </div>
+          <Link to="/contact" className="btn-main about-cta-btn">Contact ByteFlow</Link>
         </div>
       </section>
 

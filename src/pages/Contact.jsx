@@ -54,7 +54,7 @@ const Contact = () => {
   const encodedMessage = encodeURIComponent(
     `Hello ByteFlow Ltd! 👋\nI would like to start a project with you.\n\n*Name:* ${formData.name || 'Visitor'}\n*Email:* ${formData.email || 'Not provided'}\n*Subject:* ${formData.subject || 'General Inquiry'}\n*Message:* ${formData.message || 'I want to build a website.'}`
   );
-  const whatsappLink = `https://wa.me{whatsappNumber}?text=${encodedMessage}`;
+  const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
 
   return (
     <div className="contact-v14">

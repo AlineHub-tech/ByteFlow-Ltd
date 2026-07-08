@@ -45,8 +45,8 @@ const projects = [
   { id: 14, title: "Plus", category: "Web Development", img: plusImg, desc: "DevPulse is an enterprise-grade agile project management dashboard built with React and strict TypeScript. Featuring a sleek, responsive Cyberpunk theme (Matte Black & Electric Purple), it delivers real-time sprint velocity metrics, repository tracking, and an interactive HTML5 drag-and-drop Kanban workspace with zero lag.", tools: ["Typescript", "React", "vanilla css"], icon: <Palette size={16} />, liveLink: "#", outcome: "Built trust and clarity for a growing service brand." },
   { id: 15, title: "E-Commerce SEO", category: "SEO", img: seo1, desc: "Ranking #1 for competitive keywords.", tools: ["Research", "GA4"], icon: <Search size={16} />, liveLink: "#" },
   { id: 16, title: "Technical SEO Audit", category: "SEO", img: seo2, desc: "Optimizing site speed for Google.", tools: ["Audit", "Backlinks"], icon: <Search size={16} />, liveLink: "#" },
-
   { id: 17, title: "Technical SEO Audit", category: "SEO", img: seo2, desc: "Optimizing site speed for Google.", tools: ["Audit", "Backlinks"], icon: <Search size={16} />, liveLink: "#" },
+  
   { id: 18, title: "Social Growth Campaign", category: "Digital Marketing", img: ne1, desc: "Facebook & Instagram growth for local brands.", tools: ["Ads Manager", "Meta"], icon: <Share2 size={16} />, liveLink: "#" },
   { id: 19, title: "Corporate Rebranding", category: "Graphic Design", img: d2, desc: "Complete visual identity for tech firms.", tools: ["Illustrator", "Figma"], icon: <Palette size={16} />, liveLink: "#" },
   { id: 20, title: "Cinematic Brand Film", category: "Photography & Video", img: d3, desc: "High-end commercial for tech startups.", tools: ["Premiere Pro", "Drone"], icon: <Video size={16} />, liveLink: "#" }

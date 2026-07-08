@@ -1,9 +1,29 @@
 import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Clock, Calendar, Share2, CheckCircle } from 'lucide-react';
+import { ArrowLeft, Clock, Calendar, Share2, CheckCircle, Globe, Search, Server, Camera, Smartphone, Shield, Database, Cpu, Palette, Zap, Rocket, Lock, BarChart, Mail, BookOpen } from 'lucide-react';
 import { blogPosts } from '../data/blogData';
 import '../styles/Blog.css'; // Twayihaye CSS yayo yihariye ngo idahura na Blog.css
+
+const iconMap = {
+  'Web Development': <Globe size={40} />,
+  SEO: <Search size={40} />,
+  Hosting: <Server size={40} />,
+  Videography: <Camera size={40} />,
+  Domains: <Database size={40} />,
+  Development: <Cpu size={40} />,
+  Design: <Palette size={40} />,
+  Marketing: <Mail size={40} />,
+  Payments: <Smartphone size={40} />,
+  Security: <Shield size={40} />,
+  Strategy: <Share2 size={40} />,
+  Insights: <Zap size={40} />,
+  Branding: <Rocket size={40} />,
+  Ads: <BarChart size={40} />,
+  Tech: <Cpu size={40} />
+};
+
+const getPostIcon = (category) => iconMap[category] || <BookOpen size={40} />;
 
 const BlogDetail = () => {
   const { id } = useParams();
@@ -55,7 +75,7 @@ const BlogDetail = () => {
           className="detail-hero-visual" 
           style={{ backgroundColor: post.color }}
         >
-          <div className="large-icon-wrapper">{post.icon}</div>
+          <div className="large-icon-wrapper">{getPostIcon(post.category)}</div>
         </motion.div>
 
         {/* Article Body Content */}
