@@ -95,6 +95,86 @@ html, body {
   margin: 0 auto;
 }
 
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 30px;
+}
+
+.service-highlight-card {
+  background: var(--bg-pure-white);
+  border: 1px solid var(--border-color);
+  border-radius: 24px;
+  padding: 32px;
+  box-shadow: 0 24px 45px rgba(15, 23, 42, 0.06);
+}
+
+.service-highlight-icon {
+  width: 56px;
+  height: 56px;
+  display: grid;
+  place-items: center;
+  border-radius: 18px;
+  background: var(--light-green-bg);
+  color: var(--primary-green);
+  margin-bottom: 18px;
+}
+
+.service-highlight-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+}
+
+.service-highlight-card p {
+  color: var(--body-muted);
+  line-height: 1.7;
+  margin: 0;
+}
+
+.about-cta-section {
+  padding: 80px 0 110px 0;
+}
+
+.about-cta-card {
+  background: #f7fff6;
+  border: 1px solid rgba(16, 185, 129, 0.18);
+  border-radius: 28px;
+  padding: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22px;
+  flex-wrap: wrap;
+}
+
+.about-cta-card h2 {
+  font-size: clamp(1.8rem, 2.4vw, 2.4rem);
+  margin: 0;
+}
+
+.about-cta-card p {
+  color: var(--body-muted);
+  max-width: 560px;
+  margin: 0;
+}
+
+.about-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 28px;
+  border-radius: 999px;
+  background: var(--primary-green);
+  color: #ffffff;
+  font-weight: 700;
+  transition: var(--transition-smooth);
+}
+
+.about-cta-btn:hover {
+  background: #004d00;
+}
+
 /* ==========================================================================
    --- 1. HERO SECTION (DARK CANVASS MATCHING NEXVENTURES GLOW) ---
    ========================================================================== */

@@ -46,6 +46,22 @@ body {
   box-sizing: border-box !important;
 }
 
+.app main {
+  padding-top: 88px !important;
+}
+
+@media (max-width: 768px) {
+  .app main {
+    padding-top: 80px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .app main {
+    padding-top: 72px !important;
+  }
+}
+
 /* Ibi bikata ifoto cyangwa dashboards zose zashakaga kurenga imipaka */
 img, video, iframe, pre, code, svg {
   max-width: 100% !important;

@@ -1,174 +1,366 @@
-/* Navbar.css */
-@import url('https://googleapis.com');
-
 :root {
   --primary-color: #006400;
-  --glass-bg: rgba(255, 255, 255, 0.98);
+  --primary-contrast: #ffffff;
+  --nav-bg: rgba(255, 255, 255, 0.96);
+  --nav-border: rgba(0, 0, 0, 0.08);
+  --nav-shadow: 0 24px 60px rgba(0, 0, 0, 0.08);
   --font-signature: 'Dancing Script', cursive;
-  --transition: all 0.3s ease;
+  --transition: all 0.25s ease;
 }
 
-/* Navbar Wrapper */
 .navbar-elite {
   position: fixed;
-  top: 0;
-  left: 0;
+  inset: 0 auto auto 0;
   width: 100%;
-  padding: 10px 0; /* Nagabanyije padding y'inyuma */
   z-index: 2000;
-  display: flex;
-  justify-content: center;
-  pointer-events: none;
+  background: var(--nav-bg);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--nav-border);
+  box-shadow: var(--nav-shadow);
 }
 
-/* Navbar Body - Slim & Professional */
 .nav-container {
-  pointer-events: auto;
-  width: 90%;
-  max-width: 1100px;
-  height: 60px; /* Nagabanyije height ngo ibe slim */
-  background: var(--glass-bg);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-radius: 50px;
+  width: min(1200px, 94%);
+  margin: 0 auto;
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  align-items: center;
-  padding: 0 25px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-  border: 1px solid rgba(0, 100, 0, 0.08);
+  gap: 1rem;
+  min-height: 90px;
+  padding: 0 18px;
 }
 
-/* Logo Section - No Gaps */
-.nav-logo-group {
+.nav-brand {
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  gap: 14px;
   text-decoration: none;
-  line-height: 1; /* Byegeranye neza */
+  color: #111111;
 }
 
-.nav-logo {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.footer-brand-logo {
-  height: 38px; /* Size ntoya kandi isobanutse */
-  width: 38px;
-  border-radius: 50%;
+.nav-brand-logo {
+  width: 54px;
+  height: 54px;
+  border-radius: 14px;
   object-fit: cover;
-  border: 1.5px solid var(--primary-color);
+  border: 2px solid var(--primary-color);
 }
 
-.logo-text {
+.brand-copy {
+  display: grid;
+  gap: 2px;
+}
+
+.brand-title {
   font-family: var(--font-signature);
-  font-size: 1.4rem; /* Nagabanyije size y'izina */
-  color: #1a1a1a;
+  font-size: 1.45rem;
   font-weight: 700;
-  margin: 0;
+  color: #111111;
 }
 
-.logo-text .accent {
+.brand-title .accent,
+.accent {
   color: var(--primary-color);
 }
 
-.logo-slogan {
-  font-family: var(--font-signature);
-  font-size: 0.7rem; /* Slogan ntoya cyane pro */
-  color: var(--primary-color);
-  margin-left: 48px; /* Igereranye na logo */
-  margin-top: -6px; /* Nakuyeho gap yose hano */
-  opacity: 0.8;
+.brand-subtitle {
+  font-size: 0.82rem;
+  color: #475569;
 }
 
-/* Navigation Links - Reduced Size */
-.nav-menu {
+.nav-links {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 30px;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  margin-left: auto;
+  min-width: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-.nav-item {
-  display: flex;
+.nav-link {
+  display: inline-flex;
   align-items: center;
-  gap: 5px;
+  gap: 10px;
+  color: #334155;
   text-decoration: none;
-  color: #333;
-  font-family: var(--font-signature);
-  font-size: 1.05rem; /* Nagabanyije size ya Navlinks */
+  font-size: 1rem;
   font-weight: 600;
-  transition: var(--transition);
+  white-space: nowrap;
+  transition: color 0.25s ease, transform 0.25s ease;
+  padding: 10px 18px;
+  border-radius: 16px;
 }
 
-.nav-item svg {
+.nav-link:hover,
+.nav-link:focus-visible {
+  background: rgba(0, 100, 0, 0.08);
+}
+
+.nav-link svg {
   color: var(--primary-color);
-  width: 16px; /* Nagabanyije size y'izina rya icon */
+  min-width: 18px;
+  min-height: 18px;
 }
 
-.nav-item:hover {
+.nav-link-main {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-link-arrow {
+  color: #94a3b8;
+  display: none;
+}
+
+.nav-panel-header {
+  display: none;
+}
+
+.nav-close {
+  display: none;
+}
+
+/* Hide mobile-only elements by default (desktop/tablet) */
+.nav-link-sub {
+  display: none;
+}
+
+.nav-link svg {
+  color: var(--primary-color);
+}
+
+.nav-link:hover,
+.nav-link:focus-visible {
   color: var(--primary-color);
   transform: translateY(-1px);
 }
 
-/* Contact Button - Small & Slim */
-.nav-contact-btn {
+.nav-link-cta {
+  display: none;
+}
+
+.nav-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   background: var(--primary-color);
-  color: #fff;
-  padding: 7px 18px;
-  border-radius: 40px;
+  color: var(--primary-contrast);
+  padding: 12px 24px;
+  border-radius: 999px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
   text-decoration: none;
-  font-family: var(--font-signature);
-  font-size: 1rem;
-  font-weight: 600;
-  transition: var(--transition);
+  transition: background 0.25s ease, transform 0.25s ease;
 }
 
-.nav-contact-btn:hover {
-  background: #000;
+.nav-cta:hover,
+.nav-link-cta:hover {
+  background: #004c00;
 }
 
-/* Mobile Toggle */
+.nav-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.45);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 1998;
+  pointer-events: none;
+}
+
+.nav-backdrop.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+body.menu-open {
+  overflow: hidden;
+}
+
 .mobile-toggle {
   display: none;
-  cursor: pointer;
+  width: 48px;
+  height: 48px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(0, 100, 0, 0.1);
   color: var(--primary-color);
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.25s ease;
 }
 
-/* RESPONSIVE */
+.mobile-toggle:hover {
+  background: rgba(0, 100, 0, 0.18);
+}
+
 @media (max-width: 1024px) {
-  .desktop-only {
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: min(88vw, 320px);
+    height: 100vh;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 22px;
+    padding: 92px 22px 40px;
+    background: #ffffff;
+    box-shadow: -8px 0 34px rgba(15, 23, 42, 0.12);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 1999;
+    overflow-y: auto;
+    min-width: 260px;
+  }
+
+  .nav-panel-header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 6px;
+    border-bottom: 1px solid #e2e8f0;
+    margin-bottom: 16px;
+  }
+
+  .nav-panel-title {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: #0f172a;
+  }
+
+  .nav-close {
+    border: none;
+    background: transparent;
+    color: #374151;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 999px;
+    transition: background 0.2s ease;
     display: none;
   }
-  .mobile-toggle {
-    display: block;
+
+  .nav-close:hover {
+    background: rgba(15, 23, 42, 0.06);
   }
-  .nav-menu {
-    position: fixed;
-    top: 75px;
-    right: -100%;
-    width: 220px;
-    background: #fff;
-    border-radius: 20px;
+
+  .nav-links.active {
+    transform: translateX(0);
+  }
+
+  .nav-link {
+    display: flex;
     flex-direction: column;
-    padding: 15px 0;
-    transition: 0.4s ease;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    align-items: center;
+    text-align: center;
+    padding: 12px 18px;
+    border-radius: 12px;
+    background: transparent;
+    color: #0f172a;
+    width: 100%;
+    margin: 0;
+    gap: 6px;
   }
-  .nav-menu.active {
-    right: 5%;
+
+  .nav-link-title {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
   }
-  .nav-item {
-    font-size: 1.2rem;
-    padding: 10px 0;
+
+  .nav-link-sub {
+    display: none;
+  }
+
+  .nav-link-main {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+    font-size: 1.05rem;
+    font-weight: 700;
+  }
+
+  .nav-link-sub {
+    font-size: 0.85rem;
+    color: #64748b;
+    opacity: 0.95;
+    line-height: 1.1;
+    display: none;
+  }
+
+  .nav-link:hover,
+  .nav-link:focus-visible {
+    background: rgba(0, 100, 0, 0.04);
+    color: var(--primary-color);
+    transform: none;
+  }
+
+  .nav-link-cta {
+    display: inline-flex;
+    background: var(--primary-color);
+    color: #ffffff;
+    justify-content: center;
+    width: 90%;
+    padding: 12px 16px;
+    border-radius: 12px;
+  }
+
+  .nav-cta {
+    display: none;
+  }
+
+  .mobile-toggle {
+    display: inline-flex;
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 640px) {
   .nav-container {
-    width: 94%;
-    height: 55px;
+    width: 100%;
+    min-height: 72px;
+    gap: 0.75rem;
+    padding: 0 14px;
   }
-  .logo-text { font-size: 1.2rem; }
-  .logo-slogan { display: none; }
+
+  .brand-copy {
+    gap: 0;
+  }
+
+  .brand-title {
+    font-size: 1.18rem;
+  }
+
+  .brand-subtitle {
+    font-size: 0.8rem;
+  }
+
+  .nav-link {
+    font-size: 0.98rem;
+  }
+  .nav-link-sub {
+    display: block;
+  }
+  .nav-link-title {
+    display: inline-flex;
+    align-items: center;
+  }
+  .nav-link-arrow {
+    display: inline-block;
+  }
+  .nav-panel-header {
+    display: flex;
+  }
+  .nav-close {
+    display: inline-flex;
+  }
 }
