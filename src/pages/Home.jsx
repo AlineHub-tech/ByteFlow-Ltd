@@ -19,7 +19,7 @@ import {
   ArrowRight
 } from 'lucide-react';
 import '../styles/Home.css';
-import heroBg from '../assets/pro.webp';
+// import heroBg from '../assets/pro.webp';
 
 const Home = () => {
   const [activeFaq, setActiveFaq] = useState(null);
@@ -209,19 +209,16 @@ const Home = () => {
 
   return (
     <div className="home-wrapper">
-      <div className="tech-dots" aria-hidden="true" />
+      {/* <div className="tech-dots" aria-hidden="true" /> */}
 
       <section
         className="hero-section"
-        style={{ backgroundImage: `linear-gradient(135deg, rgba(3, 23, 13, 0.93) 0%, rgba(0, 70, 35, 0.8) 55%, rgba(2, 16, 10, 0.94) 100%), url(${heroBg})` }}
+        // style={{ backgroundImage: `linear-gradient(135deg, rgba(0, 0, 0, 0.79) 0%, rgba(0, 0, 0, 0.89) 55%, rgba(2, 16, 10, 0.94) 100%), url(${heroBg})` }}
       >
         <div className="container hero-flex">
           <div className="hero-text reveal">
-            <div className="hero-badge">
-              <Sparkles size={14} /> Simple digital solutions for growing brands
-            </div>
             <h1>
-              We help you look professional online and make your message easy to understand.
+             We build clear websites, polished branding, and smart marketing.
             </h1>
             <p>
               ByteFlow builds clean websites, strong branding, and simple digital marketing for businesses and creators who want to grow with confidence.
@@ -229,31 +226,20 @@ const Home = () => {
 
             <div className="hero-btns">
               <Link to="/contact" className="btn-main">
-                Start your project <Rocket size={18} />
+                Start your project <Rocket size={15} />
               </Link>
               <a href="#services" className="btn-outline">
                 See our services
               </a>
             </div>
 
-            <ul className="hero-points">
+            {/* <ul className="hero-points">
               <li>Mobile-friendly websites</li>
               <li>Professional branding</li>
               <li>Easy online growth</li>
-            </ul>
+            </ul> */}
           </div>
 
-          <div className="hero-visual reveal">
-            <div className="hero-visual-card">
-              <div className="hero-image-frame">
-                <img src={heroBg} alt="Professional digital services for businesses" />
-              </div>
-              <div className="hero-visual-info">
-                <h3>Professional digital solutions</h3>
-                <p>We build clear websites, polished branding, and smart marketing that helps people trust your brand quickly.</p>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
 
@@ -299,7 +285,7 @@ const Home = () => {
         <div className="section-header reveal">
           <span className="sub-title">WHO WE SERVE</span>
           <h2>Built for people who want to be easy to trust online.</h2>
-          <div className="accent-bar" />
+          <div className="accent-barr" />
         </div>
 
         <div className="audience-grid">
@@ -363,42 +349,40 @@ const Home = () => {
           ))}
         </div>
       </section>
-
       <section className="faq-section container">
-        <div className="section-header reveal">
-          <span className="sub-title">FAQ</span>
-          <h2>Helpful answers for first-time visitors.</h2>
-          <div className="accent-bar" />
+  <div className="section-header reveal">
+    <span className="sub-title">FAQ</span>
+    <h2>Helpful answers for first-time visitors.</h2>
+    <div className="accent-bar" />
+  </div>
+
+  <div className="faq-wrapper-list">
+    {faqs.map((faq, index) => {
+      const isOpen = activeFaq === index;
+
+      return (
+        <div key={index} className={`faq-item-box reveal ${isOpen ? 'faq-active' : ''}`}>
+          <button
+            className="faq-question-row"
+            onClick={() => toggleFaq(index)}
+            aria-expanded={isOpen}
+          >
+            <div className="faq-q-text">
+              <HelpCircle size={18} />
+              <h4>{faq.q}</h4>
+            </div>
+            <ChevronDown size={18} className={`faq-arrow ${isOpen ? 'open' : ''}`} />
+          </button>
+
+          {/* Ikinyandiko kiguma mu miterere ariko kiyoborwa na CSS */}
+          <div className={`faq-answer-block ${isOpen ? 'open' : ''}`} role="region">
+            <p>{faq.a}</p>
+          </div>
         </div>
-
-        <div className="faq-wrapper-list">
-          {faqs.map((faq, index) => {
-            const isOpen = activeFaq === index;
-
-            return (
-              <div key={index} className={`faq-item-box reveal ${isOpen ? 'faq-active' : ''}`}>
-                <button
-                  className="faq-question-row"
-                  onClick={() => toggleFaq(index)}
-                  aria-expanded={isOpen}
-                >
-                  <div className="faq-q-text">
-                    <HelpCircle size={18} />
-                    <h4>{faq.q}</h4>
-                  </div>
-                  <ChevronDown size={18} className={`faq-arrow ${isOpen ? 'open' : ''}`} />
-                </button>
-
-                {isOpen && (
-                  <div className="faq-answer-block" role="region">
-                    <p>{faq.a}</p>
-                  </div>
-                )}
-              </div>
-            );
-          })}
-        </div>
-      </section>
+      );
+    })}
+  </div>
+</section>
 
       <section className="cta-section container reveal">
         <div className="cta-card">

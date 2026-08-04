@@ -43,16 +43,9 @@ const projects = [
   { id: 12, title: "NovaPay System", category: "Web Development", img: ne1, desc: "NovaPay is a premier digital banking ecosystem designed for the modern Rwandan economy. institutional trust, it offers a seamless interface for automated goal-based savings, instant multi-bank transfers, and AI-driven wealth analytics. Experience military-grade security with a professional, edge-to-edge responsive design.", tools: ["React", "Node.js & Express","MongoDB & Mongoose","JWT (JSON Web Tokens)"], icon: <Share2 size={16} />, liveLink: "#" },
   { id: 13, title: "Accountant System", category: "Web Development", img: img8, desc: "AccPro is a professional, high-density financial suite designed for modern Rwandan firms. Built for precision and speed, it automates payroll generation, RRA & RSSB tax compliance, and audit-ready reporting. With a secure, local-first architecture , it empowers accountants to lead with clarity.", tools: ["React", "MySQL"], icon: <Code size={16} />, liveLink: "https://vercel.app" },
   { id: 14, title: "Plus", category: "Web Development", img: plusImg, desc: "DevPulse is an enterprise-grade agile project management dashboard built with React and strict TypeScript. Featuring a sleek, responsive Cyberpunk theme (Matte Black & Electric Purple), it delivers real-time sprint velocity metrics, repository tracking, and an interactive HTML5 drag-and-drop Kanban workspace with zero lag.", tools: ["Typescript", "React", "vanilla css"], icon: <Palette size={16} />, liveLink: "#", outcome: "Built trust and clarity for a growing service brand." },
-  { id: 15, title: "E-Commerce SEO", category: "SEO", img: seo1, desc: "Ranking #1 for competitive keywords.", tools: ["Research", "GA4"], icon: <Search size={16} />, liveLink: "#" },
-  { id: 16, title: "Technical SEO Audit", category: "SEO", img: seo2, desc: "Optimizing site speed for Google.", tools: ["Audit", "Backlinks"], icon: <Search size={16} />, liveLink: "#" },
-  { id: 17, title: "Technical SEO Audit", category: "SEO", img: seo2, desc: "Optimizing site speed for Google.", tools: ["Audit", "Backlinks"], icon: <Search size={16} />, liveLink: "#" },
+ 
   
-  { id: 18, title: "Social Growth Campaign", category: "Digital Marketing", img: ne1, desc: "Facebook & Instagram growth for local brands.", tools: ["Ads Manager", "Meta"], icon: <Share2 size={16} />, liveLink: "#" },
-  { id: 19, title: "Corporate Rebranding", category: "Graphic Design", img: d2, desc: "Complete visual identity for tech firms.", tools: ["Illustrator", "Figma"], icon: <Palette size={16} />, liveLink: "#" },
-  { id: 20, title: "Cinematic Brand Film", category: "Photography & Video", img: d3, desc: "High-end commercial for tech startups.", tools: ["Premiere Pro", "Drone"], icon: <Video size={16} />, liveLink: "#" }
 ];
-
-const categories = ['All', 'Web Development', 'Hosting & Domains', 'Digital Marketing', 'Graphic Design', 'Photography & Video', 'SEO'];
 
 const Portfolio = () => {
   const [filter, setFilter] = useState('All');
@@ -67,126 +60,134 @@ const Portfolio = () => {
   return (
     <div className="portfolio-page">
       {/* --- HERO SECTION WITH TABS INSIDE --- */}
-      <section className="portfolio-hero" style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.85)), url(${projectBackground})` }}>
+      <section className="portfolio-hero" style={{  }}>
         <div className="hero-overlay-content container">
-          <span className="badge">ByteFlow Client Work</span>
-          <h1>Built digital platforms for <span className="sig-font">business growth</span></h1>
+          <h1>Built digital platforms for <span className="sig">business growth</span></h1>
           <p>Discover our portfolio of websites, e-commerce stores, corporate brands and media campaigns created for Rwandan companies and organizations.</p>
-
-          {/* TABS FILTER SYSTEM IS HANO NDANI Y'IFOTO */}
-          <div className="portfolio-filters">
-            {categories.map((cat, i) => (
-              <button 
-                key={i} 
-                className={filter === cat ? 'active' : ''} 
-                onClick={() => setFilter(cat)}
-              >
-                {cat}
-              </button>
-            ))}
-          </div>
         </div>
       </section>
+{/* --- CARDS GRID --- */}
+<section className="portfolio-grid container">
+  <motion.div layout className="grid-layout">
+    <AnimatePresence mode="popLayout">
+      {filteredProjects.map((project) => (
+        <motion.div 
+          layout
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.95 }}
+          transition={{ duration: 0.3 }}
+          key={project.id} 
+          className="project-card"
+        >
+          {/* Ifoto ifite iyakirwa ryiza rya mobile */}
+          <div className="project-media" onClick={() => setSelectedProject(project)}>
+            <img src={project.img} alt={project.title} className="project-img" loading="lazy" />
+            <div className="project-overlay-icon">{project.icon}</div>
+          </div>
 
-      {/* --- CARDS GRID --- */}
-      <section className="portfolio-grid container">
-        <motion.div layout className="grid-layout">
-          <AnimatePresence mode="popLayout">
-            {filteredProjects.map((project) => (
-              <motion.div 
-                layout
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.3 }}
-                key={project.id} 
-                className="project-card"
-                onClick={() => setSelectedProject(project)}
-              >
-                <div className="project-media">
-                  <img src={project.img} alt={project.title} className="project-img" loading="lazy" />
-                  <div className="project-overlay-icon">{project.icon}</div>
-                </div>
-                <div className="project-details">
-                  <span className="p-category">{project.category}</span>
-                  <h3>{project.title}</h3>
-                  <p>{project.desc}</p>
-                  <div className="project-tags">
-                    {project.tools.map((tool, i) => (
-                      <span key={i} className="p-tag">{tool}</span>
-                    ))}
-                  </div>
-                  <a 
-                    href={project.liveLink} 
-                    target="_blank" 
-                    rel="noreferrer" 
-                    className="project-link" 
-                    onClick={(e) => e.stopPropagation()}
-                  >
-                    Launch App <ExternalLink size={14} />
-                  </a>
-                </div>
-              </motion.div>
-            ))}
-          </AnimatePresence>
-        </motion.div>
-      </section>
+          <div className="project-details">
+            <span className="p-category">{project.category}</span>
+            <h3 onClick={() => setSelectedProject(project)} style={{ cursor: 'pointer' }}>{project.title}</h3>
+            
+            {/* Gukata amagambo akaba magufi ngo adasubira inyuma */}
+            <p className="project-desc-short">
+              {project.desc.length > 80 ? `${project.desc.substring(0, 80)}...` : project.desc}
+            </p>
 
-      {/* --- LIGHTBOX MODAL --- */}
-      <AnimatePresence>
-        {selectedProject && (
-          <motion.div 
-            initial={{ opacity: 0 }} 
-            animate={{ opacity: 1 }} 
-            exit={{ opacity: 0 }} 
-            className="portfolio-modal-overlay"
-            onClick={() => setSelectedProject(null)}
-          >
-            <motion.div 
-              initial={{ y: 30, scale: 0.98 }} 
-              animate={{ y: 0, scale: 1 }} 
-              exit={{ y: 30, scale: 0.98 }} 
-              className="portfolio-modal-content"
-              onClick={(e) => e.stopPropagation()}
+            {/* Bouton nshya ya Read More */}
+            {project.desc.length > 80 && (
+              <button className="p-readmore-btn" onClick={() => setSelectedProject(project)}>
+                Read More
+              </button>
+            )}
+
+            {/* Tools zigaragara neza hano */}
+            <div className="project-tags">
+              {project.tools.map((tool, i) => (
+                <span key={i} className="p-tag">{tool}</span>
+              ))}
+            </div>
+
+            {/* Launch App Button */}
+            <a 
+              href={project.liveLink} 
+              target="_blank" 
+              rel="noreferrer" 
+              className="project-link" 
             >
-              <button className="close-modal-btn" onClick={() => setSelectedProject(null)}><X size={22} /></button>
-              <div className="modal-media-box">
-                <img src={selectedProject.img} alt={selectedProject.title} className="modal-img" loading="lazy" />
+              Launch App <ExternalLink size={14} />
+            </a>
+          </div>
+        </motion.div>
+      ))}
+    </AnimatePresence>
+  </motion.div>
+</section>
+
+{/* --- LIGHTBOX MODAL --- */}
+<AnimatePresence>
+  {selectedProject && (
+    <motion.div 
+      initial={{ opacity: 0 }} 
+      animate={{ opacity: 1 }} 
+      exit={{ opacity: 0 }} 
+      className="portfolio-modal-overlay"
+      onClick={() => setSelectedProject(null)}
+    >
+      <motion.div 
+        initial={{ y: 30, scale: 0.98 }} 
+        animate={{ y: 0, scale: 1 }} 
+        exit={{ y: 30, scale: 0.98 }} 
+        className="portfolio-modal-content"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button className="close-modal-btn" onClick={() => setSelectedProject(null)}><X size={22} /></button>
+        
+        <div className="modal-media-box">
+          <img src={selectedProject.img} alt={selectedProject.title} className="modal-img" loading="lazy" />
+        </div>
+
+        <div className="modal-info">
+          <span className="badge">{selectedProject.category}</span>
+          <h2>{selectedProject.title}</h2>
+          
+          {/* Amagambo yose yuzuye agaragara hano neza */}
+          <p className="modal-full-desc">{selectedProject.desc}</p>
+          
+          <div className="modal-meta">
+            <div className="project-meta-item">
+              <span>Industry</span>
+              <strong>{selectedProject.category}</strong>
+            </div>
+            {selectedProject.outcome && (
+              <div className="project-meta-item">
+                <span>Outcome</span>
+                <strong>{selectedProject.outcome}</strong>
               </div>
-              <div className="modal-info">
-                <span className="badge">{selectedProject.category}</span>
-                <h2>{selectedProject.title}</h2>
-                <p>{selectedProject.desc}</p>
-                <div className="modal-meta">
-                  <div className="project-meta-item">
-                    <span>Industry</span>
-                    <strong>{selectedProject.category}</strong>
-                  </div>
-                  {selectedProject.outcome && (
-                    <div className="project-meta-item">
-                      <span>Outcome</span>
-                      <strong>{selectedProject.outcome}</strong>
-                    </div>
-                  )}
-                </div>
-                <div className="modal-meta">
-                  <strong>Built With Tools:</strong>
-                  <div className="project-tags">
-                    {selectedProject.tools.map((tool, i) => (
-                      <span key={i} className="p-tag">{tool}</span>
-                    ))}
-                  </div>
-                </div>
-                {selectedProject.liveLink !== "#" && (
-                  <a href={selectedProject.liveLink} target="_blank" rel="noreferrer" className="btn-main-modal">
-                    Visit Live System <ExternalLink size={16} />
-                  </a>
-                )}
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+            )}
+          </div>
+
+          <div className="modal-meta">
+            <strong>Built With Tools:</strong>
+            <div className="project-tags" style={{ marginTop: '8px' }}>
+              {selectedProject.tools.map((tool, i) => (
+                <span key={i} className="p-tag">{tool}</span>
+              ))}
+            </div>
+          </div>
+
+          {selectedProject.liveLink !== "#" && (
+            <a href={selectedProject.liveLink} target="_blank" rel="noreferrer" className="btn-main-modal">
+              Visit Live System <ExternalLink size={16} />
+            </a>
+          )}
+        </div>
+      </motion.div>
+    </motion.div>
+  )}
+</AnimatePresence>
+
     </div>
   );
 };

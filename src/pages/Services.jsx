@@ -154,9 +154,8 @@ const Services = () => {
   return (
     <div className="services-page">
       {/* --- HERO SECTION --- */}
-      <section className="services-hero" style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.85)), url(${heroBg})` }}>
+      <section className="services-hero" style={{}}>
         <div className="hero-content container reveal">
-          <span className="badge">ByteFlow Services</span>
           <h1>Services made easy for every business</h1>
           <p>Choose the service you need, send a short message, and our team will start building your online presence in 7 days.</p>
         </div>
@@ -169,7 +168,7 @@ const Services = () => {
           <p>Each service is explained in plain words so anyone can understand what to order and how it helps the business.</p>
         </div>
 
-        <div className="service-cards-grid">
+        {/* <div className="service-cards-grid">
           {serviceDetails.map((service, idx) => (
             <article key={idx} className={`service-card ${activeTab === idx ? 'service-card-active' : ''}`}>
               <div className="service-card-icon">{service.icon}</div>
@@ -187,7 +186,7 @@ const Services = () => {
               </div>
             </article>
           ))}
-        </div>
+        </div> */}
       </section>
 
       <section className="order-process-section container reveal">
@@ -208,81 +207,86 @@ const Services = () => {
         </div>
       </section>
 
-      {/* --- DUAL COLUMN OPUS SOLUTIONS INTERFACE --- */}
-      <section className="solutions-container container reveal">
-        <div className="solutions-split-mesh">
-          
-          {/* LEFT COLUMN: Tabs Navigation */}
-          <div className="solutions-nav-panel">
-            {serviceDetails.map((tab, idx) => (
-              <button
-                key={idx}
-                className={`sol-nav-btn ${activeTab === idx ? 'sol-nav-active' : ''}`}
-                onClick={() => setActiveTab(idx)}
-              >
-                <div className="sol-btn-left">
-                  <span className="sol-btn-icon">{tab.icon}</span>
-                  <div className="sol-btn-details">
-                    <span className="sol-btn-title">{tab.title}</span>
-                    <span className="sol-btn-price">{tab.price}</span>
+{/* --- ACCORDION OPUS SOLUTIONS INTERFACE --- */} 
+<section className="solutions-container container reveal">
+  <div className="solutions-accordion-mesh" style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+    
+    {serviceDetails.map((tab, idx) => {
+      // Reba niba iyi serivisi ariyo ifunguye
+      const isOpen = activeTab === idx;
+
+      return (
+        <div key={idx} className="solutions-accordion-item" style={{  overflow: 'hidden' }}>
+          <button 
+            className={`sol-nav-btn ${isOpen ? 'sol-nav-active' : ''}`} 
+            onClick={() => setActiveTab(isOpen ? null : idx)} 
+            style={{ width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '16px', borderRadius: '18px', background: '#d4d4d4', border: 'none', cursor: 'pointer' }}
+          >
+            <div className="sol-btn-left" style={{ display: 'flex', alignItems: 'center', gap: '12px', textAlign: 'left' }}>
+              <span className="sol-btn-icon">{tab.icon}</span>
+              <div className="sol-btn-details">
+                <span className="sol-btn-title" style={{ display: 'block', fontWeight: 'bold' }}>{tab.title}</span>
+                <span className="sol-btn-price" style={{ color: '#64748b', fontSize: '14px' }}>{tab.price}</span>
+              </div>
+            </div>
+            <ChevronRight 
+              size={16} 
+              className="sol-btn-arrow" 
+              style={{ transform: isOpen ? 'rotate(90deg)' : 'rotate(0deg)', transition: 'transform 0.2s' }} 
+            />
+          </button>
+          {isOpen && (
+            <div className="solutions-content-panel" style={{ padding: '20px', borderTop: '1px solid #e2e8f0' }}>
+              <div className="sol-active-view">
+                <p className="sol-active-desc">{tab.description}</p>
+                
+                <div className="sol-active-pricebar" style={{ margin: '15px 0', display: 'flex', gap: '10px', alignItems: 'center' }}>
+                  <span className="service-price-tag">{tab.price}</span>
+                  <span className="service-delivery-tag" style={{ fontSize: '13px', color: '#64748b' }}>Order online now and get delivery guidance in 7 days</span>
+                </div>
+
+                <div className="sol-active-sublist" style={{ marginTop: '15px' }}>
+                  <h4>What We Do Exactly:</h4>
+                  <div className="sol-subgrid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px', marginTop: '8px' }}>
+                    {tab.subServices.map((sub, i) => (
+                      <div key={i} className="sol-sub-item" style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                        <CheckCircle2 size={16} className="sol-check-icon" style={{ color: '#22c55e' }} />
+                        <span>{sub}</span>
+                      </div>
+                    ))}
                   </div>
                 </div>
-                <ChevronRight size={16} className="sol-btn-arrow" />
-              </button>
-            ))}
-          </div>
 
-          {/* RIGHT COLUMN: Active Panel Viewer */}
-          <div className="solutions-content-panel">
-            <div className="sol-active-view">
-              <h2 className="sol-active-title">{serviceDetails[activeTab].title}</h2>
-              <p className="sol-active-desc">{serviceDetails[activeTab].description}</p>
-              <div className="sol-active-pricebar">
-                <span className="service-price-tag">{serviceDetails[activeTab].price}</span>
-                <span className="service-delivery-tag">Order online now and get delivery guidance in 7 days</span>
-              </div>
-              <div className="sol-active-sublist">
-                <h4>What We Do Exactly:</h4>
-                <div className="sol-subgrid">
-                  {serviceDetails[activeTab].subServices.map((sub, i) => (
-                    <div key={i} className="sol-sub-item">
-                      <CheckCircle2 size={16} className="sol-check-icon" />
-                      <span>{sub}</span>
-                    </div>
-                  ))}
+                <div className="sol-active-tools" style={{ marginTop: '15px' }}>
+                  <span>Tools & Technologies Used:</span>
+                  <div className="sol-tools-tags" style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginTop: '6px' }}>
+                    {tab.tools.map((tool, i) => (
+                      <span key={i} className="sol-tag" style={{padding: '4px 8px', fontSize: '12px' }}>{tool}</span>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="sol-panel-action-row" style={{ marginTop: '20px' }}>
+                  <button className="btn-order-direct" onClick={() => openOrderModal(tab.title)}>
+                    <ShoppingCart size={18} />
+                    <span>Order This Service</span>
+                  </button>
                 </div>
               </div>
-
-              <div className="sol-active-tools">
-                <span>Tools & Technologies Used:</span>
-                <div className="sol-tools-tags">
-                  {serviceDetails[activeTab].tools.map((tool, i) => (
-                    <span key={i} className="sol-tag">{tool}</span>
-                  ))}
-                </div>
-              </div>
-
-              <div className="sol-panel-action-row">
-                <button 
-                  className="btn-order-direct"
-                  onClick={() => openOrderModal(serviceDetails[activeTab].title)}
-                >
-                  <ShoppingCart size={18} />
-                  <span>Order This Service</span>
-                </button>
-              </div>
-
             </div>
-          </div>
+          )}
 
         </div>
-      </section>
+      );
+    })}
 
+  </div>
+</section>
       {/* --- 1-WEEK PIPELINE DELIVERY FRAMEWORK --- */}
       <section className="process-pipeline-section container reveal">
         <div className="section-center-header">
           <span className="badge">Execution Model</span>
-          <h2>Our Guaranteed <span className="sig-font">1-Week Delivery</span> Pipeline</h2>
+          <h2>Our Guaranteed <span className="sig">1-Week Delivery</span> Pipeline</h2>
           <div className="accent-bar"></div>
           <p>We respect your corporate timelines. From the moment you place an order to full production hand-off, we execute inside a fixed 7-day milestone architecture:</p>
         </div>
@@ -304,7 +308,7 @@ const Services = () => {
       {/* --- FINAL CTA --- */}
       <section className="services-cta container reveal">
         <div className="cta-gradient-box">
-          <h2>Have a <span className="sig-font">Special</span> Requirement?</h2>
+          <h2>Have a <span className="sig">Special</span> Requirement?</h2>
           <p>We provide custom packages tailored to your unique business goals.</p>
           <button className="btn-main" onClick={() => openOrderModal("Custom Tailored Project Package")}>
             Schedule a Consultation
@@ -315,66 +319,90 @@ const Services = () => {
       {/* ==========================================================================
          --- INTERACTIVE MODAL OVERLAY (ORDER SYSTEM ENGINE - COMPACT FIX) ---
          ========================================================================== */}
-      {isModalOpen && (
-        <div className="order-modal-overlay" onClick={() => setIsModalOpen(false)}>
-          <div className="order-modal-card" onClick={(e) => e.stopPropagation()}>
-            <div className="modal-close-header">
-              <h3>Place Your Order</h3>
-              <button className="btn-modal-close" onClick={() => setIsModalOpen(false)}>
-                <X size={16} />
-              </button>
-            </div>
-            
-            <div className="modal-service-selected-badge">
-              <span>Selected Option:</span>
-              <strong>{selectedService}</strong>
-            </div>
+{isModalOpen && (
+  <div className="order-modal-overlay" onClick={() => setIsModalOpen(false)}>
+    <div className="order-modal-card" onClick={(e) => e.stopPropagation()}>
+      
+      {/* HEADER */}
+      <div className="modal-close-header">
+        <h3>Place Your Order</h3>
+        <button className="btn-modal-close" onClick={() => setIsModalOpen(false)} aria-label="Close modal">
+          <X size={18} />
+        </button>
+      </div>
+      
+      {/* BADGE */}
+      <div className="modal-service-selected-badge">
+        <span>Selected Option:</span>
+        <strong>{selectedService}</strong>
+      </div>
 
-            <form onSubmit={handleFormSubmit} className="order-modal-form">
-              <div className="order-form-grid">
-                <div className="form-input-group">
-                  <label>Full Name / Business Title</label>
-                  <input 
-                    type="text" name="name" required value={formData.name} onChange={handleInputChange} placeholder="e.g., John Doe / Apex Logistics Ltd"
-                  />
-                </div>
+      {/* FORM */}
+      <form 
+        onSubmit={(e) => {
+          e.preventDefault();
+          const companyWhatsApp = "250796023452"; 
+          
 
-                <div className="form-input-group">
-                  <label>Corporate Email Address</label>
-                  <input 
-                    type="email" name="email" required value={formData.email} onChange={handleInputChange} placeholder="e.g., corporate@yourdomain.rw"
-                  />
-                </div>
+          const message = `*NEW ORDER - BYTEFLOW*\n\n` +
+                          `• *Service:* ${selectedService}\n` +
+                          `• *Client Name:* ${formData.name}\n` +
+                          `• *Email:* ${formData.email}\n` +
+                          `• *Client WhatsApp:* ${formData.whatsapp}\n\n` +
+                          `*Project Goals & Requirements:* \n${formData.notes}`;
+          
+          const whatsappUrl = `https://wa.me{companyWhatsApp}?text=${encodeURIComponent(message)}`;
+          window.open(whatsappUrl, '_blank');
+          setIsModalOpen(false);
+        }} 
+        className="order-modal-form"
+      >
+        <div className="order-form-grid">
+          <div className="form-input-group">
+            <label>Full Name / Business Title</label>
+            <input 
+              type="text" name="name" required value={formData.name} onChange={handleInputChange} placeholder="e.g., John Doe / Apex Logistics Ltd"
+            />
+          </div>
 
-                <div className="form-input-group">
-                  <label>Active WhatsApp Contact Number</label>
-                  <input 
-                    type="tel" name="whatsapp" required value={formData.whatsapp} onChange={handleInputChange} placeholder="e.g., 0788000000"
-                  />
-                </div>
+          <div className="form-input-group">
+            <label>Corporate Email Address</label>
+            <input 
+              type="email" name="email" required value={formData.email} onChange={handleInputChange} placeholder="e.g., corporate@yourdomain.rw"
+            />
+          </div>
 
-                <div className="form-input-group full-width">
-                  <label>Project Goals & Specific Requirements</label>
-                  <textarea 
-                    name="notes" rows="5" required value={formData.notes} onChange={handleInputChange} placeholder="Please list your specific needs, desired outcome, and any examples."
-                  ></textarea>
-                </div>
-              </div>
+          <div className="form-input-group">
+            <label>Active WhatsApp Contact Number</label>
+            <input 
+              type="tel" name="whatsapp" required value={formData.whatsapp} onChange={handleInputChange} placeholder="e.g., 0788000000"
+            />
+          </div>
 
-              <div className="modal-guarantee-notice">
-                <Calendar size={14} />
-                <span>ByteFlow Guarantee: Project hand-off finalized within 7 business days.</span>
-              </div>
-
-              <button type="submit" className="btn-modal-submit">
-                <Send size={14} />
-                <span>Submit Order via WhatsApp</span>
-              </button>
-            </form>
-            <p className="order-form-footnote">Your order is sent directly to WhatsApp for fast review by our team.</p>
+          <div className="form-input-group full-width">
+            <label>Project Goals & Specific Requirements</label>
+            <textarea 
+              name="notes" rows="4" required value={formData.notes} onChange={handleInputChange} placeholder="Please list your specific needs, desired outcome, and any examples."
+            ></textarea>
           </div>
         </div>
-      )}
+
+        <div className="modal-guarantee-notice">
+          <Calendar size={14} />
+          <span>ByteFlow Guarantee: Project hand-off finalized within 7 business days.</span>
+        </div>
+
+        <button type="submit" className="btn-modal-submit">
+          <Send size={14} />
+          <span>Submit Order via WhatsApp</span>
+        </button>
+      </form>
+      
+      <p className="order-form-footnote">Your order is sent directly to WhatsApp for fast review by our team.</p>
+    </div>
+  </div>
+)}
+
     </div>
   );
 };

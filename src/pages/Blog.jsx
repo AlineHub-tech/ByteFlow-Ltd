@@ -30,7 +30,7 @@ const Blog = () => {
   return (
     <div id="byteflow-blog-hub">
       {/* 1. HERO SECTION WITH REDUCED HEIGHT */}
-      <header className="blog-hero-main" style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.8)), url(${blog})` }}>
+      <header className="blog-hero-main" style={{}}>
         <div className="blog-limit container">
           <motion.div 
             className="hero-inner-text"
@@ -38,9 +38,8 @@ const Blog = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <span className="blog-tagline">Expert Insights</span>
             <h1 className="blog-heading">
-              Actionable digital insights for <span className="green-accent">Rwanda's growing businesses.</span>
+              Actionable digital insights for <span className="sign">Rwanda's growing businesses.</span>
             </h1>
             <p className="blog-desc">
               Practical articles on websites, branding, SEO, and media strategy for companies that want measurable results.

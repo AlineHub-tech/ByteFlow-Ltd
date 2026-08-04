@@ -67,7 +67,6 @@ const Contact = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <span className="contact-tag">Get In Touch</span>
             <h1>Let's Start a <span className="highlight">Project</span></h1>
             <p>Ready to transform your vision into a digital reality? Reach out to our team today.</p>
           </motion.div>

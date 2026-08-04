@@ -9,26 +9,26 @@ import plusImg from '../assets/img2.png';
 import voiceImg from '../assets/abt1.png';
 
 const serviceHighlights = [
-  {
-    title: 'Web development',
-    text: 'Build responsive websites, dashboards, and e-commerce stores designed for local payment integrations and fast performance.',
-    icon: <Target size={20} />
-  },
-  {
-    title: 'Brand & graphics',
-    text: 'Develop strong logos, visual systems, and print assets that give your business a professional and cohesive identity.',
-    icon: <Palette size={20} />
-  },
-  {
-    title: 'Media production',
-    text: 'Capture photography, video, and content assets that strengthen your brand story across social, web, and sales channels.',
-    icon: <Camera size={20} />
-  },
-  {
-    title: 'Hosting & support',
-    text: 'Secure domains, cloud hosting, backups, and prompt support so your site stays online and your data is protected.',
-    icon: <Server size={20} />
-  }
+  // {
+  //   title: 'Web development',
+  //   text: 'Build responsive websites, dashboards, and e-commerce stores designed for local payment integrations and fast performance.',
+  //   icon: <Target size={20} />
+  // },
+  // {
+  //   title: 'Brand & graphics',
+  //   text: 'Develop strong logos, visual systems, and print assets that give your business a professional and cohesive identity.',
+  //   icon: <Palette size={20} />
+  // },
+  // {
+  //   title: 'Media production',
+  //   text: 'Capture photography, video, and content assets that strengthen your brand story across social, web, and sales channels.',
+  //   icon: <Camera size={20} />
+  // },
+  // {
+  //   title: 'Hosting & support',
+  //   text: 'Secure domains, cloud hosting, backups, and prompt support so your site stays online and your data is protected.',
+  //   icon: <Server size={20} />
+  // }
 ];
 
 const About = () => {
@@ -77,14 +77,13 @@ const About = () => {
       <div className="tech-dots"></div>
 
       {/* --- 1. HERO SECTION --- */}
-      <section className="about-hero" style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.85)), url(${heroBg1})` }}>
+      <section className="about-hero" 
+      style={{ }}>
         <div className="reveal container hero-inner-text">
-          <span className="badge">About ByteFlow Ltd</span>
-          <h1>Digital solutions for <span className="sig-font">Rwandan businesses</span></h1>
+          <h2>Digital solutions for <span className="sig">Rwandan businesses</span></h2>
           <p>
-            ByteFlow Ltd is a legally registered, full-service digital technology and creative media agency based in Kigali. We
-            build websites, brand systems, media campaigns, and business automation tools for companies, organizations, and
-            service providers that need faster digital growth and stronger online credibility.
+ByteFlow Ltd is Kigali’s premier digital technology agency. We engineer high-performance websites, premium brand identities, 
+and custom business automation tools that accelerate growth and build unshakeable market credibility for Rwandan enterprises.
           </p>
         </div>
       </section>
@@ -111,7 +110,7 @@ const About = () => {
       <section className="trust-pillars-section container reveal">
         <div className="section-center-header">
           <span className="badge">Why Choose ByteFlow</span>
-          <h2>What makes us your <span className="sig-font">trusted</span> tech partner?</h2>
+          <h2>What makes us your <span className="sig">trusted</span> tech partner?</h2>
           <div className="accent-bar"></div>
           <p className="framework-pitch">We eliminate delivery risk. Here are the core parameters local business leaders evaluate before signing a contract with us:</p>
         </div>
@@ -156,7 +155,7 @@ const About = () => {
       <section className="client-audience container reveal">
         <div className="section-center-header">
           <span className="badge">Target Clients</span>
-          <h2>We serve <span className="sig-font">businesses</span>, not just founders</h2>
+          <h2>We serve <span className="sig">businesses</span>, not just founders</h2>
           <div className="accent-bar"></div>
           <p className="framework-pitch">ByteFlow works with SMEs, corporate teams, creative agencies, non-profits, and professional service providers that need digital products built to convert.</p>
         </div>
@@ -184,7 +183,7 @@ const About = () => {
       <section className="testimonials-section container reveal">
         <div className="section-center-header">
           <span className="badge">Client Testimonials</span>
-          <h2>What our corporate <span className="sig-font">partners</span> say</h2>
+          <h2>What our corporate <span className="sig">partners</span> say</h2>
           <div className="accent-bar"></div>
           <p className="framework-pitch">Real business results from local companies, creative directories, and operations built on ByteFlow's digital infrastructure.</p>
         </div>
@@ -214,7 +213,7 @@ const About = () => {
       <section className="featured-work container reveal">
         <div className="section-center-header">
           <span className="badge">Selected Projects</span>
-          <h2>Recent work from our <span className="sig-font">project studio</span></h2>
+          <h2>Recent work from our <span className="sig">project studio</span></h2>
           <div className="accent-bar"></div>
           <p className="framework-pitch">These cases highlight how we turn digital ideas into clear business value for Rwandan companies.</p>
         </div>
