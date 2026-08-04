@@ -1,366 +1,338 @@
+/* ==========================================
+   BYTEFLOW PREMIUM MINIMALIST NAVBAR STYLES
+   ========================================== */
+
 :root {
   --primary-color: #006400;
   --primary-contrast: #ffffff;
   --nav-bg: rgba(255, 255, 255, 0.96);
-  --nav-border: rgba(0, 0, 0, 0.08);
-  --nav-shadow: 0 24px 60px rgba(0, 0, 0, 0.08);
-  --font-signature: 'Dancing Script', cursive;
-  --transition: all 0.25s ease;
+  --nav-border: rgba(0, 0, 0, 0.06);
+  --nav-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+  --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .navbar-elite {
   position: fixed;
-  inset: 0 auto auto 0;
+  top: 0;
+  left: 0;
   width: 100%;
-  z-index: 2000;
+  height: 76px;
   background: var(--nav-bg);
-  backdrop-filter: blur(18px);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--nav-border);
-  box-shadow: var(--nav-shadow);
+  display: flex;
+  align-items: center;
+  z-index: 99999;
+  box-sizing: border-box;
 }
 
 .nav-container {
-  width: min(1200px, 94%);
+  width: 100%;
+  max-width: 1200px;
   margin: 0 auto;
+  padding: 0 24px;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  gap: 1rem;
-  min-height: 90px;
-  padding: 0 18px;
+  align-items: center;
+  box-sizing: border-box;
+  position: relative;
 }
 
+/* 1. BRAND LOGO & TITLE */
 .nav-brand {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
   text-decoration: none;
-  color: #111111;
+  z-index: 100001;
 }
 
 .nav-brand-logo {
-  width: 54px;
-  height: 54px;
-  border-radius: 14px;
-  object-fit: cover;
-  border: 2px solid var(--primary-color);
+  width: 44px;
+  height: 44px;
+  border-radius: 50% !important;
+  object-fit: cover !important;
+  aspect-ratio: 1 / 1 !important;
+  flex-shrink: 0;
 }
 
 .brand-copy {
-  display: grid;
-  gap: 2px;
+  display: flex;
+  flex-direction: column;
 }
 
 .brand-title {
-  font-family: var(--font-signature);
-  font-size: 1.45rem;
-  font-weight: 700;
-  color: #111111;
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
 }
 
-.brand-title .accent,
-.accent {
+.brand-title .accent {
   color: var(--primary-color);
 }
 
 .brand-subtitle {
-  font-size: 0.82rem;
-  color: #475569;
+  font-size: 10px;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+  margin-top: 2px;
 }
 
+/* 2. DESKTOP NAVIGATION MENU */
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 30px;
-  flex-wrap: nowrap;
-  justify-content: flex-end;
-  margin-left: auto;
-  min-width: 0;
-  transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-.nav-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  color: #334155;
-  text-decoration: none;
-  font-size: 1rem;
-  font-weight: 600;
-  white-space: nowrap;
-  transition: color 0.25s ease, transform 0.25s ease;
-  padding: 10px 18px;
-  border-radius: 16px;
-}
-
-.nav-link:hover,
-.nav-link:focus-visible {
-  background: rgba(0, 100, 0, 0.08);
-}
-
-.nav-link svg {
-  color: var(--primary-color);
-  min-width: 18px;
-  min-height: 18px;
-}
-
-.nav-link-main {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.nav-link-arrow {
-  color: #94a3b8;
-  display: none;
+  gap: 4px;
 }
 
 .nav-panel-header {
   display: none;
 }
 
-.nav-close {
-  display: none;
+.nav-link {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  padding: 8px 16px;
+  border-radius: 8px;
+  transition: var(--transition);
 }
 
-/* Hide mobile-only elements by default (desktop/tablet) */
-.nav-link-sub {
-  display: none;
-}
-
-.nav-link svg {
-  color: var(--primary-color);
-}
-
-.nav-link:hover,
-.nav-link:focus-visible {
-  color: var(--primary-color);
-  transform: translateY(-1px);
-}
-
-.nav-link-cta {
-  display: none;
-}
-
-.nav-cta {
-  display: inline-flex;
+.nav-link-main {
+  display: flex;
   align-items: center;
-  justify-content: center;
+  gap: 8px;
+  color: #334155;
+  font-weight: 600;
+  font-size: 14.5px;
+}
+
+.nav-link-main svg {
+  color: #94a3b8;
+  transition: var(--transition);
+}
+
+.nav-link-sub,
+.nav-link-arrow {
+  display: none;
+}
+
+.nav-link:hover .nav-link-main {
+  color: var(--primary-color);
+}
+
+.nav-link:hover .nav-link-main svg {
+  color: var(--primary-color);
+}
+
+/* 3. DESKTOP CALL-TO-ACTION (CTA) */
+.nav-cta {
   background: var(--primary-color);
   color: var(--primary-contrast);
-  padding: 12px 24px;
-  border-radius: 999px;
-  font-weight: 700;
-  letter-spacing: 0.02em;
   text-decoration: none;
-  transition: background 0.25s ease, transform 0.25s ease;
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 14px;
+  box-shadow: 0 4px 14px rgba(0, 100, 0, 0.15);
+  transition: var(--transition);
 }
 
-.nav-cta:hover,
-.nav-link-cta:hover {
-  background: #004c00;
+.nav-cta:hover {
+  background: #004d00;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(0, 100, 0, 0.25);
 }
 
-.nav-backdrop {
-  position: fixed;
-  inset: 0;
-  background: rgba(15, 23, 42, 0.45);
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
-  z-index: 1998;
-  pointer-events: none;
-}
-
-.nav-backdrop.active {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-}
-
-body.menu-open {
-  overflow: hidden;
+.desktop-only {
+  display: block;
 }
 
 .mobile-toggle {
   display: none;
-  width: 48px;
-  height: 48px;
-  border: none;
-  border-radius: 50%;
-  background: rgba(0, 100, 0, 0.1);
-  color: var(--primary-color);
-  cursor: pointer;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.25s ease;
 }
 
-.mobile-toggle:hover {
-  background: rgba(0, 100, 0, 0.18);
-}
-
-@media (max-width: 1024px) {
-  .nav-links {
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: min(88vw, 320px);
-    height: 100vh;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 22px;
-    padding: 92px 22px 40px;
-    background: #ffffff;
-    box-shadow: -8px 0 34px rgba(15, 23, 42, 0.12);
-    transform: translateX(100%);
-    transition: transform 0.3s ease;
-    z-index: 1999;
-    overflow-y: auto;
-    min-width: 260px;
-  }
-
-  .nav-panel-header {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 6px;
-    border-bottom: 1px solid #e2e8f0;
-    margin-bottom: 16px;
-  }
-
-  .nav-panel-title {
-    font-size: 1.05rem;
-    font-weight: 800;
-    color: #0f172a;
-  }
-
-  .nav-close {
-    border: none;
-    background: transparent;
-    color: #374151;
-    cursor: pointer;
-    padding: 8px;
-    border-radius: 999px;
-    transition: background 0.2s ease;
-    display: none;
-  }
-
-  .nav-close:hover {
-    background: rgba(15, 23, 42, 0.06);
-  }
-
-  .nav-links.active {
-    transform: translateX(0);
-  }
-
-  .nav-link {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 12px 18px;
-    border-radius: 12px;
-    background: transparent;
-    color: #0f172a;
-    width: 100%;
-    margin: 0;
-    gap: 6px;
-  }
-
-  .nav-link-title {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-  }
-
-  .nav-link-sub {
-    display: none;
-  }
-
-  .nav-link-main {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    justify-content: center;
-    font-size: 1.05rem;
-    font-weight: 700;
-  }
-
-  .nav-link-sub {
-    font-size: 0.85rem;
-    color: #64748b;
-    opacity: 0.95;
-    line-height: 1.1;
-    display: none;
-  }
-
-  .nav-link:hover,
-  .nav-link:focus-visible {
-    background: rgba(0, 100, 0, 0.04);
-    color: var(--primary-color);
-    transform: none;
-  }
-
-  .nav-link-cta {
-    display: inline-flex;
-    background: var(--primary-color);
-    color: #ffffff;
-    justify-content: center;
-    width: 90%;
-    padding: 12px 16px;
-    border-radius: 12px;
-  }
-
-  .nav-cta {
+/* =======================================================
+   📱 PREMIUM MOBILE MENU SIDE PANEL OVERHAUL 
+   ======================================================= */
+@media (max-width: 992px) {
+  .desktop-only {
     display: none;
   }
 
   .mobile-toggle {
-    display: inline-flex;
-  }
-}
-
-@media (max-width: 640px) {
-  .nav-container {
-    width: 100%;
-    min-height: 72px;
-    gap: 0.75rem;
-    padding: 0 14px;
-  }
-
-  .brand-copy {
-    gap: 0;
-  }
-
-  .brand-title {
-    font-size: 1.18rem;
-  }
-
-  .brand-subtitle {
-    font-size: 0.8rem;
-  }
-
-  .nav-link {
-    font-size: 0.98rem;
-  }
-  .nav-link-sub {
-    display: block;
-  }
-  .nav-link-title {
-    display: inline-flex;
+    display: flex;
     align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    color: #0f172a;
+    cursor: pointer;
+    padding: 8px;
+    z-index: 100001;
+    transition: var(--transition);
   }
-  .nav-link-arrow {
-    display: inline-block;
+
+  /* 🎯 INTERVENTION: Hides the main burger button completely when menu is open */
+  .menu-open .mobile-toggle {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
   }
+
+  /* DARK BACKDROP */
+  .nav-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(15, 23, 42, 0.3);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    opacity: 0;
+    visibility: hidden;
+    z-index: 99999;
+    transition: var(--transition);
+  }
+
+  .nav-backdrop.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* MODERN CLEAN MOBILE PANEL */
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 300px;
+    max-width: 85%;
+    height: 100vh;
+    background: #ffffff;
+    box-shadow: var(--nav-shadow);
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    padding: 32px 24px;
+    gap: 8px;
+    z-index: 100002; /* Isunze inyuma ya buri kintu cyose n'inyuma ya logo */
+    transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    box-sizing: border-box;
+    overflow-y: auto;
+  }
+
+  .nav-links.active {
+    right: 0;
+  }
+
+  /* PANEL HEADER */
   .nav-panel-header {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 24px;
+    margin-bottom: 16px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   }
+
+  .nav-panel-title {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: #0f172a;
+    letter-spacing: -0.02em;
+  }
+
   .nav-close {
-    display: inline-flex;
+    background: #f1f5f9;
+    border: none;
+    padding: 8px;
+    border-radius: 50%;
+    color: #64748b;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+  }
+
+  .nav-close:hover {
+    background: #fee2e2;
+    color: #ef4444;
+  }
+
+  /* PREMIUM BORDERLESS MOBILE LINKS */
+  .nav-link {
+    padding: 12px 14px;
+    background: none;
+    border: none;
+    border-radius: 8px;
+    gap: 2px;
+  }
+
+  .nav-link-main {
+    justify-content: flex-start;
+    width: 100%;
+    font-size: 16px;
+    font-weight: 600;
+    color: #1e293b;
+  }
+
+  .nav-link-main svg {
+    color: var(--primary-color);
+    width: 18px;
+    height: 18px;
+  }
+
+  .nav-link-title {
+    flex-grow: 1;
+  }
+
+  .nav-link-arrow {
+    display: block;
+    color: #cbd5e1;
+    transition: var(--transition);
+  }
+
+  .nav-link-sub {
+    display: block;
+    font-size: 12px;
+    color: #64748b;
+    padding-left: 26px;
+    font-weight: 400;
+  }
+
+  .nav-link:hover {
+    background: rgba(0, 100, 0, 0.04);
+  }
+
+  .nav-link:hover .nav-link-arrow {
+    transform: translateX(4px);
+    color: var(--primary-color);
+  }
+
+  /* PREMIUM MOBILE CTA LINK */
+  .nav-link-cta {
+    background: var(--primary-color) !important;
+    border-radius: 8px;
+    margin-top: 24px;
+    padding: 14px;
+    box-shadow: 0 4px 12px rgba(0, 100, 0, 0.15);
+  }
+
+  .nav-link-cta .nav-link-main,
+  .nav-link-cta .nav-link-main svg,
+  .nav-link-cta .nav-link-arrow {
+    color: var(--primary-contrast) !important;
+  }
+
+  .nav-link-cta .nav-link-sub {
+    color: rgba(255, 255, 255, 0.75) !important;
   }
 }

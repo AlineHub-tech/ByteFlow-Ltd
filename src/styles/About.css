@@ -4,10 +4,10 @@
 :root {
   --primary-green: #006400;
   --light-green-bg: rgba(0, 100, 0, 0.04);
-  --dark-charcoal: #111111;
+ --dark-charcoal: #000000;
   --body-muted: #555555;
   --bg-pure-white: #ffffff;
-  --font-sig: 'Dancing Script', cursive;
+  --font-sig:'Inter', sans-serif;
   --transition-smooth: all 0.3s ease;
   --border-color: #e2e8f0;
 }
@@ -45,25 +45,11 @@ html, body {
   padding: 0;
 }
 
-.badge {
-  display: inline-block;
-  background: var(--light-green-bg);
+.sig {
+  font-family:'Inter', sans-serif;
   color: var(--primary-green);
-  padding: 6px 14px;
-  border-radius: 50px;
-  font-weight: 700;
-  font-size: 0.72rem;
-  text-transform: uppercase;
-  letter-spacing: 0.8px;
-  margin-bottom: 16px;
-  border: 1px solid rgba(0, 100, 0, 0.1);
-}
-
-.sig-font {
-  font-family: var(--font-sig);
-  color: var(--primary-green);
-  font-size: 1.25em;
-  font-weight: normal;
+  font-size: 1.15em;
+  font-weight:bold;
 }
 
 .accent-bar {
@@ -103,9 +89,9 @@ html, body {
 }
 
 .service-highlight-card {
-  background: var(--bg-pure-white);
+  /* background: var(--bg-pure-white);
   border: 1px solid var(--border-color);
-  border-radius: 24px;
+  border-radius: 24px; */
   padding: 32px;
   box-shadow: 0 24px 45px rgba(15, 23, 42, 0.06);
 }
@@ -137,9 +123,9 @@ html, body {
 }
 
 .about-cta-card {
-  background: #f7fff6;
+  /* background: #f7fff6;
   border: 1px solid rgba(16, 185, 129, 0.18);
-  border-radius: 28px;
+  border-radius: 28px; */
   padding: 36px;
   display: flex;
   align-items: center;
@@ -179,14 +165,9 @@ html, body {
    --- 1. HERO SECTION (DARK CANVASS MATCHING NEXVENTURES GLOW) ---
    ========================================================================== */
 .about-hero {
-  background: 
-    radial-gradient(circle at 80% 20%, rgba(34, 197, 94, 0.07) 0%, transparent 50%),
-    radial-gradient(circle at 15% 80%, rgba(0, 100, 0, 0.12) 0%, transparent 60%),
-    #070a13; 
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  padding: 160px 0 80px 0;
+background: linear-gradient(180deg, rgb(0, 0, 0) 0%, rgba(0, 49, 17, 0.925) 280%);
+
+  padding: 105px 0 70px 0;
   text-align: left;
   width: 100%;
   position: relative;
@@ -194,7 +175,7 @@ html, body {
 
 /* Crisp technical vector line mesh backdrop */
 .about-hero::before {
-  content: '';
+   content: '';
   position: absolute;
   top: 0;
   left: 0;
@@ -215,8 +196,8 @@ html, body {
   z-index: 3;
 }
 
-.hero-inner-text h1 {
-  font-size: clamp(2.2rem, 5vw, 3.5rem);
+.hero-inner-text h2 {
+  font-size: clamp(1.2rem, 4vw, 2.5rem);
   font-weight: 800;
   line-height: 1.15;
   color: #ffffff;
@@ -247,9 +228,9 @@ html, body {
 }
 
 .pillar-card {
-  background: var(--bg-pure-white);
+  /* background: var(--bg-pure-white);
   border: 1px solid var(--border-color);
-  border-radius: 20px;
+  border-radius: 20px; */
   padding: 35px;
   width: 100%;
 }
@@ -281,9 +262,9 @@ html, body {
 }
 
 .philosophy-box {
-  background: var(--light-green-bg);
+  /* background: var(--light-green-bg);
   border-left: 4px solid var(--primary-green);
-  border-radius: 12px;
+  border-radius: 12px; */
   padding: 40px;
   text-align: left;
 }
@@ -310,9 +291,9 @@ html, body {
 }
 
 .audience-card {
-  background: var(--bg-pure-white);
+  /* background: var(--bg-pure-white);
   border: 1px solid var(--border-color);
-  border-radius: 16px;
+  border-radius: 16px; */
   padding: 30px;
 }
 
@@ -347,9 +328,9 @@ html, body {
 }
 
 .testimonial-card {
-  background: var(--bg-pure-white);
+  /* background: var(--bg-pure-white);
   border: 1px solid var(--border-color);
-  border-radius: 20px;
+  border-radius: 20px; */
   padding: 35px;
   display: flex;
   flex-direction: column;
@@ -399,54 +380,180 @@ html, body {
   font-size: 0.82rem;
   color: var(--body-muted);
 }
-
-/* ==========================================================================
-   --- 6. FEATURED CLIENT WORK ---
-   ========================================================================== */
-.featured-work {
-  padding: 80px 0;
+:root {
+  --primary-green: #006400;
 }
 
+.featured-work {
+  padding: 80px 20px;
+  background: #ffffff;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* 1. HEADER SECTION */
+.section-center-header {
+  text-align: center;
+  max-width: 100%;
+  width: 700px;
+  margin: 0 auto 50px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  box-sizing: border-box;
+}
+
+.section-center-header .badge {
+  background: #f0fdf4;
+  color: var(--primary-green);
+  border: 1px solid #bbf7d0;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.section-center-header h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.03em;
+  margin: 0;
+  line-height: 1.2;
+  max-width: 100%;
+}
+
+.section-center-header h2 .sig {
+  color: var(--primary-green);
+}
+
+.accent-bar {
+  width: 60px;
+  height: 4px;
+  background: var(--primary-green);
+  border-radius: 2px;
+  margin: 8px 0;
+}
+
+.framework-pitch {
+  font-size: 1.1rem;
+  color: #475569;
+  line-height: 1.6;
+  margin: 0;
+  max-width: 100%;
+}
+
+/* 2. GRID SYSTEM */
 .featured-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 32px;
-  margin-top: 40px;
   width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box;
 }
 
+/* 3. CARD DESIGN */
 .featured-card {
-  background: var(--bg-pure-white);
-  border: 1px solid var(--border-color);
-  border-radius: 20px;
+  background: #ffffff;
+  border-radius: 16px;
   overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.05);
+  border: 1px solid #e2e8f0;
   display: flex;
   flex-direction: column;
+  transition: all 0.3s ease;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
+.featured-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--primary-green);
+}
+
+/* 4. IMAGE */
 .featured-card img {
   width: 100%;
-  height: 220px;
+  max-width: 100%;
+  height: 240px;
   object-fit: cover;
+  box-sizing: border-box;
 }
 
+/* 5. COPY & TEXT PROTECTION */
 .featured-copy {
   padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
   flex-grow: 1;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  
+  /* Ibi birinda amagambo kurenga ecran ku mbaraga */
+  overflow: hidden;
+  word-wrap: break-word;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .featured-copy h4 {
-  font-size: 1.2rem;
+  font-size: 1.35rem;
   font-weight: 700;
-  margin: 0 0 10px 0;
-  color: var(--dark-charcoal);
+  color: var(--primary-green);
+  margin: 0;
+  max-width: 100%;
 }
 
 .featured-copy p {
-  font-size: 0.9rem;
-  color: var(--body-muted);
-  line-height: 1.55;
+  font-size: 14.5px;
+  color: #475569;
+  line-height: 1.6;
   margin: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* ==========================================
+   📱 MOBILE OPTIMIZATION
+   ========================================== */
+@media (max-width: 768px) {
+  .featured-work {
+    padding: 40px 12px;
+  }
+
+  .section-center-header h2 {
+    font-size: 1.8rem;
+  }
+
+  .featured-grid {
+    grid-template-columns: 1fr; /* Koloni imwe gusa */
+    gap: 20px;
+  }
+
+  .featured-card img {
+    height: 190px;
+  }
+
+  .featured-copy {
+    padding: 16px;
+  }
+
+  .featured-copy h4 {
+    font-size: 1.2rem;
+  }
+
+  .featured-copy p {
+    font-size: 14px;
+    line-height: 1.5;
+  }
 }
 
 /* ==========================================================================

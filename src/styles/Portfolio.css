@@ -23,24 +23,38 @@
   margin: 0 auto;
 }
 
-.sig-font {
-  font-family: var(--font-sig);
+.sig {
+  font-family:'Inter', sans-serif;
   color: var(--primary-green);
-  font-size: 1.25em;
+  font-size: 1.15em;
+  font-weight:bold;
 }
 
 /* --- HERO SECTION WITH IMAGE BACKGROUND --- */
-.portfolio-hero {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  padding: 150px 0 100px 0; /* Ongereye padding ngo tabs zicaye neza */
-  min-height: 55vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+.portfolio-hero{
+background: linear-gradient(180deg, rgb(0, 0, 0) 0%, rgba(0, 49, 17, 0.925) 280%);
+
+  padding: 90px 0 50px 0;
+  text-align: left;
   width: 100%;
+  position: relative;
+}
+
+/* Crisp technical vector line mesh backdrop */
+.portfolio-hero::before {
+   content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: center;
+  pointer-events: none;
+  z-index: 1;
 }
 
 .hero-overlay-content {
@@ -83,251 +97,169 @@
 
 /* hero CTA styles removed (restored to original design) */
 
-/* --- TABS FILTERS SYSTEM (KOSOYE: Inside Image Layer) --- */
-.portfolio-filters {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  flex-wrap: wrap;
-  width: 100%;
-}
 
-.portfolio-filters button {
-  background: rgba(255, 255, 255, 0.1); /* Transparent glass look */
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: #ffffff;
-  padding: 10px 22px;
-  border-radius: 50px;
-  font-weight: 600;
-  font-size: 0.88rem;
-  cursor: pointer;
-  transition: var(--transition-smooth);
-}
-
-.portfolio-filters button:hover {
-  background: rgba(255, 255, 255, 0.2);
-  border-color: #ffffff;
-}
-
-.portfolio-filters button.active {
-  background: var(--primary-green);
-  border-color: var(--primary-green);
-  color: white;
-  box-shadow: 0 8px 20px rgba(0, 100, 0, 0.3);
-}
-
-/* --- CARDS GRID (Visible Borders & Big Gap) --- */
-.portfolio-grid {
-  margin-top: 60px; /* Gap nini hagati ya Hero Image na Grid */
-  margin-bottom: 100px;
-}
-
+/* GRID LAYOUT FOR CARDS */
 .grid-layout {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 30px;
+  gap: 24px;
+  width: 100%;
 }
 
+/* CARD SYSTEM */
 .project-card {
-  background: var(--bg-pure-white);
-  border-radius: 20px;
-  border: 1.5px solid #e2e8f0; /* Borders zigaragara neza */
+  background: #ffffff;
+  border-radius: 14px;
   overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  border: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* IMAGE FIXES FOR MOBILE & DESKTOP */
+.project-media {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* Ratio ya 16:9 ituma ifoto itanyerera cyangwa ngo ibe ndende cyane */
+  overflow: hidden;
+  background-color: #f1f5f9;
   cursor: pointer;
-  transition: var(--transition-smooth);
+}
+
+.project-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ituma ifoto itagoreka, ikwira neza neza */
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover .project-img {
+  transform: scale(1.04);
+}
+
+/* SHORT DESCRIPTION & READ MORE Button */
+.project-desc-short {
+  font-size: 14px;
+  color: #475569;
+  line-height: 1.5;
+  margin: 8px 0 4px 0;
+}
+
+.p-readmore-btn {
+  background: none;
+  border: none;
+  color: #2563eb;
+  font-weight: 600;
+  font-size: 13.5px;
+  padding: 0;
+  margin-bottom: 12px;
+  cursor: pointer;
+  text-decoration: underline;
+  text-align: left;
+  align-self: flex-start;
+}
+
+.p-readmore-btn:hover {
+  color: #1d4ed8;
+}
+
+/* TOOLS TAGS */
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 16px;
+  margin-top: auto; /* Isunika utubuto tujiye hasi ngo amakarita anganye uburebure */
+}
+
+.p-tag {
+  background: #f1f5f9;
+  color: #334155;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* MODAL FIXES FOR MOBILE OVERFLOW */
+.portfolio-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+  padding: 16px;
+}
+
+.portfolio-modal-content {
+  background: #ffffff;
+  width: 100%;
+  max-width: 680px;
+  max-height: 90vh;
+  border-radius: 16px;
+  overflow-y: auto;
+  position: relative;
   display: flex;
   flex-direction: column;
 }
 
-.project-card:hover {
-  transform: translateY(-5px);
-  border-color: var(--primary-green);
-  box-shadow: 0 12px 25px rgba(0, 100, 0, 0.04);
-}
-
-.project-media {
-  position: relative;
-  height: 200px;
+.modal-media-box {
   width: 100%;
+  position: relative;
+  padding-top: 52%;
   background: #f8fafc;
-  overflow: hidden;
-  border-bottom: 1.5px solid #e2e8f0;
 }
 
-.project-img {
+.modal-img {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.project-overlay-icon {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  background: var(--bg-pure-white);
-  color: var(--primary-green);
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-  border: 1px solid #e2e8f0;
+.modal-info {
+  padding: 24px;
 }
 
-.project-details {
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
+.modal-full-desc {
+  font-size: 15px;
+  color: #334155;
+  line-height: 1.6;
+  margin: 12px 0 20px 0;
 }
 
-.p-category {
-  font-size: 0.7rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: var(--primary-green);
-  letter-spacing: 0.5px;
-  margin-bottom: 6px;
+/* KURI MOBILE SCREENS MATOYA */
+@media (max-width: 576px) {
+  .grid-layout {
+    grid-template-columns: 1fr; /* Koloni imwe kuri mobile */
+    gap: 16px;
+  }
+
+  .portfolio-modal-content {
+    max-height: 95vh;
+  }
+
+  .modal-info {
+    padding: 16px;
+  }
+  
+  .project-card {
+    border-radius: 12px;
+  }
 }
-
-.project-details h3 {
-  font-size: 1.15rem;
-  font-weight: 700;
-  margin-bottom: 8px;
-  color: var(--dark-charcoal);
-}
-
-.project-details p {
-  font-size: 0.88rem;
-  color: var(--body-muted);
-  line-height: 1.5;
-  margin-bottom: 15px;
-}
-
-.project-tags {
-  display: flex;
-  gap: 6px;
-  flex-wrap: wrap;
-  margin-bottom: 15px;
-  margin-top: auto;
-}
-
-.p-tag {
-  background: #f1f5f9;
-  color: #475569;
-  padding: 3px 10px;
-  border-radius: 6px;
-  font-size: 0.75rem;
-  font-weight: 600;
-}
-
-.project-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  color: var(--primary-green);
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 0.88rem;
-  transition: var(--transition-smooth);
-  width: max-content;
-}
-
-.project-link:hover {
-  gap: 8px;
-}
-
-.project-meta-item {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  margin-bottom: 18px;
-}
-
-.project-meta-item span {
-  font-size: 0.78rem;
-  color: #6b7280;
-  letter-spacing: 0.5px;
-}
-
-.project-meta-item strong {
-  color: var(--dark-charcoal);
-  font-size: 0.95rem;
-  line-height: 1.4;
-}
-
-/* --- LIGHTBOX MODAL --- */
-.portfolio-modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  background: rgba(15, 23, 42, 0.3);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 3000;
-  padding: 20px;
-}
-
-.portfolio-modal-content {
-  background: var(--bg-pure-white);
-  width: 100%;
-  max-width: 600px;
-  border-radius: 24px;
-  overflow: hidden;
-  position: relative;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-  border: 1px solid #e2e8f0;
-}
-
-.close-modal-btn {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  background: var(--bg-pure-white);
-  border: 1px solid #e2e8f0;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  z-index: 15;
-}
-
-.modal-media-box { width: 100%; height: 240px; }
-.modal-img { width: 100%; height: 100%; object-fit: cover; }
-.modal-info { padding: 25px; }
-.modal-info h2 { font-size: 1.5rem; font-weight: 800; margin-bottom: 10px; }
-.modal-info p { color: var(--body-muted); font-size: 0.92rem; line-height: 1.5; margin-bottom: 20px; }
-.modal-meta { border-top: 1px solid #e2e8f0; padding-top: 15px; margin-bottom: 20px; }
-
-.btn-main-modal {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  background: var(--primary-green);
-  color: white;
-  text-decoration: none;
-  padding: 12px 24px;
-  border-radius: 50px;
-  font-weight: 600;
-  font-size: 0.95rem;
-  text-align: center;
-  transition: var(--transition-smooth);
-}
-
-.btn-main-modal:hover { background: #004d00; }
 
 /* --- RESPONSIVE --- */
 @media (max-width: 768px) {

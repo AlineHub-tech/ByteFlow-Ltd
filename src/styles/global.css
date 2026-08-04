@@ -10,7 +10,7 @@
   --body-muted: #555555;
   --bg-pure-white: #ffffff;
   --border-color: #e2e8f0;
-  --font-sig: 'Dancing Script', cursive;
+  /* --font-sig: 'Dancing Script', cursive; */
   --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
