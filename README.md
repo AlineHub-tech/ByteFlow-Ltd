@@ -1,57 +1,110 @@
-<img width="480" height="136" alt="IMG_20260430_160359" src="https://github.com/user-attachments/assets/28795b21-52b9-4229-a86b-6a4d34cad8d6" />
+# ByteFlow Ltd
 
-# 🚀 ByteFlow Ltd - Engineering Digital Success
----
-## 📸 Screenshots
-<img width="1351" height="634" alt="Screenshot 2026-05-13 215425" src="https://github.com/user-attachments/assets/4e677a20-3358-4e5e-868f-e53f4ebb63ed" />
-<img width="1352" height="626" alt="Screenshot 2026-05-13 215358" src="https://github.com/user-attachments/assets/6fad2905-4f3c-457c-8ad4-a6fab4d6890f" />
-<img width="1333" height="638" alt="Screenshot 2026-05-13 215332" src="https://github.com/user-attachments/assets/e8154c76-4265-4c3c-a691-56df1892f3ea" />
-<img width="1349" height="634" alt="Screenshot 2026-05-13 215244" src="https://github.com/user-attachments/assets/fc0e9158-205d-49a5-abcc-cc9213ba6731" />
+**Engineering Digital Success.**
 
----
+ByteFlow Ltd is a creative and technology company based in Kigali, Rwanda. We help businesses and individuals bring ideas to life through graphic design, branding, web development, photography, and videography.
 
-## 🌐 Live Demo
+The ByteFlow website introduces the company, explains its services, showcases selected projects and video reels, shares practical digital insights, and makes it easy for prospective clients to start a conversation.
 
-Check out the live website here: https://byte-flow-ltd.vercel.app/**
+**Live website:** [byte-flow-ltd.vercel.app](https://byte-flow-ltd.vercel.app/)  
+**GitHub repository:** [AlineHub-tech/ByteFlow-Ltd](https://github.com/AlineHub-tech/ByteFlow-Ltd)
 
 ---
 
-## 🛠️ How it Works (The Tech Stack)
+## What the website includes
 
-ByteFlow is built using the **MERN Ecosystem** and modern creative tools to ensure high performance and scalability:
+- **Home** — introduces ByteFlow, its creative and technology services, selected reels, and project inquiry links.
+- **Services** — explains graphic design and branding, web development, photography and videography, and digital creative solutions.
+- **Our work** — presents selected project examples and seven video reels. Reels play directly on the website, with a link to ByteFlow on Instagram.
+- **Our team** — introduces the people and roles behind ByteFlow.
+- **About** — shares the company story, mission, vision, and values.
+- **Insights** — publishes articles about websites, branding, SEO, media, and related digital topics.
+- **Contact** — provides project inquiry fields, email contact, social links, and a WhatsApp conversation option.
+- **Mobile navigation and quick help** — provides a responsive navigation drawer and a floating ByteFlow contact panel.
 
-*   **Frontend:** [React.js](https://react.dev) & [Vite](https://vitejs.dev) - For a lightning-fast User Interface.
-*   **Backend:** [Node.js](https://nodejs.org) & [Express](https://expressjs.com) - Powering robust server-side logic.
-*   **Database:** [MongoDB](https://www.mongodb.com) - A flexible, NoSQL database for secure data management.
-*   **Animations:** [Framer Motion](https://www.framer.com) - Delivering smooth, cinematic transitions.
-*   **Styling:** Modern CSS3 with **Luxury Dark-Green Aesthetic** and Glassmorphism effects.
-*   **Deployment:** [Vercel](https://vercel.com) - Global edge hosting for maximum speed.
+## The team
 
----
+| Name | Role |
+| --- | --- |
+| Umugwaneza Aline | Founder & Graphic Designer |
+| Mutijima Yves | Creative Social Media Manager |
+| Mugisha Blaise | Lead Developer |
+| Kwitonda Price | Business Development |
 
-## ✨ Key Features
-- **Cinematic Slogan Slider:** A professional vertical animation for brand messaging.
-- **Interactive Portfolio:** Filterable projects showcasing Web Dev, Design, and Content.
-- **Bento Curiosity Grid:** Modern layout to keep users engaged and scrolling.
-- **Full Responsiveness:** Perfectly optimized for Mobile, Tablet, and Desktop.
-- **SEO Ready:** Engineered for top-tier Google search visibility.
+## Design and experience
 
----
+The site uses ByteFlow’s established green brand identity with a clean, editorial layout, responsive navigation, real project imagery, compact reel previews, subtle card interactions, and accessible motion preferences. The layout adapts to desktop, tablet, and mobile screens.
 
-## 📂 Project Structure
+## Technology
+
+- [React](https://react.dev/) and [React Router](https://reactrouter.com/) for the interface and page navigation
+- [Vite](https://vite.dev/) for local development and production builds
+- [Lucide React](https://lucide.dev/) for interface icons
+- Native CSS for page layouts, responsive styling, and animations
+- [EmailJS](https://www.emailjs.com/) for contact form email delivery
+- Local image and MP4 assets for team portraits, project examples, and reels
+
+## Run locally
+
+### Requirements
+
+- Node.js (LTS recommended)
+- npm
+
+### Install and start
+
+```bash
+git clone https://github.com/AlineHub-tech/ByteFlow-Ltd.git
+cd ByteFlow-Ltd
+npm install
+npm run dev
+```
+
+Open the local URL printed by Vite, usually `http://localhost:5173`.
+
+### Quality checks
+
+```bash
+npm run lint
+npm run build
+npm run preview
+```
+
+The production build is written to `dist/`.
+
+## Project structure
+
 ```text
-├── public/           # Static assets (Favicon, logo.jpg)
-├── src/
-│   ├── assets/       # Brand images & Founder photo
-│   ├── components/   # Navbar, Footer, Reusable UI
-│   ├── pages/        # Home, About, Services, Contact, Portfolio
-│   └── styles/       # Professional CSS & Animations
-└── index.html        # Main Entry Point
+src/
+├── assets/       # Logo, team portraits, project images, and video reels
+├── components/   # Navbar, footer, and floating quick-help actions
+├── data/         # Blog article content
+├── pages/        # Home, services, portfolio, team, about, blog, and contact pages
+└── styles/       # Shared design system and page/component styles
+```
 
-📩 Get In Touch
-Founder: Umugwaneza Aline
-Email: umugwanezaaline77@gmail.com
-WhatsApp: +250 796 023 452
-LinkedIn: ByteFlow Ltd
+## Updating content
 
-© 2026 ByteFlow Ltd. Made with ❤️ in Kigali, Rwanda.
+- **Team profiles:** update the member details and image imports in `src/pages/Team.jsx`.
+- **Services:** update the service descriptions and included offerings in `src/pages/Services.jsx`.
+- **Project gallery and reels:** update the project and reel lists in `src/pages/Portfolio.jsx`. Add image or video files to `src/assets/` and import them in that file. Reel captions currently identify the clips by number rather than describing specific video contents.
+- **Homepage reel previews:** update the selected reel list in `src/pages/Home.jsx`.
+- **Blog articles:** update the article data in `src/data/blogData.jsx`.
+- **Contact details and social accounts:** update the relevant links in `src/components/Footer.jsx`, `src/components/FloatingActions.jsx`, and `src/pages/Contact.jsx`.
+
+## Portfolio management note
+
+The portfolio is currently maintained as content in the React application; there is no admin dashboard, CMS, or database-backed upload system yet. Adding or removing work requires updating the project or reel list and deploying the site. A CMS can be integrated separately if direct content management is needed.
+
+## Contact ByteFlow
+
+- **Email:** [byteflowltd9@gmail.com](mailto:byteflowltd9@gmail.com)
+- **WhatsApp:** [+250 796 023 452](https://wa.me/250796023452)
+- **Location:** Kigali, Rwanda
+- **Instagram:** [@byteflow_ltd](https://www.instagram.com/byteflow_ltd)
+- **Facebook:** [ByteFlow Ltd](https://www.facebook.com/profile.php?id=61588130300960)
+- **LinkedIn:** [A Better-T Solutions](https://www.linkedin.com/company/a-better-t-solutions/)
+
+---
+
+© ByteFlow Ltd. Creative design. Powerful technology. Meaningful experiences.
