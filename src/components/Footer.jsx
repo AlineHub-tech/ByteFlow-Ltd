@@ -1,110 +1,61 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { Facebook, Instagram, Github, Linkedin, Mail, Phone, MapPin, Send, ChevronRight } from 'lucide-react';
+import { ArrowUpRight, Facebook, Instagram, Linkedin, Mail, MapPin, Phone } from 'lucide-react';
 import LogoImg from '../assets/logo.jpg';
 import '../styles/Footer.css';
 
 const Footer = () => {
-  const currentYear = new Date().getFullYear();
+  const year = new Date().getFullYear();
   const whatsappNumber = '250796023452';
 
-  const [email, setEmail] = useState('');
-  const [status, setStatus] = useState('');
-
-  const handleSubscribe = (e) => {
-    e.preventDefault();
-    setStatus('Sending...');
-
-    setTimeout(() => {
-      setStatus('Success! Check your inbox.');
-      setEmail('');
-    }, 1500);
-  };
-
   return (
-    <footer className="footer-modern">
-      <div className="container footer-top">
-        <div className="footer-brand">
-          <Link to="/" className="footer-logo">
-            <img src={LogoImg} alt="ByteFlow Logo" className="footer-brand-logo" />
-            <div>
-              <span className="footer-brand-title">ByteFlow <span className="accent">Ltd</span></span>
-              <p className="footer-brand-text">Digital engineering and business growth for modern teams.</p>
+    <footer className="site-footer">
+      <div className="container">
+        <div className="footer-cta">
+          <div>
+            <span className="eyebrow footer-eyebrow">Have a project in mind?</span>
+            <h2>Let&apos;s make something meaningful.</h2>
+            <p>Tell us what you&apos;re building. We&apos;ll help you find the right next step.</p>
+          </div>
+          <Link to="/contact" className="footer-cta-link">Talk to our team <ArrowUpRight size={17} /></Link>
+        </div>
+
+        <div className="footer-main">
+          <div className="footer-brand-block">
+            <Link to="/" className="footer-brand" aria-label="ByteFlow Ltd home">
+              <img src={LogoImg} alt="" className="footer-brand-mark" />
+              <span><strong>ByteFlow Ltd</strong><small>Engineering Digital Success.</small></span>
+            </Link>
+            <p>Creative design, thoughtful technology, and visual storytelling for brands ready to move forward.</p>
+            <div className="footer-socials" aria-label="Social media">
+              <a href="https://www.instagram.com/byteflow_ltd" target="_blank" rel="noreferrer" aria-label="Instagram"><Instagram size={18} /></a>
+              <a href="https://www.facebook.com/profile.php?id=61588130300960" target="_blank" rel="noreferrer" aria-label="Facebook"><Facebook size={18} /></a>
+              <a href="https://www.linkedin.com/company/a-better-t-solutions/" target="_blank" rel="noreferrer" aria-label="LinkedIn"><Linkedin size={18} /></a>
             </div>
-          </Link>
+          </div>
 
-          <div className="footer-social">
-            <a href="https://www.facebook.com/profile.php?id=61588130300960" target="_blank" rel="noreferrer" aria-label="Facebook">
-              <Facebook size={18} />
-            </a>
-            <a href="https://www.instagram.com/byteflow_ltd" target="_blank" rel="noreferrer" aria-label="Instagram">
-              <Instagram size={18} />
-            </a>
-            <a href="https://github.com/AlineHub-tech" target="_blank" rel="noreferrer" aria-label="Github">
-              <Github size={18} />
-            </a>
-            <a href="https://www.linkedin.com/company/a-better-t-solutions/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
-              <Linkedin size={18} />
-            </a>
+          <div className="footer-column">
+            <h3>Explore</h3>
+            <Link to="/">Home</Link>
+            <Link to="/about">About ByteFlow</Link>
+            <Link to="/services">Services</Link>
+            <Link to="/portfolio">Our work</Link>
+            <Link to="/team">Our team</Link>
+            <Link to="/blog">Insights</Link>
+          </div>
+
+          <div className="footer-column footer-contact">
+            <h3>Get in touch</h3>
+            <a href="mailto:byteflowltd9@gmail.com"><Mail size={16} /> byteflowltd9@gmail.com</a>
+            <a href={`tel:+${whatsappNumber}`}><Phone size={16} /> +250 796 023 452</a>
+            <a href="https://wa.me/250796023452" target="_blank" rel="noreferrer"><ArrowUpRight size={16} /> WhatsApp us</a>
+            <span><MapPin size={16} /> Kigali, Rwanda</span>
           </div>
         </div>
 
-        <div className="footer-links-row">
-          <div className="footer-column">
-            <h4 className="footer-title">Explore</h4>
-            <ul className="footer-list">
-              <li><Link to="/"><ChevronRight size={14} /> Home</Link></li>
-              <li><Link to="/about"><ChevronRight size={14} /> About</Link></li>
-              <li><Link to="/services"><ChevronRight size={14} /> Services</Link></li>
-              <li><Link to="/portfolio"><ChevronRight size={14} /> Portfolio</Link></li>
-            </ul>
-          </div>
-
-          <div className="footer-column">
-            <h4 className="footer-title">Services</h4>
-            <ul className="footer-list">
-              <li><Link to="/services"><ChevronRight size={14} /> Web Development</Link></li>
-              <li><Link to="/services"><ChevronRight size={14} /> Brand Design</Link></li>
-              <li><Link to="/services"><ChevronRight size={14} /> Digital Marketing</Link></li>
-              <li><Link to="/services"><ChevronRight size={14} /> Support & Maintenance</Link></li>
-            </ul>
-          </div>
-
-          <div className="footer-column">
-            <h4 className="footer-title">Contact</h4>
-            <ul className="footer-contact-list">
-              <li><MapPin size={16} /> <span>Gasabo, Kigali, Rwanda</span></li>
-              <li><Phone size={16} /> <a href={`tel:+${whatsappNumber}`} aria-label="Call ByteFlow">+{whatsappNumber}</a></li>
-              <li><Mail size={16} /> <a href="mailto:byteflowltd9@gmail.com" aria-label="Email ByteFlow">byteflowltd9@gmail.com</a></li>
-            </ul>
-          </div>
-
-          <div className="footer-column">
-            <h4 className="footer-title">Newsletter</h4>
-            <p className="footer-note">Subscribe for updates on design, strategy, and new launches.</p>
-            <form className="footer-subscribe" onSubmit={handleSubscribe}>
-              <input
-                type="email"
-                placeholder="Your email address"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-              />
-              <button type="submit">
-                <Send size={16} />
-              </button>
-            </form>
-            {status && <p className="subscribe-status">{status}</p>}
-          </div>
-        </div>
-      </div>
-
-      <div className="footer-bottom">
-        <p className="footer-copy">© {currentYear} ByteFlow Ltd. All rights reserved.</p>
-        <div className="footer-legal-links">
-          <Link to="/privacy">Privacy Policy</Link>
-          <span className="footer-divider" />
-          <Link to="/terms">Terms of Service</Link>
+        <div className="footer-bottom">
+          <span>© {year} ByteFlow Ltd. All rights reserved.</span>
+          <span>Creative design. Powerful technology. Meaningful experiences.</span>
         </div>
       </div>
     </footer>
