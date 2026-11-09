@@ -1,10 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
 import { Globe, Search, Server, Camera, Smartphone, ArrowRight, Shield, Database, Cpu, Palette, Zap, Share2, Layers, Rocket, Lock, BarChart, Mail, BookOpen } from 'lucide-react';
 import { blogPosts } from '../data/blogData';
 import '../styles/Blog.css';
-import blog from '../assets/blog.webp'; // Faster WebP hero image
 
 const iconMap = {
   'Web Development': <Globe size={40} />,
@@ -32,19 +30,14 @@ const Blog = () => {
       {/* 1. HERO SECTION WITH REDUCED HEIGHT */}
       <header className="blog-hero-main" style={{}}>
         <div className="blog-limit container">
-          <motion.div 
-            className="hero-inner-text"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
+          <div className="hero-inner-text">
             <h1 className="blog-heading">
               Actionable digital insights for <span className="sign">Rwanda's growing businesses.</span>
             </h1>
             <p className="blog-desc">
               Practical articles on websites, branding, SEO, and media strategy for companies that want measurable results.
             </p>
-          </motion.div>
+          </div>
         </div>
       </header>
 
@@ -52,14 +45,9 @@ const Blog = () => {
       <section className="blog-list-section">
         <div className="blog-limit container">
           <div className="blog-grid-system">
-            <AnimatePresence>
-              {blogPosts.map((post, index) => (
-                <motion.article 
+            {blogPosts.map((post) => (
+                <article
                   key={post.id} 
-                  initial={{ opacity: 0, y: 30 }} 
-                  whileInView={{ opacity: 1, y: 0 }} 
-                  transition={{ delay: index * 0.02 }} 
-                  viewport={{ once: true }} 
                   className="blog-item-card"
                 >
                   <div className="blog-card-visual" style={{ backgroundColor: post.color }}>
@@ -75,9 +63,8 @@ const Blog = () => {
                       </Link>
                     </div>
                   </div>
-                </motion.article>
+                </article>
               ))}
-            </AnimatePresence>
           </div>
         </div>
       </section>

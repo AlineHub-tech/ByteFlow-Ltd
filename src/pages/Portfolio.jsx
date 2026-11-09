@@ -1,193 +1,115 @@
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { X, Code, Palette, Video, Share2, Globe, Server, Search, Camera, Zap, Award, ExternalLink, ShoppingCart } from 'lucide-react';
+import React, { useEffect, useState } from 'react';
+import { ExternalLink, Play, X } from 'lucide-react';
 import '../styles/Portfolio.css';
-import projectBackground from '../assets/project.webp';
-
-// IMPORT IMAGES
 import alineImg from '../assets/aline.png';
+import hubImg from '../assets/hub.png';
+import shipingImg from '../assets/shiping.png';
 import img1 from '../assets/img1.png';
-import img2 from '../assets/img2.png';
 import img3 from '../assets/img3.png';
 import img4 from '../assets/img4.png';
-import img7 from '../assets/img7.png';
-import img8 from '../assets/img8.png';
 import img9 from '../assets/img9.png';
 import abt1 from '../assets/abt1.png';
-import seo1 from '../assets/seo1.png';
-import seo2 from '../assets/seo2.png';
-import d1 from '../assets/d1.png';
-import d2 from '../assets/d2.png';
-import d3 from '../assets/d3.png';
-import host1 from '../assets/host1.png';
-import host2 from '../assets/host2.png';
-import ne1 from '../assets/ne1.png';
-import hubImg from '../assets/hub.png';
-import plusImg from '../assets/plus.png';
-import voiceImg from '../assets/voice.png';
-import shipingImg from '../assets/shiping.png';
+import reel1 from '../assets/reel1.mp4';
+import reel2 from '../assets/reel2.mp4';
+import reel3 from '../assets/reel3.mp4';
+import reel4 from '../assets/reel4.mp4';
+import reel5 from '../assets/reel5.mp4';
+import reel6 from '../assets/reel6.mp4';
+import reel7 from '../assets/reel7.mp4';
 
 const projects = [
-  { id: 0, title: "Aline Personal Portfolio", category: "Web Development", img: alineImg, desc: "A modern personal portfolio built with React, showing projects, skills, and achievements. It includes a clean UI, dynamic project fetching, and responsive design optimized for mobile and desktop users. Made to present professional work and experience clearly.", tools: ["React", "Framer Motion","css Vanilla "], icon: <Code size={16} />, liveLink: "https://aline-site-seven.vercel.app/" },
-  { id: 1, title: "ABT Hub", category: "Web Development", img: hubImg, desc: "ABT Hub is a modern platform for A Better Tomorrow Foundation Hub that helps members track financial operations and projects with full transparency. The main dashboard displays real-time data on total savings, fines, and weekly contribution statuses. It also provides a clear breakdown of financial allocations across outreach, investments, and operations, alongside the progress trackers for active community projects.", tools: ["React", "Node.js","MongoDB","Javascript","Express.js","css Vanilla"], icon: <Globe size={16} />, liveLink: "https://abt-hub-org.vercel.app/", outcome: "Improved client engagement with a fast, mobile-friendly services portal." },
-  { id: 2, title: "U & J Shop", category: "E-commerce", img: shipingImg, desc: "U & J Shop is a premium fashion e-commerce platform delivering elite boutique apparel, elegant dresses, curated matching sets, and luxury designer handbags. Optimized with a high-converting, single-tap WhatsApp checkout form, the platform ensures a seamless ordering experience paired with guaranteed, 100% free door-to-door delivery from our Muhanga hub straight to Kigali.", tools: ["React", "Stripe","Next.js","javascript","Firebase"], icon: <ShoppingCart size={16} />, liveLink: "https://uj-shipping-com.vercel.app/", outcome: "Turned browsers into buyers with a polished shopping experience." },
-  { id: 3, title: "Imena Move Kids", category: "Web Development", img: img2, desc: "Imena Moves is a dance management platform for Imena Moves Kidz featuring full member CRUD operations and daily attendance tracking. The public dashboard displays real-time analytics for total dancers, active collaborators, and daily presence. It features an automated broadcast system for instant administrative announcements, keeping families and partners connected via live MongoDB updates.", tools: ["Framer", "MongDB","React","Express.js","Node.js","Tailwind css"], icon: <Code size={16} />, liveLink: "https://imena-moves-kidz.vercel.app/" },
-  { id: 4, title: "Nexus News Network", category: "Web Development", img: img1, desc: "Nexus News Network is a modern digital news platform that delivers timely, high-quality content across major categories including politics, business, culture, sports, opinion, and community. It features multi-section news coverage, a responsive design for smooth browsing, and a robust admin dashboard providing full CRUD content management to control published articles and dynamic media updates.", tools: ["React", "Node.js & Express","MongoDB & Mongoose","JWT (JSON Web Tokens)","Cloudinary","Multer"], icon: <Code size={16} />, liveLink: "https://nexus-news-network.vercel.app/" },
-  { id: 5, title: "A Better Tomorrow Foundation", category: "Web Development", img: abt1, desc: "The A Better Tomorrow (ABT) Foundation web platform serves as a digital portal for the organization's mission to support vulnerable groups through mental health services and economic empowerment. It highlights the Hope Center project and includes an interactive portal for member registration. For more information", tools: ["React", "MySQL","css Vanilla","javascript"], icon: <Code size={16} />, liveLink: "https://a-better-tomorrow-foundation-org.vercel.app/" },
-  { id: 6, title: "Buy & Get", category: "Web Development", img: img4, desc: "Buy&Get is a modern full-stack e-commerce platform designed for online shopping. It allows users to browse products, shop by category, and access special offers. The platform features an advanced layout with multi-currency support, internationalization options, search capabilities, a comprehensive comparison system, and detailed customer product reviews", tools: ["Next.js", "Stripe API", "React", "Tailwind css"], icon: <Code size={16} />, liveLink: "https://buy-get-e-commerce.vercel.app/" },
-  { id: 7, title: "A Better-T Solution", category: "Web Development", img: img9, desc: "A Better Tech Solutions is a modern and premium digital agency website engineered to provide businesses and startups with top-tier technology and creative services. The platform features a responsive user experience highlighting core solutions like high-performance web development, digital infrastructure (cloud hosting and domain registration), and search engine optimization (SEO). It seamlessly connects clients to comprehensive multimedia branding services—such as professional graphic design, photography, and corporate videography—built to elevate brand identity and accelerate business growth", tools: ["Vite","React", "Tailwind CSS"], icon: <Code size={16} />, liveLink: "https://a-better-t-solutions.vercel.app/store" },
-  { id: 8, title: "Citizen Complaint", category: "Web Development", img: img3, desc: "The Citizen Complaints & Engagement System is a modern, responsive digital governance platform built to bridge the gap between citizens and authorities. It empowers users to submit and track community issues, suggestions, and feedback through an intuitive, accessible interface. Designed with built-in transparency, the system displays logged concerns in real time, enabling local administrators and service providers to track progress, prioritize community needs, and respond efficiently.This standalone architecture leverages localized storage mechanisms, making the system highly reliable, offline-friendly, and an ideal framework for rapid prototyping and minimum viable products (MVPs).", tools: ["React", "PostgreSQL"], icon: <Code size={16} />, liveLink: "https://citizen-complaint-six.vercel.app/" },
-  { id: 9, title: "IntabweFlow", category: "Web Development", img: host1, desc: "IntambweFlow is a productivity dashboard built with React and Vite. It helps users track daily tasks, manage finances (income/expenses), and log daily learning progress. It features a weekly progress tracker (%) using LocalStorage for data persistence and a clean, responsive UI with CSS Flexbox/Grid.", tools: ["TypeScript", "Node.js"], icon: <Server size={16} />, liveLink: "https://intambwe-flow-com.vercel.app/" },
-  { id: 10, title: "Voice Impowered", category: "Web Developmen", img: voiceImg, desc: "Empowered Voice is a premium spiritual growth platform and knowledge hub founded by author Ellen Luna. It is built to awaken potential, strengthen faith, and cultivate values rooted in the Word of God, the writings of great thinkers, and the study of history's greatest heroes. Designed to reach audiences across Rwanda and the world, Empowered Voice carries a clear mission to speak, to advocate, and to empower as many lives as possible through wisdom, faith, and truth.", tools: ["React", "Typescript", "Tailwind css"], icon: <Share2 size={16} />, liveLink: "#", outcome: "Positioned the brand as a modern media partner with strong online storytelling." },
-  { id: 11, title: "Personal Banking", category: "Web Development", img: img7, desc: "Personal Bank is a modern React web app for managing digital savings and transactions. Users can deposit, withdraw, check balances, and customize their profiles easily. Featuring dark/light mode, responsive design, and secure dashboard navigation Personal Bank offers a smart, smooth banking experience online.", tools: ["TypeScript", "Node.js"], icon: <Code size={16} />, liveLink: "#" },
-  { id: 12, title: "NovaPay System", category: "Web Development", img: ne1, desc: "NovaPay is a premier digital banking ecosystem designed for the modern Rwandan economy. institutional trust, it offers a seamless interface for automated goal-based savings, instant multi-bank transfers, and AI-driven wealth analytics. Experience military-grade security with a professional, edge-to-edge responsive design.", tools: ["React", "Node.js & Express","MongoDB & Mongoose","JWT (JSON Web Tokens)"], icon: <Share2 size={16} />, liveLink: "#" },
-  { id: 13, title: "Accountant System", category: "Web Development", img: img8, desc: "AccPro is a professional, high-density financial suite designed for modern Rwandan firms. Built for precision and speed, it automates payroll generation, RRA & RSSB tax compliance, and audit-ready reporting. With a secure, local-first architecture , it empowers accountants to lead with clarity.", tools: ["React", "MySQL"], icon: <Code size={16} />, liveLink: "https://vercel.app" },
-  { id: 14, title: "Plus", category: "Web Development", img: plusImg, desc: "DevPulse is an enterprise-grade agile project management dashboard built with React and strict TypeScript. Featuring a sleek, responsive Cyberpunk theme (Matte Black & Electric Purple), it delivers real-time sprint velocity metrics, repository tracking, and an interactive HTML5 drag-and-drop Kanban workspace with zero lag.", tools: ["Typescript", "React", "vanilla css"], icon: <Palette size={16} />, liveLink: "#", outcome: "Built trust and clarity for a growing service brand." },
- 
-  
+  { title: 'Aline Personal Portfolio', category: 'Web Development', image: alineImg, description: 'A personal portfolio website presenting Aline’s profile, experience, and creative work in a clear, responsive format.' },
+  { title: 'ABT Hub', category: 'Digital Platform', image: hubImg, description: 'A digital platform designed to bring the ABT Hub initiative, its information, and its services together online.' },
+  { title: 'U & J Shop', category: 'E-commerce', image: shipingImg, description: 'An online shop experience created to introduce products and give customers a simple path to enquire and order.' },
+  { title: 'Nexus News Network', category: 'Publishing', image: img1, description: 'A news and publishing website layout built to organize articles and make stories easy to discover.' },
+  { title: 'Citizen Complaint System', category: 'Web Application', image: img3, description: 'A web application interface for submitting and following up on citizen feedback and service concerns.' },
+  { title: 'A Better Tomorrow Foundation', category: 'Organization Website', image: abt1, description: 'A digital presence for a community-focused organization, with information about its mission and work.' },
+  { title: 'Buy & Get', category: 'E-commerce', image: img4, description: 'An online shopping experience focused on product discovery, clear offers, and accessible browsing.' },
+  { title: 'A Better-T Solutions', category: 'Business Website', image: img9, description: 'A business website presenting the company, its digital services, and ways for clients to get in touch.' }
+];
+
+const reels = [
+  { title: 'Reel 01', category: 'Video showcase', video: reel1, description: 'A short-form video from ByteFlow’s creative portfolio. Watch the full clip to see the featured work and visual direction.' },
+  { title: 'Reel 02', category: 'Video showcase', video: reel2, description: 'A short-form video from ByteFlow’s creative portfolio. Watch the full clip to see the featured work and visual direction.' },
+  { title: 'Reel 03', category: 'Video showcase', video: reel3, description: 'A short-form video from ByteFlow’s creative portfolio. Watch the full clip to see the featured work and visual direction.' },
+  { title: 'Reel 04', category: 'Video showcase', video: reel4, description: 'A short-form video from ByteFlow’s creative portfolio. Watch the full clip to see the featured work and visual direction.' },
+  { title: 'Reel 05', category: 'Video showcase', video: reel5, description: 'A short-form video from ByteFlow’s creative portfolio. Watch the full clip to see the featured work and visual direction.' },
+  { title: 'Reel 06', category: 'Video showcase', video: reel6, description: 'A short-form video from ByteFlow’s creative portfolio. Watch the full clip to see the featured work and visual direction.' },
+  { title: 'Reel 07', category: 'Video showcase', video: reel7, description: 'A short-form video from ByteFlow’s creative portfolio. Watch the full clip to see the featured work and visual direction.' }
 ];
 
 const Portfolio = () => {
-  const [filter, setFilter] = useState('All');
-  const [selectedProject, setSelectedProject] = useState(null);
+  const [activeProject, setActiveProject] = useState(null);
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    const closeOnEscape = (event) => {
+      if (event.key === 'Escape') setActiveProject(null);
+    };
+    window.addEventListener('keydown', closeOnEscape);
+    return () => window.removeEventListener('keydown', closeOnEscape);
   }, []);
-
-  const filteredProjects = filter === 'All' ? projects : projects.filter(p => p.category === filter);
 
   return (
     <div className="portfolio-page">
-      {/* --- HERO SECTION WITH TABS INSIDE --- */}
-      <section className="portfolio-hero" style={{  }}>
-        <div className="hero-overlay-content container">
-          <h1>Built digital platforms for <span className="sig">business growth</span></h1>
-          <p>Discover our portfolio of websites, e-commerce stores, corporate brands and media campaigns created for Rwandan companies and organizations.</p>
+      <section className="page-hero portfolio-hero">
+        <div className="container page-hero-content">
+          <span className="eyebrow"><span className="eyebrow-dot" /> Our creative showcase</span>
+          <h1>Our work speaks<br /><span>for itself.</span></h1>
+          <p>Explore the ideas and digital experiences we&apos;ve brought to life. Every project reflects our commitment to thoughtful design and useful technology.</p>
+          <a className="button button-primary" href="#portfolio-reels">Watch our reels <Play size={16} /></a>
         </div>
       </section>
-{/* --- CARDS GRID --- */}
-<section className="portfolio-grid container">
-  <motion.div layout className="grid-layout">
-    <AnimatePresence mode="popLayout">
-      {filteredProjects.map((project) => (
-        <motion.div 
-          layout
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0.95 }}
-          transition={{ duration: 0.3 }}
-          key={project.id} 
-          className="project-card"
-        >
-          {/* Ifoto ifite iyakirwa ryiza rya mobile */}
-          <div className="project-media" onClick={() => setSelectedProject(project)}>
-            <img src={project.img} alt={project.title} className="project-img" loading="lazy" />
-            <div className="project-overlay-icon">{project.icon}</div>
-          </div>
 
-          <div className="project-details">
-            <span className="p-category">{project.category}</span>
-            <h3 onClick={() => setSelectedProject(project)} style={{ cursor: 'pointer' }}>{project.title}</h3>
-            
-            {/* Gukata amagambo akaba magufi ngo adasubira inyuma */}
-            <p className="project-desc-short">
-              {project.desc.length > 80 ? `${project.desc.substring(0, 80)}...` : project.desc}
-            </p>
-
-            {/* Bouton nshya ya Read More */}
-            {project.desc.length > 80 && (
-              <button className="p-readmore-btn" onClick={() => setSelectedProject(project)}>
-                Read More
-              </button>
-            )}
-
-            {/* Tools zigaragara neza hano */}
-            <div className="project-tags">
-              {project.tools.map((tool, i) => (
-                <span key={i} className="p-tag">{tool}</span>
-              ))}
-            </div>
-
-            {/* Launch App Button */}
-            <a 
-              href={project.liveLink} 
-              target="_blank" 
-              rel="noreferrer" 
-              className="project-link" 
-            >
-              Launch App <ExternalLink size={14} />
-            </a>
-          </div>
-        </motion.div>
-      ))}
-    </AnimatePresence>
-  </motion.div>
-</section>
-
-{/* --- LIGHTBOX MODAL --- */}
-<AnimatePresence>
-  {selectedProject && (
-    <motion.div 
-      initial={{ opacity: 0 }} 
-      animate={{ opacity: 1 }} 
-      exit={{ opacity: 0 }} 
-      className="portfolio-modal-overlay"
-      onClick={() => setSelectedProject(null)}
-    >
-      <motion.div 
-        initial={{ y: 30, scale: 0.98 }} 
-        animate={{ y: 0, scale: 1 }} 
-        exit={{ y: 30, scale: 0.98 }} 
-        className="portfolio-modal-content"
-        onClick={(e) => e.stopPropagation()}
-      >
-        <button className="close-modal-btn" onClick={() => setSelectedProject(null)}><X size={22} /></button>
-        
-        <div className="modal-media-box">
-          <img src={selectedProject.img} alt={selectedProject.title} className="modal-img" loading="lazy" />
+      <section className="container portfolio-projects-section section-space">
+        <div className="section-heading">
+          <span className="eyebrow">Selected projects</span>
+          <h2>Made with purpose.<br /><span>Built to make an impact.</span></h2>
+          <p>Explore a selection of websites, digital platforms, and creative work from ByteFlow.</p>
         </div>
-
-        <div className="modal-info">
-          <span className="badge">{selectedProject.category}</span>
-          <h2>{selectedProject.title}</h2>
-          
-          {/* Amagambo yose yuzuye agaragara hano neza */}
-          <p className="modal-full-desc">{selectedProject.desc}</p>
-          
-          <div className="modal-meta">
-            <div className="project-meta-item">
-              <span>Industry</span>
-              <strong>{selectedProject.category}</strong>
-            </div>
-            {selectedProject.outcome && (
-              <div className="project-meta-item">
-                <span>Outcome</span>
-                <strong>{selectedProject.outcome}</strong>
-              </div>
-            )}
-          </div>
-
-          <div className="modal-meta">
-            <strong>Built With Tools:</strong>
-            <div className="project-tags" style={{ marginTop: '8px' }}>
-              {selectedProject.tools.map((tool, i) => (
-                <span key={i} className="p-tag">{tool}</span>
-              ))}
-            </div>
-          </div>
-
-          {selectedProject.liveLink !== "#" && (
-            <a href={selectedProject.liveLink} target="_blank" rel="noreferrer" className="btn-main-modal">
-              Visit Live System <ExternalLink size={16} />
-            </a>
-          )}
+        <div className="portfolio-project-grid">
+          {projects.map((project, index) => (
+            <button type="button" className="portfolio-project-card" key={project.title} onClick={() => setActiveProject(project)} style={{ '--card-index': index }}>
+              <span className="portfolio-project-image"><img src={project.image} alt={project.title} loading="lazy" /></span>
+              <span className="portfolio-project-meta"><span>{project.category}</span><span className="portfolio-project-arrow"><ExternalLink size={16} /></span></span>
+              <strong>{project.title}</strong>
+            </button>
+          ))}
         </div>
-      </motion.div>
-    </motion.div>
-  )}
-</AnimatePresence>
+      </section>
 
+      <section className="portfolio-reels-section section-space" id="portfolio-reels">
+        <div className="container">
+          <div className="section-heading">
+            <span className="eyebrow">Reels & video</span>
+            <h2>Behind the design.<br /><span>Beyond the frame.</span></h2>
+            <p>Short-form videos from our creative portfolio. Play each reel here to see the work for yourself.</p>
+          </div>
+          <div className="portfolio-reel-grid">
+            {reels.map((reel, index) => (
+              <article className="portfolio-reel-card" key={reel.title} style={{ '--card-index': index }}>
+                <div className="portfolio-reel-video">
+                  <video src={reel.video} controls playsInline preload="metadata" aria-label={`${reel.title} video`} />
+                  <span className="portfolio-reel-tag"><Play size={12} fill="currentColor" /> {reel.category}</span>
+                </div>
+                <div className="portfolio-reel-copy"><span>{reel.title}</span><p>{reel.description}</p></div>
+              </article>
+            ))}
+          </div>
+          <a className="portfolio-instagram-link" href="https://www.instagram.com/byteflow_ltd" target="_blank" rel="noreferrer">
+            See more on Instagram <ExternalLink size={16} />
+          </a>
+        </div>
+      </section>
+
+      {activeProject && (
+        <div className="portfolio-modal-overlay" onClick={() => setActiveProject(null)} role="presentation">
+          <section className="portfolio-modal-content" role="dialog" aria-modal="true" aria-labelledby="portfolio-modal-title" onClick={(event) => event.stopPropagation()}>
+            <button type="button" className="portfolio-modal-close" onClick={() => setActiveProject(null)} aria-label="Close project preview"><X size={20} /></button>
+            <img src={activeProject.image} alt={activeProject.title} />
+            <div className="portfolio-modal-copy"><span className="eyebrow">{activeProject.category}</span><h2 id="portfolio-modal-title">{activeProject.title}</h2><p>{activeProject.description}</p></div>
+          </section>
+        </div>
+      )}
     </div>
   );
 };

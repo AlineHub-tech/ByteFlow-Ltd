@@ -1,402 +1,164 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import {
-  Rocket,
-  CheckCircle2,
-  MessageSquare,
-  Cpu,
+  ArrowDown,
+  ArrowRight,
+  ArrowUpRight,
+  Camera,
+  Check,
   Code2,
   Palette,
-  Server,
-  Globe2,
-  Share2,
-  Video,
-  Camera,
-  FileText,
-  HelpCircle,
-  ChevronDown,
-  Sparkles,
-  ArrowRight
+  Play,
+  Sparkles
 } from 'lucide-react';
 import '../styles/Home.css';
-// import heroBg from '../assets/pro.webp';
+import reel1 from '../assets/reel1.mp4';
+import reel2 from '../assets/reel2.mp4';
+import reel3 from '../assets/reel3.mp4';
+import reel4 from '../assets/reel4.mp4';
 
-const Home = () => {
-  const [activeFaq, setActiveFaq] = useState(null);
+const services = [
+  {
+    number: '01',
+    title: 'Graphic design & branding',
+    description: 'Clear, memorable identities and visuals that give your brand a consistent voice.',
+    icon: <Palette size={20} />
+  },
+  {
+    number: '02',
+    title: 'Web development',
+    description: 'Responsive websites and digital products designed around your goals and your customers.',
+    icon: <Code2 size={20} />
+  },
+  {
+    number: '03',
+    title: 'Photography & videography',
+    description: 'Thoughtful visual content that helps people see, feel, and remember your story.',
+    icon: <Camera size={20} />
+  },
+  {
+    number: '04',
+    title: 'Creative digital solutions',
+    description: 'Connected creative support to help your business show up with confidence online.',
+    icon: <Sparkles size={20} />
+  }
+];
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('show');
-          }
-        });
-      },
-      { threshold: 0.12 }
-    );
+const reels = [
+  { name: 'Reel 01', video: reel1 },
+  { name: 'Reel 02', video: reel2 },
+  { name: 'Reel 03', video: reel3 },
+  { name: 'Reel 04', video: reel4 }
+];
 
-    const elements = document.querySelectorAll('.reveal');
-    elements.forEach((el) => observer.observe(el));
+const reasons = [
+  'We listen before we design.',
+  'We combine creative thinking with practical technology.',
+  'We make the process clear and collaborative.',
+  'We care about the details and the result.'
+];
 
-    return () => observer.disconnect();
-  }, []);
-
-  const toggleFaq = (index) => {
-    setActiveFaq(activeFaq === index ? null : index);
-  };
-
-  const highlights = [
-    {
-      title: 'Clear websites',
-      text: 'Professional websites that explain your business in seconds and work on every screen.',
-      icon: <Code2 />
-    },
-    {
-      title: 'Brand design',
-      text: 'Logos, visuals, and social media assets that make your brand feel trusted and modern.',
-      icon: <Palette />
-    },
-    {
-      title: 'Digital growth',
-      text: 'SEO, ads, and content support that help more people discover your business online.',
-      icon: <Share2 />
-    },
-    {
-      title: 'Reliable hosting',
-      text: 'Domains, secure hosting, and simple support so your website stays online and safe.',
-      icon: <Server />
-    }
-  ];
-
-  const steps = [
-    {
-      title: 'Tell us your goal',
-      text: 'We start with a simple conversation about your business, target audience, and what you want people to do.'
-    },
-    {
-      title: 'We design the right solution',
-      text: 'We create a website, brand, or marketing plan that fits your needs and your budget.'
-    },
-    {
-      title: 'You launch with confidence',
-      text: 'We deliver a polished result, guide you through it, and help you grow from day one.'
-    }
-  ];
-
-  const audiences = [
-    {
-      title: 'For businesses',
-      text: 'Shops, clinics, agencies, and service providers that want a strong online presence.'
-    },
-    {
-      title: 'For startups',
-      text: 'New brands that need a professional platform to look serious and attract clients.'
-    },
-    {
-      title: 'For creators',
-      text: 'Freelancers, coaches, and content makers who want a simple digital home.'
-    }
-  ];
-
-  const tierPackages = [
-    {
-      name: 'Web Development',
-      badge: 'Websites & web apps',
-      price: 'From 350,000 RWF',
-      description: 'Modern websites and web-based tools that help your business look credible and perform smoothly.',
-      points: [
-        { label: 'Landing page', price: '350,000 RWF' },
-        { label: 'Business website', price: '650,000 RWF' },
-        { label: 'E-commerce store', price: '600,000 RWF' },
-        { label: 'Web app / dashboard', price: '1,200,000 RWF' }
-      ],
-      icon: <Code2 />,
-      cta: 'Build this web development package'
-    },
-    {
-      name: 'Graphic Design',
-      badge: 'Branding & visuals',
-      price: 'From 80,000 RWF',
-      description: 'Professional logos, branded visuals, and print materials that make your business look polished.',
-      points: [
-        { label: 'Logo design', price: '80,000 RWF' },
-        { label: 'Brand kit', price: '180,000 RWF' },
-        { label: 'Business cards', price: '20,000 RWF' },
-        { label: 'Flyers & brochures', price: '15,000 RWF' }
-      ],
-      icon: <Palette />,
-      cta: 'Create this graphic design package'
-    },
-    {
-      name: 'Photography',
-      badge: 'Product & business photos',
-      price: 'From 100,000 RWF',
-      description: 'Clear product, company, and event photography that gives your brand a professional feel.',
-      points: [
-        { label: 'Product photos', price: '100,000 RWF' },
-        { label: 'Corporate portraits', price: '80,000 RWF' },
-        { label: 'Event coverage', price: '150,000 RWF' },
-        { label: 'Photo editing', price: 'Included' }
-      ],
-      icon: <Camera />,
-      cta: 'Book this photography package'
-    },
-    {
-      name: 'Videography',
-      badge: 'Reels & promo videos',
-      price: 'From 40,000 RWF',
-      description: 'Short promotional videos and storytelling content that help people connect with your brand quickly.',
-      points: [
-        { label: 'Social reel', price: '40,000 RWF' },
-        { label: 'Product video', price: '150,000 RWF' },
-        { label: 'Corporate video', price: '300,000 RWF' },
-        { label: 'Editing & delivery', price: 'Included' }
-      ],
-      icon: <Video />,
-      cta: 'Book this videography package'
-    },
-    {
-      name: 'Digital Marketing',
-      badge: 'SEO & online growth',
-      price: 'From 150,000 RWF',
-      description: 'SEO, content support, and online visibility services that help more people find your business.',
-      points: [
-        { label: 'SEO setup', price: '150,000 RWF / mo' },
-        { label: 'Website copy', price: '80,000 RWF' },
-        { label: 'Social content plan', price: '60,000 RWF' },
-        { label: 'Ads support', price: '200,000 RWF / mo' }
-      ],
-      icon: <Share2 />,
-      cta: 'Grow with this digital marketing package'
-    },
-    {
-      name: 'Corporate Office & Documentation',
-      badge: 'Admin & professional docs',
-      price: 'From 50,000 RWF',
-      description: 'Professional business documents, reports, and formal materials that help your company look organized.',
-      points: [
-        { label: 'Business profile', price: '50,000 RWF' },
-        { label: 'Proposal & report design', price: '40,000 RWF' },
-        { label: 'Company documents', price: '60,000 RWF' },
-        { label: 'Document formatting', price: 'Included' }
-      ],
-      icon: <FileText />,
-      cta: 'Get this documentation package'
-    },
-    {
-      name: 'Cloud Hosting & Domain Registry',
-      badge: 'Secure online presence',
-      price: 'From 15,000 RWF',
-      description: 'Reliable domains, hosting, business emails, and backups that keep your website active and protected.',
-      points: [
-        { label: 'Domain registration', price: '15,000 RWF / year' },
-        { label: 'Hosting package', price: '40,000 RWF / year' },
-        { label: 'Business email', price: '25,000 RWF / year' },
-        { label: 'Backup support', price: '20,000 RWF / year' }
-      ],
-      icon: <Server />,
-      cta: 'Choose this hosting package'
-    }
-  ];
-
-  const faqs = [
-    { q: 'What kind of businesses do you help?', a: 'We support small businesses, startups, schools, shops, and creative professionals who want a modern and trustworthy online presence.' },
-    { q: 'Can I start with one service only?', a: 'Yes. Many clients begin with a website or a logo and later add marketing, hosting, or more design support.' },
-    { q: 'Do you help with mobile-friendly websites?', a: 'Absolutely. Every website we build is designed to look clear and easy to use on mobile, tablet, and desktop.' },
-    { q: 'How long does a project take?', a: 'Simple websites can be ready in a few days, while larger builds may take a couple of weeks depending on the scope.' }
-  ];
-
-  return (
-    <div className="home-wrapper">
-      {/* <div className="tech-dots" aria-hidden="true" /> */}
-
-      <section
-        className="hero-section"
-        // style={{ backgroundImage: `linear-gradient(135deg, rgba(0, 0, 0, 0.79) 0%, rgba(0, 0, 0, 0.89) 55%, rgba(2, 16, 10, 0.94) 100%), url(${heroBg})` }}
-      >
-        <div className="container hero-flex">
-          <div className="hero-text reveal">
-            <h1>
-             We build clear websites, polished branding, and smart marketing.
-            </h1>
-            <p>
-              ByteFlow builds clean websites, strong branding, and simple digital marketing for businesses and creators who want to grow with confidence.
-            </p>
-
-            <div className="hero-btns">
-              <Link to="/contact" className="btn-main">
-                Start your project <Rocket size={15} />
-              </Link>
-              <a href="#services" className="btn-outline">
-                See our services
-              </a>
-            </div>
-
-            {/* <ul className="hero-points">
-              <li>Mobile-friendly websites</li>
-              <li>Professional branding</li>
-              <li>Easy online growth</li>
-            </ul> */}
+const Home = () => (
+  <div className="home-page">
+    <section className="home-hero">
+      <div className="container home-hero-layout">
+        <div className="home-hero-copy">
+          <span className="eyebrow"><span className="eyebrow-dot" /> ByteFlow Ltd · Kigali, Rwanda</span>
+          <h1>We turn ideas into <span>digital experiences.</span></h1>
+          <p className="home-hero-lead">
+            We are a creative and technology company helping businesses build stronger brands, useful websites,
+            and visual stories that connect with people.
+          </p>
+          <div className="home-hero-actions">
+            <Link to="/contact" className="button button-primary">Start a project <ArrowRight size={17} /></Link>
+            <Link to="/portfolio" className="button button-quiet">Explore our work <ArrowUpRight size={17} /></Link>
           </div>
-
-        </div>
-      </section>
-
-      <section className="highlights-section container">
-        <div className="section-header reveal">
-          <span className="sub-title">WHAT WE DO</span>
-          <h2>Clear services that help your brand stand out.</h2>
-          <div className="accent-bar" />
+          <div className="home-hero-note"><Check size={15} /> Design, technology, and storytelling in one team</div>
         </div>
 
-        <div className="feature-grid">
-          {highlights.map((item, index) => (
-            <article key={index} className="feature-card reveal">
-              <div className="feature-icon">{item.icon}</div>
-              <h3>{item.title}</h3>
-              <p>{item.text}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="process-section">
-        <div className="container">
-          <div className="section-header reveal">
-            <span className="sub-title">HOW IT WORKS</span>
-            <h2>Simple steps from idea to launch.</h2>
-            <div className="accent-bar" />
+        <div className="hero-reel-composition" aria-label="A preview of ByteFlow video work">
+          <div className="hero-reel-main">
+            <video src={reel1} muted autoPlay loop playsInline preload="metadata" aria-label="ByteFlow creative video preview" />
+            <span className="hero-reel-label"><Play size={13} fill="currentColor" /> A glimpse of our creative work</span>
           </div>
-
-          <div className="process-grid">
-            {steps.map((step, index) => (
-              <article key={index} className="process-card reveal">
-                <div className="process-number">0{index + 1}</div>
-                <h3>{step.title}</h3>
-                <p>{step.text}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="audience-section container">
-        <div className="section-header reveal">
-          <span className="sub-title">WHO WE SERVE</span>
-          <h2>Built for people who want to be easy to trust online.</h2>
-          <div className="accent-barr" />
-        </div>
-
-        <div className="audience-grid">
-          {audiences.map((audience, index) => (
-            <article key={index} className="audience-card reveal">
-              <h3>{audience.title}</h3>
-              <p>{audience.text}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section id="services" className="service-section container">
-        <div className="section-header reveal">
-          <span className="sub-title">CHOOSE A TIER</span>
-          <h2>Pick a service tier that fits your goals and budget.</h2>
-          <div className="accent-bar" />
-          <p className="section-copy">Choose one service or build a full digital package with clear options, transparent pricing, and a direct path to order.</p>
-        </div>
-
-        <div className="service-quick-prompt reveal">
-          <div>
-            <span className="prompt-pill">Flexible packages</span>
-            <h3>Need a full digital launch?</h3>
-            <p>We can combine branding, design, growth, and support into one focused package that feels simple and professional.</p>
-          </div>
-          <Link to="/contact" className="service-btn prompt-btn">
-            Build a full digital package <ArrowRight size={16} />
-          </Link>
-        </div>
-
-        <div className="tier-package-grid">
-          {tierPackages.map((tier, index) => (
-            <article key={index} className="tier-package-card reveal">
-              <div className="tier-card-top">
-                <div className="service-icon">{tier.icon}</div>
-                <div>
-                  <div className="service-title-row">
-                    <h3>{tier.name}</h3>
-                    <span className="service-badge">{tier.badge}</span>
-                  </div>
-                  <p>{tier.description}</p>
-                </div>
+          <div className="hero-reel-side">
+            {reels.slice(1, 3).map((reel, index) => (
+              <div className="hero-reel-mini" key={reel.name} style={{ animationDelay: `${index * 140}ms` }}>
+                <video src={reel.video} muted loop playsInline preload="metadata" aria-label={`${reel.name} preview`} />
+                <span>{reel.name}</span>
               </div>
+            ))}
+            <div className="hero-reel-caption"><span className="caption-mark">B.</span><span>Ideas made<br />visible.</span></div>
+          </div>
+        </div>
+      </div>
+      <a className="hero-scroll-hint" href="#what-we-do"><span>Discover ByteFlow</span><ArrowDown size={15} /></a>
+    </section>
 
-              <div className="tier-price-tag">{tier.price}</div>
-
-              <ul className="tier-list">
-                {tier.points.map((item, pointIndex) => (
-                  <li key={pointIndex}>
-                    <span>{item.label}</span>
-                    <strong>{item.price}</strong>
-                  </li>
-                ))}
-              </ul>
-
-              <Link to="/contact" className="service-btn tier-btn">
-                {tier.cta} <ArrowRight size={16} />
-              </Link>
+    <section className="home-intro section-space" id="what-we-do">
+      <div className="container">
+        <div className="section-heading">
+          <span className="eyebrow">What we do</span>
+          <h2>Creative thinking.<br /><span>Digital excellence.</span></h2>
+          <p>We bring creative design, technology, and strategy together to help your business grow with purpose.</p>
+        </div>
+        <div className="home-service-grid">
+          {services.map((service, index) => (
+          <article className="home-service-card" key={service.number} style={{ '--card-index': index }}>
+              <div className="home-service-card-top"><span>{service.number}</span><div className="home-service-icon">{service.icon}</div></div>
+              <h3>{service.title}</h3>
+              <p>{service.description}</p>
+              <Link to="/services" aria-label={`Learn about ${service.title}`}><ArrowUpRight size={18} /></Link>
             </article>
           ))}
         </div>
-      </section>
-      <section className="faq-section container">
-  <div className="section-header reveal">
-    <span className="sub-title">FAQ</span>
-    <h2>Helpful answers for first-time visitors.</h2>
-    <div className="accent-bar" />
-  </div>
+      </div>
+    </section>
 
-  <div className="faq-wrapper-list">
-    {faqs.map((faq, index) => {
-      const isOpen = activeFaq === index;
-
-      return (
-        <div key={index} className={`faq-item-box reveal ${isOpen ? 'faq-active' : ''}`}>
-          <button
-            className="faq-question-row"
-            onClick={() => toggleFaq(index)}
-            aria-expanded={isOpen}
-          >
-            <div className="faq-q-text">
-              <HelpCircle size={18} />
-              <h4>{faq.q}</h4>
-            </div>
-            <ChevronDown size={18} className={`faq-arrow ${isOpen ? 'open' : ''}`} />
-          </button>
-
-          {/* Ikinyandiko kiguma mu miterere ariko kiyoborwa na CSS */}
-          <div className={`faq-answer-block ${isOpen ? 'open' : ''}`} role="region">
-            <p>{faq.a}</p>
-          </div>
+    <section className="home-work-section section-space">
+      <div className="container">
+        <div className="section-heading section-heading-row">
+          <div><span className="eyebrow">Selected reels</span><h2>Ideas in <span>motion.</span></h2></div>
+          <Link className="text-link" to="/portfolio">Explore all our work <ArrowRight size={16} /></Link>
         </div>
-      );
-    })}
-  </div>
-</section>
-
-      <section className="cta-section container reveal">
-        <div className="cta-card">
-          <div>
-            <h2>Ready to build something clear and professional?</h2>
-            <p>Let us create a website and digital experience that helps your audience understand your business quickly.</p>
-          </div>
-          <Link to="/contact" className="btn-cta">
-            Talk to us <MessageSquare size={18} />
-          </Link>
+        <p className="work-intro">A small preview of the video stories and creative work we make for brands.</p>
+        <div className="home-reel-grid">
+          {reels.map((reel) => (
+            <Link to="/portfolio" className="home-reel-card" key={reel.name}>
+              <video src={reel.video} muted loop playsInline preload="metadata" />
+              <span className="home-reel-play"><Play size={15} fill="currentColor" /></span>
+              <span className="home-reel-name">{reel.name}</span>
+            </Link>
+          ))}
         </div>
-      </section>
-    </div>
-  );
-};
+      </div>
+    </section>
+
+    <section className="home-difference section-space">
+      <div className="container difference-layout">
+        <div className="section-heading">
+          <span className="eyebrow">Why ByteFlow</span>
+          <h2>More than just<br /><span>digital solutions.</span></h2>
+          <p>We work as a creative partner—bringing the right people and skills together around your vision.</p>
+          <Link className="text-link" to="/about">Get to know us <ArrowRight size={16} /></Link>
+        </div>
+        <div className="difference-list">
+          {reasons.map((reason, index) => (
+            <div className="difference-item" key={reason}><span>0{index + 1}</span><p>{reason}</p><Check size={17} /></div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section className="home-final-cta">
+      <div className="container final-cta-inner">
+        <span className="eyebrow">Your next idea starts here</span>
+        <h2>Have an idea?<br />Let&apos;s make it happen.</h2>
+        <p>Tell us what you have in mind. We&apos;re ready to help bring your vision to life.</p>
+        <Link to="/contact" className="button button-light">Let&apos;s work together <ArrowRight size={17} /></Link>
+      </div>
+    </section>
+  </div>
+);
 
 export default Home;

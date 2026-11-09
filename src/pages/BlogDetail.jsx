@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
 import { ArrowLeft, Clock, Calendar, Share2, CheckCircle, Globe, Search, Server, Camera, Smartphone, Shield, Database, Cpu, Palette, Zap, Rocket, Lock, BarChart, Mail, BookOpen } from 'lucide-react';
 import { blogPosts } from '../data/blogData';
 import '../styles/Blog.css'; // Twayihaye CSS yayo yihariye ngo idahura na Blog.css
@@ -49,11 +48,11 @@ const BlogDetail = () => {
       <div className="blog-limit container detail-page-padding">
         
         {/* Navigation Back */}
-        <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }}>
+        <div>
           <Link to="/blog" className="blog-read-link back-insights-btn">
             <ArrowLeft size={18} /> Back to Insights
           </Link>
-        </motion.div>
+        </div>
 
         {/* Article Header */}
         <header className="detail-header-section">
@@ -69,14 +68,12 @@ const BlogDetail = () => {
         </header>
 
         {/* Hero Icon Box */}
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.95 }} 
-          animate={{ opacity: 1, scale: 1 }} 
+        <div
           className="detail-hero-visual" 
           style={{ backgroundColor: post.color }}
         >
           <div className="large-icon-wrapper">{getPostIcon(post.category)}</div>
-        </motion.div>
+        </div>
 
         {/* Article Body Content */}
         <article className="detail-article-body">
@@ -113,7 +110,6 @@ const BlogDetail = () => {
             <div className="share-btn-circle"><Share2 size={20} /></div>
           </div>
         </article>
-
       </div>
     </div>
   );

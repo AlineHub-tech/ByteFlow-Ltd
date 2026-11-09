@@ -1,285 +1,69 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { Target, Eye, Award, Heart, Linkedin, Facebook, Instagram, ShieldCheck, Zap, Layers, BarChart3, Star, Palette, Camera, Server } from 'lucide-react';
+import { ArrowRight, Compass, Heart, Lightbulb, ShieldCheck, Sparkles, Target, TrendingUp } from 'lucide-react';
 import '../styles/About.css';
-import heroBg1 from '../assets/pro.webp'; 
-import hubImg from '../assets/hub.webp';
-import shipingImg from '../assets/shiping.webp';
-import plusImg from '../assets/img2.png';
-import voiceImg from '../assets/abt1.png';
 
-const serviceHighlights = [
-  // {
-  //   title: 'Web development',
-  //   text: 'Build responsive websites, dashboards, and e-commerce stores designed for local payment integrations and fast performance.',
-  //   icon: <Target size={20} />
-  // },
-  // {
-  //   title: 'Brand & graphics',
-  //   text: 'Develop strong logos, visual systems, and print assets that give your business a professional and cohesive identity.',
-  //   icon: <Palette size={20} />
-  // },
-  // {
-  //   title: 'Media production',
-  //   text: 'Capture photography, video, and content assets that strengthen your brand story across social, web, and sales channels.',
-  //   icon: <Camera size={20} />
-  // },
-  // {
-  //   title: 'Hosting & support',
-  //   text: 'Secure domains, cloud hosting, backups, and prompt support so your site stays online and your data is protected.',
-  //   icon: <Server size={20} />
-  // }
+const values = [
+  { title: 'Innovation', icon: <Lightbulb size={20} />, text: 'We stay curious and look for better, more thoughtful ways to solve problems.' },
+  { title: 'Creativity', icon: <Sparkles size={20} />, text: 'We bring fresh ideas and clear creative direction to every project.' },
+  { title: 'Quality', icon: <ShieldCheck size={20} />, text: 'We care about the details and build work people can rely on.' },
+  { title: 'Excellence', icon: <Target size={20} />, text: 'We hold ourselves to a high standard from the first conversation to delivery.' },
+  { title: 'Growth', icon: <TrendingUp size={20} />, text: 'We create digital solutions that help brands move forward.' },
+  { title: 'Client satisfaction', icon: <Heart size={20} />, text: 'We listen closely and keep collaboration at the heart of our work.' }
 ];
 
-const About = () => {
-  useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('show');
-      });
-    }, { threshold: 0.1 });
+const About = () => (
+  <div className="about-page">
+    <section className="page-hero about-hero">
+      <div className="container page-hero-content">
+        <span className="eyebrow"><span className="eyebrow-dot" /> About ByteFlow</span>
+        <h1>We are ByteFlow Ltd.<br /><span>Engineering digital success.</span></h1>
+        <p>We are a creative and technology company helping businesses and individuals bring their ideas to life through innovative digital solutions.</p>
+        <Link to="/team" className="button button-primary">Meet the people behind it <ArrowRight size={17} /></Link>
+      </div>
+    </section>
 
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-    window.scrollTo(0, 0);
-    return () => observer.disconnect();
-  }, []);
+    <section className="container about-story section-space">
+      <div className="section-heading">
+        <span className="eyebrow">Our story</span>
+        <h2>Every brand has<br /><span>a story worth telling.</span></h2>
+      </div>
+      <div className="about-story-copy">
+        <p>Every idea has the potential to become something extraordinary. Our work combines creativity, strategy, and technology to make those ideas meaningful, functional, and effective.</p>
+        <p>From graphic design and branding to web development and visual storytelling, we help our clients build stronger brands and create lasting digital experiences.</p>
+        <div className="about-story-note"><Compass size={18} /><span>Creative thinking, practical technology, and a shared vision.</span></div>
+      </div>
+    </section>
 
-  // 4 Professional Client Testimonials targeting baseline metrics, corporate validation, and contract trust
-  const testimonials = [
-    {
-      quote: "We chose ByteFlow Ltd because they are a legally registered agency that offers clear, contract-backed timelines. Our corporate platform was deployed in exactly 12 days, and their local payment integration has processed millions in MoMo transactions flawlessly.",
-      author: "Kevine K.",
-      role: "Operations Director, ABT Group",
-      rating: 5
-    },
-    {
-      quote: "Most agencies give vague promises, but ByteFlow provided a bulletproof technical blueprint. They merged our web architecture with premium high-end photography and commercial video assets. Their data transparency helped us scale our sales securely.",
-      author: "Jean U.",
-      role: "Managing Director, Luxury Apparel Boutique",
-      rating: 5
-    },
-    {
-      quote: "ByteFlow built our custom web dashboard and automated management panel with real-time analytics. They didn't just hand over the code; they provided hands-on handoff training for our team and 24/7 technical server protection that keeps us running smoothly.",
-      author: "Paccy J.",
-      role: "Co-Founder, Imena Tech Hub",
-      rating: 5
-    },
-    {
-      quote: "Their combination of Digital Marketing and organic Google SEO indexing doubled our monthly qualified inquiries. They handled our local .RW domain registry and cloud emails transparently. They are easily the most reliable tech partners in Kigali.",
-      author: "Aline U.",
-      role: "Head of Growth, Professional Logistics Ltd",
-      rating: 5
-    }
-  ];
+    <section className="about-purpose-section section-space">
+      <div className="container about-purpose-grid">
+        <article className="purpose-card">
+          <span className="purpose-icon"><Target size={21} /></span><span className="eyebrow">Our mission</span>
+          <h2>Empower people<br />through creativity.</h2>
+          <p>To empower businesses and individuals through creative, innovative, and reliable digital solutions that inspire growth and create meaningful impact.</p>
+        </article>
+        <article className="purpose-card purpose-card-light">
+          <span className="purpose-icon"><Compass size={21} /></span><span className="eyebrow">Our vision</span>
+          <h2>A trusted creative<br />technology partner.</h2>
+          <p>To become a trusted creative and technology partner, recognized for innovation, quality, and excellence in delivering digital experiences.</p>
+        </article>
+      </div>
+    </section>
 
-  return (
-    <div className="about-page">
-      <div className="tech-dots"></div>
-
-      {/* --- 1. HERO SECTION --- */}
-      <section className="about-hero" 
-      style={{ }}>
-        <div className="reveal container hero-inner-text">
-          <h2>Digital solutions for <span className="sig">Rwandan businesses</span></h2>
-          <p>
-ByteFlow Ltd is Kigali’s premier digital technology agency. We engineer high-performance websites, premium brand identities, 
-and custom business automation tools that accelerate growth and build unshakeable market credibility for Rwandan enterprises.
-          </p>
-        </div>
-      </section>
-
-      <section className="about-services-overview container reveal">
-        <div className="section-center-header">
-          <span className="badge">Core Services</span>
-          <h2>What we deliver for companies and organizations</h2>
-          <div className="accent-bar"></div>
-          <p className="framework-pitch">From digital products and brand identity to media production and cloud operations, every service is designed to help your business build trust and grow safely.</p>
-        </div>
-        <div className="service-grid">
-          {serviceHighlights.map((item, index) => (
-            <article key={index} className="service-highlight-card reveal">
-              <div className="service-highlight-icon">{item.icon}</div>
-              <h3>{item.title}</h3>
-              <p>{item.text}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      {/* --- 2. WHY CLIENTS TRUST US (RISK MITIGATION PILLARS) --- */}
-      <section className="trust-pillars-section container reveal">
-        <div className="section-center-header">
-          <span className="badge">Why Choose ByteFlow</span>
-          <h2>What makes us your <span className="sig">trusted</span> tech partner?</h2>
-          <div className="accent-bar"></div>
-          <p className="framework-pitch">We eliminate delivery risk. Here are the core parameters local business leaders evaluate before signing a contract with us:</p>
-        </div>
-        
-        <div className="pillars-grid">
-          <div className="pillar-card reveal">
-            <ShieldCheck className="pillar-icon" />
-            <h3>Legally Registered & Transparent</h3>
-            <p>We operate as a fully compliant corporate entity in Rwanda. Every project is backed by strict non-disclosure agreements (NDAs) and transparent, itemized contracts.</p>
-          </div>
-          <div className="pillar-card reveal">
-            <Zap className="pillar-icon" />
-            <h3>Guaranteed Milestone Timelines</h3>
-            <p>We eliminate vague delivery windows. Corporate websites are strictly completed within 7 to 14 days, and custom database applications are deployed within 21 days.</p>
-          </div>
-          <div className="pillar-card reveal">
-            <Layers className="pillar-icon" />
-            <h3>Full Hand-off & Active Support</h3>
-            <p>We provide comprehensive hand-off training sessions for your personnel, paired with dedicated 24/7 technical server uptime monitoring to prevent operational downtime.</p>
-          </div>
-          <div className="pillar-card reveal">
-            <BarChart3 className="pillar-icon" />
-            <h3>Outcome-Driven Architecture</h3>
-            <p>We do not build hollow designs. From secure local MTN MoMo/Airtel Money checkouts to Google #1 SEO keyword indexing, every pixel is engineered to convert visitors into buyers.</p>
-          </div>
-        </div>
-      </section>
-
-      {/* --- 3. PHILOSOPHY INTRODUCTION SECTION --- */}
-      <section className="philosophy-section container reveal">
-        <div className="philosophy-box">
-          <p>
-            At ByteFlow Ltd, we believe that modern business success requires a seamless intersection between high-performance 
-            engineering and impactful visual branding. We remove digital friction for our clients so they can focus on growth,
-            customer experience, and operational efficiency. From optimized web platforms to growth-driven media campaigns, our
-            services are designed to deliver measurable market impact.
-          </p>
-        </div>
-      </section>
-
-      {/* --- 4. TARGET CLIENTS --- */}
-      <section className="client-audience container reveal">
-        <div className="section-center-header">
-          <span className="badge">Target Clients</span>
-          <h2>We serve <span className="sig">businesses</span>, not just founders</h2>
-          <div className="accent-bar"></div>
-          <p className="framework-pitch">ByteFlow works with SMEs, corporate teams, creative agencies, non-profits, and professional service providers that need digital products built to convert.</p>
-        </div>
-        <div className="audience-grid">
-          <div className="audience-card reveal">
-            <h4>SMEs & Local Brands</h4>
-            <p>Modern online presence, product catalogs, and service websites that build trust and online authority.</p>
-          </div>
-          <div className="audience-card reveal">
-            <h4>Corporate Teams</h4>
-            <p>Secure hosting, internal dashboards, and polished brand communications for companies scaling operations.</p>
-          </div>
-          <div className="audience-card reveal">
-            <h4>Creative & Media Projects</h4>
-            <p>High-impact visual campaigns, videography, and photography that drive audience engagement.</p>
-          </div>
-          <div className="audience-card reveal">
-            <h4>Retail & E-commerce</h4>
-            <p>Online stores with smooth checkout, product management, and payment integration for busy sellers.</p>
-          </div>
-        </div>
-      </section>
-
-      {/* --- 5. VERIFIED CLIENT TESTIMONIALS (4 CASE STUDIES) --- */}
-      <section className="testimonials-section container reveal">
-        <div className="section-center-header">
-          <span className="badge">Client Testimonials</span>
-          <h2>What our corporate <span className="sig">partners</span> say</h2>
-          <div className="accent-bar"></div>
-          <p className="framework-pitch">Real business results from local companies, creative directories, and operations built on ByteFlow's digital infrastructure.</p>
-        </div>
-        
-        <div className="testimonials-grid">
-          {testimonials.map((t, idx) => (
-            <div key={idx} className="testimonial-card reveal">
-              <div className="stars-row">
-                {[...Array(t.rating)].map((_, i) => (
-                  <Star key={i} size={16} fill="#eab308" color="#eab308" />
-                ))}
-              </div>
-              <p className="testimonial-quote">"{t.quote}"</p>
-              <div className="testimonial-author-box">
-                <div className="author-avatar">{t.author.charAt(0)}</div>
-                <div className="author-info">
-                  <h5>{t.author}</h5>
-                  <span>{t.role}</span>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-           {/* --- 6. FEATURED CLIENT WORK --- */}
-      <section className="featured-work container reveal">
-        <div className="section-center-header">
-          <span className="badge">Selected Projects</span>
-          <h2>Recent work from our <span className="sig">project studio</span></h2>
-          <div className="accent-bar"></div>
-          <p className="framework-pitch">These cases highlight how we turn digital ideas into clear business value for Rwandan companies.</p>
-        </div>
-        <div className="featured-grid">
-          <div className="featured-card reveal">
-            <img src={hubImg} alt="ABT Hub" loading="lazy" />
-            <div className="featured-copy">
-              <h4>ABT Hub</h4>
-              <p>ABT Hub is a modern platform for A Better Tomorrow Foundation Hub that helps members track financial operations and projects with full transparency. The main dashboard displays real-time data on total savings, fines, and weekly contribution statuses. It also provides a clear breakdown of financial allocations across outreach, investments, and operations, alongside the progress trackers for active community projects.</p>
-            </div>
-          </div>
-          <div className="featured-card reveal">
-            <img src={shipingImg} alt="U & J Shop" loading="lazy" />
-            <div className="featured-copy">
-              <h4>U & J Shop</h4>
-              <p>U & J Shop is a premium fashion e-commerce platform delivering elite boutique apparel, elegant dresses, curated matching sets, and luxury designer handbags. Optimized with a high-converting, single-tap WhatsApp checkout form, the platform ensures a seamless ordering experience paired with guaranteed, 100% free door-to-door delivery from our Muhanga hub straight to Kigali.</p>
-            </div>
-          </div>
-          <div className="featured-card reveal">
-            <img src={plusImg} alt="Plus" loading="lazy" />
-            <div className="featured-copy">
-              <h4>Imena Moves Kidz</h4>
-              <p>Imena Moves is a dance management platform for Imena Moves Kidz featuring full member CRUD operations and daily attendance tracking. The public dashboard displays real-time analytics for total dancers, active collaborators, and daily presence. It features an automated broadcast system for instant administrative announcements, keeping families and partners connected via live MongoDB updates.</p>
-            </div>
-          </div>
-          <div className="featured-card reveal">
-            <img src={voiceImg} alt="Voice Impowered" loading="lazy" />
-            <div className="featured-copy">
-              <h4>Voice Impowered</h4>
-              <p>The A Better Tomorrow (ABT) Foundation web platform serves as a digital portal for the organization's mission to support vulnerable groups through mental health services and economic empowerment. It highlights the Hope Center project and includes an interactive portal for member registration.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* --- 7. LEADERSHIP & STRATEGY --- */}
-      <section className="founder-section container">
-        <div className="founder-grid reveal">
-          <div className="founder-info">
-            <span className="section-subtitle">Leadership & Strategy</span>
-            <h2 className="section-title">Meet the Leadership Team</h2>
-            <h4 className="founder-name">Umugwaneza Aline</h4>
-            <p>
-              The establishment of ByteFlow Ltd was catalyzed by a vision to democratize premium tech and media infrastructure 
-              for businesses operating in Africa's rapidly growing digital economy.
-            </p>
-            <p>
-              <strong>The Founding Philosophy:</strong> Under the leadership of Umugwaneza Aline, ByteFlow Ltd was built on the 
-              principle of continuous digital iteration the "Flow." The team operates on an ecosystem architecture where local companies receive contract-backed, milestone-driven support, helping founders maintain market dominance effortlessly.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section className="about-cta-section container reveal">
-        <div className="about-cta-card">
-          <div>
-            <h2>Ready to update your digital presence?</h2>
-            <p>Talk with the ByteFlow team to build a professional website, complete brand identity, or secure cloud hosting package.</p>
-          </div>
-          <Link to="/contact" className="btn-main about-cta-btn">Contact ByteFlow</Link>
-        </div>
-      </section>
-
-    </div>
-  );
-};
+    <section className="container about-values-section section-space">
+      <div className="section-heading">
+        <span className="eyebrow">What guides us</span>
+        <h2>Values behind<br /><span>every experience.</span></h2>
+      </div>
+      <div className="about-values-grid">
+        {values.map((value) => (
+          <article className="about-value-card" key={value.title}>
+            <span>{value.icon}</span><h3>{value.title}</h3><p>{value.text}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+  </div>
+);
 
 export default About;
